@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Differential Equations - HNC Engineering Mathematics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Additional styles for interactive elements */
+        .interactive-container {
+            background: var(--surface-dark);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .slider-container {
+            margin: 1rem 0;
+        }
+        
+        .slider-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        
+        input[type="range"] {
+            width: 100%;
+            margin: 0.5rem 0;
+        }
+        
+        .graph-container {
+            width: 100%;
+            height: 300px;
+            background: white;
+            border: 1px solid var(--border);
+            margin: 1rem 0;
+            position: relative;
+        }
+        
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .calculator-input {
+            margin-bottom: 1rem;
+        }
+        
+        .calculator-input label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .calculator-input input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+        }
+        
+        .calculator-result {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: var(--info-light);
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+        }
+        
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+        
+        button:hover {
+            background: var(--primary-dark);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HNC Engineering Mathematics</h1>
+            <p>Differential Equations - Modeling Dynamic Systems</p>
+        </div>
+    </header>
+
+    <div class="container grid-layout">
+        <aside id="navigation-placeholder"></aside>
+
+        <main>
+            <h1>Differential Equations</h1>
+            
+            <div class="info-box">
+                <p>The Language of Change in Engineering Systems</p>
+                Differential equations provide the mathematical framework for modeling dynamic systems across all engineering disciplines, from electrical circuits and mechanical vibrations to heat transfer and fluid dynamics.
+            </div>
+
+            <h2 id="ode-intro">1. Introduction to Ordinary Differential Equations (ODEs)</h2>
+            
+            <div class="info-box">
+                <p>Classifying Differential Equations</p>
+                Understanding the type and order of a differential equation determines the appropriate solution method and provides insight into the system's behavior.
+            </div>
+
+            <h3>Classification of ODEs</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Classification</th>
+                        <th>Definition</th>
+                        <th>Example</th>
+                        <th>Engineering Application</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Order</strong></td>
+                        <td>Highest derivative in equation</td>
+                        <td>\( \frac{d^2y}{dt^2} + 3\frac{dy}{dt} + 2y = 0 \) (2nd order)</td>
+                        <td>Mass-spring-damper systems</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Linearity</strong></td>
+                        <td>Linear in dependent variable and derivatives</td>
+                        <td>\( y'' + p(t)y' + q(t)y = g(t) \) (linear)</td>
+                        <td>Linear circuit analysis</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Homogeneity</strong></td>
+                        <td>All terms contain dependent variable or derivatives</td>
+                        <td>\( y'' + 4y' + 3y = 0 \) (homogeneous)</td>
+                        <td>Free vibrations</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Engineering Applications of ODEs</h3>
+            <div class="math-block">
+                <p><strong>Electrical Circuits:</strong> \( L\frac{d^2i}{dt^2} + R\frac{di}{dt} + \frac{1}{C}i = \frac{dV}{dt} \)</p>
+                <p><strong>Mechanical Vibrations:</strong> \( m\frac{d^2x}{dt^2} + c\frac{dx}{dt} + kx = F(t) \)</p>
+                <p><strong>Heat Transfer:</strong> \( \frac{dT}{dt} = k(T - T_{env}) \)</p>
+                <p><strong>Population Dynamics:</strong> \( \frac{dP}{dt} = kP\left(1 - \frac{P}{K}\right) \)</p>
+            </div>
+
+            <h2 id="first-order">2. First-Order Linear ODEs</h2>
+
+            <div class="info-box">
+                <p>Solving First-Order Systems</p>
+                First-order linear ODEs model systems with exponential growth/decay, RC circuits, and simple thermal systems. The integrating factor method provides a systematic solution approach.
+            </div>
+
+            <h3>Standard Form and Integrating Factor</h3>
+            <div class="math-block">
+                <p><strong>Standard Form:</strong> \( \frac{dy}{dt} + P(t)y = Q(t) \)</p>
+                <p><strong>Integrating Factor:</strong> \( \mu(t) = e^{\int P(t) dt} \)</p>
+                <p><strong>Solution:</strong> \( y(t) = \frac{1}{\mu(t)} \left[ \int \mu(t) Q(t) dt + C \right] \)</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: RC Circuit Analysis</strong></p>
+                <p>Solve the RC circuit equation: \( \frac{dv}{dt} + \frac{1}{RC}v = \frac{V_s}{RC} \) with \( v(0) = 0 \).</p>
+                
+                <p><strong>Step 1: Identify P(t) and Q(t)</strong><br>
+                \( P(t) = \frac{1}{RC} \) (constant), \( Q(t) = \frac{V_s}{RC} \)</p>
+                
+                <p><strong>Step 2: Calculate integrating factor</strong><br>
+                \( \mu(t) = e^{\int \frac{1}{RC} dt} = e^{\frac{t}{RC}} \)</p>
+                
+                <p><strong>Step 3: Multiply through by integrating factor</strong><br>
+                \( e^{\frac{t}{RC}}\frac{dv}{dt} + \frac{1}{RC}e^{\frac{t}{RC}}v = \frac{V_s}{RC}e^{\frac{t}{RC}} \)<br>
+                The left side is \( \frac{d}{dt}\left(ve^{\frac{t}{RC}}\right) \)</p>
+                
+                <p><strong>Step 4: Integrate both sides</strong><br>
+                \( ve^{\frac{t}{RC}} = \int \frac{V_s}{RC}e^{\frac{t}{RC}} dt = V_s e^{\frac{t}{RC}} + C \)</p>
+                
+                <p><strong>Step 5: Solve for v(t)</strong><br>
+                \( v(t) = V_s + Ce^{-\frac{t}{RC}} \)</p>
+                
+                <p><strong>Step 6: Apply initial condition</strong><br>
+                \( v(0) = V_s + C = 0 \Rightarrow C = -V_s \)<br>
+                \( v(t) = V_s(1 - e^{-\frac{t}{RC}}) \)</p>
+                
+                <p><strong>Circuit Design:</strong> This solution describes capacitor charging in RC circuits, with time constant τ = RC.</p>
+            </div>
+
+            <h3>Interactive ODE Solver</h3>
+            <div class="interactive-container">
+                <p><strong>First-Order ODE Calculator</strong></p>
+                <div class="calculator-grid">
+                    <div class="calculator-input">
+                        <label for="p-function">P(t):</label>
+                        <input type="text" id="p-function" value="2" placeholder="e.g., 2 or 2*t">
+                    </div>
+                    <div class="calculator-input">
+                        <label for="q-function">Q(t):</label>
+                        <input type="text" id="q-function" value="3" placeholder="e.g., 3 or 3*exp(t)">
+                    </div>
+                    <div class="calculator-input">
+                        <label for="initial-value">Initial Condition y(0):</label>
+                        <input type="text" id="initial-value" value="1">
+                    </div>
+                </div>
+                <button onclick="solveFirstOrderODE()">Solve ODE</button>
+                <div class="calculator-result" id="ode-solution">
+                    Solution will appear here
+                </div>
+            </div>
+
+            <h2 id="second-order">3. Second-Order Linear ODEs</h2>
+
+            <div class="info-box">
+                <p>Modeling Oscillatory Systems</p>
+                Second-order ODEs describe systems with inertia, stiffness, and damping, such as mechanical vibrations, electrical circuits with inductance, and structural dynamics.
+            </div>
+
+            <h3>Homogeneous Solutions</h3>
+            <div class="math-block">
+                <p><strong>Standard Form:</strong> \( a\frac{d^2y}{dt^2} + b\frac{dy}{dt} + cy = 0 \)</p>
+                <p><strong>Characteristic Equation:</strong> \( ar^2 + br + c = 0 \)</p>
+                <p><strong>Roots:</strong> \( r_{1,2} = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \)</p>
+            </div>
+
+            <h4>Solution Cases</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Case</th>
+                        <th>Condition</th>
+                        <th>General Solution</th>
+                        <th>Engineering Interpretation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Distinct Real Roots</strong></td>
+                        <td>\( b^2 - 4ac > 0 \)</td>
+                        <td>\( y(t) = C_1e^{r_1t} + C_2e^{r_2t} \)</td>
+                        <td>Overdamped system</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Repeated Real Roots</strong></td>
+                        <td>\( b^2 - 4ac = 0 \)</td>
+                        <td>\( y(t) = (C_1 + C_2t)e^{rt} \)</td>
+                        <td>Critically damped system</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Complex Roots</strong></td>
+                        <td>\( b^2 - 4ac < 0 \)</td>
+                        <td>\( y(t) = e^{\alpha t}(C_1\cos\beta t + C_2\sin\beta t) \)</td>
+                        <td>Underdamped oscillations</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>Example: Mass-Spring-Damper System</strong></p>
+                <p>Solve \( \frac{d^2x}{dt^2} + 4\frac{dx}{dt} + 3x = 0 \) with \( x(0) = 1 \), \( x'(0) = 0 \).</p>
+                
+                <p><strong>Step 1: Characteristic equation</strong><br>
+                \( r^2 + 4r + 3 = 0 \)</p>
+                
+                <p><strong>Step 2: Find roots</strong><br>
+                \( (r + 1)(r + 3) = 0 \Rightarrow r = -1, -3 \)</p>
+                
+                <p><strong>Step 3: General solution</strong><br>
+                \( x(t) = C_1e^{-t} + C_2e^{-3t} \)</p>
+                
+                <p><strong>Step 4: Apply initial conditions</strong><br>
+                \( x(0) = C_1 + C_2 = 1 \)<br>
+                \( x'(t) = -C_1e^{-t} - 3C_2e^{-3t} \Rightarrow x'(0) = -C_1 - 3C_2 = 0 \)</p>
+                
+                <p><strong>Step 5: Solve for constants</strong><br>
+                From second equation: \( C_1 = -3C_2 \)<br>
+                Substitute into first: \( -3C_2 + C_2 = 1 \Rightarrow -2C_2 = 1 \Rightarrow C_2 = -0.5 \)<br>
+                Then \( C_1 = 1.5 \)</p>
+                
+                <p><strong>Step 6: Final solution</strong><br>
+                \( x(t) = 1.5e^{-t} - 0.5e^{-3t} \)</p>
+                
+                <p><strong>Mechanical Analysis:</strong> This represents an overdamped system with no oscillations.</p>
+            </div>
+
+            <h3>Non-Homogeneous Equations and Particular Solutions</h3>
+            <div class="info-box">
+                <p>Solving Forced Systems</p>
+                Non-homogeneous ODEs model systems with external forcing functions. The method of undetermined coefficients provides solutions for common forcing functions.
+            </div>
+
+            <h4>Method of Undetermined Coefficients</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Forcing Function g(t)</th>
+                        <th>Particular Solution Form</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Constant (k)</td>
+                        <td>A (constant)</td>
+                        <td>\( y_p = A \)</td>
+                    </tr>
+                    <tr>
+                        <td>Polynomial (tⁿ)</td>
+                        <td>Polynomial of same degree</td>
+                        <td>\( y_p = At^2 + Bt + C \) for t²</td>
+                    </tr>
+                    <tr>
+                        <td>Exponential (e^{at})</td>
+                        <td>Ae^{at}</td>
+                        <td>\( y_p = Ae^{3t} \) for e^{3t}</td>
+                    </tr>
+                    <tr>
+                        <td>Sine/Cosine (sin(ωt) or cos(ωt))</td>
+                        <td>Acos(ωt) + Bsin(ωt)</td>
+                        <td>\( y_p = Acos(2t) + Bsin(2t) \) for sin(2t)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>Example: Forced Vibrations</strong></p>
+                <p>Solve \( \frac{d^2x}{dt^2} + 4x = 8\sin(2t) \) with \( x(0) = 0 \), \( x'(0) = 0 \).</p>
+                
+                <p><strong>Step 1: Homogeneous solution</strong><br>
+                \( r^2 + 4 = 0 \Rightarrow r = \pm 2i \)<br>
+                \( x_h(t) = C_1\cos(2t) + C_2\sin(2t) \)</p>
+                
+                <p><strong>Step 2: Particular solution</strong><br>
+                Since sin(2t) is already in homogeneous solution, use:<br>
+                \( x_p(t) = t(A\cos(2t) + B\sin(2t)) \)</p>
+                
+                <p><strong>Step 3: Differentiate and substitute</strong><br>
+                \( x_p' = A\cos(2t) + B\sin(2t) + t(-2A\sin(2t) + 2B\cos(2t)) \)<br>
+                \( x_p'' = -4A\sin(2t) + 4B\cos(2t) + t(-4A\cos(2t) - 4B\sin(2t)) \)<br>
+                Substitute into ODE and solve for A and B</p>
+                
+                <p><strong>Step 4: Apply initial conditions</strong><br>
+                After solving, we get: \( x(t) = -\frac{1}{2}t\cos(2t) + \frac{1}{4}\sin(2t) \)</p>
+                
+                <p><strong>Vibration Analysis:</strong> This represents resonance with amplitude growing linearly with time.</p>
+            </div>
+
+            <h2 id="systems">4. Systems of Differential Equations</h2>
+
+            <div class="info-box">
+                <p>Coupled Dynamic Systems</p>
+                Many engineering systems involve multiple interacting variables described by systems of differential equations, which can be solved using eigenvalue methods or numerical techniques.
+            </div>
+
+            <h3>Matrix Formulation</h3>
+            <div class="math-block">
+                <p><strong>System of First-Order ODEs:</strong> \( \frac{d\mathbf{x}}{dt} = A\mathbf{x} + \mathbf{f}(t) \)</p>
+                <p>Where \( \mathbf{x} = \begin{pmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{pmatrix} \), 
+                \( A \) is an n×n matrix, and \( \mathbf{f}(t) \) is a forcing vector.</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Coupled Spring-Mass System</strong></p>
+                <p>Two masses connected by springs:</p>
+                <p>\( m_1\frac{d^2x_1}{dt^2} = -k_1x_1 + k_2(x_2 - x_1) \)<br>
+                \( m_2\frac{d^2x_2}{dt^2} = -k_2(x_2 - x_1) \)</p>
+                
+                <p><strong>Step 1: Convert to first-order system</strong><br>
+                Let \( y_1 = x_1 \), \( y_2 = \frac{dx_1}{dt} \), \( y_3 = x_2 \), \( y_4 = \frac{dx_2}{dt} \)<br>
+                Then:<br>
+                \( \frac{dy_1}{dt} = y_2 \)<br>
+                \( \frac{dy_2}{dt} = -\frac{k_1+k_2}{m_1}y_1 + \frac{k_2}{m_1}y_3 \)<br>
+                \( \frac{dy_3}{dt} = y_4 \)<br>
+                \( \frac{dy_4}{dt} = \frac{k_2}{m_2}y_1 - \frac{k_2}{m_2}y_3 \)</p>
+                
+                <p><strong>Step 2: Matrix form</strong><br>
+                \( \frac{d}{dt}\begin{pmatrix} y_1 \\ y_2 \\ y_3 \\ y_4 \end{pmatrix} = 
+                \begin{pmatrix} 
+                0 & 1 & 0 & 0 \\
+                -\frac{k_1+k_2}{m_1} & 0 & \frac{k_2}{m_1} & 0 \\
+                0 & 0 & 0 & 1 \\
+                \frac{k_2}{m_2} & 0 & -\frac{k_2}{m_2} & 0 
+                \end{pmatrix}
+                \begin{pmatrix} y_1 \\ y_2 \\ y_3 \\ y_4 \end{pmatrix} \)</p>
+                
+                <p><strong>Step 3: Solve using eigenvalues/eigenvectors</strong><br>
+                The natural frequencies are given by the eigenvalues of the coefficient matrix.</p>
+                
+                <p><strong>Mechanical Design:</strong> This analysis determines the vibration modes of coupled systems.</p>
+            </div>
+
+            <h2 id="numerical-methods">5. Numerical Methods for ODEs</h2>
+
+            <div class="info-box">
+                <p>Computational Solutions</p>
+                When analytical solutions are unavailable or impractical, numerical methods provide approximate solutions to differential equations, essential for complex engineering systems.
+            </div>
+
+            <h3>Comparison of Numerical Methods</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Formula</th>
+                        <th>Accuracy</th>
+                        <th>Stability</th>
+                        <th>Application</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Euler's Method</strong></td>
+                        <td>\( y_{n+1} = y_n + hf(t_n, y_n) \)</td>
+                        <td>O(h)</td>
+                        <td>Conditional</td>
+                        <td>Simple systems, education</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Improved Euler</strong></td>
+                        <td>\( y_{n+1} = y_n + \frac{h}{2}[f(t_n,y_n) + f(t_{n+1}, y_n + hf(t_n,y_n))] \)</td>
+                        <td>O(h²)</td>
+                        <td>Better</td>
+                        <td>Moderate accuracy needs</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Runge-Kutta 4th Order</strong></td>
+                        <td>\( y_{n+1} = y_n + \frac{h}{6}(k_1 + 2k_2 + 2k_3 + k_4) \)</td>
+                        <td>O(h⁴)</td>
+                        <td>Good</td>
+                        <td>High accuracy requirements</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Interactive ODE Visualization</h3>
+            <div class="interactive-container">
+                <p><strong>Sine Wave Parameter Explorer</strong></p>
+                <div class="slider-container">
+                    <div class="slider-label">
+                        <span>Amplitude (A):</span>
+                        <span id="amplitude-value">1.0</span>
+                    </div>
+                    <input type="range" id="amplitude" min="0.1" max="5" step="0.1" value="1" oninput="updateSineWave()">
+                </div>
+                <div class="slider-container">
+                    <div class="slider-label">
+                        <span>Frequency (ω):</span>
+                        <span id="frequency-value">1.0</span>
+                    </div>
+                    <input type="range" id="frequency" min="0.1" max="5" step="0.1" value="1" oninput="updateSineWave()">
+                </div>
+                <div class="slider-container">
+                    <div class="slider-label">
+                        <span>Phase (φ):</span>
+                        <span id="phase-value">0.0</span>
+                    </div>
+                    <input type="range" id="phase" min="0" max="6.28" step="0.1" value="0" oninput="updateSineWave()">
+                </div>
+                <div class="graph-container" id="sine-graph">
+                    <!-- Canvas will be inserted here by JavaScript -->
+                </div>
+                <div class="math-block" id="sine-equation">
+                    \( y(t) = 1.0 \cdot \sin(1.0t + 0.0) \)
+                </div>
+            </div>
+
+            <h2 id="applications">6. Engineering Applications</h2>
+
+            <div class="info-box">
+                <p>Real-World Differential Equation Problems</p>
+                Differential equations model diverse engineering phenomena, from electrical circuits and control systems to fluid dynamics and structural analysis.
+            </div>
+
+            <h3>Application Areas</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Engineering Field</th>
+                        <th>Typical ODE</th>
+                        <th>Parameters</th>
+                        <th>Solution Method</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Electrical</strong></td>
+                        <td>\( L\frac{d^2i}{dt^2} + R\frac{di}{dt} + \frac{1}{C}i = V(t) \)</td>
+                        <td>L, R, C, V(t)</td>
+                        <td>Characteristic equation, undetermined coefficients</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mechanical</strong></td>
+                        <td>\( m\frac{d^2x}{dt^2} + c\frac{dx}{dt} + kx = F(t) \)</td>
+                        <td>m, c, k, F(t)</td>
+                        <td>Homogeneous + particular solutions</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Thermal</strong></td>
+                        <td>\( \frac{dT}{dt} = k(T - T_{env}) \)</td>
+                        <td>k, T<sub>env</sub></td>
+                        <td>Separation of variables</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Chemical</strong></td>
+                        <td>\( \frac{dC}{dt} = -kC \)</td>
+                        <td>k (rate constant)</td>
+                        <td>Exponential solution</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>Example: RLC Circuit Analysis</strong></p>
+                <p>An RLC circuit with L = 0.1 H, R = 10 Ω, C = 0.001 F, and V(t) = 100sin(100t) V. Find the current i(t).</p>
+                
+                <p><strong>Step 1: Circuit equation</strong><br>
+                \( 0.1\frac{d^2i}{dt^2} + 10\frac{di}{dt} + 1000i = 100\cos(100t) \)</p>
+                
+                <p><strong>Step 2: Homogeneous solution</strong><br>
+                Characteristic equation: \( 0.1r^2 + 10r + 1000 = 0 \)<br>
+                Roots: \( r = -50 \pm j86.6 \) (underdamped)<br>
+                \( i_h(t) = e^{-50t}(A\cos(86.6t) + B\sin(86.6t)) \)</p>
+                
+                <p><strong>Step 3: Particular solution</strong><br>
+                Assume \( i_p(t) = C\cos(100t) + D\sin(100t) \)<br>
+                Substitute and solve for C and D</p>
+                
+                <p><strong>Step 4: Complete solution</strong><br>
+                \( i(t) = i_h(t) + i_p(t) \)</p>
+                
+                <p><strong>Circuit Design:</strong> The transient response decays quickly, leaving the steady-state sinusoidal response.</p>
+            </div>
+
+            <div class="key-point">
+                <strong>Engineering Practice:</strong> Differential equations are not just mathematical abstractions but essential tools for modeling and analyzing dynamic systems. The ability to formulate, solve, and interpret differential equations is fundamental to engineering design and analysis across all disciplines.
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 HNC Engineering Mathematics. All rights reserved.</p>
+            <p>Differential Equations Reference for Engineering Applications</p>
+        </div>
+    </footer>
+
+    <script src="navigation.js"></script>
+    <script>
+        // First-Order ODE Solver
+        function solveFirstOrderODE() {
+            const pFunction = document.getElementById('p-function').value;
+            const qFunction = document.getElementById('q-function').value;
+            const initialValue = parseFloat(document.getElementById('initial-value').value);
+            
+            // Simple demonstration - for actual implementation would need a proper parser
+            let solutionText = `Solving: dy/dt + (${pFunction})y = ${qFunction}, y(0) = ${initialValue}<br>`;
+            
+            // This is a simplified demonstration - a real implementation would need a proper symbolic math library
+            if (pFunction === '2' && qFunction === '3') {
+                solutionText += `Integrating factor: μ(t) = e^(∫2 dt) = e^(2t)<br>`;
+                solutionText += `Solution: y(t) = e^(-2t) * [∫e^(2t)*3 dt + C]<br>`;
+                solutionText += `y(t) = e^(-2t) * [(3/2)e^(2t) + C] = 3/2 + Ce^(-2t)<br>`;
+                solutionText += `Apply y(0) = ${initialValue}: ${initialValue} = 3/2 + C ⇒ C = ${initialValue - 1.5}<br>`;
+                solutionText += `Final solution: y(t) = 1.5 + ${initialValue - 1.5}e^(-2t)`;
+            } else {
+                solutionText += `This is a demonstration. For complex functions, a symbolic math library would be needed.`;
+            }
+            
+            document.getElementById('ode-solution').innerHTML = solutionText;
+        }
+        
+        // Sine Wave Visualization
+        function updateSineWave() {
+            const amplitude = parseFloat(document.getElementById('amplitude').value);
+            const frequency = parseFloat(document.getElementById('frequency').value);
+            const phase = parseFloat(document.getElementById('phase').value);
+            
+            document.getElementById('amplitude-value').textContent = amplitude.toFixed(1);
+            document.getElementById('frequency-value').textContent = frequency.toFixed(1);
+            document.getElementById('phase-value').textContent = phase.toFixed(2);
+            
+            document.getElementById('sine-equation').innerHTML = 
+                `\\( y(t) = ${amplitude.toFixed(1)} \\cdot \\sin(${frequency.toFixed(1)}t + ${phase.toFixed(2)}) \\)`;
+            
+            // Re-render MathJax
+            if (window.MathJax) {
+                MathJax.typeset();
+            }
+            
+            // In a real implementation, we would draw the sine wave on a canvas
+            // For this demo, we'll just update the equation display
+        }
+        
+        // Vector Calculator (for vectors.html enhancement)
+        function calculateVectorOperations() {
+            // This would be implemented on the vectors.html page
+            // Calculating dot product, cross product, magnitude, etc.
+        }
+        
+        // Initialize interactive elements when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            updateSineWave();
+        });
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Differential Equations - HNC Engineering Mathematics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HNC Engineering Mathematics</h1>
+            <p>Differential Equations - Modeling Dynamic Systems</p>
+        </div>
+    </header>
+
+    <div class="container grid-layout">
+        <aside id="navigation-placeholder"></aside>
+
+        <main>
+            <h1>Differential Equations</h1>
+            
+            <div class="info-box">
+                <p>The Language of Change in Engineering Systems</p>
+                Differential equations provide the mathematical framework for modeling dynamic systems across all engineering disciplines, from electrical circuits and mechanical vibrations to heat transfer and fluid dynamics.
+            </div>
+
+            <h2 id="ode-intro">1. Introduction to Ordinary Differential Equations (ODEs)</h2>
+            
+            <div class="info-box">
+                <p>Classifying Differential Equations</p>
+                Understanding the type and order of a differential equation is the first step in determining the correct method to solve it and in understanding the physical system it represents.
+            </div>
+
+            <h3>Key Classifications</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Classification</th>
+                        <th>Definition</th>
+                        <th>Example</th>
+                        <th>Engineering Context</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Order</strong></td>
+                        <td>The highest derivative present in the equation.</td>
+                        <td>\( \frac{d^2y}{dt^2} + 3\frac{dy}{dt} + 2y = 0 \) is <strong>2nd order</strong>.</td>
+                        <td>Order often relates to the number of energy storage elements (e.g., an RLC circuit is 2nd order).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Linearity</strong></td>
+                        <td>The equation is linear in the dependent variable (e.g., y) and its derivatives.</td>
+                        <td>\( y'' + t^2y' + y = \sin(t) \) is <strong>linear</strong>.</td>
+                        <td>Most introductory engineering systems are modeled with linear ODEs.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Homogeneity</strong></td>
+                        <td>A linear equation is homogeneous if the right-hand side is zero.</td>
+                        <td>\( y'' + 4y' + 3y = 0 \) is <strong>homogeneous</strong>.</td>
+                        <td>Represents the natural response of a system (free vibrations, unpowered circuits).</td>
+                    </tr>
+                     <tr>
+                        <td><strong>Non-Homogeneous</strong></td>
+                        <td>A linear equation with a non-zero function on the right-hand side.</td>
+                        <td>\( y'' + 4y' + 3y = \cos(t) \) is <strong>non-homogeneous</strong>.</td>
+                        <td>Represents a system with an external forcing function (forced vibrations, powered circuits).</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 id="first-order">2. First-Order Linear ODEs</h2>
+
+            <div class="info-box">
+                <p>Solving Systems with One Energy Storage Element</p>
+                First-order ODEs model systems like RC/RL circuits, radioactive decay, and simple thermal systems. The standard solution method involves using an integrating factor.
+            </div>
+
+            <h3>Solution via Integrating Factor</h3>
+            <div class="math-block">
+                <p>For an ODE in the standard form: \( \frac{dy}{dt} + P(t)y = Q(t) \)</p>
+                <p><strong>1. Find the Integrating Factor (\(\mu(t)\)):</strong> \( \mu(t) = e^{\int P(t) dt} \)</p>
+                <p><strong>2. The solution is given by:</strong> \( y(t) = \frac{1}{\mu(t)} \left[ \int \mu(t) Q(t) dt + C \right] \)</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: RL Circuit Analysis</strong></p>
+                <p>For an RL circuit, Kirchhoff's Voltage Law gives \( L\frac{di}{dt} + Ri = V_s \). Find the current \(i(t)\) if \(i(0) = 0\).</p>
+                
+                <p><strong>Step 1: Put into standard form</strong><br>
+                \( \frac{di}{dt} + \frac{R}{L}i = \frac{V_s}{L} \). Here, \( P(t) = \frac{R}{L} \) and \( Q(t) = \frac{V_s}{L} \).</p>
+                
+                <p><strong>Step 2: Find the integrating factor</strong><br>
+                \( \mu(t) = e^{\int \frac{R}{L} dt} = e^{\frac{R}{L}t} \)</p>
+                
+                <p><strong>Step 3: Apply the solution formula</strong><br>
+                \( i(t) = \frac{1}{e^{\frac{R}{L}t}} \left[ \int e^{\frac{R}{L}t} \cdot \frac{V_s}{L} dt + C \right] \)<br>
+                \( i(t) = e^{-\frac{R}{L}t} \left[ \frac{V_s}{L} \cdot \frac{L}{R} e^{\frac{R}{L}t} + C \right] = \frac{V_s}{R} + Ce^{-\frac{R}{L}t} \)</p>
+                
+                <p><strong>Step 4: Apply the initial condition \(i(0)=0\)</strong><br>
+                \( 0 = \frac{V_s}{R} + C \cdot e^0 \implies C = -\frac{V_s}{R} \)</p>
+                
+                <p><strong>Final Solution:</strong> \( i(t) = \frac{V_s}{R}(1 - e^{-\frac{R}{L}t}) \)</p>
+                <p><strong>Engineering Interpretation:</strong> The current starts at 0 and exponentially rises to a steady-state value of \(V_s/R\), with a time constant of \(\tau = L/R\).</p>
+            </div>
+
+            <h2 id="second-order">3. Second-Order Linear Homogeneous ODEs</h2>
+
+            <div class="info-box">
+                <p>Modeling Vibrations and Oscillations</p>
+                These equations are fundamental to analyzing RLC circuits and mass-spring-damper systems. The solution depends entirely on the roots of the characteristic equation.
+            </div>
+
+            <h3>The Characteristic Equation Method</h3>
+            <div class="math-block">
+                <p>For an ODE of the form: \( a\frac{d^2y}{dt^2} + b\frac{dy}{dt} + cy = 0 \)</p>
+                <p>The <strong>Characteristic Equation</strong> is: \( ar^2 + br + c = 0 \)</p>
+                <p>The solution for \(y(t)\) depends on the roots \(r_1, r_2\) of this quadratic equation.</p>
+            </div>
+
+            <h4>The Three Cases for Solutions</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Case</th>
+                        <th>Discriminant (\(b^2 - 4ac\))</th>
+                        <th>Nature of Roots</th>
+                        <th>General Solution \(y(t)\)</th>
+                        <th>Engineering Interpretation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>\( > 0 \)</td>
+                        <td>Two distinct real roots (\(r_1, r_2\))</td>
+                        <td>\( C_1e^{r_1t} + C_2e^{r_2t} \)</td>
+                        <td><strong>Overdamped:</strong> System returns to equilibrium slowly without oscillation.</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>\( = 0 \)</td>
+                        <td>One repeated real root (\(r\))</td>
+                        <td>\( (C_1 + C_2t)e^{rt} \)</td>
+                        <td><strong>Critically Damped:</strong> Fastest return to equilibrium without oscillation.</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>\( < 0 \)</td>
+                        <td>Complex conjugate roots (\(\alpha \pm j\beta\))</td>
+                        <td>\( e^{\alpha t}(C_1\cos(\beta t) + C_2\sin(\beta t)) \)</td>
+                        <td><strong>Underdamped:</strong> System oscillates with decreasing amplitude.</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="example-box">
+                <p><strong>Interactive Damping Explorer</strong></p>
+                <p>See how the damping coefficient 'c' changes the system's response for a mass-spring-damper system: \( \ddot{x} + c\dot{x} + 9x = 0 \). (Critical damping occurs at c=6).</p>
+                
+                <div>
+                    <label for="damping">Damping (c): <span id="damping-val">2.0</span></label>
+                    <input type="range" id="damping" min="0" max="10" value="2" step="0.1" style="width: 100%;">
+                </div>
+                <canvas id="dampingCanvas" width="700" height="300" style="background-color: #fff; border-radius: 4px; margin-top: 1rem; border: 1px solid var(--border);"></canvas>
+                <p id="damping-type" style="text-align:center; font-weight: bold; margin-top: 0.5rem;"></p>
+            </div>
+
+
+            <h2 id="non-homogeneous">4. Non-Homogeneous ODEs (Forced Systems)</h2>
+
+            <div class="info-box">
+                <p>Analyzing Systems with External Inputs</p>
+                When a system is subjected to an external force or input (e.g., an AC voltage source, an external vibrating force), the equation becomes non-homogeneous. The general solution is the sum of the homogeneous solution and a particular solution.
+            </div>
+            
+             <div class="math-block">
+                $$ y(t) = y_h(t) + y_p(t) $$
+                <p>\(y_h(t)\): The <strong>homogeneous solution</strong> (transient response) which describes the system's natural behavior and dies out over time.</p>
+                <p>\(y_p(t)\): The <strong>particular solution</strong> (steady-state response) which describes the system's long-term behavior under the external forcing function.</p>
+            </div>
+            
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 HNC Engineering Mathematics. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="navigation.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dampingSlider = document.getElementById('damping');
+            const dampingVal = document.getElementById('damping-val');
+            const dampingType = document.getElementById('damping-type');
+            const canvas = document.getElementById('dampingCanvas');
+            const ctx = canvas.getContext('2d');
+
+            function solveAndDraw() {
+                const c = parseFloat(dampingSlider.value);
+                const m = 1;
+                const k = 9;
+                
+                dampingVal.textContent = c.toFixed(1);
+                
+                const discriminant = c * c - 4 * m * k;
+                const width = canvas.width;
+                const height = canvas.height;
+                const midY = height / 2;
+
+                ctx.clearRect(0, 0, width, height);
+                
+                // Draw axes
+                ctx.beginPath();
+                ctx.moveTo(0, midY);
+                ctx.lineTo(width, midY);
+                ctx.moveTo(10, 0);
+                ctx.lineTo(10, height);
+                ctx.strokeStyle = '#cbd5e1';
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.strokeStyle = '#1d4ed8';
+                ctx.lineWidth = 2;
+
+                // Initial conditions: x(0)=50, x'(0)=0
+                const x0 = 50; 
+                
+                if (discriminant > 0) { // Overdamped
+                    dampingType.textContent = "Overdamped";
+                    const r1 = (-c + Math.sqrt(discriminant)) / (2 * m);
+                    const r2 = (-c - Math.sqrt(discriminant)) / (2 * m);
+                    const C2 = (r1 * x0) / (r1 - r2);
+                    const C1 = x0 - C2;
+                    for (let px = 0; px < width; px++) {
+                        const t = px / (width/10);
+                        const y = C1 * Math.exp(r1 * t) + C2 * Math.exp(r2 * t);
+                        ctx.lineTo(px + 10, midY - y);
+                    }
+                } else if (discriminant === 0) { // Critically Damped
+                    dampingType.textContent = "Critically Damped";
+                    const r = -c / (2 * m);
+                    const C1 = x0;
+                    const C2 = -r * x0;
+                     for (let px = 0; px < width; px++) {
+                        const t = px / (width/10);
+                        const y = (C1 + C2 * t) * Math.exp(r * t);
+                        ctx.lineTo(px + 10, midY - y);
+                    }
+                } else { // Underdamped
+                    dampingType.textContent = "Underdamped";
+                    const alpha = -c / (2 * m);
+                    const beta = Math.sqrt(-discriminant) / (2 * m);
+                    const C1 = x0;
+                    const C2 = -alpha * x0 / beta;
+                    for (let px = 0; px < width; px++) {
+                        const t = px / (width/10);
+                        const y = Math.exp(alpha * t) * (C1 * Math.cos(beta * t) + C2 * Math.sin(beta * t));
+                         ctx.lineTo(px + 10, midY - y);
+                    }
+                }
+                ctx.stroke();
+            }
+
+            dampingSlider.addEventListener('input', solveAndDraw);
+            solveAndDraw();
+        });
+    </script>
+</body>
+</html>

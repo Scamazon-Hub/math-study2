@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practical Problems - Maximum and Minimum | HNC Mathematics</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Practical Problems – Maximum and Minimum</h1>
+            <p>Optimization techniques in applied mathematics</p>
+        </div>
+    </header>
+
+    <div class="container grid-layout">
+        <div id="navigation-placeholder"></div>
+
+        <main>
+            <section id="introduction">
+                <h2>Introduction to Maximum and Minimum Problems</h2>
+                <p>The problems you are likely to encounter can be divided broadly into two types:</p>
+                <ul>
+                    <li><strong>Type (a):</strong> Those involving a given function or expression</li>
+                    <li><strong>Type (b):</strong> Those requiring the expression or mathematical model to be deduced from given information and data</li>
+                </ul>
+                
+                <div class="info-box">
+                    <p>Key Insight</p>
+                    <p>For type (b) problems, we need to devise the necessary function using a systematic approach:</p>
+                    <ol>
+                        <li>Write an expression for the required quantity</li>
+                        <li>Use the given conditions to rewrite it in terms of a single variable</li>
+                        <li>Find the maximum and/or minimum values by normal methods</li>
+                    </ol>
+                </div>
+            </section>
+
+            <section id="example1">
+                <h2>Example 1: Maximum Rectangular Area</h2>
+                <p>Find the area of the largest piece of rectangular ground that can be enclosed by 1000 m of fencing if part of an existing wall is used as one side.</p>
+                
+                <div class="example-box">
+                    <p>Solution Approach</p>
+                    <div class="math-block">
+                        <p>Let the area of the rectangle be \( A \, \text{m}^2 \).</p>
+                        <p>1. Expression for area: \( A = xy \)</p>
+                        <p>2. Fencing constraint: \( y = 1000 - 2x \)</p>
+                        <p>3. Combined expression: \( A = x(1000 - 2x) \)</p>
+                    </div>
+                    
+                    <div class="math-block">
+                        <p>Expanding: \( A = 1000x - 2x^2 \)</p>
+                        <p>Differentiating: \( \frac{dA}{dx} = 1000 - 4x \)</p>
+                        <p>Second derivative: \( \frac{d^2A}{dx^2} = -4 \) (negative, so maximum)</p>
+                    </div>
+                    
+                    <div class="math-block">
+                        <p>Setting derivative to zero: \( 1000 - 4x = 0 \)</p>
+                        <p>Solving: \( x = 250 \)</p>
+                        <p>Maximum area: \( A = 250(1000 - 500) = 125,000 \, \text{m}^2 \)</p>
+                    </div>
+                </div>
+                
+                <div class="key-point">
+                    <p>The maximum area is 125,000 m² when the dimensions are 250 m × 500 m.</p>
+                </div>
+            </section>
+
+            <section id="example2">
+                <h2>Example 2: Maximum Volume of Cylinder in Cone</h2>
+                <p>Calculate the maximum volume of a cylinder which can be cut out of a cone of base radius 1 m and height 2 m.</p>
+                
+                <div class="example-box">
+                    <p>Solution Approach</p>
+                    <div class="math-block">
+                        <p>Volume of cylinder: \( V = \pi r^2 h \)</p>
+                        <p>Using similar triangles: \( r = \frac{(2 - h)}{2} \) or \( h = 2 - 2r \)</p>
+                        <p>Substituting: \( V = \pi r^2 (2 - 2r) = 2\pi r^2 - 2\pi r^3 \)</p>
+                    </div>
+                    
+                    <div class="math-block">
+                        <p>Differentiating: \( \frac{dV}{dr} = 4\pi r - 6\pi r^2 \)</p>
+                        <p>Second derivative: \( \frac{d^2V}{dr^2} = 4\pi - 12\pi r \)</p>
+                    </div>
+                    
+                    <div class="math-block">
+                        <p>Setting derivative to zero: \( 4\pi r - 6\pi r^2 = 0 \)</p>
+                        <p>Solving: \( r = \frac{2}{3} \) m (discarding r = 0)</p>
+                        <p>Maximum volume: \( V = \pi \left( \frac{2}{3} \right)^2 \left( 2 - \frac{4}{3} \right) \approx 0.931 \, \text{m}^3 \)</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="example3">
+                <h2>Example 3: Maximum Power in Resistor</h2>
+                <p>The power \( P \) developed in a resistor \( R \) by a battery of e.m.f. \( E \) and internal resistance \( r \) is given by:</p>
+                <div class="math-block">
+                    \[ P = \frac{E^2 R}{(R + r)^2} \]
+                </div>
+                <p>Show that the power is a maximum when \( R = r \).</p>
+                
+                <div class="example-box">
+                    <p>Solution Approach</p>
+                    <div class="math-block">
+                        <p>Using quotient rule with \( u = E^2 R \) and \( v = (R + r)^2 \):</p>
+                        <p>\( \frac{dP}{dR} = \frac{(R + r)^2(E^2) - (E^2 R)(2(R + r))}{(R + r)^4} \)</p>
+                        <p>Simplifying: \( \frac{dP}{dR} = \frac{E^2(r - R)}{(R + r)^3} \)</p>
+                    </div>
+                    
+                    <div class="math-block">
+                        <p>Setting derivative to zero: \( E^2(r - R) = 0 \)</p>
+                        <p>Since \( E^2 \neq 0 \), we get \( R = r \)</p>
+                    </div>
+                    
+                    <div class="math-block">
+                        <p>Verifying maximum:</p>
+                        <p>When \( R < r \), \( \frac{dP}{dR} > 0 \)</p>
+                        <p>When \( R > r \), \( \frac{dP}{dR} < 0 \)</p>
+                        <p>Thus, maximum at \( R = r \)</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="example4">
+                <h2>Example 4: Pressure-Temperature Relationship</h2>
+                <p>The pressure-temperature relationship for an organic vapour is given by:</p>
+                <div class="math-block">
+                    \[ \frac{2a}{RT} - \frac{3abp}{R^2T^2} - b = 0 \]
+                </div>
+                
+                <div class="example-box">
+                    <p>Part (a): Express p in terms of T</p>
+                    <div class="math-block">
+                        <p>Multiplying by \( R^2T^2 \): \( 2aRT - 3abp - bR^2T^2 = 0 \)</p>
+                        <p>Rearranging: \( 3abp = 2aRT - bR^2T^2 \)</p>
+                        <p>Solving for p: \( p = \frac{2RT}{3b} - \frac{R^2T^2}{3a} \)</p>
+                    </div>
+                    
+                    <p>Part (b): Show that p is maximum when \( T = \frac{a}{bR} \)</p>
+                    <div class="math-block">
+                        <p>Differentiating: \( \frac{dp}{dT} = \frac{2R}{3b} - \frac{2R^2T}{3a} \)</p>
+                        <p>Second derivative: \( \frac{d^2p}{dT^2} = -\frac{2R^2}{3a} \) (negative, so maximum)</p>
+                        <p>Setting derivative to zero: \( \frac{2R}{3b} - \frac{2R^2T}{3a} = 0 \)</p>
+                        <p>Solving: \( T = \frac{a}{bR} \)</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="self-assessment">
+                <h2>Self Assessment Questions</h2>
+                
+                <div class="example-box">
+                    <p>Question 1: Minimum Surface Area of Cylinder</p>
+                    <p>A closed cylindrical can has a height h and a radius r. If the capacity is 1 litre, show that:</p>
+                    <div class="math-block">
+                        <p>\( h = \frac{1000}{\pi r^2} \) cm</p>
+                        <p>Surface area: \( S = 2\pi r^2 + \frac{2000}{r} \) cm²</p>
+                    </div>
+                    <p>Find the value of r for which S is minimum.</p>
+                    <div class="key-point">
+                        <p>Answer: Minimum when r = 5.42 cm</p>
+                    </div>
+                </div>
+                
+                <div class="example-box">
+                    <p>Question 2: Maximum Voltage</p>
+                    <p>An electrical voltage E is given by:</p>
+                    <div class="math-block">
+                        \[ E = 10 \sin 20\pi t + 30 \cos 20\pi t \, \text{volts} \]
+                    </div>
+                    <p>Determine the maximum voltage.</p>
+                    <div class="key-point">
+                        <p>Answer: Maximum voltage = 31.62 volts</p>
+                    </div>
+                </div>
+                
+                <div class="example-box">
+                    <p>Question 3: Maximum Speed</p>
+                    <p>The speed v (m/s) of a car is related to time t (seconds) by:</p>
+                    <div class="math-block">
+                        \[ v = 4 + 8t - 3t^2 \]
+                    </div>
+                    <p>Determine the maximum speed in km/h.</p>
+                    <div class="key-point">
+                        <p>Answer: Maximum speed = 33.6 km/h</p>
+                    </div>
+                </div>
+                
+                <div class="example-box">
+                    <p>Question 4: Maximum Bending Moment</p>
+                    <p>The bending moment M of a beam of length l at a distance x from one end is given by:</p>
+                    <div class="math-block">
+                        \[ M = \frac{Wx}{2} (l - x) \]
+                    </div>
+                    <p>where W is the load per unit length. Find the maximum bending moment.</p>
+                    <div class="key-point">
+                        <p>Answer: Maximum bending moment = \( \frac{Wl^2}{8} \)</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="summary">
+                <h2>Summary of Techniques</h2>
+                <div class="info-box">
+                    <p>Key Steps for Maximum/Minimum Problems</p>
+                    <ol>
+                        <li>Identify the quantity to be optimized</li>
+                        <li>Express this quantity as a function of one variable</li>
+                        <li>Differentiate the function</li>
+                        <li>Set the derivative equal to zero and solve</li>
+                        <li>Use the second derivative test to confirm maximum/minimum</li>
+                        <li>Calculate the optimal value</li>
+                    </ol>
+                </div>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Problem Type</th>
+                            <th>Key Insight</th>
+                            <th>Common Applications</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Geometric Optimization</td>
+                            <td>Use constraints to reduce variables</td>
+                            <td>Area, volume, packaging</td>
+                        </tr>
+                        <tr>
+                            <td>Physical Systems</td>
+                            <td>Apply physical laws as constraints</td>
+                            <td>Mechanics, circuits, thermodynamics</td>
+                        </tr>
+                        <tr>
+                            <td>Economic Optimization</td>
+                            <td>Balance cost and revenue functions</td>
+                            <td>Profit maximization, cost minimization</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>HNC Mathematics Reference Guide</p>
+            <p>Copyright 2025 Teesside University</p>
+        </div>
+    </footer>
+
+    <script src="navigation.js"></script>
+</body>
+</html>

@@ -17,11 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
         { href: 'advanced-calculus.html', label: '⚡ Advanced Calculus', category: 'calculus' },
         { href: 'rate-of-change.html', label: '📈 Rate of Change', category: 'calculus' },
         { href: 'chainrule.html', label: '⛓️ Chain Rule', category: 'calculus' },
+        { href: 'differential-equations.html', label: '⛓️ Differential Equations', category: 'calculus' },
         { href: 'inverse-trig-derivatives.html', label: '🔄 Inverse Trig Derivatives', category: 'calculus' },
         { href: 'higher-order-differentiation.html', label: '🔄 Higher-Order Differentiation', category: 'calculus' },
         { href: 'turning_points.html', label: '📊 Max/Min Turning Points', category: 'calculus' },
         { href: 'quotient-rule.html', label: '➗ Quotient Rule', category: 'calculus' },
         { href: 'exponential-calculus.html', label: '📈 Exponential Calculus', category: 'calculus' },
+        { href: 'max-min.html', label: '📈 Maximum and Minimum', category: 'calculus' },
 
         // Applied & Specialized Topics
         { href: 'ac-circuits-analysis.html', label: '⚡ AC Circuit Analysis', category: 'applied' },
