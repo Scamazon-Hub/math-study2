@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vectors - HNC Engineering Mathematics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HNC Engineering Mathematics</h1>
+            <p>Vectors - Multidimensional Analysis for Engineering Systems</p>
+        </div>
+    </header>
+
+    <div class="container grid-layout">
+        <aside id="navigation-placeholder"></aside>
+
+        <main>
+            <h1>Vectors in Engineering</h1>
+            
+            <div class="info-box">
+                <p>Multidimensional Problem Solving</p>
+                Vectors provide the mathematical framework for analyzing quantities with both magnitude and direction, essential for modeling forces, velocities, fields, and other multidimensional phenomena in engineering systems.
+            </div>
+
+            <h2 id="vectors-fundamentals">1. Vector Fundamentals</h2>
+            
+            <div class="info-box">
+                <p>Essential Concepts</p>
+                Understanding the distinction between scalars and vectors, and mastering vector operations forms the foundation for analyzing complex engineering systems involving multiple dimensions and directions.
+            </div>
+
+            <h3>Scalars vs. Vectors</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Quantity Type</th>
+                        <th>Definition</th>
+                        <th>Engineering Examples</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Scalar</strong></td>
+                        <td>Magnitude only</td>
+                        <td>Mass, temperature, time, energy</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vector</strong></td>
+                        <td>Magnitude and direction</td>
+                        <td>Force, velocity, acceleration, displacement</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Vector Representation</h3>
+            <div class="math-block">
+                <p><strong>Component Form:</strong> \( \mathbf{v} = v_x\mathbf{i} + v_y\mathbf{j} + v_z\mathbf{k} \)</p>
+                <p><strong>Magnitude:</strong> \( |\mathbf{v}| = \sqrt{v_x^2 + v_y^2 + v_z^2} \)</p>
+                <p><strong>Unit Vector:</strong> \( \hat{\mathbf{v}} = \frac{\mathbf{v}}{|\mathbf{v}|} \)</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Force Vector Analysis</strong></p>
+                <p>A force vector is given by \( \mathbf{F} = 3\mathbf{i} - 4\mathbf{j} + 5\mathbf{k} \) N. Find its magnitude and unit vector.</p>
+                
+                <p><strong>Step 1: Calculate magnitude</strong><br>
+                \( |\mathbf{F}| = \sqrt{3^2 + (-4)^2 + 5^2} = \sqrt{9 + 16 + 25} = \sqrt{50} \approx 7.07 \) N</p>
+                
+                <p><strong>Step 2: Calculate unit vector</strong><br>
+                \( \hat{\mathbf{F}} = \frac{3\mathbf{i} - 4\mathbf{j} + 5\mathbf{k}}{\sqrt{50}} \approx 0.424\mathbf{i} - 0.566\mathbf{j} + 0.707\mathbf{k} \)</p>
+                
+                <p><strong>Engineering Interpretation:</strong> The force has magnitude 7.07 N with direction ratios 0.424:0.566:0.707 in the x:y:z directions.</p>
+            </div>
+
+            <h2 id="vectors-operations">2. Vector Operations</h2>
+
+            <div class="info-box">
+                <p>Algebraic Manipulation of Vectors</p>
+                Vector operations follow specific rules that maintain both magnitude and direction relationships, enabling the analysis of complex systems with multiple interacting components.
+            </div>
+
+            <h3>Addition and Subtraction</h3>
+            <div class="math-block">
+                <p><strong>Component Addition:</strong> \( \mathbf{a} + \mathbf{b} = (a_x + b_x)\mathbf{i} + (a_y + b_y)\mathbf{j} + (a_z + b_z)\mathbf{k} \)</p>
+                <p><strong>Geometric Methods:</strong> Triangle rule, parallelogram rule</p>
+            </div>
+
+            <h3>Scalar Multiplication</h3>
+            <div class="math-block">
+                <p><strong>Definition:</strong> \( k\mathbf{v} = kv_x\mathbf{i} + kv_y\mathbf{j} + kv_z\mathbf{k} \)</p>
+                <p>Changes magnitude by factor k, reverses direction if k < 0</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Force Resultant</strong></p>
+                <p>Two forces act on an object: \( \mathbf{F}_1 = 2\mathbf{i} + 3\mathbf{j} - \mathbf{k} \) N and \( \mathbf{F}_2 = 4\mathbf{i} - 2\mathbf{j} + 5\mathbf{k} \) N. Find the resultant force.</p>
+                
+                <p><strong>Step 1: Add component-wise</strong><br>
+                \( \mathbf{F}_{resultant} = (2 + 4)\mathbf{i} + (3 - 2)\mathbf{j} + (-1 + 5)\mathbf{k} = 6\mathbf{i} + \mathbf{j} + 4\mathbf{k} \) N</p>
+                
+                <p><strong>Step 2: Calculate magnitude</strong><br>
+                \( |\mathbf{F}_{resultant}| = \sqrt{6^2 + 1^2 + 4^2} = \sqrt{36 + 1 + 16} = \sqrt{53} \approx 7.28 \) N</p>
+                
+                <p><strong>Engineering Interpretation:</strong> The net force is 7.28 N in the direction of the resultant vector.</p>
+            </div>
+
+            <h2 id="vectors-products">3. Vector Products</h2>
+
+            <div class="info-box">
+                <p>Advanced Vector Operations</p>
+                Dot and cross products provide powerful tools for analyzing angles, projections, moments, and areas in engineering applications.
+            </div>
+
+            <h3>Dot Product (Scalar Product)</h3>
+            <div class="math-block">
+                <p><strong>Definition:</strong> \( \mathbf{a} \cdot \mathbf{b} = |\mathbf{a}||\mathbf{b}|\cos\theta = a_xb_x + a_yb_y + a_zb_z \)</p>
+                <p><strong>Applications:</strong> Work calculation, angle between vectors, projections</p>
+            </div>
+
+            <h3>Cross Product (Vector Product)</h3>
+            <div class="math-block">
+                <p><strong>Definition:</strong> \( \mathbf{a} \times \mathbf{b} = |\mathbf{a}||\mathbf{b}|\sin\theta\,\hat{\mathbf{n}} \)</p>
+                <p><strong>Component Form:</strong><br>
+                \( \mathbf{a} \times \mathbf{b} = (a_yb_z - a_zb_y)\mathbf{i} - (a_xb_z - a_zb_x)\mathbf{j} + (a_xb_y - a_yb_x)\mathbf{k} \)</p>
+                <p><strong>Applications:</strong> Torque, area calculation, perpendicular vectors</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Mechanical Torque</strong></p>
+                <p>A force \( \mathbf{F} = 2\mathbf{i} + 3\mathbf{j} + \mathbf{k} \) N acts at position \( \mathbf{r} = 4\mathbf{i} - \mathbf{j} + 3\mathbf{k} \) m from the pivot. Calculate the torque.</p>
+                
+                <p><strong>Step 1: Set up cross product</strong><br>
+                \( \mathbf{\tau} = \mathbf{r} \times \mathbf{F} \)</p>
+                
+                <p><strong>Step 2: Calculate components</strong><br>
+                \( \tau_x = (-1)(1) - (3)(3) = -1 - 9 = -10 \)<br>
+                \( \tau_y = -[(4)(1) - (3)(2)] = -[4 - 6] = 2 \)<br>
+                \( \tau_z = (4)(3) - (-1)(2) = 12 + 2 = 14 \)</p>
+                
+                <p><strong>Step 3: Write torque vector</strong><br>
+                \( \mathbf{\tau} = -10\mathbf{i} + 2\mathbf{j} + 14\mathbf{k} \) N·m</p>
+                
+                <p><strong>Engineering Interpretation:</strong> The torque has magnitude \( \sqrt{(-10)^2 + 2^2 + 14^2} = \sqrt{300} \approx 17.32 \) N·m</p>
+            </div>
+
+            <h2 id="vectors-applications">4. Engineering Applications</h2>
+
+            <div class="info-box">
+                <p>Practical Vector Analysis</p>
+                Vectors find extensive application across all engineering disciplines for analyzing forces, motions, fields, and spatial relationships.
+            </div>
+
+            <h3>Mechanical Engineering Applications</h3>
+            <ul>
+                <li><strong>Force Analysis:</strong> Resultant forces, equilibrium conditions</li>
+                <li><strong>Kinematics:</strong> Velocity and acceleration analysis</li>
+                <li><strong>Moments and Torque:</strong> \( \mathbf{\tau} = \mathbf{r} \times \mathbf{F} \)</li>
+                <li><strong>Structural Analysis:</strong> Truss forces, beam loading</li>
+            </ul>
+
+            <h3>Electrical Engineering Applications</h3>
+            <ul>
+                <li><strong>Electromagnetic Fields:</strong> Electric and magnetic field vectors</li>
+                <li><strong>Power Systems:</strong> Phasor analysis of AC circuits</li>
+                <li><strong>Signal Processing:</strong> Vector representation of signals</li>
+            </ul>
+
+            <h3>Civil Engineering Applications</h3>
+            <ul>
+                <li><strong>Structural Forces:</strong> Bridge and building load analysis</li>
+                <li><strong>Surveying:</strong> Position and displacement vectors</li>
+                <li><strong>Fluid Mechanics:</strong> Flow velocity fields</li>
+            </ul>
+
+            <div class="example-box">
+                <p><strong>Example: Structural Force Resolution</strong></p>
+                <p>A cable supports a load with tension 500 N at 40° to the horizontal. Resolve into horizontal and vertical components.</p>
+                
+                <p><strong>Step 1: Horizontal component</strong><br>
+                \( F_x = 500 \times \cos40^\circ \approx 500 \times 0.7660 = 383.0 \) N</p>
+                
+                <p><strong>Step 2: Vertical component</strong><br>
+                \( F_y = 500 \times \sin40^\circ \approx 500 \times 0.6428 = 321.4 \) N</p>
+                
+                <p><strong>Step 3: Vector form</strong><br>
+                \( \mathbf{F} = 383.0\mathbf{i} + 321.4\mathbf{j} \) N</p>
+                
+                <p><strong>Engineering Interpretation:</strong> The cable exerts 383 N horizontally and 321 N vertically on the support structure.</p>
+            </div>
+
+            <h2 id="vectors-advanced">5. Advanced Vector Concepts</h2>
+
+            <div class="info-box">
+                <p>Specialized Vector Operations</p>
+                Advanced vector operations enable sophisticated analysis of areas, volumes, and spatial relationships in complex engineering systems.
+            </div>
+
+            <h3>Area Calculation using Cross Product</h3>
+            <div class="math-block">
+                <p><strong>Triangle Area:</strong> \( A = \frac{1}{2}|\mathbf{a} \times \mathbf{b}| \)</p>
+                <p><strong>Parallelogram Area:</strong> \( A = |\mathbf{a} \times \mathbf{b}| \)</p>
+            </div>
+
+            <h3>Scalar Triple Product</h3>
+            <div class="math-block">
+                <p><strong>Definition:</strong> \( \mathbf{a} \cdot (\mathbf{b} \times \mathbf{c}) \)</p>
+                <p><strong>Geometric Meaning:</strong> Volume of parallelepiped</p>
+                <p><strong>Coplanarity Test:</strong> Zero if vectors are coplanar</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Triangle Area Calculation</strong></p>
+                <p>Find the area of triangle with vertices A(1,1), B(5,3), C(3,9).</p>
+                
+                <p><strong>Step 1: Create vectors from vertex A</strong><br>
+                \( \vec{AB} = (5-1)\mathbf{i} + (3-1)\mathbf{j} = 4\mathbf{i} + 2\mathbf{j} \)<br>
+                \( \vec{AC} = (3-1)\mathbf{i} + (9-1)\mathbf{j} = 2\mathbf{i} + 8\mathbf{j} \)</p>
+                
+                <p><strong>Step 2: Calculate cross product</strong><br>
+                \( \vec{AB} \times \vec{AC} = (4)(8) - (2)(2) = 32 - 4 = 28 \) (z-component only)</p>
+                
+                <p><strong>Step 3: Calculate area</strong><br>
+                \( A = \frac{1}{2}|\vec{AB} \times \vec{AC}| = \frac{1}{2} \times 28 = 14 \) square units</p>
+                
+                <p><strong>Engineering Interpretation:</strong> The triangle has area 14 square units, useful in structural element sizing.</p>
+            </div>
+
+            <h2 id="vectors-coordinate">6. Coordinate Systems and Transformations</h2>
+
+            <div class="info-box">
+                <p>Multiple Representation Methods</p>
+                Different coordinate systems provide optimal frameworks for specific engineering applications, from Cartesian for general analysis to cylindrical and spherical for symmetric systems.
+            </div>
+
+            <h3>Coordinate Systems</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>System</th>
+                        <th>Coordinates</th>
+                        <th>Engineering Applications</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Cartesian</td>
+                        <td>(x, y, z)</td>
+                        <td>General engineering analysis</td>
+                    </tr>
+                    <tr>
+                        <td>Cylindrical</td>
+                        <td>(r, θ, z)</td>
+                        <td>Rotational systems, pipes</td>
+                    </tr>
+                    <tr>
+                        <td>Spherical</td>
+                        <td>(r, θ, φ)</td>
+                        <td>Radial fields, antennas</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Direction Cosines</h3>
+            <div class="math-block">
+                <p>For vector \( \mathbf{v} = v_x\mathbf{i} + v_y\mathbf{j} + v_z\mathbf{k} \):</p>
+                <p>\( \cos\alpha = \frac{v_x}{|\mathbf{v}|}, \quad \cos\beta = \frac{v_y}{|\mathbf{v}|}, \quad \cos\gamma = \frac{v_z}{|\mathbf{v}|} \)</p>
+                <p>\( \cos^2\alpha + \cos^2\beta + \cos^2\gamma = 1 \)</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Position Vector Analysis</strong></p>
+                <p>Point P has coordinates (4,7,0). Analyze its position vector.</p>
+                
+                <p><strong>Step 1: Position vector</strong><br>
+                \( \mathbf{r} = 4\mathbf{i} + 7\mathbf{j} + 0\mathbf{k} \)</p>
+                
+                <p><strong>Step 2: Magnitude</strong><br>
+                \( |\mathbf{r}| = \sqrt{4^2 + 7^2 + 0^2} = \sqrt{65} \approx 8.06 \)</p>
+                
+                <p><strong>Step 3: Direction angles</strong><br>
+                \( \alpha = \cos^{-1}\left(\frac{4}{\sqrt{65}}\right) \approx 60.3^\circ \)<br>
+                \( \beta = \cos^{-1}\left(\frac{7}{\sqrt{65}}\right) \approx 29.7^\circ \)<br>
+                \( \gamma = \cos^{-1}(0) = 90^\circ \)</p>
+                
+                <p><strong>Engineering Interpretation:</strong> The point lies in the xy-plane at specific angular orientation.</p>
+            </div>
+
+            <h2 id="vectors-physics">7. Physics Applications</h2>
+
+            <div class="info-box">
+                <p>Vector Analysis in Physical Systems</p>
+                Vectors provide the natural language for describing physical quantities and their interactions in mechanical, electrical, and fluid systems.
+            </div>
+
+            <h3>Work and Energy</h3>
+            <div class="math-block">
+                <p><strong>Work:</strong> \( W = \mathbf{F} \cdot \mathbf{d} \)</p>
+                <p><strong>Kinetic Energy:</strong> \( KE = \frac{1}{2}m|\mathbf{v}|^2 \)</p>
+                <p><strong>Potential Energy:</strong> \( PE = m\mathbf{g} \cdot \mathbf{h} \)</p>
+            </div>
+
+            <h3>Fluid Mechanics</h3>
+            <div class="math-block">
+                <p><strong>Velocity Field:</strong> \( \mathbf{v}(x,y,z,t) \)</p>
+                <p><strong>Flow Rate:</strong> \( Q = \mathbf{v} \cdot \mathbf{A} \)</p>
+                <p><strong>Navier-Stokes Equations:</strong> Vector form of fluid motion</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Work Calculation</strong></p>
+                <p>A force \( \mathbf{F} = 10\mathbf{i} + 5\mathbf{j} \) N moves an object through displacement \( \mathbf{d} = 3\mathbf{i} + 4\mathbf{j} \) m. Calculate work done.</p>
+                
+                <p><strong>Step 1: Dot product</strong><br>
+                \( W = \mathbf{F} \cdot \mathbf{d} = (10)(3) + (5)(4) = 30 + 20 = 50 \) J</p>
+                
+                <p><strong>Step 2: Alternative calculation</strong><br>
+                \( |\mathbf{F}| = \sqrt{10^2 + 5^2} = \sqrt{125} \approx 11.18 \) N<br>
+                \( |\mathbf{d}| = \sqrt{3^2 + 4^2} = \sqrt{25} = 5 \) m<br>
+                Angle between vectors: \( \cos\theta = \frac{W}{|\mathbf{F}||\mathbf{d}|} = \frac{50}{11.18 \times 5} \approx 0.894 \)<br>
+                \( \theta \approx 26.6^\circ \)</p>
+                
+                <p><strong>Engineering Interpretation:</strong> 50 J of work is done with the force at 26.6° to the displacement direction.</p>
+            </div>
+
+            <div class="key-point">
+                <strong>Engineering Practice:</strong> Vector analysis is not just mathematical abstraction but a practical tool for solving real engineering problems. Always interpret vector results in the physical context of the system being analyzed, considering units, coordinate systems, and practical constraints.
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 HNC Engineering Mathematics. All rights reserved.</p>
+            <p>Vectors Reference for Engineering Applications</p>
+        </div>
+    </footer>
+
+    <script src="navigation.js"></script>
+</body>
+</html>
