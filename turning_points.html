@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turning Points - HNC Engineering Mathematics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HNC Engineering Mathematics</h1>
+            <p>Turning Points - Optimization and Critical Analysis in Engineering</p>
+        </div>
+    </header>
+
+    <div class="container grid-layout">
+        <aside id="navigation-placeholder"></aside>
+
+        <main>
+            <h1>Maximum & Minimum Turning Points</h1>
+            
+            <div class="info-box">
+                <p>Optimization in Engineering Systems</p>
+                Turning point analysis enables engineers to optimize systems by finding maximum efficiency, minimum cost, optimal dimensions, and critical operating conditions across mechanical, electrical, and structural applications.
+            </div>
+
+            <h2 id="turning-fundamentals">1. Fundamentals of Turning Points</h2>
+            
+            <div class="info-box">
+                <p>Critical Points in Engineering Functions</p>
+                Turning points represent locations where a function changes direction, corresponding to optimal or critical values in engineering systems such as maximum stress points, minimum energy states, or optimal operating conditions.
+            </div>
+
+            <h3>Definition and Properties</h3>
+            <p>Turning points (also called stationary points or critical points) occur where the gradient of a function is zero:</p>
+            <div class="math-block">$$ \frac{dy}{dx} = f'(x) = 0 $$</div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Point Type</th>
+                        <th>Mathematical Property</th>
+                        <th>Engineering Interpretation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Local Maximum</td>
+                        <td>Gradient changes from positive to negative</td>
+                        <td>Peak efficiency, maximum stress, highest profit</td>
+                    </tr>
+                    <tr>
+                        <td>Local Minimum</td>
+                        <td>Gradient changes from negative to positive</td>
+                        <td>Minimum cost, lowest energy state, optimal dimensions</td>
+                    </tr>
+                    <tr>
+                        <td>Point of Inflection</td>
+                        <td>Gradient zero but no maximum/minimum</td>
+                        <td>Transition points, change in curvature</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 id="turning-first-derivative">2. First Derivative Test</h2>
+
+            <div class="info-box">
+                <p>Gradient Analysis Method</p>
+                The first derivative test examines the sign change of the gradient around critical points to classify turning points, providing intuitive understanding of function behavior.
+            </div>
+
+            <h3>Classification Criteria</h3>
+            <div class="math-block">
+                <p><strong>Maximum:</strong> \( f'(x) \) changes from positive → zero → negative</p>
+                <p><strong>Minimum:</strong> \( f'(x) \) changes from negative → zero → positive</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Profit Optimization</strong></p>
+                <p>A company's profit function is \( P(x) = 2x^3 - 15x^2 + 36x + 5 \), where x represents production units (thousands). Find the production level that maximizes profit.</p>
+                
+                <p><strong>Step 1: Find the first derivative</strong><br>
+                \( P'(x) = 6x^2 - 30x + 36 \)</p>
+                
+                <p><strong>Step 2: Find critical points</strong><br>
+                \( 6x^2 - 30x + 36 = 0 \)<br>
+                \( 6(x^2 - 5x + 6) = 0 \)<br>
+                \( 6(x-2)(x-3) = 0 \)<br>
+                Critical points at \( x = 2 \) and \( x = 3 \)</p>
+                
+                <p><strong>Step 3: Apply first derivative test</strong></p>
+                <p><strong>For x = 2:</strong><br>
+                Test at x = 1.5: \( P'(1.5) = 6(2.25) - 30(1.5) + 36 = 13.5 - 45 + 36 = +4.5 \) (Positive)<br>
+                Test at x = 2.5: \( P'(2.5) = 6(6.25) - 30(2.5) + 36 = 37.5 - 75 + 36 = -1.5 \) (Negative)<br>
+                Gradient changes +ve → 0 → -ve ⇒ <strong>Maximum</strong> at x = 2</p>
+                
+                <p><strong>For x = 3:</strong><br>
+                Test at x = 2.5: \( P'(2.5) = -1.5 \) (Negative)<br>
+                Test at x = 3.5: \( P'(3.5) = 6(12.25) - 30(3.5) + 36 = 73.5 - 105 + 36 = +4.5 \) (Positive)<br>
+                Gradient changes -ve → 0 → +ve ⇒ <strong>Minimum</strong> at x = 3</p>
+                
+                <p><strong>Step 4: Calculate maximum profit</strong><br>
+                \( P(2) = 2(8) - 15(4) + 36(2) + 5 = 16 - 60 + 72 + 5 = 33 \)</p>
+                
+                <p><strong>Engineering Interpretation:</strong> Maximum profit of £33,000 occurs at 2,000 units production.</p>
+            </div>
+
+            <h2 id="turning-second-derivative">3. Second Derivative Test</h2>
+
+            <div class="info-box">
+                <p>Curvature Analysis Method</p>
+                The second derivative test provides a more efficient classification by examining the concavity of the function at critical points, representing the rate of change of the gradient.
+            </div>
+
+            <h3>Classification Criteria</h3>
+            <div class="math-block">
+                <p><strong>Maximum:</strong> \( f''(x) < 0 \) (Concave down)</p>
+                <p><strong>Minimum:</strong> \( f''(x) > 0 \) (Concave up)</p>
+                <p><strong>Inconclusive:</strong> \( f''(x) = 0 \) (Use first derivative test)</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Structural Beam Optimization</strong></p>
+                <p>The deflection of a beam is given by \( y = 2x^3 - 15x^2 + 36x + 5 \), where y is deflection (mm) and x is position along beam (m). Find points of maximum and minimum deflection.</p>
+                
+                <p><strong>Step 1: Find first and second derivatives</strong><br>
+                \( y' = 6x^2 - 30x + 36 \)<br>
+                \( y'' = 12x - 30 \)</p>
+                
+                <p><strong>Step 2: Find critical points</strong><br>
+                \( 6x^2 - 30x + 36 = 0 \) ⇒ \( x = 2, x = 3 \)</p>
+                
+                <p><strong>Step 3: Apply second derivative test</strong><br>
+                At x = 2: \( y''(2) = 12(2) - 30 = 24 - 30 = -6 \) < 0 ⇒ <strong>Maximum</strong><br>
+                At x = 3: \( y''(3) = 12(3) - 30 = 36 - 30 = +6 \) > 0 ⇒ <strong>Minimum</strong></p>
+                
+                <p><strong>Step 4: Calculate deflections</strong><br>
+                Maximum deflection: \( y(2) = 33 \) mm at x = 2 m<br>
+                Minimum deflection: \( y(3) = 27 \) mm at x = 3 m</p>
+                
+                <p><strong>Engineering Interpretation:</strong> The beam has maximum upward deflection of 33 mm at 2 m from support, and minimum deflection of 27 mm at 3 m.</p>
+            </div>
+
+            <h2 id="turning-applications">4. Engineering Applications</h2>
+
+            <div class="info-box">
+                <p>Real-World Optimization Problems</p>
+                Turning point analysis finds extensive application across engineering disciplines for system optimization, design improvement, and performance enhancement.
+            </div>
+
+            <h3>Mechanical Engineering Applications</h3>
+            <ul>
+                <li><strong>Optimal Dimensions:</strong> Minimizing material usage while maintaining strength</li>
+                <li><strong>Efficiency Maximization:</strong> Finding optimal operating conditions for engines</li>
+                <li><strong>Vibration Analysis:</strong> Identifying maximum amplitude points</li>
+                <li><strong>Heat Transfer:</strong> Optimizing cooling fin dimensions</li>
+            </ul>
+
+            <h3>Electrical Engineering Applications</h3>
+            <ul>
+                <li><strong>Power Transfer:</strong> Maximum power transfer theorem</li>
+                <li><strong>Circuit Design:</strong> Optimizing component values</li>
+                <li><strong>Signal Processing:</strong> Finding peak amplitudes</li>
+                <li><strong>Control Systems:</strong> Optimizing controller parameters</li>
+            </ul>
+
+            <h3>Civil Engineering Applications</h3>
+            <ul>
+                <li><strong>Structural Design:</strong> Minimizing material cost</li>
+                <li><strong>Hydraulics:</strong> Optimal pipe dimensions</li>
+                <li><strong>Transportation:</strong> Minimum time/cost routes</li>
+                <li><strong>Geotechnical:</strong> Slope stability analysis</li>
+            </ul>
+
+            <div class="example-box">
+                <p><strong>Example: AC Circuit Power Optimization</strong></p>
+                <p>In an AC circuit, the power delivered to a load is given by \( P = 3\sin\theta - 4\cos\theta \), where θ is the phase angle. Find the phase angles that give maximum and minimum power delivery.</p>
+                
+                <p><strong>Step 1: Find derivatives</strong><br>
+                \( \frac{dP}{d\theta} = 3\cos\theta + 4\sin\theta \)<br>
+                \( \frac{d^2P}{d\theta^2} = -3\sin\theta + 4\cos\theta \)</p>
+                
+                <p><strong>Step 2: Find critical points</strong><br>
+                \( 3\cos\theta + 4\sin\theta = 0 \)<br>
+                \( 4\sin\theta = -3\cos\theta \)<br>
+                \( \tan\theta = -\frac{3}{4} = -0.75 \)</p>
+                
+                <p>Solutions in range 0 to 2π:<br>
+                \( \theta = \pi - \tan^{-1}(0.75) = 2.4981 \) rad (143.13°)<br>
+                \( \theta = 2\pi - \tan^{-1}(0.75) = 5.6397 \) rad (323.13°)</p>
+                
+                <p><strong>Step 3: Apply second derivative test</strong><br>
+                At θ = 2.4981 rad: \( \frac{d^2P}{d\theta^2} = -3\sin(143.13°) + 4\cos(143.13°) = -1.8 - 3.2 = -5 \) < 0 ⇒ <strong>Maximum</strong><br>
+                At θ = 5.6397 rad: \( \frac{d^2P}{d\theta^2} = -3\sin(323.13°) + 4\cos(323.13°) = 1.8 + 3.2 = +5 \) > 0 ⇒ <strong>Minimum</strong></p>
+                
+                <p><strong>Step 4: Calculate power values</strong><br>
+                Maximum power: \( P_{max} = 3\sin(143.13°) - 4\cos(143.13°) = 5 \) W<br>
+                Minimum power: \( P_{min} = 3\sin(323.13°) - 4\cos(323.13°) = -5 \) W</p>
+                
+                <p><strong>Engineering Interpretation:</strong> Maximum power delivery of 5 W occurs at 143.13° phase angle, while minimum power (reverse flow) of -5 W occurs at 323.13°.</p>
+            </div>
+
+            <h2 id="turning-advanced">5. Advanced Turning Point Analysis</h2>
+
+            <div class="info-box">
+                <p>Complex Engineering Optimization</p>
+                Real engineering problems often involve multiple variables, constraints, and complex functions requiring advanced optimization techniques.
+            </div>
+
+            <h3>Multivariable Optimization</h3>
+            <p>For functions of multiple variables \( f(x, y) \), turning points occur where:</p>
+            <div class="math-block">
+                <p>\( \frac{\partial f}{\partial x} = 0 \) and \( \frac{\partial f}{\partial y} = 0 \)</p>
+            </div>
+
+            <h3>Constrained Optimization</h3>
+            <p>Using Lagrange multipliers to optimize subject to constraints:</p>
+            <div class="math-block">
+                <p>Optimize \( f(x, y) \) subject to \( g(x, y) = 0 \)</p>
+                <p>Solve: \( \nabla f = \lambda \nabla g \)</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Container Design Optimization</strong></p>
+                <p>Design a rectangular container with volume 1 m³ that minimizes surface area (material cost).</p>
+                
+                <p><strong>Step 1: Define variables and constraints</strong><br>
+                Let dimensions be x, y, z meters<br>
+                Volume constraint: \( xyz = 1 \) ⇒ \( z = \frac{1}{xy} \)<br>
+                Surface area: \( A = 2(xy + xz + yz) = 2\left(xy + \frac{x}{xy} + \frac{y}{xy}\right) = 2\left(xy + \frac{1}{y} + \frac{1}{x}\right) \)</p>
+                
+                <p><strong>Step 2: Find partial derivatives</strong><br>
+                \( \frac{\partial A}{\partial x} = 2\left(y - \frac{1}{x^2}\right) \)<br>
+                \( \frac{\partial A}{\partial y} = 2\left(x - \frac{1}{y^2}\right) \)</p>
+                
+                <p><strong>Step 3: Set derivatives to zero</strong><br>
+                \( y - \frac{1}{x^2} = 0 \) ⇒ \( y = \frac{1}{x^2} \)<br>
+                \( x - \frac{1}{y^2} = 0 \) ⇒ \( x = \frac{1}{y^2} \)</p>
+                
+                <p><strong>Step 4: Solve system</strong><br>
+                Substitute \( y = \frac{1}{x^2} \) into \( x = \frac{1}{y^2} \):<br>
+                \( x = \frac{1}{(1/x^2)^2} = \frac{1}{1/x^4} = x^4 \) ⇒ \( x^4 - x = 0 \) ⇒ \( x(x^3 - 1) = 0 \)<br>
+                Solution: \( x = 1 \) m (positive real solution)<br>
+                Then \( y = \frac{1}{1^2} = 1 \) m, and \( z = \frac{1}{1×1} = 1 \) m</p>
+                
+                <p><strong>Engineering Interpretation:</strong> The optimal container is a cube with 1 m sides, minimizing surface area for the given volume.</p>
+            </div>
+
+            <div class="key-point">
+                <strong>Engineering Practice:</strong> Turning point analysis is not just mathematical exercise but a powerful tool for optimization. Always verify that mathematical solutions make physical sense in the engineering context and consider practical constraints beyond the mathematical model.
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 HNC Engineering Mathematics. All rights reserved.</p>
+            <p>Turning Points Reference for Engineering Optimization</p>
+        </div>
+    </footer>
+
+    <script src="navigation.js"></script>
+</body>
+</html>
