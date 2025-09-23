@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Units & Notation - HNC Maths</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HNC Maths Master Reference</h1>
+            <p class="mt-1">The definitive guide with all topics and detailed examples.</p>
+        </div>
+    </header>
+
+    <div class="container grid-layout">
+        <aside id="navigation-placeholder" class="lg:sticky lg:self-start"></aside>
+
+        <main>
+                    <h2 class="text-2xl font-bold text-gray-900">A Note on Units & Notation</h2>
+                    <div class="info-box">
+                        <p>Why Units Matter</p>
+                        In engineering, a number without a unit is meaningless. Using consistent **SI (Système International)** units is essential to avoid costly errors. Before substituting values into any formula, always convert all quantities to their base SI units (e.g., convert km/h to m/s, or mm to m).
+                    </div>
+                    
+                    <h3 id="units-si" class="text-xl font-semibold">1. Key SI Units in Engineering</h3>
+                    <h4 class="text-lg font-semibold mt-4">Base & Kinematic Units</h4>
+                    <div class="overflow-x-auto mt-4">
+                        <table class="w-full text-left border rounded-lg math-table">
+                            <thead class="bg-gray-100"><tr><th class="p-3">Quantity</th><th class="p-3">SI Unit</th><th class="p-3">Symbol</th></tr></thead>
+                            <tbody>
+                                <tr><td>Length / Displacement</td><td>metre</td><td>m</td></tr>
+                                <tr><td>Mass</td><td>kilogram</td><td>kg</td></tr>
+                                <tr><td>Time</td><td>second</td><td>s</td></tr>
+                                <tr><td>Angle</td><td>radian</td><td>rad</td></tr>
+                                <tr><td>Linear Velocity</td><td>metres per second</td><td>m/s or $$ms^{-1}$$</td></tr>
+                                <tr><td>Angular Velocity</td><td>radians per second</td><td>rad/s or $$rad\,s^{-1}$$</td></tr>
+                                <tr><td>Linear Acceleration</td><td>metres per second squared</td><td>m/s² or $$ms^{-2}$$</td></tr>
+                                <tr><td>Angular Acceleration</td><td>radians per second squared</td><td>rad/s² or $$rad\,s^{-2}$$</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h4 class="text-lg font-semibold mt-4">Mechanical & Electrical Units</h4>
+                    <div class="overflow-x-auto mt-4">
+                        <table class="w-full text-left border rounded-lg math-table">
+                            <thead class="bg-gray-100"><tr><th class="p-3">Quantity</th><th class="p-3">SI Unit</th><th class="p-3">Symbol</th><th class="p-3">Equivalent Base Units</th></tr></thead>
+                            <tbody>
+                                <tr><td>Frequency</td><td>hertz</td><td>Hz</td><td>$$s^{-1}$$</td></tr>
+                                <tr><td>Force</td><td>newton</td><td>N</td><td>$$kg \cdot m \cdot s^{-2}$$</td></tr>
+                                <tr><td>Pressure</td><td>pascal</td><td>Pa</td><td>$$N/m^2$$</td></tr>
+                                <tr><td>Energy / Work</td><td>joule</td><td>J</td><td>$$N \cdot m$$</td></tr>
+                                <tr><td>Power</td><td>watt</td><td>W</td><td>$$J/s$$</td></tr>
+                                <tr><td>Electric Current</td><td>ampere</td><td>A</td><td>(Base Unit)</td></tr>
+                                <tr><td>Voltage</td><td>volt</td><td>V</td><td>$$W/A$$</td></tr>
+                                <tr><td>Resistance</td><td>ohm</td><td>$$\Omega$$</td><td>$$V/A$$</td></tr>
+                                <tr><td>Capacitance</td><td>farad</td><td>F</td><td>$$C/V$$ (Coulombs per Volt)</td></tr>
+                                <tr><td>Inductance</td><td>henry</td><td>H</td><td>$$V \cdot s / A$$</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <hr class="my-8">
+
+                    <h3 id="units-prefixes" class="text-xl font-semibold">2. Common SI Prefixes</h3>
+                    <div class="info-box"><p>Making Numbers Manageable</p>Prefixes are used to represent very large or very small quantities conveniently. Always convert values to their base unit (without a prefix) before using them in a formula.</div>
+                    <div class="overflow-x-auto mt-4">
+                        <table class="w-full text-left border rounded-lg math-table">
+                            <thead class="bg-gray-100"><tr><th class="p-3">Prefix</th><th class="p-3">Symbol</th><th class="p-3">Multiplier</th></tr></thead>
+                            <tbody>
+                                <tr><td>giga</td><td>G</td><td>$$10^9$$ (billion)</td></tr>
+                                <tr><td>mega</td><td>M</td><td>$$10^6$$ (million)</td></tr>
+                                <tr><td>kilo</td><td>k</td><td>$$10^3$$ (thousand)</td></tr>
+                                <tr><td>milli</td><td>m</td><td>$$10^{-3}$$ (thousandth)</td></tr>
+                                <tr><td>micro</td><td>$$\mu$$</td><td>$$10^{-6}$$ (millionth)</td></tr>
+                                <tr><td>nano</td><td>n</td><td>$$10^{-9}$$ (billionth)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="example-box">
+                        <p>Example: Convert 250 milliamps (mA) to amps (A) and 0.05 megaohms (M$$\Omega$$) to ohms ($$\Omega$$).</p>
+                        <p class="mt-2">$$ 250 \text{ mA} = 250 \times 10^{-3} \text{ A} = 0.25 \text{ A} $$</p>
+                        <p class="mt-2">$$ 0.05 \text{ M}\Omega = 0.05 \times 10^6 \, \Omega = 50,000 \, \Omega \text{ (or } 50 \text{ k}\Omega) $$</p>
+                    </div>
+
+                    <hr class="my-8">
+
+                    <h3 id="units-notation" class="text-xl font-semibold">3. A Note on Notation</h3>
+                    <div class="info-box">
+                        <p>Understanding Negative Exponents</p>
+                        The notation with a negative exponent is an alternative way of writing "per". They mean the same thing and are used interchangeably.
+                        <ul>
+                            <li class="mt-2">$$ ms^{-1} $$ is the same as "metres per second" or $$ \frac{m}{s} $$.</li>
+                            <li class="mt-2">$$ ms^{-2} $$ is the same as "metres per second squared" or $$ \frac{m}{s^2} $$.</li>
+                        </ul>
+                    </div>
+                </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 HNC Maths Master Reference. All rights reserved.</p>
+            <p class="text-sm mt-1">Designed with a modern aesthetic inspired by Uiverse.io</p>
+        </div>
+    </footer>
+
+    <script src="navigation.js"></script>
+</body>
+</html>
