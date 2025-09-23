@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sine & Cosine Calculus - HNC Engineering Mathematics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HNC Engineering Mathematics</h1>
+            <p>Sine & Cosine Calculus - Analyzing Oscillatory Systems</p>
+        </div>
+    </header>
+
+    <div class="container grid-layout">
+        <aside id="navigation-placeholder"></aside>
+
+        <main>
+            <h1>Calculus of Sine & Cosine Functions</h1>
+            
+            <div class="info-box">
+                <p>Dynamic Analysis of Periodic Systems</p>
+                The calculus of trigonometric functions is essential for analyzing oscillatory motion, AC circuits, mechanical vibrations, and wave phenomena in engineering systems.
+            </div>
+
+            <h2 id="sincos-differentiation">1. Fundamental Differentiation Rules</h2>
+            
+            <div class="info-box">
+                <p>Critical Note: Radian Measure Required</p>
+                These differentiation rules are valid only when angles are measured in radians. Using degrees will produce incorrect results due to the fundamental limit definition of derivatives.
+            </div>
+
+            <h3>Basic Differentiation Formulas</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Function</th>
+                        <th>Derivative</th>
+                        <th>Engineering Application</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>\( \frac{d}{dx}(\sin x) = \cos x \)</td>
+                        <td>\( \cos x \)</td>
+                        <td>Velocity from displacement</td>
+                    </tr>
+                    <tr>
+                        <td>\( \frac{d}{dx}(\cos x) = -\sin x \)</td>
+                        <td>\( -\sin x \)</td>
+                        <td>Acceleration from velocity</td>
+                    </tr>
+                    <tr>
+                        <td>\( \frac{d}{dx}(\sin kx) = k\cos kx \)</td>
+                        <td>\( k\cos kx \)</td>
+                        <td>Frequency-dependent systems</td>
+                    </tr>
+                    <tr>
+                        <td>\( \frac{d}{dx}(\cos kx) = -k\sin kx \)</td>
+                        <td>\( -k\sin kx \)</td>
+                        <td>Phase-shifted oscillations</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Chain Rule Applications</h4>
+            <div class="math-block">
+                <p><strong>General Forms:</strong></p>
+                <p>\( \frac{d}{dx}[\sin f(x)] = f'(x)\cos f(x) \)</p>
+                <p>\( \frac{d}{dx}[\cos f(x)] = -f'(x)\sin f(x) \)</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: AC Voltage Rate of Change</strong></p>
+                <p>An AC voltage is given by \( v = 200\sin\theta \) volts. Find \( \frac{dv}{d\theta} \) when \( \theta = 0.86 \) radians.</p>
+                
+                <p><strong>Step 1: Differentiate</strong><br>
+                \( \frac{dv}{d\theta} = 200\cos\theta \)</p>
+                
+                <p><strong>Step 2: Evaluate at θ = 0.86 rad</strong><br>
+                \( \frac{dv}{d\theta} = 200\cos(0.86) \approx 200 \times 0.6525 = 130.5 \) V/rad</p>
+                
+                <p><strong>Electrical Engineering:</strong> This represents how quickly voltage changes with phase angle in AC systems.</p>
+            </div>
+
+            <h2 id="sincos-graphical">2. Graphical Interpretation and Slope Analysis</h2>
+
+            <div class="info-box">
+                <p>Visualizing Trigonometric Derivatives</p>
+                The derivative of a trigonometric function represents the slope of the tangent line at any point on the curve, providing insight into the function's behavior.
+            </div>
+
+            <h3>Key Slope Characteristics</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Function</th>
+                        <th>Maximum Slope</th>
+                        <th>Zero Slope Points</th>
+                        <th>Slope Pattern</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>\( y = \sin x \)</td>
+                        <td>±1 at \( x = \frac{\pi}{2} + n\pi \)</td>
+                        <td>\( x = n\pi \)</td>
+                        <td>Cosine pattern</td>
+                    </tr>
+                    <tr>
+                        <td>\( y = \cos x \)</td>
+                        <td>±1 at \( x = n\pi \)</td>
+                        <td>\( x = \frac{\pi}{2} + n\pi \)</td>
+                        <td>Negative sine pattern</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>Example: Cosine Function Gradient</strong></p>
+                <p>Find the gradient of \( y = 100\cos\theta \) at \( \theta = 5.2 \) radians.</p>
+                
+                <p><strong>Step 1: Differentiate</strong><br>
+                \( \frac{dy}{d\theta} = -100\sin\theta \)</p>
+                
+                <p><strong>Step 2: Evaluate</strong><br>
+                \( \frac{dy}{d\theta} = -100\sin(5.2) = -100 \times (-0.88345) = 88.345 \)</p>
+                
+                <p><strong>Mechanical Systems:</strong> This gradient analysis helps in understanding velocity profiles in oscillatory motion.</p>
+            </div>
+
+            <h2 id="sincos-integration">3. Integration of Trigonometric Functions</h2>
+
+            <div class="info-box">
+                <p>Reverse Process of Differentiation</p>
+                Integration of sine and cosine functions is essential for calculating areas, average values, and solving differential equations in engineering.
+            </div>
+
+            <h3>Basic Integration Formulas</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Integral</th>
+                        <th>Result</th>
+                        <th>Application</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>\( \int \sin x \, dx = -\cos x + C \)</td>
+                        <td>\( -\cos x + C \)</td>
+                        <td>Displacement from velocity</td>
+                    </tr>
+                    <tr>
+                        <td>\( \int \cos x \, dx = \sin x + C \)</td>
+                        <td>\( \sin x + C \)</td>
+                        <td>Velocity from acceleration</td>
+                    </tr>
+                    <tr>
+                        <td>\( \int \sin kx \, dx = -\frac{1}{k}\cos kx + C \)</td>
+                        <td>\( -\frac{\cos kx}{k} + C \)</td>
+                        <td>Frequency-domain analysis</td>
+                    </tr>
+                    <tr>
+                        <td>\( \int \cos kx \, dx = \frac{1}{k}\sin kx + C \)</td>
+                        <td>\( \frac{\sin kx}{k} + C \)</td>
+                        <td>Phase analysis</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>Example: Work Done by Variable Force</strong></p>
+                <p>A force varies as \( F(x) = 50\sin(2x) \) N. Calculate the work done from \( x = 0 \) to \( x = \frac{\pi}{4} \) m.</p>
+                
+                <p><strong>Step 1: Work = Integral of force</strong><br>
+                \( W = \int_0^{\pi/4} 50\sin(2x) \, dx \)</p>
+                
+                <p><strong>Step 2: Integrate</strong><br>
+                \( W = 50 \left[-\frac{1}{2}\cos(2x)\right]_0^{\pi/4} = -25\left[\cos(2x)\right]_0^{\pi/4} \)</p>
+                
+                <p><strong>Step 3: Evaluate limits</strong><br>
+                \( W = -25[\cos(\pi/2) - \cos(0)] = -25[0 - 1] = 25 \) J</p>
+                
+                <p><strong>Mechanical Engineering:</strong> This calculates energy transfer in systems with oscillatory forces.</p>
+            </div>
+
+            <h2 id="sincos-applications">4. Engineering Applications</h2>
+
+            <div class="info-box">
+                <p>Real-World Trigonometric Calculus</p>
+                Trigonometric calculus appears in diverse engineering fields including electrical systems, mechanical vibrations, and signal processing.
+            </div>
+
+            <h3>Application Areas</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Application</th>
+                        <th>Typical Equation</th>
+                        <th>Calculus Operation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Electrical</strong></td>
+                        <td>AC circuit analysis</td>
+                        <td>\( i(t) = I_m\sin(\omega t) \)</td>
+                        <td>\( v_L = L\frac{di}{dt} \)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mechanical</strong></td>
+                        <td>Simple harmonic motion</td>
+                        <td>\( x(t) = A\sin(\omega t) \)</td>
+                        <td>\( v = \frac{dx}{dt}, a = \frac{d^2x}{dt^2} \)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Civil</strong></td>
+                        <td>Wave propagation</td>
+                        <td>\( y(x,t) = A\sin(kx - \omega t) \)</td>
+                        <td>Partial derivatives</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Control</strong></td>
+                        <td>System response</td>
+                        <td>\( \theta(t) = \theta_0 e^{-\zeta t}\cos(\omega_d t) \)</td>
+                        <td>Damped derivatives</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>Example: Torque Rate of Change</strong></p>
+                <p>A variable torque is given by \( T = 2000\sin\theta + 3000\cos\theta \) N·m. Find \( \frac{dT}{d\theta} \) at \( \theta = \frac{\pi}{4} \) rad.</p>
+                
+                <p><strong>Step 1: Differentiate term by term</strong><br>
+                \( \frac{dT}{d\theta} = 2000\cos\theta - 3000\sin\theta \)</p>
+                
+                <p><strong>Step 2: Evaluate at θ = π/4</strong><br>
+                \( \frac{dT}{d\theta} = 2000\cos(\pi/4) - 3000\sin(\pi/4) \)<br>
+                \( = 2000\left(\frac{\sqrt{2}}{2}\right) - 3000\left(\frac{\sqrt{2}}{2}\right) = 1414.2 - 2121.3 = -707.1 \) N·m/rad</p>
+                
+                <p><strong>Rotational Dynamics:</strong> This indicates how quickly torque changes with angular position in rotating machinery.</p>
+            </div>
+
+            <h2 id="sincos-advanced">5. Advanced Techniques and Patterns</h2>
+
+            <div class="info-box">
+                <p>Higher-Order Derivatives and Series</p>
+                Repeated differentiation of trigonometric functions reveals periodic patterns that are useful in Taylor series expansions and differential equations.
+            </div>
+
+            <h3>Higher-Order Derivatives</h3>
+            <div class="math-block">
+                <p><strong>Sine Function Pattern:</strong></p>
+                <p>\( y = \sin x \Rightarrow y' = \cos x \Rightarrow y'' = -\sin x \Rightarrow y''' = -\cos x \Rightarrow y^{(4)} = \sin x \)</p>
+                <p><strong>Cycle repeats every 4 derivatives</strong></p>
+            </div>
+
+            <h3>Taylor Series Expansions</h3>
+            <div class="math-block">
+                <p>\( \sin x = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \cdots \)</p>
+                <p>\( \cos x = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \cdots \)</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Fourth Derivative of Sine</strong></p>
+                <p>Find the fourth derivative of \( y = 3\sin(2x) \).</p>
+                
+                <p><strong>Step 1: First derivative</strong><br>
+                \( y' = 3\cdot 2\cos(2x) = 6\cos(2x) \)</p>
+                
+                <p><strong>Step 2: Second derivative</strong><br>
+                \( y'' = 6\cdot (-2\sin(2x)) = -12\sin(2x) \)</p>
+                
+                <p><strong>Step 3: Third derivative</strong><br>
+                \( y''' = -12\cdot 2\cos(2x) = -24\cos(2x) \)</p>
+                
+                <p><strong>Step 4: Fourth derivative</strong><br>
+                \( y^{(4)} = -24\cdot (-2\sin(2x)) = 48\sin(2x) \)</p>
+                
+                <p><strong>Pattern Recognition:</strong> \( \frac{d^4}{dx^4}[A\sin(kx)] = Ak^4\sin(kx) \)</p>
+                
+                <p><strong>Vibration Analysis:</strong> Higher derivatives relate to jerk and jounce in mechanical systems.</p>
+            </div>
+
+            <h2 id="sincos-optimization">6. Optimization with Trigonometric Functions</h2>
+
+            <div class="info-box">
+                <p>Finding Maximum and Minimum Values</p>
+                Trigonometric calculus is essential for optimizing oscillatory systems, finding resonance frequencies, and determining extreme values in periodic phenomena.
+            </div>
+
+            <h3>Optimization Procedure</h3>
+            <div class="math-block">
+                <p><strong>Step 1:</strong> Find derivative and set to zero</p>
+                <p><strong>Step 2:</strong> Solve trigonometric equation</p>
+                <p><strong>Step 3:</strong> Use second derivative test</p>
+                <p><strong>Step 4:</strong> Consider periodic nature for global extrema</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Maximum Power Transfer</strong></p>
+                <p>In an AC circuit, power is given by \( P(\theta) = 1000\sin\theta\cos\theta \) watts. Find the angle θ that maximizes power.</p>
+                
+                <p><strong>Step 1: Simplify using identity</strong><br>
+                \( P(\theta) = 500\sin(2\theta) \) (using \( 2\sin\theta\cos\theta = \sin 2\theta \))</p>
+                
+                <p><strong>Step 2: Differentiate</strong><br>
+                \( P'(\theta) = 1000\cos(2\theta) \)</p>
+                
+                <p><strong>Step 3: Set derivative to zero</strong><br>
+                \( 1000\cos(2\theta) = 0 \Rightarrow \cos(2\theta) = 0 \)<br>
+                \( 2\theta = \frac{\pi}{2} + n\pi \Rightarrow \theta = \frac{\pi}{4} + \frac{n\pi}{2} \)</p>
+                
+                <p><strong>Step 4: Second derivative test</strong><br>
+                \( P''(\theta) = -2000\sin(2\theta) \)<br>
+                At \( \theta = \pi/4 \): \( P''(\pi/4) = -2000\sin(\pi/2) = -2000 < 0 \) ⇒ Maximum</p>
+                
+                <p><strong>Electrical Design:</strong> This optimization ensures maximum power delivery in AC systems.</p>
+            </div>
+
+            <div class="key-point">
+                <strong>Engineering Analysis:</strong> Trigonometric calculus provides the mathematical foundation for analyzing and optimizing oscillatory systems across engineering disciplines. Mastery of these techniques enables engineers to design efficient AC circuits, predict mechanical vibrations, and solve wave propagation problems.
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 HNC Engineering Mathematics. All rights reserved.</p>
+            <p>Sine & Cosine Calculus Reference for Engineering Applications</p>
+        </div>
+    </footer>
+
+    <script src="navigation.js"></script>
+</body>
+</html>

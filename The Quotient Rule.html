@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Quotient Rule - HNC Engineering Mathematics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HNC Engineering Mathematics</h1>
+            <p>The Quotient Rule - Differentiation of Rational Functions</p>
+        </div>
+    </header>
+
+    <div class="container grid-layout">
+        <aside id="navigation-placeholder"></aside>
+
+        <main>
+            <h1>The Quotient Rule</h1>
+            
+            <div class="info-box">
+                <p>Differentiating Ratios and Rational Functions</p>
+                The quotient rule provides a systematic method for differentiating functions that are expressed as ratios of two other differentiable functions. This is essential for analyzing rates of change in engineering systems involving ratios, efficiencies, and proportional relationships.
+            </div>
+
+            <h2 id="quotient-fundamentals">1. Quotient Rule Fundamentals</h2>
+            
+            <div class="info-box">
+                <p>Mathematical Foundation</p>
+                When a function can be expressed as the quotient of two other functions, the derivative follows a specific pattern that accounts for the interaction between numerator and denominator changes.
+            </div>
+
+            <h3>Formal Definition</h3>
+            <div class="math-block">
+                <p>If \( y = \frac{u(x)}{v(x)} \) where both \( u(x) \) and \( v(x) \) are differentiable and \( v(x) \neq 0 \), then:</p>
+                <p>$$ \frac{dy}{dx} = \frac{v(x) \cdot u'(x) - u(x) \cdot v'(x)}{[v(x)]^2} $$</p>
+            </div>
+
+            <h4>Mnemonic Devices</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mnemonic</th>
+                        <th>Formula</th>
+                        <th>Memory Aid</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>LoDHi - HiDLo</strong></td>
+                        <td>\( \frac{\text{Lo}\cdot\text{DHi} - \text{Hi}\cdot\text{DLo}}{\text{Lo}^2} \)</td>
+                        <td>"Low D High minus High D Low over Low squared"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>VDNU - UNDV</strong></td>
+                        <td>\( \frac{v\cdot\frac{du}{dx} - u\cdot\frac{dv}{dx}}{v^2} \)</td>
+                        <td>Alphabetical order with minus sign</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>Example 1: Basic Quotient Rule Application</strong></p>
+                <p>Find \( \frac{dy}{dx} \) for \( y = \frac{x^2}{x-1} \).</p>
+                
+                <p><strong>Step 1: Identify u(x) and v(x)</strong><br>
+                Let \( u(x) = x^2 \), \( v(x) = x-1 \)</p>
+                
+                <p><strong>Step 2: Compute derivatives</strong><br>
+                \( u'(x) = 2x \), \( v'(x) = 1 \)</p>
+                
+                <p><strong>Step 3: Apply quotient rule</strong><br>
+                \( \frac{dy}{dx} = \frac{(x-1)(2x) - (x^2)(1)}{(x-1)^2} \)</p>
+                
+                <p><strong>Step 4: Simplify numerator</strong><br>
+                \( = \frac{2x^2 - 2x - x^2}{(x-1)^2} = \frac{x^2 - 2x}{(x-1)^2} \)</p>
+                
+                <p><strong>Step 5: Factor if possible</strong><br>
+                \( = \frac{x(x - 2)}{(x-1)^2} \)</p>
+                
+                <p><strong>Engineering Interpretation:</strong> This derivative represents the rate of change of a ratio, useful in efficiency calculations and optimization problems.</p>
+            </div>
+
+            <h2 id="quotient-applications">2. Engineering Applications</h2>
+
+            <div class="info-box">
+                <p>Real-World Quotient Rule Usage</p>
+                The quotient rule appears frequently in engineering calculations involving ratios, efficiencies, concentrations, and proportional relationships.
+            </div>
+
+            <h3>Common Engineering Scenarios</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Application</th>
+                        <th>Function Form</th>
+                        <th>Engineering Significance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Efficiency Calculations</strong></td>
+                        <td>\( \eta = \frac{P_{out}}{P_{in}} \)</td>
+                        <td>Rate of efficiency change with operating conditions</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Concentration Gradients</strong></td>
+                        <td>\( C = \frac{mass}{volume} \)</td>
+                        <td>Chemical engineering process control</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Stress-Strain Relationships</strong></td>
+                        <td>\( E = \frac{\sigma}{\epsilon} \)</td>
+                        <td>Material property variations</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Financial Ratios</strong></td>
+                        <td>\( ROI = \frac{profit}{investment} \)</td>
+                        <td>Economic optimization</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>Example 2: Efficiency Optimization</strong></p>
+                <p>A system's efficiency is given by \( \eta(t) = \frac{2t^2 + 3t}{t^2 + 1} \), where t is operating time. Find how efficiency changes with time.</p>
+                
+                <p><strong>Step 1: Identify components</strong><br>
+                \( u(t) = 2t^2 + 3t \), \( v(t) = t^2 + 1 \)<br>
+                \( u'(t) = 4t + 3 \), \( v'(t) = 2t \)</p>
+                
+                <p><strong>Step 2: Apply quotient rule</strong><br>
+                \( \frac{d\eta}{dt} = \frac{(t^2 + 1)(4t + 3) - (2t^2 + 3t)(2t)}{(t^2 + 1)^2} \)</p>
+                
+                <p><strong>Step 3: Expand numerator</strong><br>
+                \( = \frac{4t^3 + 3t^2 + 4t + 3 - (4t^3 + 6t^2)}{(t^2 + 1)^2} \)<br>
+                \( = \frac{4t^3 + 3t^2 + 4t + 3 - 4t^3 - 6t^2}{(t^2 + 1)^2} \)<br>
+                \( = \frac{-3t^2 + 4t + 3}{(t^2 + 1)^2} \)</p>
+                
+                <p><strong>Step 4: Critical points analysis</strong><br>
+                Set numerator = 0: \( -3t^2 + 4t + 3 = 0 \)<br>
+                \( 3t^2 - 4t - 3 = 0 \)<br>
+                \( t = \frac{4 \pm \sqrt{16 + 36}}{6} = \frac{4 \pm \sqrt{52}}{6} \approx \frac{4 \pm 7.21}{6} \)<br>
+                \( t \approx 1.87 \) hours (positive root only)</p>
+                
+                <p><strong>Engineering Insight:</strong> Maximum efficiency occurs at t ≈ 1.87 hours.</p>
+            </div>
+
+            <h2 id="quotient-techniques">3. Advanced Techniques and Special Cases</h2>
+
+            <div class="info-box">
+                <p>Handling Complex Quotients</p>
+                Some quotient rule applications require additional techniques such as chain rule combinations, trigonometric functions, or exponential expressions.
+            </div>
+
+            <h3>Special Case: Reciprocal Rule</h3>
+            <div class="math-block">
+                <p>When \( y = \frac{1}{v(x)} \), the quotient rule simplifies to:</p>
+                <p>$$ \frac{dy}{dx} = -\frac{v'(x)}{[v(x)]^2} $$</p>
+            </div>
+
+            <h3>Trigonometric Quotients</h3>
+            <div class="example-box">
+                <p><strong>Example 3: Trigonometric Function</strong></p>
+                <p>Differentiate \( y = \frac{\sin x}{1 + \cos x} \).</p>
+                
+                <p><strong>Step 1: Identify components</strong><br>
+                \( u(x) = \sin x \), \( v(x) = 1 + \cos x \)<br>
+                \( u'(x) = \cos x \), \( v'(x) = -\sin x \)</p>
+                
+                <p><strong>Step 2: Apply quotient rule</strong><br>
+                \( \frac{dy}{dx} = \frac{(1 + \cos x)(\cos x) - (\sin x)(-\sin x)}{(1 + \cos x)^2} \)<br>
+                \( = \frac{\cos x + \cos^2 x + \sin^2 x}{(1 + \cos x)^2} \)</p>
+                
+                <p><strong>Step 3: Simplify using identity</strong><br>
+                \( \cos^2 x + \sin^2 x = 1 \)<br>
+                \( = \frac{\cos x + 1}{(1 + \cos x)^2} = \frac{1}{1 + \cos x} \)</p>
+                
+                <p><strong>Mathematical Insight:</strong> This demonstrates how quotient rule can lead to simplified forms.</p>
+            </div>
+
+            <h2 id="quotient-vs-product">4. Quotient Rule vs Product Rule</h2>
+
+            <div class="info-box">
+                <p>Choosing the Right Method</p>
+                Sometimes functions can be differentiated using either the quotient rule or product rule. Understanding when to use each method improves efficiency and reduces errors.
+            </div>
+
+            <h3>Comparison Table</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Quotient Rule</th>
+                        <th>Product Rule</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Function Form</strong></td>
+                        <td>\( y = \frac{u}{v} \)</td>
+                        <td>\( y = u \cdot v \)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Formula</strong></td>
+                        <td>\( \frac{v u' - u v'}{v^2} \)</td>
+                        <td>\( u'v + uv' \)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>When to Use</strong></td>
+                        <td>Explicit quotient form</td>
+                        <td>Explicit product form</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Conversion</strong></td>
+                        <td>\( \frac{u}{v} = u \cdot v^{-1} \)</td>
+                        <td>Product rule with negative exponent</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>Example 4: Alternative Method</strong></p>
+                <p>Differentiate \( y = \frac{x^2}{x-1} \) using product rule instead of quotient rule.</p>
+                
+                <p><strong>Step 1: Rewrite as product</strong><br>
+                \( y = x^2 \cdot (x-1)^{-1} \)</p>
+                
+                <p><strong>Step 2: Apply product rule</strong><br>
+                Let \( u = x^2 \), \( v = (x-1)^{-1} \)<br>
+                \( u' = 2x \), \( v' = -(x-1)^{-2} \)<br>
+                \( y' = u'v + uv' = 2x(x-1)^{-1} + x^2[-(x-1)^{-2}] \)</p>
+                
+                <p><strong>Step 3: Common denominator</strong><br>
+                \( = \frac{2x}{x-1} - \frac{x^2}{(x-1)^2} = \frac{2x(x-1) - x^2}{(x-1)^2} \)<br>
+                \( = \frac{2x^2 - 2x - x^2}{(x-1)^2} = \frac{x^2 - 2x}{(x-1)^2} \)</p>
+                
+                <p><strong>Verification:</strong> Same result as Example 1, confirming both methods are valid.</p>
+            </div>
+
+            <h2 id="quotient-practice">5. Common Pitfalls and Practice</h2>
+
+            <div class="info-box">
+                <p>Avoiding Common Mistakes</p>
+                Proper application of the quotient rule requires attention to detail, especially with sign management and simplification.
+            </div>
+
+            <h3>Common Errors to Avoid</h3>
+            <div class="warning">
+                <p><strong>Sign Errors:</strong> Remember the minus sign in the numerator</p>
+                <p><strong>Square the Denominator:</strong> \( v^2 \) means square the entire denominator</p>
+                <p><strong>Order Matters:</strong> \( v \cdot u' - u \cdot v' \) not \( u \cdot v' - v \cdot u' \)</p>
+                <p><strong>Simplify Completely:</strong> Always factor and reduce when possible</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example 5: Complex Quotient</strong></p>
+                <p>Differentiate \( y = \frac{e^x \cdot \ln x}{x^2 + 1} \).</p>
+                
+                <p><strong>Step 1: Identify components</strong><br>
+                \( u(x) = e^x \ln x \), \( v(x) = x^2 + 1 \)</p>
+                
+                <p><strong>Step 2: Differentiate u(x) using product rule</strong><br>
+                \( u'(x) = e^x \ln x + e^x \cdot \frac{1}{x} = e^x(\ln x + \frac{1}{x}) \)<br>
+                \( v'(x) = 2x \)</p>
+                
+                <p><strong>Step 3: Apply quotient rule</strong><br>
+                \( y' = \frac{(x^2 + 1)e^x(\ln x + \frac{1}{x}) - e^x \ln x \cdot 2x}{(x^2 + 1)^2} \)</p>
+                
+                <p><strong>Step 4: Factor common terms</strong><br>
+                \( = \frac{e^x[(x^2 + 1)(\ln x + \frac{1}{x}) - 2x \ln x]}{(x^2 + 1)^2} \)</p>
+                
+                <p><strong>Engineering Application:</strong> Such functions appear in growth models and reliability engineering.</p>
+            </div>
+
+            <div class="key-point">
+                <strong>Differentiation Strategy:</strong> The quotient rule is essential for handling rational functions. Always consider whether simplification or alternative methods might be more efficient. Practice recognizing when to use quotient rule versus product rule with negative exponents.
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 HNC Engineering Mathematics. All rights reserved.</p>
+            <p>Quotient Rule Reference for Engineering Applications</p>
+        </div>
+    </footer>
+
+    <script src="navigation.js"></script>
+</body>
+</html>

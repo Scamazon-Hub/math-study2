@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AC Circuit Analysis - HNC Engineering Mathematics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #64748b;
+            --accent: #f59e0b;
+            --background: #f8fafc;
+            --surface: #ffffff;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--background);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2rem;
+            margin: 2rem auto;
+        }
+        
+        aside {
+            background: var(--surface);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            height: fit-content;
+        }
+        
+        main {
+            background: var(--surface);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        h2 {
+            color: var(--primary-dark);
+            font-size: 2rem;
+            font-weight: 700;
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+            padding-left: 0.5rem;
+            border-left: 4px solid var(--primary);
+        }
+        
+        h4 {
+            color: var(--secondary);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.75rem;
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, #e0f2fe, #f0f9ff);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .info-box p:first-child {
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .example-box {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .example-box p:first-child {
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            background: var(--surface);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        th {
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:nth-child(even) {
+            background: #f8fafc;
+        }
+        
+        .math-block {
+            background: #f1f5f9;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 6px;
+            border-left: 3px solid var(--primary);
+            font-family: 'Fira Code', monospace;
+            overflow-x: auto;
+        }
+        
+        ul, ol {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .nav-section {
+            margin-bottom: 1.5rem;
+        }
+        
+        .nav-section h3 {
+            font-size: 1.1rem;
+            margin: 0 0 0.75rem;
+            color: var(--primary);
+            border-left: none;
+            padding-left: 0;
+        }
+        
+        .nav-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .nav-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.5rem;
+            display: block;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+        
+        .nav-links a:hover {
+            background: #f1f5f9;
+            color: var(--primary);
+        }
+        
+        footer {
+            background: var(--primary-dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .concept-diagram {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .concept-diagram img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+        
+        .key-point {
+            background: #f0fdf4;
+            border-left: 4px solid var(--success);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .warning {
+            background: #fffbeb;
+            border-left: 4px solid var(--warning);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .interactive-element {
+            background: #eff6ff;
+            border: 1px solid var(--primary);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            .grid-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            aside {
+                order: 2;
+            }
+            
+            main {
+                order: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HNC Engineering Mathematics</h1>
+            <p>Comprehensive AC Circuit Analysis with Detailed Examples</p>
+        </div>
+    </header>
+
+    <div class="container grid-layout">
+        <aside>
+            <div class="nav-section">
+                <h3>AC Circuit Analysis</h3>
+                <ul class="nav-links">
+                    <li><a href="#ac-fundamentals">AC Fundamentals</a></li>
+                    <li><a href="#phasor-representation">Phasor Representation</a></li>
+                    <li><a href="#impedance-admittance">Impedance & Admittance</a></li>
+                    <li><a href="#circuit-analysis">Circuit Analysis Methods</a></li>
+                    <li><a href="#power-analysis">Power Analysis</a></li>
+                    <li><a href="#resonance">Resonance Circuits</a></li>
+                    <li><a href="#three-phase">Three-Phase Systems</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <h3>Key Formulas</h3>
+                <ul class="nav-links">
+                    <li><a href="#impedance-formulas">Impedance Formulas</a></li>
+                    <li><a href="#power-formulas">Power Formulas</a></li>
+                    <li><a href="#conversion-formulas">Conversion Formulas</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <main>
+            <h2>AC Circuit Analysis</h2>
+            
+            <div class="info-box">
+                <p>Engineering Application of Complex Numbers</p>
+                Complex numbers provide an elegant mathematical framework for analyzing AC circuits. By representing sinusoidal quantities as phasors (complex numbers with magnitude and phase), we transform differential equations into algebraic equations, significantly simplifying circuit analysis.
+            </div>
+
+            <h3 id="ac-fundamentals">1. AC Fundamentals and Waveform Characteristics</h3>
+            
+            <div class="info-box">
+                <p>Sinusoidal Waveforms</p>
+                Alternating Current (AC) systems are dominated by sinusoidal waveforms due to their mathematical properties and practical generation through rotating machinery. The general form of a sinusoidal voltage or current is:
+            </div>
+            
+            <div class="math-block">$$ v(t) = V_m\sin(\omega t + \phi) \quad \text{or} \quad v(t) = V_m\cos(\omega t + \phi) $$</div>
+            
+            <p><strong>Where:</strong></p>
+            <ul>
+                <li>\( V_m \) = Peak amplitude (volts or amperes)</li>
+                <li>\( \omega \) = Angular frequency (radians/second)</li>
+                <li>\( t \) = Time (seconds)</li>
+                <li>\( \phi \) = Phase angle (radians)</li>
+            </ul>
+            
+            <h4>Key AC Parameters</h4>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Symbol</th>
+                        <th>Formula</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Frequency</td>
+                        <td>\( f \)</td>
+                        <td>\( f = \frac{\omega}{2\pi} \)</td>
+                        <td>Number of cycles per second (Hz)</td>
+                    </tr>
+                    <tr>
+                        <td>Period</td>
+                        <td>\( T \)</td>
+                        <td>\( T = \frac{1}{f} = \frac{2\pi}{\omega} \)</td>
+                        <td>Time for one complete cycle (seconds)</td>
+                    </tr>
+                    <tr>
+                        <td>Angular Frequency</td>
+                        <td>\( \omega \)</td>
+                        <td>\( \omega = 2\pi f \)</td>
+                        <td>Radians per second</td>
+                    </tr>
+                    <tr>
+                        <td>Peak Value</td>
+                        <td>\( V_m \) or \( I_m \)</td>
+                        <td>Maximum amplitude</td>
+                        <td>Maximum instantaneous value</td>
+                    </tr>
+                    <tr>
+                        <td>RMS Value</td>
+                        <td>\( V_{rms} \) or \( I_{rms} \)</td>
+                        <td>\( V_{rms} = \frac{V_m}{\sqrt{2}} \)</td>
+                        <td>DC equivalent for power calculation</td>
+                    </tr>
+                    <tr>
+                        <td>Peak-to-Peak</td>
+                        <td>\( V_{pp} \) or \( I_{pp} \)</td>
+                        <td>\( V_{pp} = 2V_m \)</td>
+                        <td>Difference between maximum and minimum</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="key-point">
+                <strong>Engineering Note:</strong> Unless specified otherwise, AC voltages and currents are typically quoted as RMS values. For example, "230V AC" means 230V RMS, with a peak value of approximately 325V.
+            </div>
+            
+            <div class="example-box">
+                <p>Example: Complete AC Waveform Analysis</p>
+                <p>An AC voltage is given by \( v(t) = 120\sin(100\pi t + \frac{\pi}{4}) \) volts. Determine all key parameters.</p>
+                
+                <p><strong>Solution:</strong></p>
+                <p><strong>a) Peak Voltage:</strong> \( V_m = 120 \) V</p>
+                <p><strong>b) RMS Voltage:</strong> \( V_{rms} = \frac{120}{\sqrt{2}} \approx 84.85 \) V</p>
+                <p><strong>c) Angular Frequency:</strong> \( \omega = 100\pi \approx 314.16 \) rad/s</p>
+                <p><strong>d) Frequency:</strong> \( f = \frac{\omega}{2\pi} = \frac{100\pi}{2\pi} = 50 \) Hz</p>
+                <p><strong>e) Period:</strong> \( T = \frac{1}{f} = \frac{1}{50} = 0.02 \) s = 20 ms</p>
+                <p><strong>f) Phase Angle:</strong> \( \phi = \frac{\pi}{4} = 45^\circ \) (voltage leads reference)</p>
+                <p><strong>g) Instantaneous voltage at t=10ms:</strong> 
+                \( v(0.01) = 120\sin(100\pi \times 0.01 + \frac{\pi}{4}) = 120\sin(\pi + \frac{\pi}{4}) = 120\sin(\frac{5\pi}{4}) \approx -84.85 \) V</p>
+            </div>
+
+            <h3 id="phasor-representation">2. Phasor Representation of AC Quantities</h3>
+            
+            <div class="info-box">
+                <p>Phasor Domain Transformation</p>
+                Phasors convert time-domain sinusoidal functions into complex numbers in the frequency domain. This transformation eliminates the time variable, simplifying analysis.
+            </div>
+            
+            <p><strong>Phasor Conversion:</strong> A sinusoidal function \( v(t) = V_m\cos(\omega t + \phi) \) is represented as a phasor \( \mathbf{V} = V_{rms} \angle \phi \).</p>
+            
+            <div class="math-block">$$ v(t) = V_m\cos(\omega t + \phi) \quad \Leftrightarrow \quad \mathbf{V} = V_{rms} \angle \phi = V_{rms} e^{j\phi} $$</div>
+            
+            <h4>Complex Number Forms</h4>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Form</th>
+                        <th>Expression</th>
+                        <th>Conversion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Rectangular</td>
+                        <td>\( a + jb \)</td>
+                        <td>\( a = |Z|\cos\theta, \quad b = |Z|\sin\theta \)</td>
+                    </tr>
+                    <tr>
+                        <td>Polar</td>
+                        <td>\( |Z| \angle \theta \)</td>
+                        <td>\( |Z| = \sqrt{a^2 + b^2}, \quad \theta = \tan^{-1}(\frac{b}{a}) \)</td>
+                    </tr>
+                    <tr>
+                        <td>Exponential</td>
+                        <td>\( |Z| e^{j\theta} \)</td>
+                        <td>Euler's formula: \( e^{j\theta} = \cos\theta + j\sin\theta \)</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="example-box">
+                <p>Example: Phasor Operations</p>
+                <p>Convert the following time-domain functions to phasor form:</p>
+                <p>a) \( i_1(t) = 10\cos(377t + 30^\circ) \) A</p>
+                <p>b) \( v_2(t) = 5\sin(100\pi t - 45^\circ) \) V (convert to cosine first)</p>
+                
+                <p><strong>Solution:</strong></p>
+                <p><strong>a)</strong> \( I_1 = \frac{10}{\sqrt{2}} \angle 30^\circ \approx 7.07 \angle 30^\circ \) A</p>
+                <p><strong>b)</strong> First convert to cosine: \( \sin(\theta) = \cos(\theta - 90^\circ) \)</p>
+                <p>\( v_2(t) = 5\cos(100\pi t - 45^\circ - 90^\circ) = 5\cos(100\pi t - 135^\circ) \)</p>
+                <p>\( V_2 = \frac{5}{\sqrt{2}} \angle -135^\circ \approx 3.54 \angle -135^\circ \) V</p>
+            </div>
+
+            <h3 id="impedance-admittance">3. Impedance and Admittance</h3>
+            
+            <div class="info-box">
+                <p>Generalized Resistance</p>
+                Impedance (Z) extends the concept of resistance to AC circuits, accounting for both magnitude and phase relationships. Admittance (Y) is the reciprocal of impedance, particularly useful for parallel circuit analysis.
+            </div>
+            
+            <h4>Component Impedance Characteristics</h4>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Impedance (Z)</th>
+                        <th>Magnitude</th>
+                        <th>Phase Angle</th>
+                        <th>Power Dissipation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Resistor (R)</td>
+                        <td>\( Z_R = R \)</td>
+                        <td>\( R \)</td>
+                        <td>\( 0^\circ \)</td>
+                        <td>Dissipates real power</td>
+                    </tr>
+                    <tr>
+                        <td>Inductor (L)</td>
+                        <td>\( Z_L = j\omega L \)</td>
+                        <td>\( \omega L \)</td>
+                        <td>\( +90^\circ \)</td>
+                        <td>Stores energy in magnetic field</td>
+                    </tr>
+                    <tr>
+                        <td>Capacitor (C)</td>
+                        <td>\( Z_C = \frac{1}{j\omega C} = -j\frac{1}{\omega C} \)</td>
+                        <td>\( \frac{1}{\omega C} \)</td>
+                        <td>\( -90^\circ \)</td>
+                        <td>Stores energy in electric field</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="key-point">
+                <strong>Memory Aid:</strong> "ELI the ICE man" - E (voltage) leads I (current) in L (inductor), I leads E in C (capacitor).
+            </div>
+            
+            <div class="example-box">
+                <p>Example: Series RLC Circuit Analysis</p>
+                <p>A series RLC circuit has R = 100Ω, L = 0.5H, C = 10μF, connected to a 50Hz, 230V RMS supply. Calculate the total impedance, current, and voltage across each component.</p>
+                
+                <p><strong>Solution:</strong></p>
+                <p><strong>Step 1: Calculate angular frequency</strong><br>
+                \( \omega = 2\pi f = 2\pi(50) = 100\pi \approx 314.16 \) rad/s</p>
+                
+                <p><strong>Step 2: Calculate individual impedances</strong><br>
+                \( Z_R = 100 \) Ω<br>
+                \( Z_L = j\omega L = j(314.16)(0.5) = j157.08 \) Ω<br>
+                \( Z_C = -j\frac{1}{\omega C} = -j\frac{1}{314.16 \times 10 \times 10^{-6}} = -j318.31 \) Ω</p>
+                
+                <p><strong>Step 3: Total impedance</strong><br>
+                \( Z_{total} = Z_R + Z_L + Z_C = 100 + j157.08 - j318.31 = 100 - j161.23 \) Ω</p>
+                <p>Magnitude: \( |Z| = \sqrt{100^2 + (-161.23)^2} \approx 189.47 \) Ω</p>
+                <p>Phase: \( \theta = \tan^{-1}(\frac{-161.23}{100}) \approx -58.17^\circ \)</p>
+                
+                <p><strong>Step 4: Circuit current</strong><br>
+                \( I = \frac{V}{Z} = \frac{230\angle 0^\circ}{189.47\angle -58.17^\circ} \approx 1.214\angle 58.17^\circ \) A</p>
+                
+                <p><strong>Step 5: Component voltages</strong><br>
+                \( V_R = I \times R = 1.214\angle 58.17^\circ \times 100 \approx 121.4\angle 58.17^\circ \) V<br>
+                \( V_L = I \times Z_L = 1.214\angle 58.17^\circ \times 157.08\angle 90^\circ \approx 190.7\angle 148.17^\circ \) V<br>
+                \( V_C = I \times Z_C = 1.214\angle 58.17^\circ \times 318.31\angle -90^\circ \approx 386.4\angle -31.83^\circ \) V</p>
+            </div>
+
+            <!-- Additional sections would continue here for Power Analysis, Resonance, Three-Phase Systems, etc. -->
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 HNC Engineering Mathematics. All rights reserved.</p>
+            <p>Comprehensive AC Circuit Analysis Reference</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple navigation highlighting
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('.nav-links a');
+            
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    links.forEach(l => l.style.background = '');
+                    this.style.background = '#e0f2fe';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

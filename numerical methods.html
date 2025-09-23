@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numerical Methods - HNC Engineering Mathematics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HNC Engineering Mathematics</h1>
+            <p>Numerical Methods - Computational Solutions for Engineering Problems</p>
+        </div>
+    </header>
+
+    <div class="container grid-layout">
+        <aside id="navigation-placeholder"></aside>
+
+        <main>
+            <h1>Numerical Methods</h1>
+            
+            <div class="info-box">
+                <p>Computational Engineering Analysis</p>
+                Numerical methods provide powerful techniques for solving complex engineering problems that lack analytical solutions. These methods form the foundation of computer-aided engineering, simulation software, and real-time control systems.
+            </div>
+
+            <h2 id="num-integration">1. Numerical Integration</h2>
+            
+            <div class="info-box">
+                <p>Approximating Areas and Volumes</p>
+                Numerical integration is essential when functions are too complex for analytical integration, when dealing with experimental data, or when computing volumes and areas in CAD/CAM systems.
+            </div>
+
+            <h3>Integration Methods Comparison</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Formula</th>
+                        <th>Accuracy</th>
+                        <th>Applications</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Trapezoidal Rule</strong></td>
+                        <td>\( \int_a^b f(x)dx \approx \frac{h}{2}[y_0 + y_n + 2\sum_{i=1}^{n-1} y_i] \)</td>
+                        <td>O(h²)</td>
+                        <td>General purpose, experimental data</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Simpson's 1/3 Rule</strong></td>
+                        <td>\( \int_a^b f(x)dx \approx \frac{h}{3}[y_0 + y_n + 4\sum y_{odd} + 2\sum y_{even}] \)</td>
+                        <td>O(h⁴)</td>
+                        <td>Smooth functions, even strips</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Simpson's 3/8 Rule</strong></td>
+                        <td>\( \int_a^b f(x)dx \approx \frac{3h}{8}[y_0 + y_n + 3\sum y_{1,2,4,5,...} + 2\sum y_{3,6,9,...}] \)</td>
+                        <td>O(h⁴)</td>
+                        <td>Multiple of 3 strips</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Error Analysis</h4>
+            <div class="math-block">
+                <p><strong>Trapezoidal Rule Error:</strong> \( E_T \approx -\frac{(b-a)^3}{12n^2}f''(\xi) \)</p>
+                <p><strong>Simpson's Rule Error:</strong> \( E_S \approx -\frac{(b-a)^5}{180n^4}f^{(4)}(\xi) \)</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Definite Integral Approximation</strong></p>
+                <p>Approximate \( \int_0^4 x^2 dx \) using 4 strips and compare methods.</p>
+                
+                <p><strong>Step 1: Calculate strip width and ordinates</strong><br>
+                \( h = \frac{4-0}{4} = 1 \)<br>
+                \( y_0 = 0^2 = 0 \), \( y_1 = 1^2 = 1 \), \( y_2 = 2^2 = 4 \), \( y_3 = 3^2 = 9 \), \( y_4 = 4^2 = 16 \)</p>
+                
+                <p><strong>Step 2: Apply Trapezoidal Rule</strong><br>
+                \( A \approx \frac{1}{2}[0 + 16 + 2(1 + 4 + 9)] = \frac{1}{2}[16 + 28] = 22 \)</p>
+                
+                <p><strong>Step 3: Apply Simpson's Rule</strong><br>
+                \( A \approx \frac{1}{3}[0 + 16 + 4(1 + 9) + 2(4)] = \frac{1}{3}[16 + 40 + 8] = \frac{64}{3} \approx 21.333 \)</p>
+                
+                <p><strong>Step 4: Compare with exact solution</strong><br>
+                Exact: \( \left[\frac{x^3}{3}\right]_0^4 = \frac{64}{3} \approx 21.333 \)<br>
+                Error (Trapezoidal): \( 22 - 21.333 = 0.667 \)<br>
+                Error (Simpson's): \( 0.000 \) (exact for quadratic functions)</p>
+                
+                <p><strong>Engineering Insight:</strong> Simpson's Rule gives exact results for polynomials up to degree 3, making it ideal for many engineering applications.</p>
+            </div>
+
+            <h2 id="num-roots">2. Root-Finding Algorithms</h2>
+
+            <div class="info-box">
+                <p>Solving Nonlinear Equations</p>
+                Root-finding methods are essential for solving equilibrium equations, finding operating points, and optimizing system parameters in engineering design.
+            </div>
+
+            <h3>Root-Finding Methods</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Principle</th>
+                        <th>Convergence</th>
+                        <th>Requirements</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Bisection Method</strong></td>
+                        <td>Interval halving</td>
+                        <td>Linear</td>
+                        <td>Bracket with sign change</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Newton-Raphson</strong></td>
+                        <td>Tangent line approximation</td>
+                        <td>Quadratic</td>
+                        <td>Function derivative</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Secant Method</strong></td>
+                        <td>Secant line approximation</td>
+                        <td>Superlinear</td>
+                        <td>Two initial guesses</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fixed Point Iteration</strong></td>
+                        <td>Iterative function evaluation</td>
+                        <td>Linear</td>
+                        <td>Contractive mapping</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Newton-Raphson Method</h4>
+            <div class="math-block">
+                <p><strong>Iterative Formula:</strong> \( x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)} \)</p>
+                <p><strong>Convergence Criterion:</strong> \( |x_{n+1} - x_n| < \epsilon \) or \( |f(x_{n+1})| < \epsilon \)</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Square Root Calculation</strong></p>
+                <p>Find \( \sqrt{2} \) using Newton-Raphson method with \( x_0 = 1 \).</p>
+                
+                <p><strong>Step 1: Formulate the problem</strong><br>
+                Let \( f(x) = x^2 - 2 = 0 \), so \( f'(x) = 2x \)</p>
+                
+                <p><strong>Step 2: First iteration</strong><br>
+                \( x_1 = 1 - \frac{1^2 - 2}{2 \times 1} = 1 - \frac{-1}{2} = 1.5 \)</p>
+                
+                <p><strong>Step 3: Second iteration</strong><br>
+                \( x_2 = 1.5 - \frac{1.5^2 - 2}{2 \times 1.5} = 1.5 - \frac{0.25}{3} \approx 1.4167 \)</p>
+                
+                <p><strong>Step 4: Third iteration</strong><br>
+                \( x_3 = 1.4167 - \frac{1.4167^2 - 2}{2 \times 1.4167} \approx 1.4142 \)</p>
+                
+                <p><strong>Convergence Analysis:</strong><br>
+                Exact value: \( \sqrt{2} \approx 1.41421356 \)<br>
+                Error after 3 iterations: \( \approx 0.00001356 \)</p>
+                
+                <p><strong>Engineering Application:</strong> This method is used in digital signal processing and control systems for real-time calculations.</p>
+            </div>
+
+            <h2 id="num-odes">3. Numerical Solutions of Differential Equations</h2>
+
+            <div class="info-box">
+                <p>Simulating Dynamic Systems</p>
+                Numerical ODE solvers are fundamental for simulating electrical circuits, mechanical vibrations, heat transfer, and fluid dynamics where analytical solutions are unavailable.
+            </div>
+
+            <h3>ODE Solution Methods</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Formula</th>
+                        <th>Accuracy</th>
+                        <th>Stability</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Euler's Method</strong></td>
+                        <td>\( y_{n+1} = y_n + hf(x_n, y_n) \)</td>
+                        <td>O(h)</td>
+                        <td>Conditional</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Improved Euler</strong></td>
+                        <td>\( y_{n+1} = y_n + \frac{h}{2}[f(x_n,y_n) + f(x_{n+1}, y_n + hf(x_n,y_n))] \)</td>
+                        <td>O(h²)</td>
+                        <td>Better</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Runge-Kutta 4th Order</strong></td>
+                        <td>\( y_{n+1} = y_n + \frac{h}{6}(k_1 + 2k_2 + 2k_3 + k_4) \)</td>
+                        <td>O(h⁴)</td>
+                        <td>Good</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Runge-Kutta 4th Order Method</h4>
+            <div class="math-block">
+                <p>\( k_1 = hf(x_n, y_n) \)</p>
+                <p>\( k_2 = hf(x_n + \frac{h}{2}, y_n + \frac{k_1}{2}) \)</p>
+                <p>\( k_3 = hf(x_n + \frac{h}{2}, y_n + \frac{k_2}{2}) \)</p>
+                <p>\( k_4 = hf(x_n + h, y_n + k_3) \)</p>
+                <p>\( y_{n+1} = y_n + \frac{1}{6}(k_1 + 2k_2 + 2k_3 + k_4) \)</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: RC Circuit Response</strong></p>
+                <p>Solve \( \frac{dv}{dt} = \frac{1}{RC}(V_s - v) \) with \( v(0) = 0 \), \( R = 1k\Omega \), \( C = 1\mu F \), \( V_s = 5V \), using Euler's method with \( h = 0.1ms \).</p>
+                
+                <p><strong>Step 1: Calculate parameters</strong><br>
+                \( RC = 1000 \times 10^{-6} = 0.001s \), \( \frac{1}{RC} = 1000s^{-1} \)</p>
+                
+                <p><strong>Step 2: First time step (t = 0.1ms)</strong><br>
+                \( \frac{dv}{dt} = 1000(5 - 0) = 5000V/s \)<br>
+                \( v_1 = 0 + 0.0001 \times 5000 = 0.5V \)</p>
+                
+                <p><strong>Step 3: Second time step (t = 0.2ms)</strong><br>
+                \( \frac{dv}{dt} = 1000(5 - 0.5) = 4500V/s \)<br>
+                \( v_2 = 0.5 + 0.0001 \times 4500 = 0.95V \)</p>
+                
+                <p><strong>Step 4: Compare with analytical solution</strong><br>
+                Analytical: \( v(t) = 5(1 - e^{-1000t}) \)<br>
+                At t = 0.2ms: \( v = 5(1 - e^{-0.2}) \approx 0.906V \)<br>
+                Error: \( 0.95 - 0.906 = 0.044V \)</p>
+                
+                <p><strong>Circuit Design:</strong> This simulation helps design filter circuits and timing components.</p>
+            </div>
+
+            <h2 id="num-linear">4. Linear Systems and Matrix Methods</h2>
+
+            <div class="info-box">
+                <p>Solving Large Systems of Equations</p>
+                Matrix methods are essential for structural analysis, electrical networks, and optimization problems involving multiple variables and constraints.
+            </div>
+
+            <h3>Linear System Solvers</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Algorithm</th>
+                        <th>Applications</th>
+                        <th>Efficiency</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Gaussian Elimination</strong></td>
+                        <td>Row reduction to upper triangular form</td>
+                        <td>Small to medium systems</td>
+                        <td>O(n³)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>LU Decomposition</strong></td>
+                        <td>A = LU, then solve Ly=b, Ux=y</td>
+                        <td>Multiple right-hand sides</td>
+                        <td>O(n³) decomposition</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Jacobi Iteration</strong></td>
+                        <td>Iterative diagonal dominance</td>
+                        <td>Large sparse systems</td>
+                        <td>O(n²) per iteration</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Gauss-Seidel</strong></td>
+                        <td>Improved iterative method</td>
+                        <td>Faster convergence</td>
+                        <td>O(n²) per iteration</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>Example: Structural Analysis</strong></p>
+                <p>Solve the system for truss member forces:</p>
+                <p>\( 2F_1 + 3F_2 = 10 \)<br>
+                \( F_1 - 2F_2 = -1 \)</p>
+                
+                <p><strong>Step 1: Matrix form</strong><br>
+                \( \begin{bmatrix} 2 & 3 \\ 1 & -2 \end{bmatrix} \begin{bmatrix} F_1 \\ F_2 \end{bmatrix} = \begin{bmatrix} 10 \\ -1 \end{bmatrix} \)</p>
+                
+                <p><strong>Step 2: Gaussian elimination</strong><br>
+                Row 2 ← 2×Row 2 - Row 1: \( \begin{bmatrix} 2 & 3 \\ 0 & -7 \end{bmatrix} \begin{bmatrix} F_1 \\ F_2 \end{bmatrix} = \begin{bmatrix} 10 \\ -12 \end{bmatrix} \)</p>
+                
+                <p><strong>Step 3: Back substitution</strong><br>
+                \( -7F_2 = -12 \Rightarrow F_2 = \frac{12}{7} \approx 1.714N \)<br>
+                \( 2F_1 + 3(1.714) = 10 \Rightarrow F_1 = \frac{10 - 5.142}{2} \approx 2.429N \)</p>
+                
+                <p><strong>Structural Engineering:</strong> These calculations ensure structural integrity and material selection.</p>
+            </div>
+
+            <h2 id="num-optimization">5. Optimization Techniques</h2>
+
+            <div class="info-box">
+                <p>Finding Optimal Solutions</p>
+                Optimization methods are used in design optimization, resource allocation, control systems, and machine learning to find the best possible solutions under constraints.
+            </div>
+
+            <h3>Optimization Algorithms</h3>
+            <div class="math-block">
+                <p><strong>Golden Section Search:</strong> Univariate optimization without derivatives</p>
+                <p><strong>Gradient Descent:</strong> \( x_{n+1} = x_n - \alpha \nabla f(x_n) \)</p>
+                <p><strong>Newton's Method (Optimization):</strong> \( x_{n+1} = x_n - [Hf(x_n)]^{-1} \nabla f(x_n) \)</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Minimum Cost Design</strong></p>
+                <p>Minimize cost function \( C(r,h) = 2\pi r^2 + 3\pi rh \) for a cylindrical tank with volume \( V = \pi r^2 h = 100m^3 \).</p>
+                
+                <p><strong>Step 1: Express h in terms of r</strong><br>
+                \( h = \frac{100}{\pi r^2} \)</p>
+                
+                <p><strong>Step 2: Substitute into cost function</strong><br>
+                \( C(r) = 2\pi r^2 + 3\pi r\left(\frac{100}{\pi r^2}\right) = 2\pi r^2 + \frac{300}{r} \)</p>
+                
+                <p><strong>Step 3: Find critical points</strong><br>
+                \( \frac{dC}{dr} = 4\pi r - \frac{300}{r^2} = 0 \)<br>
+                \( 4\pi r^3 = 300 \Rightarrow r^3 = \frac{300}{4\pi} \approx 23.87 \)<br>
+                \( r \approx \sqrt[3]{23.87} \approx 2.88m \)</p>
+                
+                <p><strong>Step 4: Calculate optimal dimensions</strong><br>
+                \( h = \frac{100}{\pi (2.88)^2} \approx 3.83m \)<br>
+                Minimum cost: \( C \approx 2\pi(2.88)^2 + \frac{300}{2.88} \approx 156.13 \) units</p>
+                
+                <p><strong>Design Optimization:</strong> This approach minimizes material costs while meeting design specifications.</p>
+            </div>
+
+            <div class="key-point">
+                <strong>Computational Engineering Practice:</strong> Numerical methods bridge the gap between theoretical mathematics and practical engineering. Always validate numerical results against physical intuition, consider error propagation, and choose appropriate methods based on problem requirements and computational resources.
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 HNC Engineering Mathematics. All rights reserved.</p>
+            <p>Numerical Methods Reference for Engineering Applications</p>
+        </div>
+    </footer>
+
+    <script src="navigation.js"></script>
+</body>
+</html>

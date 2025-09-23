@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applied Mechanics & Kinematics - HNC Engineering Mathematics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HNC Engineering Mathematics</h1>
+            <p>Applied Mechanics & Kinematics - Motion, Forces, and Energy Analysis</p>
+        </div>
+    </header>
+
+    <div class="container grid-layout">
+        <aside id="navigation-placeholder"></aside>
+
+        <main>
+            <h1>Applied Mechanics & Kinematics</h1>
+            
+            <div class="info-box">
+                <p>Engineering Analysis of Motion and Forces</p>
+                Mechanics provides the fundamental principles for analyzing how objects move and interact under various forces. From structural engineering to vehicle dynamics, these concepts form the basis for designing and optimizing mechanical systems.
+            </div>
+
+            <h2 id="mech-newton">1. Newton's Laws of Motion</h2>
+            
+            <div class="info-box">
+                <p>Foundation of Classical Mechanics</p>
+                Newton's three laws describe the relationship between a body and the forces acting upon it, forming the basis for analyzing motion in engineering systems.
+            </div>
+
+            <h3>Fundamental Principles</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Law</th>
+                        <th>Mathematical Expression</th>
+                        <th>Engineering Application</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>First Law (Inertia)</strong></td>
+                        <td>\( \sum F = 0 \Rightarrow a = 0 \)</td>
+                        <td>Static equilibrium analysis</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Second Law (Force & Acceleration)</strong></td>
+                        <td>\( \sum F = ma \)</td>
+                        <td>Dynamic system analysis</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Third Law (Action-Reaction)</strong></td>
+                        <td>\( F_{AB} = -F_{BA} \)</td>
+                        <td>Force transmission in mechanisms</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>Example: Crate Acceleration</strong></p>
+                <p>A net force of 200 N is applied to a 50 kg crate on a frictionless surface. Find the acceleration and distance traveled in 5 seconds.</p>
+                
+                <p><strong>Step 1: Apply Newton's Second Law</strong><br>
+                \( F = ma \Rightarrow a = \frac{F}{m} = \frac{200}{50} = 4 \text{ m/s}^2 \)</p>
+                
+                <p><strong>Step 2: Calculate displacement using SUVAT</strong><br>
+                \( s = ut + \frac{1}{2}at^2 = 0 + \frac{1}{2}(4)(5)^2 = 50 \text{ m} \)</p>
+                
+                <p><strong>Engineering Insight:</strong> The acceleration indicates how quickly the crate responds to the applied force, important for conveyor system design.</p>
+            </div>
+
+            <h2 id="mech-suvat">2. Equations of Motion (SUVAT)</h2>
+
+            <div class="info-box">
+                <p>Analyzing Motion with Constant Acceleration</p>
+                The SUVAT equations provide a complete mathematical description of linear motion under constant acceleration, essential for projectile motion, vehicle dynamics, and mechanical systems.
+            </div>
+
+            <h3>Complete SUVAT Equation Set</h3>
+            <div class="math-block">
+                <p>\( v = u + at \)</p>
+                <p>\( s = ut + \frac{1}{2}at^2 \)</p>
+                <p>\( v^2 = u^2 + 2as \)</p>
+                <p>\( s = \frac{(u + v)}{2}t \)</p>
+                <p>\( s = vt - \frac{1}{2}at^2 \)</p>
+            </div>
+
+            <h4>Variable Definitions</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Quantity</th>
+                        <th>SI Unit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>\( s \)</td>
+                        <td>Displacement</td>
+                        <td>meter (m)</td>
+                    </tr>
+                    <tr>
+                        <td>\( u \)</td>
+                        <td>Initial velocity</td>
+                        <td>m/s</td>
+                    </tr>
+                    <tr>
+                        <td>\( v \)</td>
+                        <td>Final velocity</td>
+                        <td>m/s</td>
+                    </tr>
+                    <tr>
+                        <td>\( a \)</td>
+                        <td>Acceleration</td>
+                        <td>m/s²</td>
+                    </tr>
+                    <tr>
+                        <td>\( t \)</td>
+                        <td>Time</td>
+                        <td>second (s)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>Example: Projectile from Building</strong></p>
+                <p>A ball is projected vertically upwards at 36 km/h from a 108 m tall building. Find the time taken to reach the ground (g = 9.8 m/s²).</p>
+                
+                <p><strong>Step 1: Convert units and define coordinate system</strong><br>
+                \( u = 36 \text{ km/h} = 10 \text{ m/s} \) (upwards positive)</p>
+                
+                <p><strong>Step 2: List known variables</strong><br>
+                \( s = -108 \text{ m} \) (final position below start)<br>
+                \( u = +10 \text{ m/s} \)<br>
+                \( a = -9.8 \text{ m/s}^2 \)<br>
+                \( t = ? \)</p>
+                
+                <p><strong>Step 3: Apply appropriate equation</strong><br>
+                \( s = ut + \frac{1}{2}at^2 \)<br>
+                \( -108 = 10t + \frac{1}{2}(-9.8)t^2 \)<br>
+                \( -108 = 10t - 4.9t^2 \)</p>
+                
+                <p><strong>Step 4: Solve quadratic equation</strong><br>
+                \( 4.9t^2 - 10t - 108 = 0 \)<br>
+                \( t = \frac{10 \pm \sqrt{(-10)^2 - 4(4.9)(-108)}}{2(4.9)} = \frac{10 \pm \sqrt{100 + 2116.8}}{9.8} = \frac{10 \pm 47.08}{9.8} \)<br>
+                \( t = \frac{10 + 47.08}{9.8} \approx 5.82 \text{ s} \) (positive root selected)</p>
+                
+                <p><strong>Engineering Application:</strong> This calculation is essential for safety analysis in construction and demolition.</p>
+            </div>
+
+            <h2 id="mech-circular">3. Circular Motion Dynamics</h2>
+
+            <div class="info-box">
+                <p>Analyzing Rotational Systems</p>
+                Circular motion principles are fundamental for understanding rotating machinery, vehicle cornering, orbital mechanics, and centrifugal systems.
+            </div>
+
+            <h3>Key Relationships</h3>
+            <div class="math-block">
+                <p><strong>Angular velocity:</strong> \( \omega = \frac{\theta}{t} = \frac{2\pi}{T} = 2\pi f \)</p>
+                <p><strong>Linear velocity:</strong> \( v = r\omega \)</p>
+                <p><strong>Centripetal acceleration:</strong> \( a_c = \frac{v^2}{r} = \omega^2 r \)</p>
+                <p><strong>Centripetal force:</strong> \( F_c = \frac{mv^2}{r} = m\omega^2 r \)</p>
+            </div>
+
+            <h4>Circular Motion Applications</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Application</th>
+                        <th>Key Formula</th>
+                        <th>Engineering Significance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Banked curves</td>
+                        <td>\( \tan\theta = \frac{v^2}{rg} \)</td>
+                        <td>Road and track design</td>
+                    </tr>
+                    <tr>
+                        <td>Conical pendulum</td>
+                        <td>\( \omega = \sqrt{\frac{g}{L\cos\theta}} \)</td>
+                        <td>Vibration analysis</td>
+                    </tr>
+                    <tr>
+                        <td>Centrifugal governor</td>
+                        <td>\( \omega = \sqrt{\frac{g\tan\theta}{r}} \)</td>
+                        <td>Speed regulation</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>Example: Steam Engine Governor</strong></p>
+                <p>A governor has two spheres on rods 60 cm long. Find the rotational speed in rpm when the rods make 20° with the vertical.</p>
+                
+                <p><strong>Step 1: Force balance equations</strong><br>
+                Horizontal: \( T\sin\theta = m\omega^2r \)<br>
+                Vertical: \( T\cos\theta = mg \)<br>
+                Dividing: \( \tan\theta = \frac{\omega^2r}{g} \)</p>
+                
+                <p><strong>Step 2: Geometry relationship</strong><br>
+                \( r = L\sin\theta = 0.6\sin(20^\circ) \approx 0.205 \text{ m} \)</p>
+                
+                <p><strong>Step 3: Solve for angular velocity</strong><br>
+                \( \tan(20^\circ) = \frac{\omega^2(0.205)}{9.81} \)<br>
+                \( \omega^2 = \frac{9.81 \times \tan(20^\circ)}{0.205} \approx 17.4 \)<br>
+                \( \omega \approx \sqrt{17.4} \approx 4.17 \text{ rad/s} \)</p>
+                
+                <p><strong>Step 4: Convert to rpm</strong><br>
+                \( \text{rpm} = 4.17 \times \frac{60}{2\pi} \approx 39.8 \text{ rpm} \)</p>
+                
+                <p><strong>Engineering Design:</strong> Governors prevent engine overspeed by regulating fuel supply based on centrifugal force.</p>
+            </div>
+
+            <h2 id="mech-energy">4. Work, Energy, and Power</h2>
+
+            <div class="info-box">
+                <p>Energy Methods in Mechanical Analysis</p>
+                Energy principles provide powerful alternative methods for analyzing mechanical systems, often simplifying complex force analyses.
+            </div>
+
+            <h3>Fundamental Energy Relationships</h3>
+            <div class="math-block">
+                <p><strong>Work done:</strong> \( W = F \cdot d \cdot \cos\theta \)</p>
+                <p><strong>Kinetic energy:</strong> \( KE = \frac{1}{2}mv^2 \)</p>
+                <p><strong>Potential energy:</strong> \( PE = mgh \)</p>
+                <p><strong>Power:</strong> \( P = \frac{W}{t} = F \cdot v \)</p>
+                <p><strong>Work-energy theorem:</strong> \( W = \Delta KE \)</p>
+                <p><strong>Conservation of mechanical energy:</strong> \( KE_i + PE_i = KE_f + PE_f \)</p>
+            </div>
+
+            <h4>Energy Conversion Efficiency</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>System</th>
+                        <th>Typical Efficiency</th>
+                        <th>Energy Loss Factors</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Electric motor</td>
+                        <td>85-95%</td>
+                        <td>Heat, friction, magnetic losses</td>
+                    </tr>
+                    <tr>
+                        <td>Internal combustion engine</td>
+                        <td>25-40%</td>
+                        <td>Heat exhaust, friction, pumping</td>
+                    </tr>
+                    <tr>
+                        <td>Mechanical transmission</td>
+                        <td>90-98%</td>
+                        <td>Friction, vibration, heat</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>Example: Vehicle Acceleration</strong></p>
+                <p>A 1200 kg car accelerates from 10 m/s to 30 m/s. Calculate the work done and average power if this takes 8 seconds.</p>
+                
+                <p><strong>Step 1: Apply work-energy principle</strong><br>
+                \( W = \Delta KE = \frac{1}{2}m(v^2 - u^2) \)<br>
+                \( W = \frac{1}{2}(1200)(30^2 - 10^2) = 600(900 - 100) = 480,000 \text{ J} \)</p>
+                
+                <p><strong>Step 2: Calculate average power</strong><br>
+                \( P = \frac{W}{t} = \frac{480000}{8} = 60,000 \text{ W} = 60 \text{ kW} \)</p>
+                
+                <p><strong>Step 3: Consider real-world factors</strong><br>
+                Actual engine power required would be higher due to:<br>
+                • Air resistance (increases with speed)<br>
+                • Rolling resistance<br>
+                • Transmission losses</p>
+                
+                <p><strong>Engineering Optimization:</strong> This analysis helps in engine sizing and transmission design.</p>
+            </div>
+
+            <h2 id="mech-momentum">5. Momentum and Impulse</h2>
+
+            <div class="info-box">
+                <p>Analyzing Collisions and Impacts</p>
+                Momentum principles are essential for understanding collisions, explosions, and any situation where forces act over time intervals.
+            </div>
+
+            <h3>Momentum Fundamentals</h3>
+            <div class="math-block">
+                <p><strong>Linear momentum:</strong> \( p = mv \)</p>
+                <p><strong>Impulse:</strong> \( J = F\Delta t = \Delta p \)</p>
+                <p><strong>Conservation of momentum:</strong> \( \sum p_{initial} = \sum p_{final} \)</p>
+                <p><strong>Elastic collision:</strong> \( KE_{initial} = KE_{final} \)</p>
+                <p><strong>Inelastic collision:</strong> \( KE_{initial} \neq KE_{final} \)</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Vehicle Collision Analysis</strong></p>
+                <p>A 1500 kg car traveling at 20 m/s collides with a stationary 1000 kg car. If they stick together, find their final velocity.</p>
+                
+                <p><strong>Step 1: Apply conservation of momentum</strong><br>
+                \( m_1v_1 + m_2v_2 = (m_1 + m_2)v_f \)<br>
+                \( (1500)(20) + (1000)(0) = (1500 + 1000)v_f \)<br>
+                \( 30000 = 2500v_f \)</p>
+                
+                <p><strong>Step 2: Solve for final velocity</strong><br>
+                \( v_f = \frac{30000}{2500} = 12 \text{ m/s} \)</p>
+                
+                <p><strong>Step 3: Analyze energy loss</strong><br>
+                Initial KE: \( \frac{1}{2}(1500)(20)^2 = 300,000 \text{ J} \)<br>
+                Final KE: \( \frac{1}{2}(2500)(12)^2 = 180,000 \text{ J} \)<br>
+                Energy dissipated: \( 120,000 \text{ J} \) (40% loss)</p>
+                
+                <p><strong>Safety Engineering:</strong> This energy dissipation analysis informs crumple zone design in vehicles.</p>
+            </div>
+
+            <h2 id="mech-friction">6. Friction and Inclined Planes</h2>
+
+            <div class="info-box">
+                <p>Real-World Force Interactions</p>
+                Friction analysis is crucial for mechanical design, braking systems, traction control, and structural stability.
+            </div>
+
+            <h3>Friction Models</h3>
+            <div class="math-block">
+                <p><strong>Static friction:</strong> \( F_s \leq \mu_s N \)</p>
+                <p><strong>Kinetic friction:</strong> \( F_k = \mu_k N \)</p>
+                <p><strong>Inclined plane (no friction):</strong> \( a = g\sin\theta \)</p>
+                <p><strong>Inclined plane (with friction):</strong> \( a = g(\sin\theta - \mu\cos\theta) \)</p>
+            </div>
+
+            <h4>Typical Friction Coefficients</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Materials</th>
+                        <th>Static (μ<sub>s</sub>)</th>
+                        <th>Kinetic (μ<sub>k</sub>)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Steel on steel (dry)</td>
+                        <td>0.6-0.8</td>
+                        <td>0.4-0.6</td>
+                    </tr>
+                    <tr>
+                        <td>Rubber on concrete (dry)</td>
+                        <td>0.9-1.1</td>
+                        <td>0.7-0.9</td>
+                    </tr>
+                    <tr>
+                        <td>Ice on ice</td>
+                        <td>0.05-0.15</td>
+                        <td>0.02-0.10</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>Example: Inclined Plane with Friction</strong></p>
+                <p>A 10 kg box rests on a 30° incline with μ<sub>s</sub> = 0.4 and μ<sub>k</sub> = 0.3. Determine if it will slide and its acceleration if it does.</p>
+                
+                <p><strong>Step 1: Calculate forces</strong><br>
+                Weight component parallel: \( mg\sin\theta = 10 \times 9.8 \times \sin(30^\circ) = 49 \text{ N} \)<br>
+                Normal force: \( N = mg\cos\theta = 10 \times 9.8 \times \cos(30^\circ) \approx 84.9 \text{ N} \)<br>
+                Maximum static friction: \( F_{s,max} = \mu_s N = 0.4 \times 84.9 \approx 33.96 \text{ N} \)</p>
+                
+                <p><strong>Step 2: Check for sliding</strong><br>
+                Since 49 N > 33.96 N, the box will slide</p>
+                
+                <p><strong>Step 3: Calculate acceleration</strong><br>
+                Kinetic friction: \( F_k = \mu_k N = 0.3 \times 84.9 \approx 25.47 \text{ N} \)<br>
+                Net force: \( F_{net} = 49 - 25.47 = 23.53 \text{ N} \)<br>
+                Acceleration: \( a = \frac{F_{net}}{m} = \frac{23.53}{10} \approx 2.35 \text{ m/s}^2 \)</p>
+                
+                <p><strong>Mechanical Design:</strong> This analysis informs ramp design and material selection for conveyor systems.</p>
+            </div>
+
+            <div class="key-point">
+                <strong>Engineering Practice:</strong> Mechanical analysis requires not just solving equations but understanding physical constraints, real-world factors like friction and air resistance, and safety considerations. Always validate mathematical results against engineering intuition and practical limitations.
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 HNC Engineering Mathematics. All rights reserved.</p>
+            <p>Applied Mechanics & Kinematics Reference for Engineering Applications</p>
+        </div>
+    </footer>
+
+    <script src="navigation.js"></script>
+</body>
+</html>

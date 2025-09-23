@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exponential Calculus - HNC Engineering Mathematics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HNC Engineering Mathematics</h1>
+            <p>Exponential Calculus - Growth, Decay, and Natural Processes</p>
+        </div>
+    </header>
+
+    <div class="container grid-layout">
+        <aside id="navigation-placeholder"></aside>
+
+        <main>
+            <h1>Calculus of Exponential Functions</h1>
+            
+            <div class="info-box">
+                <p>The Mathematics of Natural Growth and Decay</p>
+                Exponential functions model processes where change is proportional to current value - from population growth and radioactive decay to capacitor charging and economic growth. Their unique calculus properties make them fundamental to engineering analysis.
+            </div>
+
+            <h2 id="exp-fundamentals">1. Fundamental Properties of eˣ</h2>
+
+            <div class="info-box">
+                <p>The Unique Nature of the Exponential Function</p>
+                The function \( y = e^x \) has the remarkable property that its derivative is equal to itself, making it the mathematical foundation for modeling continuous growth and decay processes.
+            </div>
+
+            <h3>The Natural Exponential Base</h3>
+            <div class="math-block">
+                <p><strong>Definition:</strong> $$ e = \lim_{n \to \infty} \left(1 + \frac{1}{n}\right)^n \approx 2.71828 $$</p>
+                <p><strong>Key Property:</strong> $$ \frac{d}{dx}e^x = e^x $$</p>
+            </div>
+
+            <div class="my-4 p-4 rounded-md flex justify-center bg-gray-900 border border-gray-700">
+                <svg width="500" height="300" viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg" font-family="'Poppins', sans-serif" font-size="14">
+                    <title>Graph of y = e^x showing function and derivative equality</title>
+                    <!-- Axes -->
+                    <line x1="50" y1="250" x2="450" y2="250" stroke="var(--text-light)" stroke-width="1.5"></line>
+                    <line x1="50" y1="250" x2="50" y2="50" stroke="var(--text-light)" stroke-width="1.5"></line>
+                    
+                    <!-- Grid lines -->
+                    <line x1="50" y1="200" x2="450" y2="200" stroke="var(--text-lighter)" stroke-width="0.5" stroke-dasharray="2,2"></line>
+                    <line x1="50" y1="150" x2="450" y2="150" stroke="var(--text-lighter)" stroke-width="0.5" stroke-dasharray="2,2"></line>
+                    <line x1="50" y1="100" x2="450" y2="100" stroke="var(--text-lighter)" stroke-width="0.5" stroke-dasharray="2,2"></line>
+                    
+                    <!-- Exponential Curve -->
+                    <path d="M 50 250 Q 150 220, 200 180 Q 250 150, 300 120 Q 350 90, 400 70 Q 450 50, 450 50" 
+                          stroke="var(--accent)" stroke-width="3" fill="none"></path>
+                    
+                    <!-- Tangent lines at various points -->
+                    <line x1="150" y1="220" x2="250" y2="180" stroke="var(--primary)" stroke-width="2" stroke-dasharray="4,2"></line>
+                    <circle cx="200" cy="200" r="4" fill="var(--primary)"></circle>
+                    
+                    <line x1="250" y1="180" x2="350" y2="140" stroke="var(--primary)" stroke-width="2" stroke-dasharray="4,2"></line>
+                    <circle cx="300" cy="160" r="4" fill="var(--primary)"></circle>
+                    
+                    <line x1="350" y1="140" x2="450" y2="100" stroke="var(--primary)" stroke-width="2" stroke-dasharray="4,2"></line>
+                    <circle cx="400" cy="120" r="4" fill="var(--primary)"></circle>
+                    
+                    <!-- Labels -->
+                    <text x="460" y="255" fill="var(--text-light)">x</text>
+                    <text x="45" y="45" fill="var(--text-light)">y</text>
+                    <text x="200" y="270" fill="var(--text-light)">0</text>
+                    <text x="300" y="270" fill="var(--text-light)">1</text>
+                    <text x="400" y="270" fill="var(--text-light)">2</text>
+                    
+                    <text x="470" y="70" fill="var(--accent)" font-weight="bold">y = eˣ</text>
+                    <text x="470" y="90" fill="var(--primary)" font-weight="bold">dy/dx = eˣ</text>
+                </svg>
+            </div>
+
+            <h3>Engineering Significance</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>Mathematical Expression</th>
+                        <th>Engineering Application</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Self-derivative</td>
+                        <td>\(\frac{d}{dx}e^x = e^x\)</td>
+                        <td>Natural growth/decay processes</td>
+                    </tr>
+                    <tr>
+                        <td>Chain rule compatibility</td>
+                        <td>\(\frac{d}{dx}e^{f(x)} = f'(x)e^{f(x)}\)</td>
+                        <td>Complex system modeling</td>
+                    </tr>
+                    <tr>
+                        <td>Integration inverse</td>
+                        <td>\(\int e^x dx = e^x + C\)</td>
+                        <td>Accumulation calculations</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 id="exp-differentiation">2. Differentiation of Exponential Functions</h2>
+
+            <div class="info-box">
+                <p>Mastering Exponential Derivatives</p>
+                The differentiation rules for exponential functions are straightforward but powerful, enabling analysis of complex engineering systems.
+            </div>
+
+            <h3>Basic Differentiation Rules</h3>
+            <div class="math-block">
+                <p><strong>Simple exponential:</strong> $$ \frac{d}{dx}e^x = e^x $$</p>
+                <p><strong>Scaled exponential:</strong> $$ \frac{d}{dx}ae^{kx} = ake^{kx} $$</p>
+                <p><strong>General exponential:</strong> $$ \frac{d}{dx}a^{f(x)} = a^{f(x)} \ln(a) \cdot f'(x) $$</p>
+            </div>
+
+            <h3>Chain Rule Applications</h3>
+            <div class="example-box">
+                <p><strong>Example: RC Circuit Analysis</strong></p>
+                <p>The voltage across a charging capacitor is given by \( V(t) = V_0(1 - e^{-t/RC}) \). Find the charging current.</p>
+                
+                <p><strong>Solution:</strong><br>
+                Current \( I(t) = C \frac{dV}{dt} \)<br>
+                \( \frac{dV}{dt} = \frac{d}{dt}[V_0(1 - e^{-t/RC})] = V_0 \cdot \frac{d}{dt}[-e^{-t/RC}] \)<br>
+                \( = V_0 \cdot \left(-\left(-\frac{1}{RC}\right)e^{-t/RC}\right) = \frac{V_0}{RC}e^{-t/RC} \)<br>
+                \( I(t) = C \cdot \frac{V_0}{RC}e^{-t/RC} = \frac{V_0}{R}e^{-t/RC} \)</p>
+                
+                <p><strong>Engineering Interpretation:</strong> The charging current decreases exponentially from \( V_0/R \) to zero.</p>
+            </div>
+
+            <h3>Complete Differentiation Table</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Function</th>
+                        <th>Derivative</th>
+                        <th>Application Context</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>\( e^x \)</td>
+                        <td>\( e^x \)</td>
+                        <td>Natural growth processes</td>
+                    </tr>
+                    <tr>
+                        <td>\( e^{kx} \)</td>
+                        <td>\( ke^{kx} \)</td>
+                        <td>Scaled growth/decay</td>
+                    </tr>
+                    <tr>
+                        <td>\( a^x \)</td>
+                        <td>\( a^x \ln a \)</td>
+                        <td>General exponential growth</td>
+                    </tr>
+                    <tr>
+                        <td>\( e^{f(x)} \)</td>
+                        <td>\( f'(x)e^{f(x)} \)</td>
+                        <td>Complex system dynamics</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 id="exp-integration">3. Integration of Exponential Functions</h2>
+
+            <div class="info-box">
+                <p>Finding Accumulated Quantities</p>
+                Integration of exponential functions is essential for calculating total growth, accumulated charge, or total decay over time.
+            </div>
+
+            <h3>Basic Integration Rules</h3>
+            <div class="math-block">
+                <p><strong>Simple exponential:</strong> $$ \int e^x dx = e^x + C $$</p>
+                <p><strong>Scaled exponential:</strong> $$ \int e^{kx} dx = \frac{1}{k}e^{kx} + C $$</p>
+                <p><strong>General exponential:</strong> $$ \int a^{f(x)} f'(x) dx = \frac{a^{f(x)}}{\ln a} + C $$</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Total Population Growth</strong></p>
+                <p>A bacterial population grows at rate \( P'(t) = 1000e^{0.2t} \) bacteria per hour. Find the total growth from t=0 to t=5 hours.</p>
+                
+                <p><strong>Solution:</strong><br>
+                \( \Delta P = \int_0^5 1000e^{0.2t} dt = 1000 \left[\frac{1}{0.2}e^{0.2t}\right]_0^5 \)<br>
+                \( = 5000 \left[e^{0.2t}\right]_0^5 = 5000(e^{1} - e^{0}) \)<br>
+                \( = 5000(2.71828 - 1) = 5000 \times 1.71828 = 8591.4 \)</p>
+                
+                <p><strong>Engineering Interpretation:</strong> Approximately 8,591 bacteria are produced in 5 hours.</p>
+            </div>
+
+            <h2 id="exp-applications">4. Engineering Applications</h2>
+
+            <div class="info-box">
+                <p>Real-World Exponential Systems</p>
+                Exponential functions model countless engineering phenomena where change is proportional to current state.
+            </div>
+
+            <h3>Electrical Engineering: Capacitor Circuits</h3>
+            <div class="math-block">
+                <p><strong>Chcharging:</strong> \( V(t) = V_0(1 - e^{-t/RC}) \)</p>
+                <p><strong>Discharging:</strong> \( V(t) = V_0 e^{-t/RC} \)</p>
+            </div>
+
+            <h3>Mechanical Engineering: Vibration Damping</h3>
+            <div class="math-block">
+                <p><strong>Damped oscillations:</strong> \( x(t) = Ae^{-\zeta\omega_n t}\cos(\omega_d t + \phi) \)</p>
+            </div>
+
+            <h3>Chemical Engineering: Reaction Kinetics</h3>
+            <div class="math-block">
+                <p><strong>First-order reactions:</strong> \( C(t) = C_0 e^{-kt} \)</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Radioactive Decay in Materials</strong></p>
+                <p>A material contains 100g of a radioactive isotope with half-life of 5 years. Find the decay rate after 10 years.</p>
+                
+                <p><strong>Step 1: Decay constant</strong><br>
+                \( t_{1/2} = \frac{\ln 2}{k} \Rightarrow k = \frac{\ln 2}{5} \approx 0.1386 \)</p>
+                
+                <p><strong>Step 2: Mass function</strong><br>
+                \( m(t) = 100e^{-0.1386t} \)</p>
+                
+                <p><strong>Step 3: Decay rate</strong><br>
+                \( \frac{dm}{dt} = -0.1386 \times 100e^{-0.1386t} \)<br>
+                At t=10: \( \frac{dm}{dt} = -13.86e^{-1.386} \approx -13.86 \times 0.25 = -3.465 \) g/year</p>
+                
+                <p><strong>Safety Application:</strong> This rate helps determine shielding requirements.</p>
+            </div>
+
+            <h2 id="exp-growth">5. Growth and Decay Models</h2>
+
+            <div class="info-box">
+                <p>Standard Exponential Models</p>
+                These fundamental models appear repeatedly across engineering disciplines.
+            </div>
+
+            <h3>Exponential Growth</h3>
+            <div class="math-block">
+                <p><strong>Model:</strong> \( P(t) = P_0 e^{kt} \), where k > 0</p>
+                <p><strong>Doubling time:</strong> \( t_d = \frac{\ln 2}{k} \)</p>
+            </div>
+
+            <h3>Exponential Decay</h3>
+            <div class="math-block">
+                <p><strong>Model:</strong> \( P(t) = P_0 e^{-kt} \), where k > 0</p>
+                <p><strong>Half-life:</strong> \( t_{1/2} = \frac{\ln 2}{k} \)</p>
+            </div>
+
+            <h3>Limited Growth (Logistic Model)</h3>
+            <div class="math-block">
+                <p><strong>Model:</strong> \( P(t) = \frac{L}{1 + Ae^{-kt}} \)</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Population Modeling</strong></p>
+                <p>A fish population grows according to \( P(t) = \frac{1000}{1 + 9e^{-0.5t}} \). Find the growth rate at t=4 years.</p>
+                
+                <p><strong>Solution using quotient rule + chain rule:</strong><br>
+                \( P'(t) = \frac{0 - 1000 \cdot (-4.5e^{-0.5t})}{(1 + 9e^{-0.5t})^2} = \frac{4500e^{-0.5t}}{(1 + 9e^{-0.5t})^2} \)<br>
+                At t=4: \( P'(4) = \frac{4500e^{-2}}{(1 + 9e^{-2})^2} \approx \frac{4500 \times 0.1353}{(1 + 9 \times 0.1353)^2} \)<br>
+                \( = \frac{609.0}{(1 + 1.218)^2} = \frac{609.0}{(2.218)^2} = \frac{609.0}{4.919} \approx 123.8 \) fish/year</p>
+            </div>
+
+            <h2 id="exp-practice">6. Practice Problems</h2>
+
+            <div class="info-box">
+                <p>Reinforce Your Understanding</p>
+                Work through these problems to master exponential calculus techniques.
+            </div>
+
+            <h3>Differentiation Problems</h3>
+            <ol>
+                <li>Differentiate \( y = 3e^{2x} + 5e^{-x} \)</li>
+                <li>Find the derivative of \( y = e^{x^2 - 3x} \)</li>
+                <li>Differentiate \( y = 2^{3x} \) using the general exponential rule</li>
+            </ol>
+
+            <h3>Integration Problems</h3>
+            <ol>
+                <li>Evaluate \( \int_0^1 e^{3x} dx \)</li>
+                <li>Find \( \int xe^{x^2} dx \) using substitution</li>
+                <li>Calculate \( \int e^{-2x} \cos(3x) dx \) (requires integration by parts)</li>
+            </ol>
+
+            <h3>Application Problems</h3>
+            <ol>
+                <li>A capacitor charges according to \( V(t) = 12(1 - e^{-t/0.5}) \). Find the charging current at t=1 second.</li>
+                <li>A radioactive material decays with half-life 8 years. If initially 200g, find the amount remaining after 15 years.</li>
+                <li>A population grows at 5% per year continuously. How long until it doubles?</li>
+            </ol>
+
+            <div class="key-point">
+                <strong>Engineering Insight:</strong> Exponential functions are not just mathematical abstractions - they describe real physical processes where the rate of change is proportional to the current state. This makes them essential for dynamic system analysis.
+            </div>
+
+            <h2 id="exp-summary">7. Summary and Key Formulas</h2>
+
+            <div class="info-box">
+                <p>Essential Exponential Calculus</p>
+                These formulas form the foundation for analyzing exponential processes in engineering.
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Concept</th>
+                        <th>Formula</th>
+                        <th>Application</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Derivative of eˣ</td>
+                        <td>\( \frac{d}{dx}e^x = e^x \)</td>
+                        <td>Natural growth processes</td>
+                    </tr>
+                    <tr>
+                        <td>Chain rule with eˣ</td>
+                        <td>\( \frac{d}{dx}e^{f(x)} = f'(x)e^{f(x)} \)</td>
+                        <td>Complex system dynamics</td>
+                    </tr>
+                    <tr>
+                        <td>Integration of eˣ</td>
+                        <td>\( \int e^x dx = e^x + C \)</td>
+                        <td>Accumulation calculations</td>
+                    </tr>
+                    <tr>
+                        <td>General exponential derivative</td>
+                        <td>\( \frac{d}{dx}a^x = a^x \ln a \)</td>
+                        <td>Non-natural base systems</td>
+                    </tr>
+                    <tr>
+                        <td>Growth/decay models</td>
+                        <td>\( P(t) = P_0 e^{\pm kt} \)</td>
+                        <td>Population, radioactive decay</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="warning">
+                <strong>Common Pitfall:</strong> Forgetting the chain rule when differentiating composite exponential functions. Always multiply by the derivative of the exponent.
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 HNC Engineering Mathematics. All rights reserved.</p>
+            <p>Exponential Calculus Reference for Engineering Applications</p>
+        </div>
+    </footer>
+
+    <script src="navigation.js"></script>
+</body>
+</html>

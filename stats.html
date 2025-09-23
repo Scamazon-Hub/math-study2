@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics - HNC Engineering Mathematics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HNC Engineering Mathematics</h1>
+            <p>Statistics - Data Analysis for Engineering Decision Making</p>
+        </div>
+    </header>
+
+    <div class="container grid-layout">
+        <aside id="navigation-placeholder"></aside>
+
+        <main>
+            <h1>Statistics for Engineering</h1>
+            
+            <div class="info-box">
+                <p>Data-Driven Engineering Decisions</p>
+                Statistics provides the mathematical foundation for analyzing data, making predictions, and drawing conclusions from uncertain information. In engineering, statistical methods are essential for quality control, reliability analysis, experimental design, and risk assessment.
+            </div>
+
+            <h2 id="stats-descriptive">1. Descriptive Statistics</h2>
+            
+            <div class="info-box">
+                <p>Summarizing Engineering Data</p>
+                Descriptive statistics provide tools to summarize and understand the key characteristics of engineering datasets, including central tendency, variability, and distribution shape.
+            </div>
+
+            <h3>Measures of Central Tendency</h3>
+            <p>These values represent the "center" or typical value of a dataset:</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Measure</th>
+                        <th>Formula</th>
+                        <th>Engineering Application</th>
+                        <th>When to Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Mean (Arithmetic Average)</td>
+                        <td>\( \bar{x} = \frac{\sum_{i=1}^{n} x_i}{n} \)</td>
+                        <td>Average strength of materials</td>
+                        <td>Normally distributed data without outliers</td>
+                    </tr>
+                    <tr>
+                        <td>Median (Middle Value)</td>
+                        <td>Middle value when data sorted</td>
+                        <td>Typical response time in control systems</td>
+                        <td>Skewed distributions or with outliers</td>
+                    </tr>
+                    <tr>
+                        <td>Mode (Most Frequent)</td>
+                        <td>Value with highest frequency</td>
+                        <td>Most common failure mode</td>
+                        <td>Categorical or discrete data</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Measures of Dispersion</h3>
+            <p>These quantify how spread out the data values are:</p>
+            
+            <div class="math-block">
+                <p><strong>Range:</strong> \( R = x_{max} - x_{min} \)</p>
+                <p><strong>Variance (Population):</strong> \( \sigma^2 = \frac{\sum (x_i - \mu)^2}{N} \)</p>
+                <p><strong>Variance (Sample):</strong> \( s^2 = \frac{\sum (x_i - \bar{x})^2}{n-1} \)</p>
+                <p><strong>Standard Deviation:</strong> \( \sigma = \sqrt{\sigma^2} \) or \( s = \sqrt{s^2} \)</p>
+                <p><strong>Coefficient of Variation:</strong> \( CV = \frac{\sigma}{\mu} \times 100\% \)</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Quality Control Analysis</strong></p>
+                <p>A manufacturing process produces components with the following diameters (mm): {24.8, 25.2, 25.1, 24.9, 25.3, 25.0, 24.7, 25.4, 25.1, 24.8}</p>
+                
+                <p><strong>Step 1: Calculate Mean</strong><br>
+                \( \bar{x} = \frac{24.8 + 25.2 + 25.1 + 24.9 + 25.3 + 25.0 + 24.7 + 25.4 + 25.1 + 24.8}{10} = 25.03 \) mm</p>
+                
+                <p><strong>Step 2: Calculate Variance and Standard Deviation</strong><br>
+                \( s^2 = \frac{(24.8-25.03)^2 + (25.2-25.03)^2 + \cdots + (24.8-25.03)^2}{9} = 0.054 \) mm²<br>
+                \( s = \sqrt{0.054} = 0.232 \) mm</p>
+                
+                <p><strong>Step 3: Calculate Coefficient of Variation</strong><br>
+                \( CV = \frac{0.232}{25.03} \times 100\% = 0.93\% \)</p>
+                
+                <p><strong>Engineering Interpretation:</strong> The manufacturing process has low variability (CV < 1%), indicating good process control.</p>
+            </div>
+
+            <h2 id="stats-probability">2. Probability Theory</h2>
+
+            <div class="info-box">
+                <p>Quantifying Uncertainty in Engineering</p>
+                Probability provides the mathematical language for dealing with uncertainty, which is inherent in all engineering systems and measurements.
+            </div>
+
+            <h3>Fundamental Probability Rules</h3>
+            <div class="math-block">
+                <p><strong>Addition Rule:</strong> \( P(A \cup B) = P(A) + P(B) - P(A \cap B) \)</p>
+                <p><strong>Multiplication Rule (Independent Events):</strong> \( P(A \cap B) = P(A) \cdot P(B) \)</p>
+                <p><strong>Conditional Probability:</strong> \( P(A|B) = \frac{P(A \cap B)}{P(B)} \)</p>
+                <p><strong>Bayes' Theorem:</strong> \( P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)} \)</p>
+            </div>
+
+            <h3>Probability Distributions</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Distribution</th>
+                        <th>Probability Function</th>
+                        <th>Engineering Application</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Binomial</td>
+                        <td>\( P(X=k) = \binom{n}{k} p^k (1-p)^{n-k} \)</td>
+                        <td>Quality control, defect analysis</td>
+                    </tr>
+                    <tr>
+                        <td>Poisson</td>
+                        <td>\( P(X=k) = \frac{\lambda^k e^{-\lambda}}{k!} \)</td>
+                        <td>Failure rates, arrival processes</td>
+                    </tr>
+                    <tr>
+                        <td>Exponential</td>
+                        <td>\( f(x) = \lambda e^{-\lambda x} \)</td>
+                        <td>Time between failures, reliability</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>Example: Reliability Analysis</strong></p>
+                <p>A system has three independent components with reliability probabilities: P(A) = 0.95, P(B) = 0.98, P(C) = 0.92. The system fails if any component fails.</p>
+                
+                <p><strong>Step 1: Calculate System Reliability</strong><br>
+                Since components are independent and system fails if any fails:<br>
+                \( P(System\ Works) = P(A) \cdot P(B) \cdot P(C) = 0.95 \times 0.98 \times 0.92 = 0.857 \)</p>
+                
+                <p><strong>Step 2: Calculate System Failure Probability</strong><br>
+                \( P(System\ Fails) = 1 - P(System\ Works) = 1 - 0.857 = 0.143 \)</p>
+                
+                <p><strong>Engineering Interpretation:</strong> There is a 14.3% probability of system failure, which may be unacceptable for critical applications.</p>
+            </div>
+
+            <h2 id="stats-normal">3. Normal Distribution & Applications</h2>
+
+            <div class="info-box">
+                <p>The Foundation of Statistical Inference</p>
+                The normal distribution is fundamental to engineering statistics due to the Central Limit Theorem, which states that means of samples tend toward normality regardless of the underlying distribution.
+            </div>
+
+            <h3>Standard Normal Distribution</h3>
+            <p>Any normal distribution can be transformed to the standard normal distribution (μ=0, σ=1) using the Z-score:</p>
+            <div class="math-block">$$ Z = \frac{X - \mu}{\sigma} $$</div>
+
+            <h3>Empirical Rule (68-95-99.7 Rule)</h3>
+            <p>For normally distributed data:</p>
+            <ul>
+                <li>Approximately 68% of values fall within ±1σ of the mean</li>
+                <li>Approximately 95% of values fall within ±2σ of the mean</li>
+                <li>Approximately 99.7% of values fall within ±3σ of the mean</li>
+            </ul>
+
+            <div class="example-box">
+                <p><strong>Example: Tolerance Analysis</strong></p>
+                <p>A manufactured shaft has diameter normally distributed with μ = 25.00 mm and σ = 0.05 mm. Specifications require 24.90 mm to 25.10 mm.</p>
+                
+                <p><strong>Step 1: Calculate Z-scores for specification limits</strong><br>
+                Lower limit: \( Z_L = \frac{24.90 - 25.00}{0.05} = -2.0 \)<br>
+                Upper limit: \( Z_U = \frac{25.10 - 25.00}{0.05} = 2.0 \)</p>
+                
+                <p><strong>Step 2: Find probabilities using standard normal table</strong><br>
+                \( P(Z < -2.0) = 0.0228 \)<br>
+                \( P(Z > 2.0) = 0.0228 \)<br>
+                Total outside specifications: 0.0228 + 0.0228 = 0.0456</p>
+                
+                <p><strong>Step 3: Calculate percentage within specifications</strong><br>
+                \( P(within\ specs) = 1 - 0.0456 = 0.9544 \) or 95.44%</p>
+                
+                <p><strong>Engineering Interpretation:</strong> Approximately 4.56% of shafts will be outside specifications, which may require process improvement.</p>
+            </div>
+
+            <h2 id="stats-inference">4. Statistical Inference</h2>
+
+            <div class="info-box">
+                <p>Drawing Conclusions from Sample Data</p>
+                Statistical inference allows engineers to make decisions about populations based on sample data, including estimation and hypothesis testing.
+            </div>
+
+            <h3>Confidence Intervals</h3>
+            <p>Range of values that likely contains the population parameter:</p>
+            <div class="math-block">
+                <p><strong>Mean (σ known):</strong> \( \bar{x} \pm z_{\alpha/2} \frac{\sigma}{\sqrt{n}} \)</p>
+                <p><strong>Mean (σ unknown):</strong> \( \bar{x} \pm t_{\alpha/2, n-1} \frac{s}{\sqrt{n}} \)</p>
+                <p><strong>Proportion:</strong> \( \hat{p} \pm z_{\alpha/2} \sqrt{\frac{\hat{p}(1-\hat{p})}{n}} \)</p>
+            </div>
+
+            <h3>Hypothesis Testing</h3>
+            <p>Procedure for testing claims about population parameters:</p>
+            <ol>
+                <li>State null (H₀) and alternative (H₁) hypotheses</li>
+                <li>Select significance level (α, typically 0.05)</li>
+                <li>Calculate test statistic</li>
+                <li>Determine critical value or p-value</li>
+                <li>Make decision and interpret results</li>
+            </ol>
+
+            <div class="example-box">
+                <p><strong>Example: Material Strength Test</strong></p>
+                <p>A new alloy is claimed to have mean tensile strength > 400 MPa. A sample of 25 specimens gives \(\bar{x} = 405\) MPa with s = 15 MPa. Test at α = 0.05.</p>
+                
+                <p><strong>Step 1: State hypotheses</strong><br>
+                H₀: μ ≤ 400 MPa (alloy does not meet specification)<br>
+                H₁: μ > 400 MPa (alloy meets specification)</p>
+                
+                <p><strong>Step 2: Calculate test statistic</strong><br>
+                \( t = \frac{\bar{x} - \mu_0}{s/\sqrt{n}} = \frac{405 - 400}{15/\sqrt{25}} = \frac{5}{3} = 1.667 \)</p>
+                
+                <p><strong>Step 3: Determine critical value</strong><br>
+                For one-tailed test with α = 0.05 and df = 24, t-critical = 1.711</p>
+                
+                <p><strong>Step 4: Make decision</strong><br>
+                Since t = 1.667 < 1.711, we fail to reject H₀</p>
+                
+                <p><strong>Engineering Interpretation:</strong> There is insufficient evidence to conclude that the alloy meets the strength specification at the 95% confidence level.</p>
+            </div>
+
+            <h2 id="stats-regression">5. Regression Analysis</h2>
+
+            <div class="info-box">
+                <p>Modeling Relationships Between Variables</p>
+                Regression analysis helps engineers understand and quantify relationships between variables, enabling prediction and optimization.
+            </div>
+
+            <h3>Simple Linear Regression</h3>
+            <p>Model: \( y = \beta_0 + \beta_1 x + \varepsilon \)</p>
+            <div class="math-block">
+                <p><strong>Slope:</strong> \( b_1 = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2} = \frac{S_{xy}}{S_{xx}} \)</p>
+                <p><strong>Intercept:</strong> \( b_0 = \bar{y} - b_1 \bar{x} \)</p>
+                <p><strong>Coefficient of Determination:</strong> \( R^2 = \frac{SSR}{SST} = 1 - \frac{SSE}{SST} \)</p>
+            </div>
+
+            <h3>Correlation Analysis</h3>
+            <p>Pearson correlation coefficient measures linear relationship strength:</p>
+            <div class="math-block">$$ r = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum (x_i - \bar{x})^2 \sum (y_i - \bar{y})^2}} = \frac{S_{xy}}{\sqrt{S_{xx} S_{yy}}} $$</div>
+
+            <div class="example-box">
+                <p><strong>Example: Temperature vs. Power Consumption</strong></p>
+                <p>An engineer collects data on ambient temperature (x, °C) and power consumption (y, kW) of a cooling system:</p>
+                
+                <table>
+                    <tr><th>Temperature (°C)</th><td>20</td><td>22</td><td>25</td><td>28</td><td>30</td></tr>
+                    <tr><th>Power (kW)</th><td>15.2</td><td>16.1</td><td>17.8</td><td>19.5</td><td>20.6</td></tr>
+                </table>
+                
+                <p><strong>Step 1: Calculate summary statistics</strong><br>
+                \( \bar{x} = 25, \quad \bar{y} = 17.84 \)<br>
+                \( S_{xx} = 104, \quad S_{yy} = 22.352, \quad S_{xy} = 47.6 \)</p>
+                
+                <p><strong>Step 2: Calculate regression coefficients</strong><br>
+                \( b_1 = \frac{47.6}{104} = 0.4577 \)<br>
+                \( b_0 = 17.84 - 0.4577 \times 25 = 6.3975 \)</p>
+                
+                <p><strong>Step 3: Calculate correlation coefficient</strong><br>
+                \( r = \frac{47.6}{\sqrt{104 \times 22.352}} = 0.993 \)</p>
+                
+                <p><strong>Regression Equation:</strong> \( \hat{y} = 6.40 + 0.458x \)</p>
+                <p><strong>Engineering Interpretation:</strong> Strong positive correlation (r ≈ 0.993) indicates power consumption increases with temperature. The model explains 98.6% of variation (R² = 0.986).</p>
+            </div>
+
+            <h2 id="stats-quality">6. Statistical Quality Control</h2>
+
+            <div class="info-box">
+                <p>Monitoring and Improving Processes</p>
+                Statistical quality control uses statistical methods to monitor and control processes to ensure they operate at their full potential.
+            </div>
+
+            <h3>Control Charts</h3>
+            <p>Tools for monitoring process variation over time:</p>
+            <div class="math-block">
+                <p><strong>X-bar Chart (Means):</strong> Centerline = \(\bar{\bar{x}}\), UCL/LCL = \(\bar{\bar{x}} \pm A_2 \bar{R}\)</p>
+                <p><strong>R Chart (Ranges):</strong> Centerline = \(\bar{R}\), UCL = \(D_4 \bar{R}\), LCL = \(D_3 \bar{R}\)</p>
+                <p><strong>p Chart (Proportion Defective):</strong> Centerline = \(\bar{p}\), UCL/LCL = \(\bar{p} \pm 3\sqrt{\frac{\bar{p}(1-\bar{p})}{n}}\)</p>
+            </div>
+
+            <h3>Process Capability Analysis</h3>
+            <p>Measures how well a process meets specifications:</p>
+            <div class="math-block">
+                <p><strong>Cp (Potential Capability):</strong> \( C_p = \frac{USL - LSL}{6\sigma} \)</p>
+                <p><strong>Cpk (Actual Capability):</strong> \( C_{pk} = \min\left(\frac{USL - \mu}{3\sigma}, \frac{\mu - LSL}{3\sigma}\right) \)</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Process Capability Assessment</strong></p>
+                <p>A machining process produces components with specification 50.0 ± 0.2 mm. Process data shows μ = 50.05 mm and σ = 0.06 mm.</p>
+                
+                <p><strong>Step 1: Calculate specification limits</strong><br>
+                USL = 50.2 mm, LSL = 49.8 mm</p>
+                
+                <p><strong>Step 2: Calculate process capability indices</strong><br>
+                \( C_p = \frac{50.2 - 49.8}{6 \times 0.06} = \frac{0.4}{0.36} = 1.11 \)<br>
+                \( C_{pk} = \min\left(\frac{50.2 - 50.05}{3 \times 0.06}, \frac{50.05 - 49.8}{3 \times 0.06}\right) = \min(0.83, 1.39) = 0.83 \)</p>
+                
+                <p><strong>Engineering Interpretation:</strong> The process is potentially capable (Cp > 1) but not centered (Cpk < Cp). The process should be adjusted to center it within specifications.</p>
+            </div>
+
+            <div class="key-point">
+                <strong>Engineering Practice:</strong> Statistical thinking is not just about calculations but about understanding variation and its impact on engineering systems. Always consider the practical significance of statistical findings in addition to their statistical significance.
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 HNC Engineering Mathematics. All rights reserved.</p>
+            <p>Statistics Reference for Engineering Applications</p>
+        </div>
+    </footer>
+
+    <script src="navigation.js"></script>
+</body>
+</html>

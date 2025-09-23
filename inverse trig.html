@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inverse Trigonometric Derivatives - HNC Engineering Mathematics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HNC Engineering Mathematics</h1>
+            <p>Inverse Trigonometric Derivatives - Calculus Applications</p>
+        </div>
+    </header>
+
+    <div class="container grid-layout">
+        <aside id="navigation-placeholder"></aside>
+
+        <main>
+            <h1>Derivatives of Inverse Trigonometric Functions</h1>
+            
+            <div class="info-box">
+                <p>Mastering Inverse Function Differentiation</p>
+                Inverse trigonometric functions are essential for solving equations involving angles and have important applications in engineering, particularly in signal processing, control systems, and geometry problems where we need to recover angles from ratios.
+            </div>
+
+            <h2 id="inverse-concepts">1. Fundamental Concepts</h2>
+
+            <div class="info-box">
+                <p>Understanding Inverse Trigonometric Functions</p>
+                Inverse trigonometric functions reverse the action of standard trigonometric functions, returning angles from ratios. Their derivatives follow unique patterns that are crucial for calculus applications.
+            </div>
+
+            <h3>Definition and Domain Restrictions</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Function</th>
+                        <th>Definition</th>
+                        <th>Domain</th>
+                        <th>Range</th>
+                        <th>Engineering Application</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>\(\arcsin(x)\)</td>
+                        <td>Angle whose sine is x</td>
+                        <td>\([-1, 1]\)</td>
+                        <td>\([-\frac{\pi}{2}, \frac{\pi}{2}]\)</td>
+                        <td>Phase angle recovery</td>
+                    </tr>
+                    <tr>
+                        <td>\(\arccos(x)\)</td>
+                        <td>Angle whose cosine is x</td>
+                        <td>\([-1, 1]\)</td>
+                        <td>\([0, \pi]\)</td>
+                        <td>Power factor angles</td>
+                    </tr>
+                    <tr>
+                        <td>\(\arctan(x)\)</td>
+                        <td>Angle whose tangent is x</td>
+                        <td>\(\mathbb{R}\)</td>
+                        <td>\((-\frac{\pi}{2}, \frac{\pi}{2})\)</td>
+                        <td>Control system stability</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Geometric Interpretation</h3>
+            <div class="my-4 p-4 rounded-md flex justify-center bg-gray-900 border border-gray-700">
+                <svg width="500" height="300" viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg" font-family="'Poppins', sans-serif" font-size="14">
+                    <title>Geometric interpretation of inverse trigonometric functions</title>
+                    <!-- Unit Circle -->
+                    <circle cx="250" cy="150" r="80" stroke="var(--accent)" stroke-width="2" fill="none"/>
+                    
+                    <!-- Triangle -->
+                    <line x1="250" y1="150" x2="330" y1="150" stroke="var(--primary)" stroke-width="2"/>
+                    <line x1="250" y1="150" x2="330" y2="70" stroke="var(--primary)" stroke-width="2"/>
+                    <line x1="330" y1="150" x2="330" y2="70" stroke="var(--primary)" stroke-width="2"/>
+                    
+                    <!-- Angle arc -->
+                    <path d="M 270 150 A 20 20 0 0 0 290 140" stroke="var(--text-light)" stroke-width="1.5" fill="none"/>
+                    
+                    <!-- Labels -->
+                    <text x="290" y="145" fill="var(--text-light)">θ</text>
+                    <text x="290" y="180" fill="var(--primary)">x = adjacent</text>
+                    <text x="340" y="110" fill="var(--primary)">√(1-x²)</text>
+                    <text x="270" y="120" fill="var(--accent)">1 (hypotenuse)</text>
+                    
+                    <text x="200" y="50" fill="var(--text-light)" font-size="12">θ = arcsin(opposite/hypotenuse)</text>
+                    <text x="200" y="70" fill="var(--text-light)" font-size="12">θ = arccos(adjacent/hypotenuse)</text>
+                    <text x="200" y="90" fill="var(--text-light)" font-size="12">θ = arctan(opposite/adjacent)</text>
+                </svg>
+            </div>
+
+            <h2 id="derivation-methods">2. Derivative Derivation Methods</h2>
+
+            <div class="info-box">
+                <p>Systematic Approach to Finding Derivatives</p>
+                The derivatives of inverse trigonometric functions can be derived using implicit differentiation and trigonometric identities, providing insight into their mathematical structure.
+            </div>
+
+            <h3 id="arcsin-derivation">Derivative of \(\arcsin(x)\)</h3>
+            <div class="example-box">
+                <p><strong>Problem:</strong> Find the derivative of \(y = \arcsin(x)\)</p>
+                
+                <p><strong>Step 1: Rewrite using inverse relationship</strong><br>
+                \(y = \arcsin(x) \Rightarrow x = \sin(y)\)</p>
+                
+                <p><strong>Step 2: Differentiate implicitly with respect to x</strong><br>
+                \(\frac{d}{dx}[x] = \frac{d}{dx}[\sin(y)]\)<br>
+                \(1 = \cos(y) \cdot \frac{dy}{dx}\)</p>
+                
+                <p><strong>Step 3: Solve for \(\frac{dy}{dx}\)</strong><br>
+                \(\frac{dy}{dx} = \frac{1}{\cos(y)}\)</p>
+                
+                <p><strong>Step 4: Express in terms of x using identity</strong><br>
+                \(\cos(y) = \sqrt{1 - \sin^2(y)} = \sqrt{1 - x^2}\)<br>
+                \(\frac{dy}{dx} = \frac{1}{\sqrt{1 - x^2}}\)</p>
+                
+                <p><strong>Engineering Significance:</strong> This derivative appears in signal processing when recovering phase information from amplitude ratios.</p>
+            </div>
+
+            <h3 id="arccos-derivation">Derivative of \(\arccos(x)\)</h3>
+            <div class="example-box">
+                <p><strong>Problem:</strong> Find the derivative of \(y = \arccos(x)\)</p>
+                
+                <p><strong>Step 1: Rewrite using inverse relationship</strong><br>
+                \(y = \arccos(x) \Rightarrow x = \cos(y)\)</p>
+                
+                <p><strong>Step 2: Differentiate implicitly with respect to x</strong><br>
+                \(\frac{d}{dx}[x] = \frac{d}{dx}[\cos(y)]\)<br>
+                \(1 = -\sin(y) \cdot \frac{dy}{dx}\)</p>
+                
+                <p><strong>Step 3: Solve for \(\frac{dy}{dx}\)</strong><br>
+                \(\frac{dy}{dx} = -\frac{1}{\sin(y)}\)</p>
+                
+                <p><strong>Step 4: Express in terms of x using identity</strong><br>
+                \(\sin(y) = \sqrt{1 - \cos^2(y)} = \sqrt{1 - x^2}\)<br>
+                \(\frac{dy}{dx} = -\frac{1}{\sqrt{1 - x^2}}\)</p>
+                
+                <p><strong>Mathematical Insight:</strong> Note that \(\frac{d}{dx}[\arccos(x)] = -\frac{d}{dx}[\arcsin(x)]\), reflecting the complementary relationship between sine and cosine.</p>
+            </div>
+
+            <h3 id="arctan-derivation">Derivative of \(\arctan(x)\)</h3>
+            <div class="example-box">
+                <p><strong>Problem:</strong> Find the derivative of \(y = \arctan(x)\)</p>
+                
+                <p><strong>Step 1: Rewrite using inverse relationship</strong><br>
+                \(y = \arctan(x) \Rightarrow x = \tan(y)\)</p>
+                
+                <p><strong>Step 2: Differentiate implicitly with respect to x</strong><br>
+                \(\frac{d}{dx}[x] = \frac{d}{dx}[\tan(y)]\)<br>
+                \(1 = \sec^2(y) \cdot \frac{dy}{dx}\)</p>
+                
+                <p><strong>Step 3: Solve for \(\frac{dy}{dx}\)</strong><br>
+                \(\frac{dy}{dx} = \frac{1}{\sec^2(y)}\)</p>
+                
+                <p><strong>Step 4: Express in terms of x using identity</strong><br>
+                \(\sec^2(y) = 1 + \tan^2(y) = 1 + x^2\)<br>
+                \(\frac{dy}{dx} = \frac{1}{1 + x^2}\)</p>
+                
+                <p><strong>Engineering Application:</strong> This derivative is fundamental in control theory for analyzing system stability and phase margins.</p>
+            </div>
+
+            <h2 id="complete-table">3. Complete Derivative Table</h2>
+
+            <div class="info-box">
+                <p>Comprehensive Reference for All Inverse Trig Functions</p>
+                This table provides the complete set of derivatives for inverse trigonometric functions, including their domains of validity.
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Function</th>
+                        <th>Derivative</th>
+                        <th>Domain</th>
+                        <th>Engineering Context</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>\(\frac{d}{dx}[\arcsin(x)]\)</td>
+                        <td>\(\frac{1}{\sqrt{1-x^2}}\)</td>
+                        <td>\(-1 < x < 1\)</td>
+                        <td>Phase recovery in AC circuits</td>
+                    </tr>
+                    <tr>
+                        <td>\(\frac{d}{dx}[\arccos(x)]\)</td>
+                        <td>\(-\frac{1}{\sqrt{1-x^2}}\)</td>
+                        <td>\(-1 < x < 1\)</td>
+                        <td>Power factor calculations</td>
+                    </tr>
+                    <tr>
+                        <td>\(\frac{d}{dx}[\arctan(x)]\)</td>
+                        <td>\(\frac{1}{1+x^2}\)</td>
+                        <td>\(\mathbb{R}\)</td>
+                        <td>Control system analysis</td>
+                    </tr>
+                    <tr>
+                        <td>\(\frac{d}{dx}[\arccot(x)]\)</td>
+                        <td>\(-\frac{1}{1+x^2}\)</td>
+                        <td>\(\mathbb{R}\)</td>
+                        <td>Complementary angle problems</td>
+                    </tr>
+                    <tr>
+                        <td>\(\frac{d}{dx}[\arcsec(x)]\)</td>
+                        <td>\(\frac{1}{|x|\sqrt{x^2-1}}\)</td>
+                        <td>\(|x| > 1\)</td>
+                        <td>Hyperbolic system analysis</td>
+                    </tr>
+                    <tr>
+                        <td>\(\frac{d}{dx}[\arccsc(x)]\)</td>
+                        <td>\(-\frac{1}{|x|\sqrt{x^2-1}}\)</td>
+                        <td>\(|x| > 1\)</td>
+                        <td>Wave propagation studies</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 id="chain-rule-applications">4. Chain Rule Applications</h2>
+
+            <div class="info-box">
+                <p>Handling Composite Functions</p>
+                When the argument of an inverse trigonometric function is itself a function of x, we must apply the chain rule to find the derivative.
+            </div>
+
+            <h3>General Chain Rule Form</h3>
+            <div class="math-block">
+                <p>For \(y = \arcsin(u)\) where \(u = f(x)\):<br>
+                \(\frac{dy}{dx} = \frac{1}{\sqrt{1-u^2}} \cdot \frac{du}{dx}\)</p>
+                
+                <p>For \(y = \arccos(u)\) where \(u = f(x)\):<br>
+                \(\frac{dy}{dx} = -\frac{1}{\sqrt{1-u^2}} \cdot \frac{du}{dx}\)</p>
+                
+                <p>For \(y = \arctan(u)\) where \(u = f(x)\):<br>
+                \(\frac{dy}{dx} = \frac{1}{1+u^2} \cdot \frac{du}{dx}\)</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Differentiate \(y = \arcsin(3x^2)\)</strong></p>
+                
+                <p><strong>Step 1: Identify inner function</strong><br>
+                \(u = 3x^2\), so \(\frac{du}{dx} = 6x\)</p>
+                
+                <p><strong>Step 2: Apply chain rule</strong><br>
+                \(\frac{dy}{dx} = \frac{1}{\sqrt{1-u^2}} \cdot \frac{du}{dx} = \frac{1}{\sqrt{1-(3x^2)^2}} \cdot 6x\)</p>
+                
+                <p><strong>Step 3: Simplify</strong><br>
+                \(\frac{dy}{dx} = \frac{6x}{\sqrt{1-9x^4}}\)</p>
+                
+                <p><strong>Domain Consideration:</strong> Valid for \(-\frac{1}{\sqrt{3}} < x < \frac{1}{\sqrt{3}}\)</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Differentiate \(y = \arctan(e^{2x})\)</strong></p>
+                
+                <p><strong>Step 1: Identify inner function</strong><br>
+                \(u = e^{2x}\), so \(\frac{du}{dx} = 2e^{2x}\)</p>
+                
+                <p><strong>Step 2: Apply chain rule</strong><br>
+                \(\frac{dy}{dx} = \frac{1}{1+u^2} \cdot \frac{du}{dx} = \frac{1}{1+(e^{2x})^2} \cdot 2e^{2x}\)</p>
+                
+                <p><strong>Step 3: Simplify</strong><br>
+                \(\frac{dy}{dx} = \frac{2e^{2x}}{1+e^{4x}}\)</p>
+                
+                <p><strong>Engineering Application:</strong> This appears in systems with exponential growth and phase relationships.</p>
+            </div>
+
+            <h2 id="engineering-applications">5. Engineering Applications</h2>
+
+            <div class="info-box">
+                <p>Practical Uses in Engineering Systems</p>
+                Inverse trigonometric derivatives play crucial roles in various engineering disciplines, particularly in systems involving angles, phases, and rotations.
+            </div>
+
+            <h3>Electrical Engineering: Phase Analysis</h3>
+            <div class="example-box">
+                <p><strong>Problem: AC Circuit Phase Angle</strong></p>
+                <p>In an AC circuit, the phase angle φ between voltage and current is given by \(\phi = \arctan\left(\frac{X_L - X_C}{R}\right)\), where \(X_L\) is inductive reactance, \(X_C\) is capacitive reactance, and R is resistance. Find how the phase angle changes with respect to frequency.</p>
+                
+                <p><strong>Solution:</strong><br>
+                Since \(X_L = 2\pi fL\) and \(X_C = \frac{1}{2\pi fC}\), both depend on frequency f.<br>
+                Using chain rule: \(\frac{d\phi}{df} = \frac{1}{1+\left(\frac{X_L-X_C}{R}\right)^2} \cdot \frac{d}{df}\left(\frac{X_L-X_C}{R}\right)\)</p>
+                
+                <p><strong>Engineering Insight:</strong> This derivative helps design frequency-selective circuits and filters.</p>
+            </div>
+
+            <h3>Mechanical Engineering: Robot Arm Kinematics</h3>
+            <div class="example-box">
+                <p><strong>Problem: End-Effector Position</strong></p>
+                <p>A robotic arm has joint angles determined by inverse trigonometric functions of position coordinates. The rate of change of these angles affects the arm's velocity and acceleration profiles.</p>
+                
+                <p><strong>Application:</strong> Derivatives of inverse trigonometric functions are used in Jacobian matrices for robotic control systems, enabling precise movement planning and obstacle avoidance.</p>
+            </div>
+
+            <h2 id="practice-problems">6. Practice Problems</h2>
+
+            <div class="info-box">
+                <p>Reinforce Your Understanding</p>
+                Work through these problems to master the differentiation of inverse trigonometric functions.
+            </div>
+
+            <h3>Basic Differentiation</h3>
+            <ol>
+                <li>Differentiate \(y = \arcsin(2x)\)</li>
+                <li>Find the derivative of \(y = \arccos(x^3)\)</li>
+                <li>Differentiate \(y = \arctan(\sqrt{x})\)</li>
+            </ol>
+
+            <h3>Advanced Applications</h3>
+            <ol>
+                <li>Find \(\frac{d}{dx}[\arcsin(x) + \arccos(x)]\) and interpret the result</li>
+                <li>Differentiate \(y = \arctan\left(\frac{1+x}{1-x}\right)\) using chain rule</li>
+                <li>Find the second derivative of \(y = \arcsin(x)\)</li>
+            </ol>
+
+            <h3>Engineering Problems</h3>
+            <ol>
+                <li>In a right triangle, angle θ = \(\arcsin(\frac{o}{h})\). Find how θ changes as the opposite side o increases while hypotenuse h remains constant.</li>
+                <li>The phase angle in an RLC circuit is φ = \(\arctan(\frac{\omega L - 1/\omega C}{R})\). Find the frequency at which the phase angle changes most rapidly.</li>
+            </ol>
+
+            <div class="key-point">
+                <strong>Engineering Insight:</strong> Inverse trigonometric derivatives bridge the gap between ratio measurements and angular quantities, making them essential for systems where angles need to be determined from measurable ratios. Their well-behaved derivatives (especially arctan's \(1/(1+x^2)\)) make them numerically stable for computational applications.
+            </div>
+
+            <h2 id="summary">7. Summary and Key Formulas</h2>
+
+            <div class="info-box">
+                <p>Essential Inverse Trigonometric Derivatives</p>
+                These formulas form the foundation for calculus involving inverse trigonometric functions in engineering applications.
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Function</th>
+                        <th>Derivative</th>
+                        <th>Key Property</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>\(\arcsin(x)\)</td>
+                        <td>\(\frac{1}{\sqrt{1-x^2}}\)</td>
+                        <td>Undefined at |x| = 1</td>
+                    </tr>
+                    <tr>
+                        <td>\(\arccos(x)\)</td>
+                        <td>\(-\frac{1}{\sqrt{1-x^2}}\)</td>
+                        <td>Negative of arcsin derivative</td>
+                    </tr>
+                    <tr>
+                        <td>\(\arctan(x)\)</td>
+                        <td>\(\frac{1}{1+x^2}\)</td>
+                        <td>Defined for all real x</td>
+                    </tr>
+                    <tr>
+                        <td>\(\arccot(x)\)</td>
+                        <td>\(-\frac{1}{1+x^2}\)</td>
+                        <td>Negative of arctan derivative</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="warning">
+                <strong>Domain Considerations:</strong> Always check the domain of inverse trigonometric functions before differentiation. The derivatives of arcsin and arccos are undefined at x = ±1, while arctan and arccot are defined for all real numbers.
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 HNC Engineering Mathematics. All rights reserved.</p>
+            <p>Inverse Trigonometric Derivatives Reference for Engineering Applications</p>
+        </div>
+    </footer>
+
+    <script src="navigation.js"></script>
+</body>
+</html>

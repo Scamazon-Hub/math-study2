@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sine Wave Fundamentals - HNC Engineering Mathematics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HNC Engineering Mathematics</h1>
+            <p>Sine Wave Fundamentals - Analyzing Periodic Phenomena</p>
+        </div>
+    </header>
+
+    <div class="container grid-layout">
+        <aside id="navigation-placeholder"></aside>
+
+        <main>
+            <h1>Sine Wave Fundamentals</h1>
+            
+            <div class="info-box">
+                <p>The Universal Language of Oscillation</p>
+                Sine waves form the mathematical foundation for analyzing periodic phenomena across engineering disciplines, including AC circuits, mechanical vibrations, signal processing, and wave propagation.
+            </div>
+
+            <h2 id="sine-anatomy">1. Mathematical Foundation</h2>
+            
+            <div class="info-box">
+                <p>The General Sinusoidal Equation</p>
+                The complete mathematical description of a sine wave incorporates amplitude, frequency, and phase parameters to model real-world oscillatory behavior.
+            </div>
+
+            <h3>Standard Forms</h3>
+            <div class="math-block">
+                <p><strong>Sine Form:</strong> \( y(t) = A\sin(\omega t + \phi) \)</p>
+                <p><strong>Cosine Form:</strong> \( y(t) = A\cos(\omega t + \phi) \)</p>
+                <p><strong>Complex Exponential:</strong> \( y(t) = \text{Im}[Ae^{j(\omega t + \phi)}] \)</p>
+            </div>
+
+            <h4>Parameter Definitions</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Symbol</th>
+                        <th>Definition</th>
+                        <th>Units</th>
+                        <th>Engineering Significance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Amplitude</strong></td>
+                        <td>\( A \)</td>
+                        <td>Peak value from center</td>
+                        <td>V, A, m, etc.</td>
+                        <td>Signal strength, power level</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Angular Frequency</strong></td>
+                        <td>\( \omega \)</td>
+                        <td>\( 2\pi f \)</td>
+                        <td>rad/s</td>
+                        <td>Oscillation rate</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Frequency</strong></td>
+                        <td>\( f \)</td>
+                        <td>Cycles per second</td>
+                        <td>Hz</td>
+                        <td>System response</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Period</strong></td>
+                        <td>\( T \)</td>
+                        <td>\( 1/f \)</td>
+                        <td>s</td>
+                        <td>Cycle duration</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Phase Angle</strong></td>
+                        <td>\( \phi \)</td>
+                        <td>Initial angle at t=0</td>
+                        <td>rad or °</td>
+                        <td>Timing relationship</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>Example: AC Current Analysis</strong></p>
+                <p>An AC current is given by \( i(t) = 43\sin(50\pi t + 0.6) \). Determine all waveform parameters.</p>
+                
+                <p><strong>Step 1: Identify parameters from equation</strong><br>
+                Comparing with \( i(t) = A\sin(\omega t + \phi) \):<br>
+                \( A = 43 \) A, \( \omega = 50\pi \) rad/s, \( \phi = 0.6 \) rad</p>
+                
+                <p><strong>Step 2: Calculate frequency and period</strong><br>
+                \( f = \frac{\omega}{2\pi} = \frac{50\pi}{2\pi} = 25 \) Hz<br>
+                \( T = \frac{1}{f} = \frac{1}{25} = 0.04 \) s = 40 ms</p>
+                
+                <p><strong>Step 3: Convert phase angle</strong><br>
+                \( \phi = 0.6 \) rad \( \approx 34.4^\circ \)</p>
+                
+                <p><strong>Electrical Engineering:</strong> These parameters define the current's behavior in power systems and circuit analysis.</p>
+            </div>
+
+            <h2 id="sine-relationships">2. Sine-Cosine Relationships</h2>
+
+            <div class="info-box">
+                <p>Phase Shift Transformations</p>
+                Sine and cosine functions are essentially the same waveform with different starting points, related through simple phase shifts.
+            </div>
+
+            <h3>Fundamental Identities</h3>
+            <div class="math-block">
+                <p>\( \cos(\theta) = \sin\left(\theta + \frac{\pi}{2}\right) \)</p>
+                <p>\( \sin(\theta) = \cos\left(\theta - \frac{\pi}{2}\right) \)</p>
+                <p>\( \sin(\theta + \pi) = -\sin(\theta) \)</p>
+                <p>\( \cos(\theta + \pi) = -\cos(\theta) \)</p>
+            </div>
+
+            <h4>Phase Shift Equivalents</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Expression</th>
+                        <th>Equivalent Form</th>
+                        <th>Phase Shift</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>\( A\sin(\omega t) \)</td>
+                        <td>\( A\cos\left(\omega t - \frac{\pi}{2}\right) \)</td>
+                        <td>-90°</td>
+                    </tr>
+                    <tr>
+                        <td>\( A\cos(\omega t) \)</td>
+                        <td>\( A\sin\left(\omega t + \frac{\pi}{2}\right) \)</td>
+                        <td>+90°</td>
+                    </tr>
+                    <tr>
+                        <td>\( -A\sin(\omega t) \)</td>
+                        <td>\( A\sin(\omega t + \pi) \)</td>
+                        <td>180°</td>
+                    </tr>
+                    <tr>
+                        <td>\( -A\cos(\omega t) \)</td>
+                        <td>\( A\cos(\omega t + \pi) \)</td>
+                        <td>180°</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>Example: Phase Relationship Analysis</strong></p>
+                <p>Given \( v_1(t) = 100\sin(100\pi t) \) and \( v_2(t) = 100\cos(100\pi t) \), determine their phase relationship.</p>
+                
+                <p><strong>Step 1: Express both in sine form</strong><br>
+                \( v_1(t) = 100\sin(100\pi t) \)<br>
+                \( v_2(t) = 100\cos(100\pi t) = 100\sin\left(100\pi t + \frac{\pi}{2}\right) \)</p>
+                
+                <p><strong>Step 2: Compare phase angles</strong><br>
+                \( v_1 \): phase = 0 rad<br>
+                \( v_2 \): phase = \( \frac{\pi}{2} \) rad = 90°</p>
+                
+                <p><strong>Step 3: Phase difference</strong><br>
+                \( \Delta\phi = \frac{\pi}{2} - 0 = \frac{\pi}{2} \) rad = 90°</p>
+                
+                <p><strong>Conclusion:</strong> \( v_2 \) leads \( v_1 \) by 90°</p>
+                
+                <p><strong>Power Systems:</strong> This phase relationship is fundamental in three-phase AC systems.</p>
+            </div>
+
+            <h2 id="sine-values">3. Important Waveform Values</h2>
+
+            <div class="info-box">
+                <p>Practical Engineering Measures</p>
+                Beyond peak values, engineers use RMS, average, and form factor values to characterize waveform effectiveness in power delivery and signal processing.
+            </div>
+
+            <h3>Key Waveform Metrics</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Definition</th>
+                        <th>Formula (Sine Wave)</th>
+                        <th>Numerical Value</th>
+                        <th>Application</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Peak Value</strong></td>
+                        <td>Maximum amplitude</td>
+                        <td>\( A \)</td>
+                        <td>\( A \)</td>
+                        <td>Voltage ratings</td>
+                    </tr>
+                    <tr>
+                        <td><strong>RMS Value</strong></td>
+                        <td>Root Mean Square</td>
+                        <td>\( \frac{A}{\sqrt{2}} \)</td>
+                        <td>\( 0.707A \)</td>
+                        <td>Power calculations</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Average Value</strong></td>
+                        <td>Half-cycle average</td>
+                        <td>\( \frac{2A}{\pi} \)</td>
+                        <td>\( 0.637A \)</td>
+                        <td>Rectifier circuits</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Form Factor</strong></td>
+                        <td>RMS/Average</td>
+                        <td>\( \frac{\pi}{2\sqrt{2}} \)</td>
+                        <td>\( 1.11 \)</td>
+                        <td>Waveform quality</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Crest Factor</strong></td>
+                        <td>Peak/RMS</td>
+                        <td>\( \sqrt{2} \)</td>
+                        <td>\( 1.414 \)</td>
+                        <td>Peak stress</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>Example: Power Calculation</strong></p>
+                <p>For the current \( i(t) = 43\sin(50\pi t + 0.6) \) flowing through a 10Ω resistor, calculate:</p>
+                
+                <p><strong>Step 1: RMS current</strong><br>
+                \( I_{RMS} = \frac{43}{\sqrt{2}} \approx 30.4 \) A</p>
+                
+                <p><strong>Step 2: Power dissipated</strong><br>
+                \( P = I_{RMS}^2 R = (30.4)^2 \times 10 \approx 9241.6 \) W</p>
+                
+                <p><strong>Step 3: Average current (half-cycle)</strong><br>
+                \( I_{avg} = \frac{2 \times 43}{\pi} \approx 27.4 \) A</p>
+                
+                <p><strong>Step 4: Form factor</strong><br>
+                \( FF = \frac{I_{RMS}}{I_{avg}} = \frac{30.4}{27.4} \approx 1.11 \)</p>
+                
+                <p><strong>Power Engineering:</strong> These calculations determine component sizing and thermal management requirements.</p>
+            </div>
+
+            <h2 id="sine-applications">4. Engineering Applications</h2>
+
+            <div class="info-box">
+                <p>Cross-Disciplinary Sine Wave Usage</p>
+                Sine waves model diverse physical phenomena across mechanical, electrical, civil, and chemical engineering disciplines.
+            </div>
+
+            <h3>Application Areas</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Engineering Field</th>
+                        <th>Application</th>
+                        <th>Typical Equation</th>
+                        <th>Parameters</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Electrical</strong></td>
+                        <td>AC circuit analysis</td>
+                        <td>\( v(t) = V_m\sin(\omega t) \)</td>
+                        <td>Voltage, frequency, phase</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mechanical</strong></td>
+                        <td>Simple harmonic motion</td>
+                        <td>\( x(t) = A\sin(\omega t + \phi) \)</td>
+                        <td>Displacement, amplitude</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Civil</strong></td>
+                        <td>Structural vibrations</td>
+                        <td>\( y(t) = A e^{-\zeta t}\sin(\omega_d t) \)</td>
+                        <td>Damping, natural frequency</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Chemical</strong></td>
+                        <td>Oscillatory reactions</td>
+                        <td>\( C(t) = C_0 + A\sin(\omega t) \)</td>
+                        <td>Concentration, amplitude</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Audio</strong></td>
+                        <td>Sound waves</td>
+                        <td>\( p(t) = P_m\sin(2\pi ft) \)</td>
+                        <td>Pressure, frequency</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>Example: Mechanical Vibration</strong></p>
+                <p>A mass-spring system oscillates with displacement \( x(t) = 0.1\sin(20t + 0.5) \) meters. Analyze the motion.</p>
+                
+                <p><strong>Step 1: Motion parameters</strong><br>
+                Amplitude: \( A = 0.1 \) m<br>
+                Angular frequency: \( \omega = 20 \) rad/s<br>
+                Frequency: \( f = \frac{20}{2\pi} \approx 3.18 \) Hz<br>
+                Period: \( T = \frac{1}{3.18} \approx 0.314 \) s</p>
+                
+                <p><strong>Step 2: Velocity and acceleration</strong><br>
+                \( v(t) = \frac{dx}{dt} = 2.0\cos(20t + 0.5) \) m/s<br>
+                \( a(t) = \frac{d^2x}{dt^2} = -40\sin(20t + 0.5) \) m/s²</p>
+                
+                <p><strong>Step 3: Maximum values</strong><br>
+                Max velocity: \( 2.0 \) m/s<br>
+                Max acceleration: \( 40 \) m/s² ≈ 4.08g</p>
+                
+                <p><strong>Mechanical Design:</strong> These values determine stress levels and fatigue life in vibrating components.</p>
+            </div>
+
+            <h2 id="sine-operations">5. Mathematical Operations</h2>
+
+            <div class="info-box">
+                <p>Analyzing Combined Waveforms</p>
+                Sine waves can be added, multiplied, and transformed to model complex phenomena and solve engineering problems.
+            </div>
+
+            <h3>Waveform Addition</h3>
+            <div class="math-block">
+                <p><strong>Same Frequency:</strong> \( A_1\sin(\omega t + \phi_1) + A_2\sin(\omega t + \phi_2) = A_R\sin(\omega t + \phi_R) \)</p>
+                <p>Where: \( A_R = \sqrt{A_1^2 + A_2^2 + 2A_1A_2\cos(\phi_1 - \phi_2)} \)</p>
+                <p>\( \phi_R = \tan^{-1}\left(\frac{A_1\sin\phi_1 + A_2\sin\phi_2}{A_1\cos\phi_1 + A_2\cos\phi_2}\right) \)</p>
+            </div>
+
+            <h3>Product-to-Sum Identities</h3>
+            <div class="math-block">
+                <p>\( \sin A \sin B = \frac{1}{2}[\cos(A-B) - \cos(A+B)] \)</p>
+                <p>\( \sin A \cos B = \frac{1}{2}[\sin(A+B) + \sin(A-B)] \)</p>
+                <p>\( \cos A \cos B = \frac{1}{2}[\cos(A+B) + \cos(A-B)] \)</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Interference Pattern</strong></p>
+                <p>Two sound waves interfere: \( p_1(t) = 5\sin(100t) \) and \( p_2(t) = 3\sin(100t + \frac{\pi}{3}) \). Find the resultant wave.</p>
+                
+                <p><strong>Step 1: Identify parameters</strong><br>
+                \( A_1 = 5 \), \( \phi_1 = 0 \); \( A_2 = 3 \), \( \phi_2 = \frac{\pi}{3} \)</p>
+                
+                <p><strong>Step 2: Calculate resultant amplitude</strong><br>
+                \( A_R = \sqrt{5^2 + 3^2 + 2 \times 5 \times 3 \times \cos(0 - \frac{\pi}{3})} \)<br>
+                \( = \sqrt{25 + 9 + 30 \times 0.5} = \sqrt{25 + 9 + 15} = \sqrt{49} = 7 \)</p>
+                
+                <p><strong>Step 3: Calculate resultant phase</strong><br>
+                \( \phi_R = \tan^{-1}\left(\frac{5\sin 0 + 3\sin\frac{\pi}{3}}{5\cos 0 + 3\cos\frac{\pi}{3}}\right) \)<br>
+                \( = \tan^{-1}\left(\frac{0 + 2.598}{5 + 1.5}\right) = \tan^{-1}\left(\frac{2.598}{6.5}\right) \approx 21.8^\circ \)</p>
+                
+                <p><strong>Step 4: Resultant wave</strong><br>
+                \( p_R(t) = 7\sin(100t + 0.38) \)</p>
+                
+                <p><strong>Acoustics:</strong> This analysis predicts sound reinforcement or cancellation in auditorium design.</p>
+            </div>
+
+            <div class="key-point">
+                <strong>Engineering Analysis:</strong> Sine wave fundamentals provide the mathematical toolkit for analyzing oscillatory phenomena across engineering disciplines. Mastery of amplitude, frequency, phase relationships, and waveform metrics is essential for designing and analyzing dynamic systems.
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 HNC Engineering Mathematics. All rights reserved.</p>
+            <p>Sine Wave Fundamentals Reference for Engineering Applications</p>
+        </div>
+    </footer>
+
+    <script src="navigation.js"></script>
+</body>
+</html>

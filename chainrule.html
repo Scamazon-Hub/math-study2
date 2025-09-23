@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Chain Rule - HNC Engineering Mathematics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HNC Engineering Mathematics</h1>
+            <p>The Chain Rule - Function of a Function Differentiation</p>
+        </div>
+    </header>
+
+    <div class="container grid-layout">
+        <aside id="navigation-placeholder"></aside>
+
+        <main>
+            <h1>The Chain Rule</h1>
+            
+            <div class="info-box">
+                <p>Mastering Composite Function Differentiation</p>
+                The chain rule is one of the most powerful tools in calculus, allowing us to differentiate complex functions built from simpler components. It's essential for engineering applications involving rates of change in interconnected systems.
+            </div>
+
+            <h2 id="chain-intro">1. Understanding Cascade Relationships</h2>
+            
+            <div class="info-box">
+                <p>What is a Cascade Relationship?</p>
+                In engineering systems, variables are often linked indirectly through intermediate relationships. Understanding these cascading dependencies is crucial for analyzing complex systems.
+            </div>
+
+            <h3>Mathematical Cascade</h3>
+            <p>When a variable \(y\) depends on \(z\), which in turn depends on \(x\), we have a chain relationship:</p>
+            
+            <div class="my-4 p-4 rounded-md flex justify-center items-center bg-gray-900 border border-gray-700">
+                <svg width="450" height="150" viewBox="0 0 450 150" xmlns="http://www.w3.org/2000/svg" font-family="'Poppins', sans-serif" font-size="14">
+                    <title>Diagram of a mathematical cascade relationship</title>
+                    <defs>
+                        <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                            <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--primary-end)" />
+                        </marker>
+                    </defs>
+                    <!-- Box 1 -->
+                    <rect x="20" y="50" width="80" height="50" fill="var(--background-dark)" stroke="var(--text-light)" rx="8"></rect>
+                    <text x="60" y="80" text-anchor="middle" fill="var(--text-heading)" font-size="20" font-weight="bold">x</text>
+                    <!-- Arrow 1 -->
+                    <line x1="105" y1="75" x2="165" y2="75" stroke="var(--primary-end)" stroke-width="2.5" marker-end="url(#arrow)"></line>
+                    <text x="135" y="60" text-anchor="middle" fill="var(--text-light)">\(z = f(x)\)</text>
+                    <!-- Box 2 -->
+                    <rect x="170" y="50" width="80" height="50" fill="var(--background-dark)" stroke="var(--text-light)" rx="8"></rect>
+                    <text x="210" y="80" text-anchor="middle" fill="var(--text-heading)" font-size="20" font-weight="bold">z</text>
+                    <!-- Arrow 2 -->
+                    <line x1="255" y1="75" x2="315" y2="75" stroke="var(--primary-end)" stroke-width="2.5" marker-end="url(#arrow)"></line>
+                    <text x="285" y="60" text-anchor="middle" fill="var(--text-light)">\(y = f(z)\)</text>
+                    <!-- Box 3 -->
+                    <rect x="320" y="50" width="80" height="50" fill="var(--background-dark)" stroke="var(--text-light)" rx="8"></rect>
+                    <text x="360" y="80" text-anchor="middle" fill="var(--text-heading)" font-size="20" font-weight="bold">y</text>
+                </svg>
+            </div>
+
+            <h3>Engineering Applications</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Engineering Field</th>
+                        <th>Cascade Example</th>
+                        <th>Mathematical Representation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Thermodynamics</td>
+                        <td>Fuel consumption → Heat input → Temperature</td>
+                        <td>\(T = f(H), H = f(C)\)</td>
+                    </tr>
+                    <tr>
+                        <td>Control Systems</td>
+                        <td>Input voltage → Motor speed → Position</td>
+                        <td>\(θ = f(ω), ω = f(V)\)</td>
+                    </tr>
+                    <tr>
+                        <td>Fluid Dynamics</td>
+                        <td>Pressure → Flow rate → Turbine power</td>
+                        <td>\(P = f(Q), Q = f(p)\)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>Example: Thermal System Analysis</strong></p>
+                <p>A heating system where temperature rise depends on heat input, which depends on fuel consumption rate.</p>
+                
+                <div class="my-4 p-4 rounded-md flex justify-center items-center bg-gray-900 border border-gray-700">
+                    <svg width="500" height="180" viewBox="0 0 500 180" xmlns="http://www.w3.org/2000/svg" font-family="'Poppins', sans-serif" font-size="12">
+                        <title>Diagram of a physical cascade relationship</title>
+                        <defs>
+                            <marker id="arrow2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--primary-end)" />
+                            </marker>
+                        </defs>
+                        <!-- Box 1 -->
+                        <rect x="10" y="60" width="120" height="60" fill="var(--background-dark)" stroke="var(--text-light)" rx="8"></rect>
+                        <text x="70" y="85" text-anchor="middle" fill="var(--text-heading)" font-weight="bold">Fuel Consumption (C)</text>
+                        <!-- Arrow 1 -->
+                        <line x1="135" y1="90" x2="195" y2="90" stroke="var(--primary-end)" stroke-width="2.5" marker-end="url(#arrow2)"></line>
+                        <text x="165" y="70" text-anchor="middle" fill="var(--text-light)">Burning Process</text>
+                        <text x="165" y="85" text-anchor="middle" fill="var(--text-light)">\(H = f(C)\)</text>
+                        <!-- Box 2 -->
+                        <rect x="200" y="60" width="120" height="60" fill="var(--background-dark)" stroke="var(--text-light)" rx="8"></rect>
+                        <text x="260" y="85" text-anchor="middle" fill="var(--text-heading)" font-weight="bold">Heat Input (H)</text>
+                        <!-- Arrow 2 -->
+                        <line x1="325" y1="90" x2="385" y2="90" stroke="var(--primary-end)" stroke-width="2.5" marker-end="url(#arrow2)"></line>
+                        <text x="355" y="70" text-anchor="middle" fill="var(--text-light)">Heat Transfer</text>
+                        <text x="355" y="85" text-anchor="middle" fill="var(--text-light)">\(T = f(H)\)</text>
+                        <!-- Box 3 -->
+                        <rect x="390" y="60" width="100" height="60" fill="var(--background-dark)" stroke="var(--text-light)" rx="8"></rect>
+                        <text x="440" y="85" text-anchor="middle" fill="var(--text-heading)" font-weight="bold">Temp Rise (T)</text>
+                    </svg>
+                </div>
+                
+                <p><strong>Engineering Insight:</strong> The chain rule allows us to find how temperature changes with fuel consumption: \(\frac{dT}{dC} = \frac{dT}{dH} \times \frac{dH}{dC}\)</p>
+            </div>
+
+            <h2 id="chain-rule">2. The Chain Rule Formula</h2>
+
+            <div class="info-box">
+                <p>Fundamental Principle</p>
+                The chain rule provides a method for differentiating composite functions by multiplying the derivatives of the individual functions in the chain.
+            </div>
+
+            <h3>Basic Chain Rule</h3>
+            <div class="math-block">
+                $$ \frac{dy}{dx} = \frac{dy}{dz} \times \frac{dz}{dx} $$
+            </div>
+
+            <h3>Extended Chain Rule</h3>
+            <p>For longer chains with more variables:</p>
+            <div class="math-block">
+                $$ \frac{dy}{dx} = \frac{dy}{du} \times \frac{du}{dv} \times \frac{dv}{dx} $$
+            </div>
+
+            <h3>Leibniz Notation Insight</h3>
+            <div class="info-box">
+                <p>Visualizing the Cancellation</p>
+                While not mathematically rigorous, the "cancellation" of intermediate differentials provides an intuitive way to remember and apply the chain rule:
+                $$ \frac{dy}{dx} = \frac{dy}{\cancel{dz}} \times \frac{\cancel{dz}}{dx} $$
+            </div>
+
+            <h2 id="chain-applications">3. Engineering Applications</h2>
+
+            <div class="info-box">
+                <p>Practical Implementation</p>
+                The chain rule finds extensive applications across various engineering disciplines for analyzing rates of change in complex systems.
+            </div>
+
+            <h3>Mechanical Engineering: Kinematics</h3>
+            <div class="example-box">
+                <p><strong>Example: Robot Arm Motion</strong></p>
+                <p>A robotic arm has joint angle θ that depends on motor speed ω, which depends on input voltage V. Find how joint position changes with voltage.</p>
+                
+                <p><strong>Given:</strong><br>
+                Position: \(x = 2\sinθ\)<br>
+                Angular velocity: \(θ = 0.5ωt\)<br>
+                Motor response: \(ω = 3V^2\)</p>
+                
+                <p><strong>Solution using chain rule:</strong><br>
+                \(\frac{dx}{dV} = \frac{dx}{dθ} \times \frac{dθ}{dω} \times \frac{dω}{dV}\)<br>
+                \(\frac{dx}{dθ} = 2\cosθ\)<br>
+                \(\frac{dθ}{dω} = 0.5t\)<br>
+                \(\frac{dω}{dV} = 6V\)<br>
+                \(\frac{dx}{dV} = 2\cosθ \times 0.5t \times 6V = 6Vt\cosθ\)</p>
+            </div>
+
+            <h3>Electrical Engineering: Power Systems</h3>
+            <div class="example-box">
+                <p><strong>Example: Power Loss in Transmission</strong></p>
+                <p>Power loss in a transmission line depends on current, which depends on load impedance, which depends on temperature.</p>
+                
+                <p><strong>Given:</strong><br>
+                Power loss: \(P = I^2R\)<br>
+                Current: \(I = \frac{V}{Z}\)<br>
+                Impedance: \(Z = Z_0(1 + αT)\)</p>
+                
+                <p><strong>Find rate of power loss change with temperature:</strong><br>
+                \(\frac{dP}{dT} = \frac{dP}{dI} \times \frac{dI}{dZ} \times \frac{dZ}{dT}\)<br>
+                \(\frac{dP}{dI} = 2IR\)<br>
+                \(\frac{dI}{dZ} = -\frac{V}{Z^2}\)<br>
+                \(\frac{dZ}{dT} = Z_0α\)<br>
+                \(\frac{dP}{dT} = 2IR \times (-\frac{V}{Z^2}) \times Z_0α = -\frac{2IVRZ_0α}{Z^2}\)</p>
+            </div>
+
+            <h2 id="chain-techniques">4. Advanced Techniques</h2>
+
+            <h3>Multiple Chain Rules</h3>
+            <div class="info-box">
+                <p>Handling Complex Dependencies</p>
+                Some functions require applying the chain rule multiple times or in combination with other differentiation rules.
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Triple Composition</strong></p>
+                <p>Differentiate \(y = \sin(\ln(x^2 + 1))\)</p>
+                
+                <p><strong>Step 1: Identify the chain</strong><br>
+                Let \(u = x^2 + 1\), \(v = \ln u\), \(y = \sin v\)</p>
+                
+                <p><strong>Step 2: Apply chain rule</strong><br>
+                \(\frac{dy}{dx} = \frac{dy}{dv} \times \frac{dv}{du} \times \frac{du}{dx}\)<br>
+                \(\frac{dy}{dv} = \cos v\)<br>
+                \(\frac{dv}{du} = \frac{1}{u}\)<br>
+                \(\frac{du}{dx} = 2x\)<br>
+                \(\frac{dy}{dx} = \cos v \times \frac{1}{u} \times 2x = \frac{2x\cos(\ln(x^2 + 1))}{x^2 + 1}\)</p>
+            </div>
+
+            <h3>Chain Rule with Other Rules</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Combination</th>
+                        <th>When to Use</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Chain + Product Rule</td>
+                        <td>Product of composite functions</td>
+                        <td>\(y = (x^2+1)^3 \cdot \sin(2x)\)</td>
+                    </tr>
+                    <tr>
+                        <td>Chain + Quotient Rule</td>
+                        <td>Quotient of composite functions</td>
+                        <td>\(y = \frac{\cos(3x)}{(2x-1)^2}\)</td>
+                    </tr>
+                    <tr>
+                        <td>Multiple Chain Rules</td>
+                        <td>Nested composite functions</td>
+                        <td>\(y = \ln(\sin(e^x))\)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 id="chain-examples">5. Comprehensive Worked Examples</h2>
+
+            <div class="example-box">
+                <p><strong>Example 1: Basic Chain Rule</strong></p>
+                <p>Given \(y = (3x^2 + 2x)^4\), find \(\frac{dy}{dx}\)</p>
+                
+                <p><strong>Method 1: Direct Substitution</strong><br>
+                Expand: \(y = (3x^2 + 2x)^4\) (complicated expansion)<br>
+                Differentiate term-by-term (tedious)</p>
+                
+                <p><strong>Method 2: Chain Rule (Recommended)</strong><br>
+                Let \(u = 3x^2 + 2x\), then \(y = u^4\)<br>
+                \(\frac{dy}{dx} = \frac{dy}{du} \times \frac{du}{dx} = 4u^3 \times (6x + 2)\)<br>
+                Substitute back: \(\frac{dy}{dx} = 4(3x^2 + 2x)^3(6x + 2)\)</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example 2: Engineering Application</strong></p>
+                <p>The deflection δ of a beam under load is given by \(\delta = \frac{PL^3}{3EI}\), where I depends on beam dimensions. If I = k·b·h³, find how deflection changes with beam height h.</p>
+                
+                <p><strong>Solution:</strong><br>
+                \(\frac{d\delta}{dh} = \frac{d\delta}{dI} \times \frac{dI}{dh}\)<br>
+                \(\frac{d\delta}{dI} = -\frac{PL^3}{3EI^2}\)<br>
+                \(\frac{dI}{dh} = 3k·b·h^2\)<br>
+                \(\frac{d\delta}{dh} = -\frac{PL^3}{3EI^2} \times 3k·b·h^2 = -\frac{PL^3k·b·h^2}{EI^2}\)</p>
+                
+                <p><strong>Engineering Interpretation:</strong> Deflection decreases as beam height increases (negative derivative).</p>
+            </div>
+
+            <h2 id="chain-practice">6. Practice Problems</h2>
+
+            <div class="info-box">
+                <p>Test Your Understanding</p>
+                Try these problems to reinforce your chain rule skills. Solutions are provided for self-checking.
+            </div>
+
+            <h3>Basic Problems</h3>
+            <ol>
+                <li>Differentiate \(y = (2x^3 - 5x)^7\)</li>
+                <li>Find \(\frac{dy}{dx}\) for \(y = \sqrt{4x^2 + 3x}\)</li>
+                <li>Differentiate \(y = \cos(5x^2 - 2x)\)</li>
+            </ol>
+
+            <h3>Engineering Problems</h3>
+            <ol>
+                <li>The period T of a pendulum is \(T = 2\pi\sqrt{\frac{L}{g}}\). Find how T changes with length L.</li>
+                <li>In an RC circuit, voltage across capacitor is \(V_c = V_0(1 - e^{-t/RC})\). Find rate of voltage change with time.</li>
+                <li>The stress in a pressure vessel is \(\sigma = \frac{pr}{t}\), where t depends on temperature. Find \(\frac{d\sigma}{dT}\).</li>
+            </ol>
+
+            <div class="key-point">
+                <strong>Engineering Insight:</strong> The chain rule transforms complex engineering problems into manageable steps. Always identify the intermediate variables and their relationships before applying the rule.
+            </div>
+
+            <h2 id="chain-summary">7. Summary and Key Points</h2>
+
+            <div class="info-box">
+                <p>Essential Takeaways</p>
+                Mastery of the chain rule is fundamental for engineering mathematics and practical problem-solving.
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Concept</th>
+                        <th>Key Formula</th>
+                        <th>Engineering Application</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Basic Chain Rule</td>
+                        <td>\(\frac{dy}{dx} = \frac{dy}{dz} \cdot \frac{dz}{dx}\)</td>
+                        <td>Single intermediate variable systems</td>
+                    </tr>
+                    <tr>
+                        <td>Extended Chain Rule</td>
+                        <td>\(\frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dv} \cdot \frac{dv}{dx}\)</td>
+                        <td>Multiple intermediate variables</td>
+                    </tr>
+                    <tr>
+                        <td>Combined Rules</td>
+                        <td>Chain + Product/Quotient rules</td>
+                        <td>Complex engineering systems</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="warning">
+                <strong>Common Pitfall:</strong> Forgetting to multiply by the derivative of the inner function is the most common error. Always differentiate from the outside inward.
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 HNC Engineering Mathematics. All rights reserved.</p>
+            <p>Chain Rule Reference for Engineering Applications</p>
+        </div>
+    </footer>
+
+    <script src="navigation.js"></script>
+</body>
+</html>

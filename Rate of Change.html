@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate of Change - HNC Engineering Mathematics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HNC Engineering Mathematics</h1>
+            <p>Rate of Change - Analyzing Dynamic Systems with Calculus</p>
+        </div>
+    </header>
+
+    <div class="container grid-layout">
+        <aside id="navigation-placeholder"></aside>
+
+        <main>
+            <h1>Differentiation as a Rate of Change</h1>
+            
+            <div class="info-box">
+                <p>The Fundamental Tool for Dynamic Analysis</p>
+                Differentiation provides the mathematical framework for analyzing how quantities change relative to each other. This concept forms the foundation for understanding motion, growth, decay, and optimization in engineering systems.
+            </div>
+
+            <h2 id="roc-fundamentals">1. Fundamental Concepts</h2>
+            
+            <div class="info-box">
+                <p>The Derivative as an Instantaneous Rate</p>
+                The derivative measures how a function's output changes as its input changes, providing the instantaneous rate of change at any point.
+            </div>
+
+            <h3>Mathematical Definition</h3>
+            <div class="math-block">
+                <p>The derivative of \( y = f(x) \) with respect to \( x \) is defined as:</p>
+                <p>$$ f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h} $$</p>
+            </div>
+
+            <h4>Geometric Interpretation</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Concept</th>
+                        <th>Mathematical Expression</th>
+                        <th>Geometric Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Average Rate of Change</strong></td>
+                        <td>\( \frac{f(x_2) - f(x_1)}{x_2 - x_1} \)</td>
+                        <td>Slope of secant line</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Instantaneous Rate of Change</strong></td>
+                        <td>\( f'(x) = \lim_{\Delta x \to 0} \frac{\Delta y}{\Delta x} \)</td>
+                        <td>Slope of tangent line</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>Example: Position to Velocity</strong></p>
+                <p>The position of a vehicle is given by \( s(t) = t^3 - 6t^2 + 9t \) meters, where t is time in seconds. Find the velocity at t = 2 seconds.</p>
+                
+                <p><strong>Step 1: Velocity is the derivative of position</strong><br>
+                \( v(t) = \frac{ds}{dt} = 3t^2 - 12t + 9 \)</p>
+                
+                <p><strong>Step 2: Evaluate at t = 2</strong><br>
+                \( v(2) = 3(2)^2 - 12(2) + 9 = 12 - 24 + 9 = -3 \) m/s</p>
+                
+                <p><strong>Engineering Interpretation:</strong> The negative velocity indicates the vehicle is moving in the negative direction at 3 m/s.</p>
+            </div>
+
+            <h2 id="roc-physical">2. Physical Interpretations in Engineering</h2>
+
+            <div class="info-box">
+                <p>Real-World Rate of Change Applications</p>
+                Derivatives appear throughout engineering as measures of how physical quantities change with respect to time, space, or other variables.
+            </div>
+
+            <h3>Common Engineering Rates</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Quantity</th>
+                        <th>Rate of Change</th>
+                        <th>Engineering Application</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Displacement (s)</strong></td>
+                        <td>\( v = \frac{ds}{dt} \)</td>
+                        <td>Velocity in mechanical systems</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Velocity (v)</strong></td>
+                        <td>\( a = \frac{dv}{dt} \)</td>
+                        <td>Acceleration in dynamics</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Charge (Q)</strong></td>
+                        <td>\( I = \frac{dQ}{dt} \)</td>
+                        <td>Current in electrical circuits</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Temperature (T)</strong></td>
+                        <td>\( \frac{dT}{dt} \)</td>
+                        <td>Heat transfer rates</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pressure (P)</strong></td>
+                        <td>\( \frac{dP}{dx} \)</td>
+                        <td>Pressure gradients in fluids</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Volume (V)</strong></td>
+                        <td>\( \frac{dV}{dt} \)</td>
+                        <td>Flow rates in hydraulics</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>Example: Electrical Current Calculation</strong></p>
+                <p>The charge flowing through a circuit is given by \( Q(t) = 2t^3 - 4t^2 + 5t \) coulombs. Find the current at t = 3 seconds.</p>
+                
+                <p><strong>Step 1: Current is derivative of charge</strong><br>
+                \( I(t) = \frac{dQ}{dt} = 6t^2 - 8t + 5 \) amperes</p>
+                
+                <p><strong>Step 2: Evaluate at t = 3</strong><br>
+                \( I(3) = 6(9) - 8(3) + 5 = 54 - 24 + 5 = 35 \) A</p>
+                
+                <p><strong>Circuit Design:</strong> This current value helps in selecting appropriate wire gauges and circuit protection.</p>
+            </div>
+
+            <h2 id="roc-second">3. Second and Higher Order Derivatives</h2>
+
+            <div class="info-box">
+                <p>Analyzing Change Rates of Change</p>
+                Higher order derivatives provide information about curvature, acceleration, concavity, and rates of change of rates of change.
+            </div>
+
+            <h3>Second Derivative Applications</h3>
+            <div class="math-block">
+                <p><strong>Mechanical Systems:</strong> \( a = \frac{d^2s}{dt^2} \) (Acceleration)</p>
+                <p><strong>Curvature Analysis:</strong> \( \kappa = \frac{|y''|}{(1 + (y')^2)^{3/2}} \) (Curvature)</p>
+                <p><strong>Concavity Test:</strong> \( f''(x) > 0 \) ⇒ Concave up, \( f''(x) < 0 \) ⇒ Concave down</p>
+            </div>
+
+            <h4>Higher Order Derivatives Notation</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order</th>
+                        <th>Leibniz Notation</th>
+                        <th>Prime Notation</th>
+                        <th>Physical Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>First</td>
+                        <td>\( \frac{dy}{dx} \)</td>
+                        <td>\( f'(x) \)</td>
+                        <td>Velocity, Gradient</td>
+                    </tr>
+                    <tr>
+                        <td>Second</td>
+                        <td>\( \frac{d^2y}{dx^2} \)</td>
+                        <td>\( f''(x) \)</td>
+                        <td>Acceleration, Curvature</td>
+                    </tr>
+                    <tr>
+                        <td>Third</td>
+                        <td>\( \frac{d^3y}{dx^3} \)</td>
+                        <td>\( f'''(x) \)</td>
+                        <td>Jerk, Rate of curvature change</td>
+                    </tr>
+                    <tr>
+                        <td>n-th</td>
+                        <td>\( \frac{d^ny}{dx^n} \)</td>
+                        <td>\( f^{(n)}(x) \)</td>
+                        <td>Higher order effects</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>Example: Motion Analysis</strong></p>
+                <p>For the position function \( s(t) = 2t^3 - 9t^2 + 12t + 5 \), find velocity, acceleration, and jerk.</p>
+                
+                <p><strong>Step 1: First derivative (velocity)</strong><br>
+                \( v(t) = \frac{ds}{dt} = 6t^2 - 18t + 12 \)</p>
+                
+                <p><strong>Step 2: Second derivative (acceleration)</strong><br>
+                \( a(t) = \frac{d^2s}{dt^2} = 12t - 18 \)</p>
+                
+                <p><strong>Step 3: Third derivative (jerk)</strong><br>
+                \( j(t) = \frac{d^3s}{dt^3} = 12 \)</p>
+                
+                <p><strong>Step 4: Analyze at t = 2 seconds</strong><br>
+                \( v(2) = 6(4) - 18(2) + 12 = 24 - 36 + 12 = 0 \) m/s<br>
+                \( a(2) = 12(2) - 18 = 24 - 18 = 6 \) m/s²<br>
+                \( j(2) = 12 \) m/s³</p>
+                
+                <p><strong>Vehicle Dynamics:</strong> The object is momentarily at rest but accelerating at 6 m/s² with constant jerk.</p>
+            </div>
+
+            <h2 id="roc-related">4. Related Rates Problems</h2>
+
+            <div class="info-box">
+                <p>Multiple Changing Quantities</p>
+                Related rates problems involve finding the rate of change of one quantity in terms of the rate of change of another quantity, using the chain rule.
+            </div>
+
+            <h3>Problem Solving Strategy</h3>
+            <div class="math-block">
+                <p><strong>Step 1:</strong> Identify all variables and their rates of change</p>
+                <p><strong>Step 2:</strong> Find an equation relating the variables</p>
+                <p><strong>Step 3:</strong> Differentiate both sides with respect to time</p>
+                <p><strong>Step 4:</strong> Substitute known values and solve</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Expanding Circle</strong></p>
+                <p>A circular oil spill is expanding at 2 m/s. How fast is the area increasing when the radius is 10 meters?</p>
+                
+                <p><strong>Step 1: Identify variables</strong><br>
+                Let \( r \) = radius (m), \( A \) = area (m²), \( t \) = time (s)<br>
+                Given: \( \frac{dr}{dt} = 2 \) m/s, Find: \( \frac{dA}{dt} \) when \( r = 10 \) m</p>
+                
+                <p><strong>Step 2: Relating equation</strong><br>
+                \( A = \pi r^2 \)</p>
+                
+                <p><strong>Step 3: Differentiate with respect to time</strong><br>
+                \( \frac{dA}{dt} = 2\pi r \frac{dr}{dt} \)</p>
+                
+                <p><strong>Step 4: Substitute known values</strong><br>
+                \( \frac{dA}{dt} = 2\pi (10)(2) = 40\pi \approx 125.66 \) m²/s</p>
+                
+                <p><strong>Environmental Engineering:</strong> This calculation helps estimate cleanup resources and response time.</p>
+            </div>
+
+            <h2 id="roc-optimization">5. Optimization Using Rates of Change</h2>
+
+            <div class="info-box">
+                <p>Finding Maximum and Minimum Values</p>
+                Derivatives are essential for optimization problems where we need to maximize efficiency, minimize cost, or optimize performance.
+            </div>
+
+            <h3>Optimization Procedure</h3>
+            <div class="math-block">
+                <p><strong>Critical Points:</strong> Solve \( f'(x) = 0 \) or \( f'(x) \) undefined</p>
+                <p><strong>First Derivative Test:</strong> Sign changes indicate local max/min</p>
+                <p><strong>Second Derivative Test:</strong> \( f''(x) < 0 \) ⇒ local max, \( f''(x) > 0 \) ⇒ local min</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Maximum Volume Container</strong></p>
+                <p>A rectangular box with square base and open top must have volume 32 m³. Find dimensions that minimize surface area.</p>
+                
+                <p><strong>Step 1: Define variables</strong><br>
+                Let \( x \) = side of base (m), \( h \) = height (m)<br>
+                Volume: \( V = x^2h = 32 \) ⇒ \( h = \frac{32}{x^2} \)</p>
+                
+                <p><strong>Step 2: Surface area function</strong><br>
+                \( A = x^2 + 4xh = x^2 + 4x\left(\frac{32}{x^2}\right) = x^2 + \frac{128}{x} \)</p>
+                
+                <p><strong>Step 3: Find critical points</strong><br>
+                \( A'(x) = 2x - \frac{128}{x^2} = 0 \)<br>
+                \( 2x = \frac{128}{x^2} \) ⇒ \( 2x^3 = 128 \) ⇒ \( x^3 = 64 \) ⇒ \( x = 4 \) m</p>
+                
+                <p><strong>Step 4: Verify minimum</strong><br>
+                \( A''(x) = 2 + \frac{256}{x^3} \) ⇒ \( A''(4) = 2 + \frac{256}{64} = 6 > 0 \) ⇒ Minimum</p>
+                
+                <p><strong>Step 5: Calculate dimensions</strong><br>
+                \( h = \frac{32}{4^2} = 2 \) m</p>
+                
+                <p><strong>Manufacturing Optimization:</strong> These dimensions minimize material cost while meeting volume requirements.</p>
+            </div>
+
+            <h2 id="roc-applications">6. Advanced Engineering Applications</h2>
+
+            <div class="info-box">
+                <p>Specialized Rate of Change Problems</p>
+                Advanced applications include electrical engineering, thermodynamics, fluid mechanics, and control systems.
+            </div>
+
+            <h3>Electrical Engineering</h3>
+            <div class="math-block">
+                <p><strong>Inductor Voltage:</strong> \( V_L = L\frac{di}{dt} \)</p>
+                <p><strong>Capacitor Current:</strong> \( I_C = C\frac{dv}{dt} \)</p>
+                <p><strong>Power:</strong> \( P = \frac{dW}{dt} = VI \)</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: RL Circuit Analysis</strong></p>
+                <p>In an RL circuit, current is given by \( i(t) = 10(1 - e^{-2t}) \) amperes. Find the voltage across the inductor at t = 0.5 seconds if L = 0.1 H.</p>
+                
+                <p><strong>Step 1: Inductor voltage formula</strong><br>
+                \( V_L = L\frac{di}{dt} \)</p>
+                
+                <p><strong>Step 2: Differentiate current</strong><br>
+                \( \frac{di}{dt} = 10(2e^{-2t}) = 20e^{-2t} \)</p>
+                
+                <p><strong>Step 3: Calculate voltage</strong><br>
+                \( V_L = 0.1 \times 20e^{-2t} = 2e^{-2t} \)</p>
+                
+                <p><strong>Step 4: Evaluate at t = 0.5</strong><br>
+                \( V_L(0.5) = 2e^{-1} \approx 0.736 \) volts</p>
+                
+                <p><strong>Circuit Design:</strong> This analysis helps in selecting appropriate inductor ratings and protection devices.</p>
+            </div>
+
+            <div class="key-point">
+                <strong>Engineering Analysis:</strong> Rate of change concepts permeate all engineering disciplines. The ability to translate physical problems into mathematical models and interpret derivatives in context is essential for effective engineering design and problem-solving.
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 HNC Engineering Mathematics. All rights reserved.</p>
+            <p>Rate of Change Reference for Engineering Applications</p>
+        </div>
+    </footer>
+
+    <script src="navigation.js"></script>
+</body>
+</html>

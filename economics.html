@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Economics - HNC Engineering Mathematics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HNC Engineering Mathematics</h1>
+            <p>Financial Economics - Engineering Decision Analysis</p>
+        </div>
+    </header>
+
+    <div class="container grid-layout">
+        <aside id="navigation-placeholder"></aside>
+
+        <main>
+            <h1>Financial & Engineering Economics</h1>
+            
+            <div class="info-box">
+                <p>Economic Analysis for Engineering Decisions</p>
+                Engineering economics involves the systematic evaluation of the economic merits of proposed solutions to engineering problems. It provides the analytical framework for making justifiable decisions regarding company assets, projects, and investments.
+            </div>
+
+            <h2 id="econ-fundamentals">1. Fundamental Economic Principles</h2>
+
+            <div class="info-box">
+                <p>Core Concepts for Engineering Analysis</p>
+                Understanding these fundamental principles is essential for making sound engineering economic decisions.
+            </div>
+
+            <h3>Time Value of Money</h3>
+            <p>The principle that money available today is worth more than the same amount in the future due to its potential earning capacity.</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Concept</th>
+                        <th>Formula</th>
+                        <th>Engineering Application</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Present Value (PV)</td>
+                        <td>\( PV = \frac{FV}{(1 + i)^n} \)</td>
+                        <td>Evaluating future cash flows</td>
+                    </tr>
+                    <tr>
+                        <td>Future Value (FV)</td>
+                        <td>\( FV = PV(1 + i)^n \)</td>
+                        <td>Projecting investment growth</td>
+                    </tr>
+                    <tr>
+                        <td>Discount Rate</td>
+                        <td>Minimum acceptable rate of return</td>
+                        <td>Project selection criteria</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Cost Concepts</h3>
+            <div class="example-box">
+                <p><strong>Example: Cost Classification</strong></p>
+                <p>For a manufacturing plant expansion project:</p>
+                
+                <p><strong>Fixed Costs:</strong> Land, building, permanent equipment<br>
+                <strong>Variable Costs:</strong> Raw materials, utilities, labor<br>
+                <strong>Direct Costs:</strong> Specific to the project<br>
+                <strong>Indirect Costs:</strong> Overhead, administration<br>
+                <strong>Sunk Costs:</strong> Already incurred (irrelevant to future decisions)</p>
+                
+                <p><strong>Engineering Insight:</strong> Only future costs that differ between alternatives are relevant for decision-making.</p>
+            </div>
+
+            <h2 id="econ-depreciation">2. Depreciation Methods</h2>
+
+            <div class="info-box">
+                <p>Asset Value Allocation</p>
+                Depreciation methods systematically allocate the cost of tangible assets over their useful lives, reflecting consumption of economic benefits.
+            </div>
+
+            <h3 id="econ-sl">Straight-Line Depreciation</h3>
+            <div class="info-box">
+                <p>When to Use</p>
+                This is the simplest and most common method. Use when an asset's value is expected to decrease by a uniform amount each year.
+            </div>
+
+            <div class="math-block">
+                <p><strong>Annual Depreciation (D):</strong> $$ D = \frac{\text{Cost} - \text{Salvage Value}}{\text{Useful Life}} $$</p>
+                <p><strong>Book Value after n years:</strong> $$ BV_n = \text{Cost} - (n \times D) $$</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Manufacturing Equipment</strong></p>
+                <p>A CNC machine costs £85,000, has a useful life of 8 years, and an estimated salvage value of £5,000.</p>
+                
+                <p><strong>Annual depreciation:</strong><br>
+                $$ D = \frac{85,000 - 5,000}{8} = \frac{80,000}{8} = \text{£10,000 per year} $$</p>
+                
+                <p><strong>Book value after 5 years:</strong><br>
+                $$ BV_5 = 85,000 - (5 \times 10,000) = \text{£35,000} $$</p>
+                
+                <p><strong>Engineering Application:</strong> Used for financial reporting and tax calculations where simplicity is preferred.</p>
+            </div>
+
+            <h3 id="econ-rb">Reducing Balance Depreciation</h3>
+            <div class="info-box">
+                <p>When to Use</p>
+                Use when an asset loses a larger proportion of its value in its earlier years. Depreciation is a fixed percentage of the asset's current book value.
+            </div>
+
+            <div class="math-block">
+                <p><strong>Book Value after n years:</strong> $$ BV_n = \text{Cost} \times (1 - r)^n $$</p>
+                <p><strong>Depreciation in year n:</strong> $$ D_n = BV_{n-1} \times r $$</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Company Vehicles</strong></p>
+                <p>A delivery van costs £32,000 and depreciates at 25% per year using the reducing balance method.</p>
+                
+                <p><strong>Year 1:</strong> \( D_1 = 32,000 \times 0.25 = \text{£8,000} \), \( BV_1 = \text{£24,000} \)<br>
+                <strong>Year 2:</strong> \( D_2 = 24,000 \times 0.25 = \text{£6,000} \), \( BV_2 = \text{£18,000} \)<br>
+                <strong>Year 3:</strong> \( D_3 = 18,000 \times 0.25 = \text{£4,500} \), \( BV_3 = \text{£13,500} \)</p>
+                
+                <p><strong>Engineering Application:</strong> Better matches expense with revenue for assets that lose value rapidly initially.</p>
+            </div>
+
+            <h3 id="econ-syd">Sum-of-the-Years'-Digits Depreciation</h3>
+            <div class="info-box">
+                <p>When to Use</p>
+                This accelerated method results in higher depreciation charges in the early years, similar to reducing balance but with a different calculation approach.
+            </div>
+
+            <div class="math-block">
+                <p><strong>Sum of digits for n years:</strong> $$ S = \frac{n(n+1)}{2} $$</p>
+                <p><strong>Depreciation for year k:</strong> $$ D_k = (\text{Cost} - \text{Salvage}) \times \frac{n-k+1}{S} $$</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Specialized Testing Equipment</strong></p>
+                <p>Equipment costs £60,000, 5-year life, £5,000 salvage value.</p>
+                
+                <p><strong>Sum of digits:</strong> $$ S = \frac{5(5+1)}{2} = 15 $$</p>
+                <p><strong>Depreciable amount:</strong> \( 60,000 - 5,000 = \text{£55,000} \)</p>
+                
+                <p><strong>Year 1:</strong> \( D_1 = 55,000 \times \frac{5}{15} = \text{£18,333} \)<br>
+                <strong>Year 2:</strong> \( D_2 = 55,000 \times \frac{4}{15} = \text{£14,667} \)<br>
+                <strong>Year 3:</strong> \( D_3 = 55,000 \times \frac{3}{15} = \text{£11,000} \)</p>
+                
+                <p><strong>Tax Advantage:</strong> Higher early-year deductions reduce taxable income when the asset is most productive.</p>
+            </div>
+
+            <h2 id="econ-interest">3. Interest Calculations</h2>
+
+            <div class="info-box">
+                <p>Quantifying the Time Value of Money</p>
+                Interest calculations are fundamental to engineering economics, providing the mathematical basis for comparing cash flows occurring at different times.
+            </div>
+
+            <h3>Simple Interest</h3>
+            <div class="math-block">
+                <p><strong>Future Value:</strong> $$ A = P(1 + rt) $$</p>
+                <p>Where: P = Principal, r = annual rate, t = time in years</p>
+            </div>
+
+            <h3>Compound Interest</h3>
+            <div class="math-block">
+                <p><strong>Annual compounding:</strong> $$ A = P(1 + r)^t $$</p>
+                <p><strong>Continuous compounding:</strong> $$ A = Pe^{rt} $$</p>
+                <p><strong>Multiple compounding periods per year:</strong> $$ A = P\left(1 + \frac{r}{m}\right)^{mt} $$</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Investment Comparison</strong></p>
+                <p>Compare £10,000 invested for 5 years at 8% interest using different methods:</p>
+                
+                <p><strong>Simple Interest:</strong><br>
+                \( A = 10,000(1 + 0.08 \times 5) = \text{£14,000} \)</p>
+                
+                <p><strong>Compound Interest (annual):</strong><br>
+                \( A = 10,000(1.08)^5 = \text{£14,693.28} \)</p>
+                
+                <p><strong>Compound Interest (monthly):</strong><br>
+                \( A = 10,000\left(1 + \frac{0.08}{12}\right)^{60} = \text{£14,898.46} \)</p>
+                
+                <p><strong>Continuous Compounding:</strong><br>
+                \( A = 10,000e^{0.08 \times 5} = \text{£14,918.25} \)</p>
+                
+                <p><strong>Engineering Decision:</strong> The compounding frequency significantly affects the final value.</p>
+            </div>
+
+            <h2 id="econ-appraisal">4. Investment Appraisal Techniques</h2>
+
+            <div class="info-box">
+                <p>Systematic Project Evaluation</p>
+                These techniques provide objective criteria for evaluating the financial viability of engineering projects and investments.
+            </div>
+
+            <h3>Payback Period</h3>
+            <div class="math-block">
+                <p><strong>Calculation:</strong> Time until cumulative cash inflows equal initial investment</p>
+                <p><strong>Discounted Payback:</strong> Uses present values of cash flows</p>
+            </div>
+
+            <h3>Net Present Value (NPV)</h3>
+            <div class="math-block">
+                <p><strong>Formula:</strong> $$ NPV = \sum_{t=1}^{n} \frac{CF_t}{(1 + r)^t} - C_0 $$</p>
+                <p><strong>Decision Rule:</strong> Accept if NPV > 0</p>
+            </div>
+
+            <h3>Internal Rate of Return (IRR)</h3>
+            <div class="math-block">
+                <p><strong>Definition:</strong> Discount rate that makes NPV = 0</p>
+                <p><strong>Decision Rule:</strong> Accept if IRR > required rate of return</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Factory Expansion Project</strong></p>
+                <p>Initial investment: £200,000, Required return: 12%, Project life: 5 years</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Year</th>
+                            <th>Cash Flow</th>
+                            <th>PV Factor</th>
+                            <th>Present Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>0</td><td>-£200,000</td><td>1.0000</td><td>-£200,000</td></tr>
+                        <tr><td>1</td><td>£60,000</td><td>0.8929</td><td>£53,574</td></tr>
+                        <tr><td>2</td><td>£70,000</td><td>0.7972</td><td>£55,804</td></tr>
+                        <tr><td>3</td><td>£80,000</td><td>0.7118</td><td>£56,944</td></tr>
+                        <tr><td>4</td><td>£75,000</td><td>0.6355</td><td>£47,663</td></tr>
+                        <tr><td>5</td><td>£65,000</td><td>0.5674</td><td>£36,881</td></tr>
+                    </tbody>
+                </table>
+                
+                <p><strong>NPV Calculation:</strong><br>
+                \( NPV = 53,574 + 55,804 + 56,944 + 47,663 + 36,881 - 200,000 = \text{£50,866} \)</p>
+                
+                <p><strong>Payback Period:</strong> Approximately 3.2 years<br>
+                <strong>Decision:</strong> Accept project (NPV > 0)</p>
+            </div>
+
+            <h2 id="econ-risk">5. Risk Analysis and Sensitivity</h2>
+
+            <div class="info-box">
+                <p>Accounting for Uncertainty</p>
+                Engineering economic decisions involve uncertainty. Risk analysis techniques help quantify and manage this uncertainty.
+            </div>
+
+            <h3>Break-Even Analysis</h3>
+            <div class="math-block">
+                <p><strong>Break-even point:</strong> $$ Q_{BE} = \frac{\text{Fixed Costs}}{\text{Price} - \text{Variable Cost per Unit}} $$</p>
+            </div>
+
+            <h3>Sensitivity Analysis</h3>
+            <div class="example-box">
+                <p><strong>Example: Production Facility</strong></p>
+                <p>Fixed costs: £150,000/year, Variable cost: £25/unit, Selling price: £45/unit</p>
+                
+                <p><strong>Break-even quantity:</strong><br>
+                \( Q_{BE} = \frac{150,000}{45 - 25} = 7,500 \text{ units/year} \)</p>
+                
+                <p><strong>Sensitivity Analysis:</strong><br>
+                • 10% price decrease: \( Q_{BE} = \frac{150,000}{40.50 - 25} = 9,677 \text{ units} \) (+29%)<br>
+                • 10% cost increase: \( Q_{BE} = \frac{150,000}{45 - 27.50} = 8,571 \text{ units} \) (+14%)<br>
+                • 10% fixed cost increase: \( Q_{BE} = 8,250 \text{ units} \) (+10%)</p>
+                
+                <p><strong>Engineering Insight:</strong> The project is most sensitive to price changes.</p>
+            </div>
+
+            <h2 id="econ-replacement">6. Replacement Analysis</h2>
+
+            <div class="info-box">
+                <p>Optimal Equipment Replacement Timing</p>
+                Determining the economically optimal time to replace aging equipment considering maintenance costs, efficiency, and technological changes.
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Fleet Vehicle Replacement</strong></p>
+                <p>Current vehicle: Maintenance costs increasing by £500/year, current trade-in £8,000<br>
+                New vehicle: Cost £35,000, lower operating costs, expected life 8 years</p>
+                
+                <p><strong>Economic Life Analysis:</strong><br>
+                Compare equivalent annual costs of keeping current vehicle vs. replacing</p>
+                
+                <p><strong>Decision Framework:</strong><br>
+                • Compare marginal cost of keeping vs. annual equivalent cost of new<br>
+                • Consider technological improvements<br>
+                • Factor in reliability and downtime costs</p>
+            </div>
+
+            <h2 id="econ-practice">7. Practice Problems</h2>
+
+            <div class="info-box">
+                <p>Apply Your Knowledge</p>
+                Work through these problems to reinforce your understanding of engineering economics principles.
+            </div>
+
+            <h3>Basic Problems</h3>
+            <ol>
+                <li>Calculate the NPV of a project with initial cost £50,000 and annual cash flows of £15,000 for 5 years at 10% discount rate.</li>
+                <li>A machine costs £40,000 with 5-year life and £5,000 salvage. Calculate depreciation using straight-line and reducing balance (30%) methods.</li>
+                <li>Determine the break-even point for a product with fixed costs £80,000, variable cost £12/unit, selling price £25/unit.</li>
+            </ol>
+
+            <h3>Advanced Problems</h3>
+            <ol>
+                <li>Compare two equipment options with different lives and costs using equivalent annual cost method.</li>
+                <li>Perform sensitivity analysis on a project's NPV to changes in key assumptions.</li>
+                <li>Calculate the internal rate of return for a project with irregular cash flows.</li>
+            </ol>
+
+            <div class="key-point">
+                <strong>Engineering Economic Principle:</strong> The goal of engineering economics is not to minimize cost, but to maximize value. The best economic choice is the one that provides the greatest return relative to the resources invested.
+            </div>
+
+            <h2 id="econ-summary">8. Summary and Decision Framework</h2>
+
+            <div class="info-box">
+                <p>Systematic Approach to Economic Decisions</p>
+                Follow this structured approach to ensure comprehensive economic analysis of engineering projects.
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Step</th>
+                        <th>Activity</th>
+                        <th>Key Considerations</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1. Problem Definition</td>
+                        <td>Identify alternatives and constraints</td>
+                        <td>Technical feasibility, project scope</td>
+                    </tr>
+                    <tr>
+                        <td>2. Cash Flow Estimation</td>
+                        <td>Project costs and benefits</td>
+                        <td>Time horizon, inflation, uncertainty</td>
+                    </tr>
+                    <tr>
+                        <td>3. Economic Analysis</td>
+                        <td>Apply appraisal techniques</td>
+                        <td>NPV, IRR, payback, break-even</td>
+                    </tr>
+                    <tr>
+                        <td>4. Risk Assessment</td>
+                        <td>Evaluate uncertainty</td>
+                        <td>Sensitivity, scenario analysis</td>
+                    </tr>
+                    <tr>
+                        <td>5. Decision Making</td>
+                        <td>Select best alternative</td>
+                        <td>Economic and non-economic factors</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="warning">
+                <strong>Common Pitfall:</strong> Focusing only on initial cost without considering life-cycle costs, maintenance, operating expenses, and residual value.
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 HNC Engineering Mathematics. All rights reserved.</p>
+            <p>Financial Economics Reference for Engineering Applications</p>
+        </div>
+    </footer>
+
+    <script src="navigation.js"></script>
+</body>
+</html>

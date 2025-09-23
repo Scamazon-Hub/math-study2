@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculus Fundamentals - HNC Engineering Mathematics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HNC Engineering Mathematics</h1>
+            <p>Calculus Fundamentals - The Mathematics of Change</p>
+        </div>
+    </header>
+
+    <div class="container grid-layout">
+        <aside id="navigation-placeholder"></aside>
+
+        <main>
+            <h1>Calculus Fundamentals</h1>
+            
+            <div class="info-box">
+                <p>Engineering Applications of Calculus</p>
+                Calculus provides the mathematical framework for analyzing change and motion in engineering systems. From optimizing designs to predicting system behavior, calculus is essential for solving real-world engineering problems involving rates of change and accumulation.
+            </div>
+
+            <h2 id="calc-differentiation">1. Differentiation: Analyzing Rates of Change</h2>
+            
+            <div class="info-box">
+                <p>The Mathematics of Instantaneous Change</p>
+                Differentiation enables engineers to determine how systems change at specific moments - from the acceleration of a vehicle to the rate of heat transfer in a material.
+            </div>
+
+            <h3>Fundamental Derivative Formulas</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Function</th>
+                        <th>Derivative</th>
+                        <th>Engineering Application</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>\( x^n \)</td>
+                        <td>\( nx^{n-1} \)</td>
+                        <td>Power relationships in physics</td>
+                    </tr>
+                    <tr>
+                        <td>\( e^{ax} \)</td>
+                        <td>\( ae^{ax} \)</td>
+                        <td>Exponential growth/decay systems</td>
+                    </tr>
+                    <tr>
+                        <td>\( \ln(x) \)</td>
+                        <td>\( \frac{1}{x} \)</td>
+                        <td>Logarithmic scaling relationships</td>
+                    </tr>
+                    <tr>
+                        <td>\( \sin(ax) \)</td>
+                        <td>\( a\cos(ax) \)</td>
+                        <td>Oscillatory systems (AC circuits, vibrations)</td>
+                    </tr>
+                    <tr>
+                        <td>\( \cos(ax) \)</td>
+                        <td>\( -a\sin(ax) \)</td>
+                        <td>Phase relationships in waveforms</td>
+                    </tr>
+                    <tr>
+                        <td>\( \tan(ax) \)</td>
+                        <td>\( a\sec^2(ax) \)</td>
+                        <td>Angular relationships in mechanics</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Differentiation Rules for Complex Functions</h3>
+            
+            <h4>Product Rule</h4>
+            <div class="math-block">$$ \frac{d}{dx}[u(x)v(x)] = u'(x)v(x) + u(x)v'(x) $$</div>
+            <p><strong>Engineering Application:</strong> Used when two varying quantities multiply, such as power calculations (P = VI) where both voltage and current change.</p>
+
+            <h4>Quotient Rule</h4>
+            <div class="math-block">$$ \frac{d}{dx}\left[\frac{u(x)}{v(x)}\right] = \frac{u'(x)v(x) - u(x)v'(x)}{[v(x)]^2} $$</div>
+            <p><strong>Engineering Application:</strong> Essential for efficiency calculations and impedance relationships in electrical engineering.</p>
+
+            <h4>Chain Rule</h4>
+            <div class="math-block">$$ \frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx} $$</div>
+            <p><strong>Engineering Application:</strong> Critical for analyzing composite systems where one variable depends on another through intermediate relationships.</p>
+
+            <div class="example-box">
+                <p><strong>Example: Mechanical System Analysis</strong></p>
+                <p>The position of a piston in an engine is given by \( s(t) = 0.5\sin(20\pi t) + 0.1\cos(40\pi t) \) meters. Find its velocity and acceleration functions.</p>
+                
+                <p><strong>Step 1: Velocity (first derivative)</strong><br>
+                \( v(t) = \frac{ds}{dt} = 0.5 \cdot 20\pi \cos(20\pi t) + 0.1 \cdot (-40\pi \sin(40\pi t)) \)<br>
+                \( v(t) = 10\pi \cos(20\pi t) - 4\pi \sin(40\pi t) \) m/s</p>
+                
+                <p><strong>Step 2: Acceleration (second derivative)</strong><br>
+                \( a(t) = \frac{dv}{dt} = 10\pi \cdot (-20\pi \sin(20\pi t)) - 4\pi \cdot (40\pi \cos(40\pi t)) \)<br>
+                \( a(t) = -200\pi^2 \sin(20\pi t) - 160\pi^2 \cos(40\pi t) \) m/s²</p>
+                
+                <p><strong>Engineering Insight:</strong> The acceleration shows the forces acting on the piston, which is crucial for designing engine components to withstand these dynamic loads.</p>
+            </div>
+
+            <h2 id="calc-integration">2. Integration: The Mathematics of Accumulation</h2>
+
+            <div class="info-box">
+                <p>Summing Infinite Small Contributions</p>
+                Integration allows engineers to calculate totals from continuously varying quantities - from the total charge transferred in a circuit to the work done by a variable force.
+            </div>
+
+            <h3>Fundamental Integral Formulas</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Function</th>
+                        <th>Integral</th>
+                        <th>Engineering Application</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>\( x^n \) (n ≠ -1)</td>
+                        <td>\( \frac{x^{n+1}}{n+1} + C \)</td>
+                        <td>Polynomial relationships in stress analysis</td>
+                    </tr>
+                    <tr>
+                        <td>\( e^{ax} \)</td>
+                        <td>\( \frac{1}{a}e^{ax} + C \)</td>
+                        <td>Exponential processes (charging capacitors)</td>
+                    </tr>
+                    <tr>
+                        <td>\( \frac{1}{x} \)</td>
+                        <td>\( \ln|x| + C \)</td>
+                        <td>Inverse relationships in physical systems</td>
+                    </tr>
+                    <tr>
+                        <td>\( \sin(ax) \)</td>
+                        <td>\( -\frac{1}{a}\cos(ax) + C \)</td>
+                        <td>Cyclic processes and waveform analysis</td>
+                    </tr>
+                    <tr>
+                        <td>\( \cos(ax) \)</td>
+                        <td>\( \frac{1}{a}\sin(ax) + C \)</td>
+                        <td>Phase-shifted oscillatory systems</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Applications of Definite Integration</h3>
+
+            <h4>Area Under a Curve</h4>
+            <div class="math-block">$$ A = \int_{a}^{b} f(x) \, dx $$</div>
+            <p><strong>Engineering Application:</strong> Calculating total displacement from velocity-time graphs, total charge from current-time graphs.</p>
+
+            <h4>Volume of Revolution</h4>
+            <div class="math-block">$$ V = \pi \int_{a}^{b} [f(x)]^2 \, dx $$</div>
+            <p><strong>Engineering Application:</strong> Determining material volumes for rotational components like shafts, pistons, and containers.</p>
+
+            <div class="example-box">
+                <p><strong>Example: Fluid Flow Calculation</strong></p>
+                <p>Water flows through a pipe with velocity profile \( v(r) = 2(1 - r^2/R^2) \) m/s, where r is the distance from the center and R = 0.1m is the pipe radius. Calculate the total flow rate.</p>
+                
+                <p><strong>Step 1: Flow through annular element</strong><br>
+                \( dQ = v(r) \cdot dA = 2(1 - r^2/R^2) \cdot 2\pi r \, dr \)</p>
+                
+                <p><strong>Step 2: Integrate from center to edge</strong><br>
+                \( Q = \int_{0}^{R} 4\pi r (1 - r^2/R^2) \, dr \)<br>
+                \( Q = 4\pi \int_{0}^{0.1} \left(r - \frac{r^3}{0.01}\right) dr \)</p>
+                
+                <p><strong>Step 3: Evaluate the integral</strong><br>
+                \( Q = 4\pi \left[ \frac{r^2}{2} - \frac{r^4}{0.04} \right]_{0}^{0.1} \)<br>
+                \( Q = 4\pi \left( \frac{0.01}{2} - \frac{0.0001}{0.04} \right) = 4\pi (0.005 - 0.0025) = 0.01\pi \) m³/s</p>
+                
+                <p><strong>Engineering Insight:</strong> The flow rate of approximately 0.0314 m³/s helps in designing pump specifications and pipe networks.</p>
+            </div>
+
+            <h2 id="calc-stationary">3. Stationary Points and Optimization</h2>
+
+            <div class="info-box">
+                <p>Finding Optimal Solutions</p>
+                Optimization techniques allow engineers to design systems that maximize performance, minimize cost, or achieve specific design criteria under constraints.
+            </div>
+
+            <h3>Finding and Classifying Stationary Points</h3>
+
+            <p><strong>First Derivative Test:</strong> Stationary points occur where \( f'(x) = 0 \)</p>
+            <p><strong>Second Derivative Test:</strong> Classifies the nature of stationary points:</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Condition</th>
+                        <th>Point Type</th>
+                        <th>Engineering Significance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>\( f''(x) > 0 \)</td>
+                        <td>Local Minimum</td>
+                        <td>Minimum energy state, stable equilibrium</td>
+                    </tr>
+                    <tr>
+                        <td>\( f''(x) < 0 \)</td>
+                        <td>Local Maximum</td>
+                        <td>Maximum stress point, instability threshold</td>
+                    </tr>
+                    <tr>
+                        <td>\( f''(x) = 0 \)</td>
+                        <td>Point of Inflection</td>
+                        <td>Transition point, change in curvature</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>Example: Beam Strength Optimization</strong></p>
+                <p>The bending moment in a simply supported beam with a central load is given by \( M(x) = \frac{P}{2}x - \frac{P}{L}x^2 \) for 0 ≤ x ≤ L/2, where P = 10 kN and L = 4 m. Find the maximum bending moment.</p>
+                
+                <p><strong>Step 1: Find derivative</strong><br>
+                \( M'(x) = \frac{P}{2} - \frac{2P}{L}x = 5 - 5x \)</p>
+                
+                <p><strong>Step 2: Set derivative to zero</strong><br>
+                \( 5 - 5x = 0 \Rightarrow x = 1 \) m</p>
+                
+                <p><strong>Step 3: Second derivative test</strong><br>
+                \( M''(x) = -5 < 0 \), confirming a maximum</p>
+                
+                <p><strong>Step 4: Calculate maximum moment</strong><br>
+                \( M_{max} = M(1) = \frac{10}{2}(1) - \frac{10}{4}(1)^2 = 5 - 2.5 = 2.5 \) kN·m</p>
+                
+                <p><strong>Engineering Insight:</strong> This maximum bending moment determines the required beam strength and material selection.</p>
+            </div>
+
+            <h2 id="calc-hyperbolic">4. Hyperbolic Functions in Engineering</h2>
+
+            <div class="info-box">
+                <p>Modeling Real-World Phenomena</p>
+                Hyperbolic functions describe numerous engineering systems including catenary curves (suspension bridges), heat transfer, and transmission line theory.
+            </div>
+
+            <h3>Definitions and Identities</h3>
+            
+            <div class="math-block">
+                <p>\( \sinh x = \frac{e^x - e^{-x}}{2} \)</p>
+                <p>\( \cosh x = \frac{e^x + e^{-x}}{2} \)</p>
+                <p>\( \tanh x = \frac{\sinh x}{\cosh x} = \frac{e^x - e^{-x}}{e^x + e^{-x}} \)</p>
+                <p><strong>Key Identity:</strong> \( \cosh^2 x - \sinh^2 x = 1 \)</p>
+            </div>
+
+            <h3>Derivatives and Integrals</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Function</th>
+                        <th>Derivative</th>
+                        <th>Integral</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>\( \sinh x \)</td>
+                        <td>\( \cosh x \)</td>
+                        <td>\( \cosh x + C \)</td>
+                    </tr>
+                    <tr>
+                        <td>\( \cosh x \)</td>
+                        <td>\( \sinh x \)</td>
+                        <td>\( \sinh x + C \)</td>
+                    </tr>
+                    <tr>
+                        <td>\( \tanh x \)</td>
+                        <td>\( \sech^2 x \)</td>
+                        <td>\( \ln|\cosh x| + C \)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>Example: Catenary Cable Analysis</strong></p>
+                <p>A suspension cable follows the catenary curve \( y = a \cosh(x/a) \) where a = 100 m. Find the slope of the cable and the arc length from x = -50 m to x = 50 m.</p>
+                
+                <p><strong>Step 1: Slope calculation</strong><br>
+                \( \frac{dy}{dx} = \frac{d}{dx}[a \cosh(x/a)] = a \cdot \frac{1}{a} \sinh(x/a) = \sinh(x/100) \)<br>
+                At x = 50 m: slope = \( \sinh(0.5) \approx 0.521 \)</p>
+                
+                <p><strong>Step 2: Arc length calculation</strong><br>
+                \( L = \int_{-50}^{50} \sqrt{1 + \left(\frac{dy}{dx}\right)^2} dx = \int_{-50}^{50} \sqrt{1 + \sinh^2(x/100)} dx \)<br>
+                Using identity: \( \sqrt{1 + \sinh^2(x/100)} = \cosh(x/100) \)<br>
+                \( L = \int_{-50}^{50} \cosh(x/100) dx = 100[\sinh(x/100)]_{-50}^{50} \)<br>
+                \( L = 100[\sinh(0.5) - \sinh(-0.5)] = 200\sinh(0.5) \approx 104.2 \) m</p>
+                
+                <p><strong>Engineering Insight:</strong> The arc length calculation is essential for determining the amount of cable needed and analyzing tension forces.</p>
+            </div>
+
+            <h2 id="calc-applications">5. Engineering Applications Overview</h2>
+
+            <div class="info-box">
+                <p>Calculus in Practice</p>
+                These fundamental calculus concepts form the basis for advanced engineering analysis across all disciplines.
+            </div>
+
+            <h3>Mechanical Engineering Applications</h3>
+            <ul>
+                <li><strong>Kinematics:</strong> Position → Velocity → Acceleration relationships</li>
+                <li><strong>Dynamics:</strong> Force analysis using derivatives of motion equations</li>
+                <li><strong>Thermodynamics:</strong> Rates of heat transfer and energy flow</li>
+                <li><strong>Fluid Mechanics:</strong> Flow rates, pressure gradients, and continuity equations</li>
+            </ul>
+
+            <h3>Electrical Engineering Applications</h3>
+            <ul>
+                <li><strong>Circuit Analysis:</strong> Current as derivative of charge, voltage relationships</li>
+                <li><strong>Signal Processing:</strong> Frequency analysis using integral transforms</li>
+                <li><strong>Control Systems:</strong> System response analysis using differential equations</li>
+                <li><strong>Electromagnetics:</strong> Field strength calculations using vector calculus</li>
+            </ul>
+
+            <h3>Civil Engineering Applications</h3>
+            <ul>
+                <li><strong>Structural Analysis:</strong> Stress/strain relationships, beam deflection</li>
+                <li><strong>Geotechnical Engineering:</strong> Soil settlement calculations</li>
+                <li><strong>Hydraulics:</strong> Flow accumulation in watersheds</li>
+                <li><strong>Transportation:</strong> Traffic flow optimization</li>
+            </ul>
+
+            <div class="key-point">
+                <strong>Engineering Practice:</strong> Success in engineering calculus requires not just computational skill but the ability to interpret mathematical results in physical context. Always validate that your mathematical solutions make engineering sense.
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 HNC Engineering Mathematics. All rights reserved.</p>
+            <p>Calculus Fundamentals for Engineering Applications</p>
+        </div>
+    </footer>
+
+    <script src="navigation.js"></script>
+</body>
+</html>

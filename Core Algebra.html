@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Core Algebra - HNC Engineering Mathematics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HNC Engineering Mathematics</h1>
+            <p>Core Algebra - Foundation for Engineering Analysis</p>
+        </div>
+    </header>
+
+    <div class="container grid-layout">
+        <aside id="navigation-placeholder"></aside>
+
+        <main>
+            <h1>Core Algebra</h1>
+            
+            <div class="info-box">
+                <p>Algebraic Foundation for Engineering</p>
+                Algebra provides the fundamental language and tools for solving engineering problems. From circuit analysis to structural calculations, algebraic manipulation is essential for deriving solutions and understanding relationships between variables.
+            </div>
+
+            <h2 id="algebra-quadratic">1. Quadratic Equations & Applications</h2>
+            
+            <div class="info-box">
+                <p>Solving Second-Degree Polynomials</p>
+                Quadratic equations appear frequently in engineering calculations involving projectile motion, optimization problems, AC circuit analysis, and mechanical systems.
+            </div>
+
+            <h3>Quadratic Formula</h3>
+            <p>For any quadratic equation in the form \( ax^2 + bx + c = 0 \), the solutions are given by:</p>
+            <div class="math-block">$$ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$</div>
+
+            <h4>Discriminant Analysis</h4>
+            <p>The discriminant \( \Delta = b^2 - 4ac \) determines the nature of the roots:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Discriminant</th>
+                        <th>Root Type</th>
+                        <th>Engineering Interpretation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>\( \Delta > 0 \)</td>
+                        <td>Two distinct real roots</td>
+                        <td>System has two distinct operating points</td>
+                    </tr>
+                    <tr>
+                        <td>\( \Delta = 0 \)</td>
+                        <td>One real repeated root</td>
+                        <td>Critical damping or optimal solution</td>
+                    </tr>
+                    <tr>
+                        <td>\( \Delta < 0 \)</td>
+                        <td>Complex conjugate roots</td>
+                        <td>Oscillatory behavior or instability</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>Example: Projectile Motion</strong></p>
+                <p>A projectile is launched with initial velocity \( v_0 = 50 \) m/s at angle \( \theta = 30^\circ \). Find when it hits the ground.</p>
+                
+                <p><strong>Step 1: Vertical motion equation</strong><br>
+                \( y = v_0 \sin\theta \cdot t - \frac{1}{2}gt^2 \)<br>
+                \( y = 50 \cdot \sin30^\circ \cdot t - \frac{1}{2}(9.8)t^2 \)<br>
+                \( y = 25t - 4.9t^2 \)</p>
+                
+                <p><strong>Step 2: Set y = 0 and solve</strong><br>
+                \( 0 = 25t - 4.9t^2 \)<br>
+                \( t(25 - 4.9t) = 0 \)<br>
+                Solutions: \( t = 0 \) (launch) and \( t = \frac{25}{4.9} \approx 5.10 \) seconds</p>
+                
+                <p><strong>Engineering Insight:</strong> The positive root gives the time of flight.</p>
+            </div>
+
+            <h2 id="algebra-polynomials">2. Polynomial Theory & Applications</h2>
+
+            <h3>Remainder and Factor Theorems</h3>
+            <div class="info-box">
+                <p>Polynomial Division Shortcuts</p>
+                These theorems provide efficient methods for analyzing polynomial behavior without performing full polynomial division.
+            </div>
+
+            <div class="math-block">
+                <p><strong>Remainder Theorem:</strong> If polynomial \( P(x) \) is divided by \( (x - a) \), the remainder is \( P(a) \)</p>
+                <p><strong>Factor Theorem:</strong> \( (x - a) \) is a factor of \( P(x) \) if and only if \( P(a) = 0 \)</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Factor Analysis</strong></p>
+                <p>Determine if \( (x - 3) \) is a factor of \( P(x) = x^3 - 6x^2 + 11x - 6 \)</p>
+                
+                <p><strong>Step 1: Evaluate P(3)</strong><br>
+                \( P(3) = 3^3 - 6(3)^2 + 11(3) - 6 = 27 - 54 + 33 - 6 = 0 \)</p>
+                
+                <p><strong>Step 2: Apply Factor Theorem</strong><br>
+                Since \( P(3) = 0 \), \( (x - 3) \) is a factor.</p>
+                
+                <p><strong>Step 3: Polynomial Division</strong><br>
+                \( \frac{x^3 - 6x^2 + 11x - 6}{x - 3} = x^2 - 3x + 2 \)</p>
+                
+                <p><strong>Complete Factorization:</strong> \( (x - 3)(x - 1)(x - 2) \)</p>
+            </div>
+
+            <h2 id="algebra-series">3. Sequences and Series</h2>
+
+            <div class="info-box">
+                <p>Mathematical Patterns in Engineering</p>
+                Sequences and series model growth patterns, signal processing, financial calculations, and many other engineering phenomena.
+            </div>
+
+            <h3>Arithmetic Progression (AP)</h3>
+            <p>Constant difference between terms: \( a, a+d, a+2d, \ldots \)</p>
+            <div class="math-block">
+                <p><strong>n-th term:</strong> \( T_n = a + (n-1)d \)</p>
+                <p><strong>Sum of n terms:</strong> \( S_n = \frac{n}{2}[2a + (n-1)d] = \frac{n}{2}(a + l) \)</p>
+            </div>
+
+            <h3>Geometric Progression (GP)</h3>
+            <p>Constant ratio between terms: \( a, ar, ar^2, \ldots \)</p>
+            <div class="math-block">
+                <p><strong>n-th term:</strong> \( T_n = ar^{n-1} \)</p>
+                <p><strong>Sum of n terms:</strong> \( S_n = \frac{a(1-r^n)}{1-r} \) for \( r \neq 1 \)</p>
+                <p><strong>Sum to infinity:</strong> \( S_\infty = \frac{a}{1-r} \) for \( |r| < 1 \)</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Compound Interest</strong></p>
+                <p>£1000 invested at 5% annual interest compounded yearly. Find value after 10 years.</p>
+                
+                <p><strong>Step 1: Identify as GP</strong><br>
+                Initial: \( a = 1000 \), ratio \( r = 1.05 \)</p>
+                
+                <p><strong>Step 2: Apply GP formula</strong><br>
+                \( T_{11} = 1000 \times (1.05)^{10} \)</p>
+                
+                <p><strong>Step 3: Calculate</strong><br>
+                \( T_{11} = 1000 \times 1.62889 \approx £1628.89 \)</p>
+            </div>
+
+            <h2 id="algebra-complex">4. Complex Numbers in Engineering</h2>
+
+            <div class="info-box">
+                <p>Essential for AC Circuit Analysis</p>
+                Complex numbers provide a powerful framework for analyzing sinusoidal signals, representing both magnitude and phase information simultaneously.
+            </div>
+
+            <h3>Complex Number Forms</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Form</th>
+                        <th>Representation</th>
+                        <th>Engineering Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Rectangular</td>
+                        <td>\( z = a + bi \)</td>
+                        <td>Component analysis</td>
+                    </tr>
+                    <tr>
+                        <td>Polar</td>
+                        <td>\( z = r(\cos\theta + i\sin\theta) \)</td>
+                        <td>Magnitude and phase</td>
+                    </tr>
+                    <tr>
+                        <td>Exponential</td>
+                        <td>\( z = re^{i\theta} \)</td>
+                        <td>Signal processing</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Operations and Conversions</h3>
+            <div class="example-box">
+                <p><strong>Example: AC Circuit Analysis</strong></p>
+                <p>Given impedance \( Z_1 = 3 + 4j \) Ω and \( Z_2 = 1 - 2j \) Ω in series:</p>
+                
+                <p><strong>Step 1: Total impedance</strong><br>
+                \( Z_{total} = Z_1 + Z_2 = (3+4j) + (1-2j) = 4 + 2j \) Ω</p>
+                
+                <p><strong>Step 2: Convert to polar form</strong><br>
+                Magnitude: \( |Z| = \sqrt{4^2 + 2^2} = \sqrt{20} \approx 4.47 \) Ω<br>
+                Phase: \( \theta = \tan^{-1}(\frac{2}{4}) = \tan^{-1}(0.5) \approx 26.57^\circ \)</p>
+                
+                <p><strong>Engineering Interpretation:</strong> The circuit has impedance 4.47 Ω with phase angle 26.57°</p>
+            </div>
+
+            <h2 id="algebra-systems">5. Systems of Equations</h2>
+
+            <div class="info-box">
+                <p>Solving Multiple Constraints</p>
+                Engineering systems often involve multiple variables with interdependent relationships. Matrix methods provide efficient solutions.
+            </div>
+
+            <h3>Matrix Methods</h3>
+            <div class="math-block">
+                <p>For system \( AX = B \):</p>
+                <p><strong>Inverse Method:</strong> \( X = A^{-1}B \)</p>
+                <p><strong>Cramer's Rule:</strong> \( x_i = \frac{\det(A_i)}{\det(A)} \)</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Circuit Analysis</strong></p>
+                <p>Solve for currents in a 3-mesh circuit:</p>
+                <p>\( 5I_1 - 2I_2 = 10 \)<br>
+                \( -2I_1 + 8I_2 - 3I_3 = 0 \)<br>
+                \( -3I_2 + 6I_3 = 5 \)</p>
+                
+                <p><strong>Matrix Solution:</strong><br>
+                \( \begin{bmatrix} 5 & -2 & 0 \\ -2 & 8 & -3 \\ 0 & -3 & 6 \end{bmatrix} \begin{bmatrix} I_1 \\ I_2 \\ I_3 \end{bmatrix} = \begin{bmatrix} 10 \\ 0 \\ 5 \end{bmatrix} \)</p>
+                
+                <p>Solution yields: \( I_1 \approx 2.15A, I_2 \approx 0.88A, I_3 \approx 1.27A \)</p>
+            </div>
+
+            <div class="key-point">
+                <strong>Engineering Practice:</strong> Algebraic proficiency is not just about solving equations but understanding what the solutions mean in physical terms. Always interpret mathematical results in the context of the engineering problem.
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 HNC Engineering Mathematics. All rights reserved.</p>
+            <p>Core Algebra Reference for Engineering Applications</p>
+        </div>
+    </footer>
+
+    <script src="navigation.js"></script>
+</body>
+</html>

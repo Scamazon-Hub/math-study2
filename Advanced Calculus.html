@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Calculus - HNC Engineering Mathematics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        /* Enhanced styling consistent with AC Circuits page */
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #64748b;
+            --accent: #f59e0b;
+            --background: #f8fafc;
+            --surface: #ffffff;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--background);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2rem;
+            margin: 2rem auto;
+        }
+        
+        aside {
+            background: var(--surface);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            height: fit-content;
+        }
+        
+        main {
+            background: var(--surface);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        h2 {
+            color: var(--primary-dark);
+            font-size: 2rem;
+            font-weight: 700;
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+            padding-left: 0.5rem;
+            border-left: 4px solid var(--primary);
+        }
+        
+        h4 {
+            color: var(--secondary);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.75rem;
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, #e0f2fe, #f0f9ff);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .info-box p:first-child {
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .example-box {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .example-box p:first-child {
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            background: var(--surface);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        th {
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:nth-child(even) {
+            background: #f8fafc;
+        }
+        
+        .math-block {
+            background: #f1f5f9;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 6px;
+            border-left: 3px solid var(--primary);
+            font-family: 'Fira Code', monospace;
+            overflow-x: auto;
+        }
+        
+        ul, ol {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .nav-section {
+            margin-bottom: 1.5rem;
+        }
+        
+        .nav-section h3 {
+            font-size: 1.1rem;
+            margin: 0 0 0.75rem;
+            color: var(--primary);
+            border-left: none;
+            padding-left: 0;
+        }
+        
+        .nav-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .nav-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.5rem;
+            display: block;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+        
+        .nav-links a:hover {
+            background: #f1f5f9;
+            color: var(--primary);
+        }
+        
+        footer {
+            background: var(--primary-dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .key-point {
+            background: #f0fdf4;
+            border-left: 4px solid var(--success);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .warning {
+            background: #fffbeb;
+            border-left: 4px solid var(--warning);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .grid-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HNC Engineering Mathematics</h1>
+            <p>Advanced Calculus Techniques for Engineering Applications</p>
+        </div>
+    </header>
+
+    <div class="container grid-layout">
+        <aside>
+            <div class="nav-section">
+                <h3>Advanced Calculus</h3>
+                <ul class="nav-links">
+                    <li><a href="#integration-techniques">Integration Techniques</a></li>
+                    <li><a href="#integration-by-parts">Integration by Parts</a></li>
+                    <li><a href="#substitution">Integration by Substitution</a></li>
+                    <li><a href="#first-order-odes">First-Order ODEs</a></li>
+                    <li><a href="#second-order-odes">Second-Order ODEs</a></li>
+                    <li><a href="#engineering-applications">Engineering Applications</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <h3>Key Formulas</h3>
+                <ul class="nav-links">
+                    <li><a href="#integration-formulas">Integration Formulas</a></li>
+                    <li><a href="#ode-formulas">ODE Solution Methods</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <main>
+            <h2>Advanced Calculus Techniques</h2>
+            
+            <div class="info-box">
+                <p>Engineering Applications of Advanced Calculus</p>
+                Advanced integration techniques and differential equations form the mathematical foundation for analyzing dynamic systems in engineering, including control systems, vibrations, heat transfer, and electrical circuits.
+            </div>
+
+            <h3 id="integration-techniques">1. Advanced Integration Methods</h3>
+            
+            <div class="info-box">
+                <p>When Standard Methods Fail</p>
+                Many integrals encountered in engineering cannot be solved using basic integration rules. Advanced techniques like integration by parts and substitution provide systematic approaches to handle these challenging integrals.
+            </div>
+
+            <h4 id="integration-by-parts">Integration by Parts</h4>
+            
+            <div class="info-box">
+                <p>Reverse of the Product Rule</p>
+                Integration by parts is derived from the product rule for differentiation and is essential for integrating products of functions where one function is easily differentiable and the other is easily integrable.
+            </div>
+            
+            <div class="math-block">$$ \int u \, dv = uv - \int v \, du $$</div>
+            
+            <p><strong>LIPET Rule for Choosing u:</strong> When deciding which part to designate as u, use the LIPET rule (Logarithmic, Inverse trigonometric, Polynomial, Exponential, Trigonometric) in order of preference.</p>
+            
+            <div class="example-box">
+                <p><strong>Example 1: Basic Integration by Parts</strong></p>
+                <p>Find $$ \int x e^{x} \, dx $$</p>
+                
+                <p><strong>Step 1: Choose u and dv</strong><br>
+                Using LIPET: u = x (Polynomial), dv = e^x dx</p>
+                
+                <p><strong>Step 2: Differentiate and integrate</strong><br>
+                du = dx, v = ∫e^x dx = e^x</p>
+                
+                <p><strong>Step 3: Apply integration by parts formula</strong><br>
+                ∫x e^x dx = x e^x - ∫e^x dx = x e^x - e^x + C</p>
+                
+                <p><strong>Final Answer:</strong> e^x(x - 1) + C</p>
+            </div>
+            
+            <div class="example-box">
+                <p><strong>Example 2: Repeated Integration by Parts</strong></p>
+                <p>Find $$ \int x^2 \sin x \, dx $$</p>
+                
+                <p><strong>Step 1: First application</strong><br>
+                u = x², dv = sin x dx → du = 2x dx, v = -cos x<br>
+                ∫x² sin x dx = -x² cos x + ∫2x cos x dx</p>
+                
+                <p><strong>Step 2: Second application</strong><br>
+                For ∫2x cos x dx: u = 2x, dv = cos x dx → du = 2 dx, v = sin x<br>
+                ∫2x cos x dx = 2x sin x - ∫2 sin x dx = 2x sin x + 2 cos x</p>
+                
+                <p><strong>Final Answer:</strong> -x² cos x + 2x sin x + 2 cos x + C</p>
+            </div>
+
+            <h4 id="substitution">Integration by Substitution</h4>
+            
+            <div class="info-box">
+                <p>Reverse of the Chain Rule</p>
+                Substitution is used when an integral contains a composite function. The goal is to simplify the integral by substituting a new variable for the inner function.
+            </div>
+            
+            <div class="math-block">$$ \int f(g(x))g'(x) \, dx = \int f(u) \, du $$ where u = g(x)</div>
+            
+            <div class="example-box">
+                <p><strong>Example: Trigonometric Substitution</strong></p>
+                <p>Find $$ \int 2x \sqrt{1+x^2} \, dx $$</p>
+                
+                <p><strong>Step 1: Identify substitution</strong><br>
+                Let u = 1 + x² → du = 2x dx</p>
+                
+                <p><strong>Step 2: Substitute</strong><br>
+                ∫2x√(1+x²) dx = ∫√u du = ∫u^(1/2) du</p>
+                
+                <p><strong>Step 3: Integrate and back-substitute</strong><br>
+                = (2/3)u^(3/2) + C = (2/3)(1+x²)^(3/2) + C</p>
+            </div>
+
+            <h3 id="first-order-odes">2. First-Order Differential Equations</h3>
+            
+            <div class="info-box">
+                <p>Modeling Dynamic Systems</p>
+                First-order ODEs describe systems where the rate of change depends on the current state. These appear extensively in engineering applications like RC circuits, population growth, and cooling processes.
+            </div>
+
+            <h4>Separation of Variables</h4>
+            
+            <p>Used when the ODE can be written as dy/dx = f(x)g(y). The solution involves separating variables and integrating both sides.</p>
+            
+            <div class="example-box">
+                <p><strong>Example: Newton's Law of Cooling</strong></p>
+                <p>Solve $$ \frac{dT}{dt} = k(T - T_a) $$ where T is temperature, T_a is ambient temperature.</p>
+                
+                <p><strong>Step 1: Separate variables</strong><br>
+                dT/(T - T_a) = k dt</p>
+                
+                <p><strong>Step 2: Integrate both sides</strong><br>
+                ∫dT/(T - T_a) = ∫k dt → ln|T - T_a| = kt + C</p>
+                
+                <p><strong>Step 3: Solve for T</strong><br>
+                T - T_a = Ae^(kt) where A = e^C<br>
+                T = T_a + Ae^(kt)</p>
+            </div>
+
+            <h4>Integrating Factor Method</h4>
+            
+            <p>Used for linear first-order ODEs of the form dy/dx + P(x)y = Q(x). The integrating factor is μ(x) = e^(∫P(x)dx).</p>
+            
+            <div class="math-block">$$ y = \frac{1}{\mu(x)} \int \mu(x) Q(x) \, dx $$</div>
+            
+            <div class="example-box">
+                <p><strong>Example: RL Circuit</strong></p>
+                <p>Solve $$ \frac{di}{dt} + \frac{R}{L}i = \frac{V}{L} $$ for current in an RL circuit.</p>
+                
+                <p><strong>Step 1: Identify P(t) and find integrating factor</strong><br>
+                P(t) = R/L, μ(t) = e^(∫R/L dt) = e^(Rt/L)</p>
+                
+                <p><strong>Step 2: Multiply through by integrating factor</strong><br>
+                e^(Rt/L) di/dt + (R/L)e^(Rt/L)i = (V/L)e^(Rt/L)</p>
+                
+                <p><strong>Step 3: Recognize derivative and integrate</strong><br>
+                d/dt[i e^(Rt/L)] = (V/L)e^(Rt/L)<br>
+                i e^(Rt/L) = ∫(V/L)e^(Rt/L) dt = (V/R)e^(Rt/L) + C</p>
+                
+                <p><strong>Final Answer:</strong> i = V/R + Ce^(-Rt/L)</p>
+            </div>
+
+            <h3 id="second-order-odes">3. Second-Order Linear ODEs</h3>
+            
+            <div class="info-box">
+                <p>Vibrations and Oscillations</p>
+                Second-order ODEs with constant coefficients model mechanical vibrations, electrical oscillations, and many other physical phenomena involving acceleration.
+            </div>
+            
+            <p>The general form is: a d²y/dx² + b dy/dx + cy = 0</p>
+            
+            <h4>Solution Method</h4>
+            
+            <p>Assume a solution of the form y = e^(mx). Substituting gives the characteristic equation:</p>
+            <div class="math-block">$$ am^2 + bm + c = 0 $$</div>
+            
+            <p>The nature of the roots determines the solution:</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Root Type</th>
+                        <th>General Solution</th>
+                        <th>Physical Interpretation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Real, distinct (m₁, m₂)</td>
+                        <td>y = Ae^(m₁x) + Be^(m₂x)</td>
+                        <td>Overdamped system</td>
+                    </tr>
+                    <tr>
+                        <td>Real, repeated (m)</td>
+                        <td>y = (A + Bx)e^(mx)</td>
+                        <td>Critically damped system</td>
+                    </tr>
+                    <tr>
+                        <td>Complex (α ± iβ)</td>
+                        <td>y = e^(αx)(A cos βx + B sin βx)</td>
+                        <td>Underdamped oscillations</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="example-box">
+                <p><strong>Example: Mass-Spring-Damper System</strong></p>
+                <p>Solve m d²x/dt² + c dx/dt + kx = 0 for a mechanical vibration system.</p>
+                
+                <p><strong>Step 1: Characteristic equation</strong><br>
+                m r² + c r + k = 0</p>
+                
+                <p><strong>Step 2: Analyze roots</strong><br>
+                Discriminant Δ = c² - 4mk</p>
+                
+                <p><strong>Case 1: Δ > 0 (Overdamped)</strong><br>
+                r = [-c ± √Δ]/(2m)<br>
+                x = Ae^(r₁t) + Be^(r₂t)</p>
+                
+                <p><strong>Case 2: Δ = 0 (Critically damped)</strong><br>
+                r = -c/(2m)<br>
+                x = (A + Bt)e^(rt)</p>
+                
+                <p><strong>Case 3: Δ < 0 (Underdamped)</strong><br>
+                r = -c/(2m) ± iω where ω = √(4mk - c²)/(2m)<br>
+                x = e^(-ct/(2m))(A cos ωt + B sin ωt)</p>
+            </div>
+
+            <h3 id="engineering-applications">4. Engineering Applications</h3>
+            
+            <div class="info-box">
+                <p>Real-World Problem Solving</p>
+                Advanced calculus techniques are not just mathematical exercises but essential tools for solving practical engineering problems across multiple disciplines.
+            </div>
+            
+            <h4>Electrical Engineering Applications</h4>
+            
+            <ul>
+                <li><strong>RC/RL Circuits:</strong> First-order ODEs model charging/discharging</li>
+                <li><strong>RLC Circuits:</strong> Second-order ODEs describe resonant behavior</li>
+                <li><strong>Transient Analysis:</strong> Integration techniques solve for time-domain responses</li>
+            </ul>
+            
+            <h4>Mechanical Engineering Applications</h4>
+            
+            <ul>
+                <li><strong>Vibrations:</strong> Second-order ODEs model spring-mass-damper systems</li>
+                <li><strong>Heat Transfer:</strong> Separation of variables solves heat conduction problems</li>
+                <li><strong>Fluid Dynamics:</strong> Integration calculates flow rates and pressures</li>
+            </ul>
+            
+            <div class="key-point">
+                <strong>Engineering Insight:</strong> The ability to recognize which mathematical technique applies to a given physical problem is as important as being able to execute the technique itself. Always connect the mathematical solution back to its physical interpretation.
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 HNC Engineering Mathematics. All rights reserved.</p>
+            <p>Comprehensive Advanced Calculus Reference</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation highlighting
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('.nav-links a');
+            
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    links.forEach(l => l.style.background = '');
+                    this.style.background = '#e0f2fe';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

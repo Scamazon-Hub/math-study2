@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linear Methods - HNC Engineering Mathematics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HNC Engineering Mathematics</h1>
+            <p>Linear Methods - Matrix Algebra and Vector Analysis</p>
+        </div>
+    </header>
+
+    <div class="container grid-layout">
+        <aside id="navigation-placeholder"></aside>
+
+        <main>
+            <h1>Linear Algebra Methods</h1>
+            
+            <div class="info-box">
+                <p>The Mathematics of Multi-Dimensional Systems</p>
+                Linear methods provide powerful tools for solving systems of equations, analyzing vectors, and decomposing complex functions. These techniques are fundamental to engineering applications ranging from circuit analysis to structural mechanics and control systems.
+            </div>
+
+            <h2 id="matrix-systems">1. Solving Systems of Equations using Matrices</h2>
+
+            <div class="info-box">
+                <p>Efficient Solution of Multiple Equations</p>
+                Matrix methods provide systematic approaches for solving systems of linear equations, which frequently arise in engineering problems involving multiple constraints and variables.
+            </div>
+
+            <h3>Matrix Representation of Linear Systems</h3>
+            <div class="math-block">
+                <p>A system of linear equations can be written as \(AX = B\):</p>
+                <p>$$ \begin{cases} 
+                a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n = b_1 \\
+                a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n = b_2 \\
+                \vdots \\
+                a_{m1}x_1 + a_{m2}x_2 + \cdots + a_{mn}x_n = b_m 
+                \end{cases} $$</p>
+                <p>$$ \Rightarrow \begin{pmatrix} a_{11} & a_{12} & \cdots & a_{1n} \\ a_{21} & a_{22} & \cdots & a_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{m1} & a_{m2} & \cdots & a_{mn} \end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{pmatrix} = \begin{pmatrix} b_1 \\ b_2 \\ \vdots \\ b_m \end{pmatrix} $$</p>
+            </div>
+
+            <h3>2×2 Systems (Inverse Matrix Method)</h3>
+            <div class="example-box">
+                <p><strong>Example: Circuit Analysis</strong></p>
+                <p>Solve the system representing currents in a two-mesh circuit:</p>
+                <p>$$ 2I_1 + 3I_2 = 8 $$<br>
+                $$ I_1 + 4I_2 = 9 $$</p>
+                
+                <p><strong>Step 1: Matrix Form</strong><br>
+                $$ \begin{pmatrix} 2 & 3 \\ 1 & 4 \end{pmatrix} \begin{pmatrix} I_1 \\ I_2 \end{pmatrix} = \begin{pmatrix} 8 \\ 9 \end{pmatrix} $$</p>
+                
+                <p><strong>Step 2: Determinant</strong><br>
+                $$ \det(A) = (2)(4) - (3)(1) = 8 - 3 = 5 $$</p>
+                
+                <p><strong>Step 3: Inverse Matrix</strong><br>
+                $$ A^{-1} = \frac{1}{5} \begin{pmatrix} 4 & -3 \\ -1 & 2 \end{pmatrix} $$</p>
+                
+                <p><strong>Step 4: Solution</strong><br>
+                $$ \begin{pmatrix} I_1 \\ I_2 \end{pmatrix} = \frac{1}{5} \begin{pmatrix} 4 & -3 \\ -1 & 2 \end{pmatrix} \begin{pmatrix} 8 \\ 9 \end{pmatrix} = \frac{1}{5} \begin{pmatrix} 32 - 27 \\ -8 + 18 \end{pmatrix} = \begin{pmatrix} 1 \\ 2 \end{pmatrix} $$</p>
+                
+                <p><strong>Engineering Interpretation:</strong> Currents are \(I_1 = 1A\), \(I_2 = 2A\)</p>
+            </div>
+
+            <h3>3×3 Systems (Cramer's Rule)</h3>
+            <div class="example-box">
+                <p><strong>Example: Structural Analysis</strong></p>
+                <p>Solve for forces in a three-member truss:</p>
+                <p>$$ F_1 + F_2 + F_3 = 6 $$<br>
+                $$ 2F_1 - F_2 + F_3 = 3 $$<br>
+                $$ F_1 + 2F_2 - F_3 = 2 $$</p>
+                
+                <p><strong>Step 1: Main Determinant</strong><br>
+                $$ \det(A) = \begin{vmatrix} 1 & 1 & 1 \\ 2 & -1 & 1 \\ 1 & 2 & -1 \end{vmatrix} = 1(1-2) - 1(-2-1) + 1(4+1) = -1 + 3 + 5 = 7 $$</p>
+                
+                <p><strong>Step 2: Determinant for \(F_1\)</strong><br>
+                $$ \det(A_1) = \begin{vmatrix} 6 & 1 & 1 \\ 3 & -1 & 1 \\ 2 & 2 & -1 \end{vmatrix} = 6(1-2) - 1(-3-2) + 1(6+2) = -6 + 5 + 8 = 7 $$<br>
+                $$ F_1 = \frac{\det(A_1)}{\det(A)} = \frac{7}{7} = 1 $$</p>
+                
+                <p><strong>Step 3: Determinant for \(F_2\)</strong><br>
+                $$ \det(A_2) = \begin{vmatrix} 1 & 6 & 1 \\ 2 & 3 & 1 \\ 1 & 2 & -1 \end{vmatrix} = 1(-3-2) - 6(-2-1) + 1(4-3) = -5 + 18 + 1 = 14 $$<br>
+                $$ F_2 = \frac{14}{7} = 2 $$</p>
+                
+                <p><strong>Step 4: Determinant for \(F_3\)</strong><br>
+                $$ \det(A_3) = \begin{vmatrix} 1 & 1 & 6 \\ 2 & -1 & 3 \\ 1 & 2 & 2 \end{vmatrix} = 1(-2-6) - 1(4-3) + 6(4+1) = -8 - 1 + 30 = 21 $$<br>
+                $$ F_3 = \frac{21}{7} = 3 $$</p>
+                
+                <p><strong>Structural Insight:</strong> Forces are \(F_1 = 1kN\), \(F_2 = 2kN\), \(F_3 = 3kN\)</p>
+            </div>
+
+            <h3>Gaussian Elimination Method</h3>
+            <div class="info-box">
+                <p>Systematic Solution for Larger Systems</p>
+                Gaussian elimination transforms the augmented matrix into row-echelon form through elementary row operations, providing a general method for systems of any size.
+            </div>
+
+            <h2 id="vector-operations">2. Vector Operations and Applications</h2>
+
+            <div class="info-box">
+                <p>Mathematical Representation of Physical Quantities</p>
+                Vectors describe quantities with both magnitude and direction, making them essential for representing forces, velocities, electric fields, and other engineering phenomena.
+            </div>
+
+            <h3>Vector Fundamentals</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Operation</th>
+                        <th>Formula</th>
+                        <th>Engineering Application</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Magnitude</td>
+                        <td>\(|\vec{v}| = \sqrt{v_x^2 + v_y^2 + v_z^2}\)</td>
+                        <td>Force magnitude, speed</td>
+                    </tr>
+                    <tr>
+                        <td>Unit Vector</td>
+                        <td>\(\hat{v} = \frac{\vec{v}}{|\vec{v}|}\)</td>
+                        <td>Direction analysis</td>
+                    </tr>
+                    <tr>
+                        <td>Addition</td>
+                        <td>\(\vec{u} + \vec{v} = (u_x+v_x, u_y+v_y, u_z+v_z)\)</td>
+                        <td>Resultant forces</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Dot Product (Scalar Product)</h3>
+            <div class="math-block">
+                <p><strong>Definition:</strong> \(\vec{A} \cdot \vec{B} = |\vec{A}||\vec{B}|\cos\theta = A_xB_x + A_yB_y + A_zB_z\)</p>
+                <p><strong>Applications:</strong> Work calculation, angle between vectors, projection</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Mechanical Work</strong></p>
+                <p>A force \(\vec{F} = 2\vec{i} + 3\vec{j}\) N acts through a displacement \(\vec{d} = 4\vec{i} - \vec{j}\) m. Find the work done and angle between force and displacement.</p>
+                
+                <p><strong>Step 1: Dot Product</strong><br>
+                \(\vec{F} \cdot \vec{d} = (2)(4) + (3)(-1) = 8 - 3 = 5\) J</p>
+                
+                <p><strong>Step 2: Magnitudes</strong><br>
+                \(|\vec{F}| = \sqrt{2^2 + 3^2} = \sqrt{13} \approx 3.61\) N<br>
+                \(|\vec{d}| = \sqrt{4^2 + (-1)^2} = \sqrt{17} \approx 4.12\) m</p>
+                
+                <p><strong>Step 3: Angle Calculation</strong><br>
+                \(\theta = \cos^{-1}\left(\frac{\vec{F} \cdot \vec{d}}{|\vec{F}||\vec{d}|}\right) = \cos^{-1}\left(\frac{5}{\sqrt{13}\sqrt{17}}\right) \approx \cos^{-1}(0.336) \approx 70.35^\circ\)</p>
+                
+                <p><strong>Engineering Insight:</strong> Work done is 5 Joules at an angle of 70.35°</p>
+            </div>
+
+            <h3>Cross Product (Vector Product)</h3>
+            <div class="math-block">
+                <p><strong>Definition:</strong> \(\vec{A} \times \vec{B} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ A_x & A_y & A_z \\ B_x & B_y & B_z \end{vmatrix}\)</p>
+                <p><strong>Applications:</strong> Torque, magnetic force, area calculation</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Torque Calculation</strong></p>
+                <p>A force \(\vec{F} = \vec{i} + 2\vec{j} + 3\vec{k}\) N acts at position \(\vec{r} = 4\vec{i} + 5\vec{j} + 6\vec{k}\) m from pivot. Find the torque.</p>
+                
+                <p><strong>Cross Product Calculation:</strong><br>
+                \(\vec{\tau} = \vec{r} \times \vec{F} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 1 & 2 & 3 \\ 4 & 5 & 6 \end{vmatrix} = \vec{i}(12-15) - \vec{j}(6-12) + \vec{k}(5-8)\)<br>
+                \(= -3\vec{i} + 6\vec{j} - 3\vec{k}\) N·m</p>
+                
+                <p><strong>Engineering Interpretation:</strong> Torque vector has components (-3, 6, -3) N·m</p>
+            </div>
+
+            <h2 id="partial-fractions">3. Partial Fractions Decomposition</h2>
+
+            <div class="info-box">
+                <p>Simplifying Complex Rational Expressions</p>
+                Partial fractions break down complex rational functions into simpler components, facilitating integration, inverse Laplace transforms, and system analysis.
+            </div>
+
+            <h3>Case 1: Distinct Linear Factors</h3>
+            <div class="math-block">
+                <p>$$ \frac{px+q}{(x-a)(x-b)} = \frac{A}{x-a} + \frac{B}{x-b} $$</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Control System Transfer Function</strong></p>
+                <p>Decompose \( \frac{5s-1}{(s-2)(s+1)} \) for inverse Laplace transform.</p>
+                
+                <p><strong>Step 1: Set up decomposition</strong><br>
+                \( \frac{5s-1}{(s-2)(s+1)} = \frac{A}{s-2} + \frac{B}{s+1} \)</p>
+                
+                <p><strong>Step 2: Clear denominators</strong><br>
+                \( 5s-1 = A(s+1) + B(s-2) \)</p>
+                
+                <p><strong>Step 3: Solve for coefficients</strong><br>
+                Let \(s=2\): \(9 = 3A \Rightarrow A=3\)<br>
+                Let \(s=-1\): \(-6 = -3B \Rightarrow B=2\)</p>
+                
+                <p><strong>Result:</strong> \( \frac{3}{s-2} + \frac{2}{s+1} \)</p>
+                
+                <p><strong>Control Application:</strong> This form is ready for inverse Laplace transformation to time domain.</p>
+            </div>
+
+            <h3>Case 2: Repeated Linear Factors</h3>
+            <div class="math-block">
+                <p>$$ \frac{px+q}{(x-a)^n} = \frac{A_1}{x-a} + \frac{A_2}{(x-a)^2} + \cdots + \frac{A_n}{(x-a)^n} $$</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Repeated Pole System</strong></p>
+                <p>Decompose \( \frac{2s+3}{(s-1)^2} \) for integration.</p>
+                
+                <p><strong>Step 1: Set up decomposition</strong><br>
+                \( \frac{2s+3}{(s-1)^2} = \frac{A}{s-1} + \frac{B}{(s-1)^2} \)</p>
+                
+                <p><strong>Step 2: Clear denominators</strong><br>
+                \( 2s+3 = A(s-1) + B \)</p>
+                
+                <p><strong>Step 3: Solve for coefficients</strong><br>
+                Let \(s=1\): \(5 = B \Rightarrow B=5\)<br>
+                Coefficient of \(s\): \(2 = A \Rightarrow A=2\)</p>
+                
+                <p><strong>Result:</strong> \( \frac{2}{s-1} + \frac{5}{(s-1)^2} \)</p>
+            </div>
+
+            <h3>Case 3: Irreducible Quadratic Factors</h3>
+            <div class="math-block">
+                <p>$$ \frac{px+q}{(x-a)(x^2+bx+c)} = \frac{A}{x-a} + \frac{Bx+C}{x^2+bx+c} $$</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Damped System Response</strong></p>
+                <p>Decompose \( \frac{3s+2}{(s+1)(s^2+4)} \) for vibration analysis.</p>
+                
+                <p><strong>Step 1: Set up decomposition</strong><br>
+                \( \frac{3s+2}{(s+1)(s^2+4)} = \frac{A}{s+1} + \frac{Bs+C}{s^2+4} \)</p>
+                
+                <p><strong>Step 2: Clear denominators</strong><br>
+                \( 3s+2 = A(s^2+4) + (Bs+C)(s+1) \)</p>
+                
+                <p><strong>Step 3: Solve for coefficients</strong><br>
+                Let \(s=-1\): \(-1 = 5A \Rightarrow A=-\frac{1}{5}\)<br>
+                Coefficient of \(s^2\): \(0 = A + B \Rightarrow B = -A = \frac{1}{5}\)<br>
+                Constant term: \(2 = 4A + C \Rightarrow C = 2 - 4A = 2 + \frac{4}{5} = \frac{14}{5}\)</p>
+                
+                <p><strong>Result:</strong> \( -\frac{1/5}{s+1} + \frac{(1/5)s + 14/5}{s^2+4} \)</p>
+                
+                <p><strong>Vibration Analysis:</strong> This decomposition reveals the system's natural frequencies and damping characteristics.</p>
+            </div>
+
+            <h2 id="eigenvalues">4. Eigenvalues and Eigenvectors</h2>
+
+            <div class="info-box">
+                <p>Fundamental System Properties</p>
+                Eigenvalues and eigenvectors reveal the intrinsic properties of linear transformations, with applications in stability analysis, vibration modes, and principal component analysis.
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Mechanical Vibration Modes</strong></p>
+                <p>Find eigenvalues and eigenvectors for mass-spring system matrix:</p>
+                <p>$$ A = \begin{pmatrix} 2 & -1 \\ -1 & 2 \end{pmatrix} $$</p>
+                
+                <p><strong>Step 1: Characteristic Equation</strong><br>
+                \( \det(A - \lambda I) = \begin{vmatrix} 2-\lambda & -1 \\ -1 & 2-\lambda \end{vmatrix} = (2-\lambda)^2 - 1 = 0 \)<br>
+                \( \lambda^2 - 4\lambda + 3 = 0 \Rightarrow \lambda = 1, 3 \)</p>
+                
+                <p><strong>Step 2: Eigenvector for λ=1</strong><br>
+                \( (A - I)\vec{v} = 0 \Rightarrow \begin{pmatrix} 1 & -1 \\ -1 & 1 \end{pmatrix}\begin{pmatrix} v_1 \\ v_2 \end{pmatrix} = 0 \)<br>
+                \( v_1 = v_2 \Rightarrow \vec{v}_1 = \begin{pmatrix} 1 \\ 1 \end{pmatrix} \)</p>
+                
+                <p><strong>Step 3: Eigenvector for λ=3</strong><br>
+                \( (A - 3I)\vec{v} = 0 \Rightarrow \begin{pmatrix} -1 & -1 \\ -1 & -1 \end{pmatrix}\begin{pmatrix} v_1 \\ v_2 \end{pmatrix} = 0 \)<br>
+                \( v_1 = -v_2 \Rightarrow \vec{v}_2 = \begin{pmatrix} 1 \\ -1 \end{pmatrix} \)</p>
+                
+                <p><strong>Vibration Interpretation:</strong> The system has natural frequencies corresponding to eigenvalues 1 and 3 rad/s, with mode shapes (1,1) and (1,-1).</p>
+            </div>
+
+            <h2 id="practice-problems">5. Practice Problems</h2>
+
+            <div class="info-box">
+                <p>Reinforce Your Linear Methods Skills</p>
+                Work through these problems to master matrix operations, vector analysis, and partial fractions decomposition.
+            </div>
+
+            <h3>Matrix Problems</h3>
+            <ol>
+                <li>Solve using inverse matrix method: \(2x + 3y = 7\), \(x - 2y = -3\)</li>
+                <li>Use Cramer's rule to solve: \(x + y + z = 3\), \(2x - y + z = 2\), \(x + 2y - z = 1\)</li>
+                <li>Find eigenvalues and eigenvectors of \( \begin{pmatrix} 3 & 1 \\ 1 & 3 \end{pmatrix} \)</li>
+            </ol>
+
+            <h3>Vector Problems</h3>
+            <ol>
+                <li>Find the angle between vectors \(\vec{u} = 3\vec{i} + 4\vec{j}\) and \(\vec{v} = 2\vec{i} - \vec{j}\)</li>
+                <li>Calculate the torque when force \(\vec{F} = 2\vec{i} + 3\vec{j}\) acts at \(\vec{r} = 4\vec{i} + 5\vec{j}\)</li>
+                <li>Find a unit vector in the direction of \(\vec{w} = \vec{i} + 2\vec{j} + 3\vec{k}\)</li>
+            </ol>
+
+            <h3>Partial Fractions Problems</h3>
+            <ol>
+                <li>Decompose \(\frac{3x+5}{(x-1)(x+2)}\)</li>
+                <li>Decompose \(\frac{x^2+2x+3}{(x-1)^3}\)</li>
+                <li>Decompose \(\frac{2x+1}{(x+1)(x^2+9)}\)</li>
+            </ol>
+
+            <div class="key-point">
+                <strong>Engineering Insight:</strong> Linear methods provide the mathematical foundation for analyzing multi-variable systems. The ability to solve systems of equations, manipulate vectors, and decompose complex functions is essential for understanding and designing engineering systems ranging from electrical circuits to mechanical structures.
+            </div>
+
+            <h2 id="summary">6. Summary and Key Formulas</h2>
+
+            <div class="info-box">
+                <p>Essential Linear Methods Reference</p>
+                These formulas and techniques form the core of linear algebra applications in engineering.
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Concept</th>
+                        <th>Formula/Method</th>
+                        <th>Application</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Matrix Inverse</td>
+                        <td>\(AX = B \Rightarrow X = A^{-1}B\)</td>
+                        <td>2×2 system solution</td>
+                    </tr>
+                    <tr>
+                        <td>Cramer's Rule</td>
+                        <td>\(x_i = \frac{\det(A_i)}{\det(A)}\)</td>
+                        <td>3×3 system solution</td>
+                    </tr>
+                    <tr>
+                        <td>Dot Product</td>
+                        <td>\(\vec{A} \cdot \vec{B} = A_xB_x + A_yB_y + A_zB_z\)</td>
+                        <td>Work, angles, projections</td>
+                    </tr>
+                    <tr>
+                        <td>Cross Product</td>
+                        <td>\(\vec{A} \times \vec{B} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ A_x & A_y & A_z \\ B_x & B_y & B_z \end{vmatrix}\)</td>
+                        <td>Torque, areas, moments</td>
+                    </tr>
+                    <tr>
+                        <td>Partial Fractions</td>
+                        <td>\(\frac{P(x)}{Q(x)} = \sum \frac{A_i}{(x-r_i)^{n_i}}\)</td>
+                        <td>Integration, Laplace transforms</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="warning">
+                <strong>Important Note:</strong> Always check that matrices are invertible (determinant ≠ 0) before applying inverse methods. For partial fractions, ensure the degree of the numerator is less than the degree of the denominator before decomposition.
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 HNC Engineering Mathematics. All rights reserved.</p>
+            <p>Linear Methods Reference for Engineering Applications</p>
+        </div>
+    </footer>
+
+    <script src="navigation.js"></script>
+</body>
+</html>
