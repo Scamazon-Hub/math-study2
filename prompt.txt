@@ -1,0 +1,3 @@
+Attached is the style.css that we made previously. And html file to overhaul
+and expand on to the best coverage of the topic for my hnc math. I have attached rate of change a showcase of what we previously developed,
+but this is for reference the other attached html is the one requiring overhaul

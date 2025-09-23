@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AC Circuit Analysis - HNC Engineering Mathematics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HNC Engineering Mathematics</h1>
+            <p>AC Circuit Analysis - Phasor Methods and Electrical System Analysis</p>
+        </div>
+    </header>
+
+    <div class="container grid-layout">
+        <aside id="navigation-placeholder"></aside>
+
+        <main>
+            <h1>AC Circuit Analysis</h1>
+
+            <div class="info-box">
+                <p>Engineering Application of Complex Numbers</p>
+                Complex numbers provide an elegant mathematical framework for analyzing AC circuits. By representing
+                sinusoidal quantities as phasors (complex numbers with magnitude and phase), we transform differential
+                equations into algebraic equations, significantly simplifying circuit analysis.
+            </div>
+
+            <h2 id="ac-fundamentals">1. AC Fundamentals and Waveform Characteristics</h2>
+
+            <div class="info-box">
+                <p>Sinusoidal Waveforms</p>
+                Alternating Current (AC) systems are dominated by sinusoidal waveforms due to their mathematical
+                properties and practical generation through rotating machinery. The general form of a sinusoidal voltage
+                or current is:
+            </div>
+
+            <div class="math-block">$$ v(t) = V_m\sin(\omega t + \phi) \quad \text{or} \quad v(t) = V_m\cos(\omega t +
+                \phi) $$</div>
+
+            <h3>Key AC Parameters</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Symbol</th>
+                        <th>Formula</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Frequency</td>
+                        <td>\( f \)</td>
+                        <td>\( f = \frac{\omega}{2\pi} \)</td>
+                        <td>Number of cycles per second (Hz)</td>
+                    </tr>
+                    <tr>
+                        <td>Period</td>
+                        <td>\( T \)</td>
+                        <td>\( T = \frac{1}{f} = \frac{2\pi}{\omega} \)</td>
+                        <td>Time for one complete cycle (seconds)</td>
+                    </tr>
+                    <tr>
+                        <td>Angular Frequency</td>
+                        <td>\( \omega \)</td>
+                        <td>\( \omega = 2\pi f \)</td>
+                        <td>Radians per second</td>
+                    </tr>
+                    <tr>
+                        <td>Peak Value</td>
+                        <td>\( V_m \) or \( I_m \)</td>
+                        <td>Maximum amplitude</td>
+                        <td>Maximum instantaneous value</td>
+                    </tr>
+                    <tr>
+                        <td>RMS Value</td>
+                        <td>\( V_{rms} \) or \( I_{rms} \)</td>
+                        <td>\( V_{rms} = \frac{V_m}{\sqrt{2}} \)</td>
+                        <td>DC equivalent for power calculation</td>
+                    </tr>
+                    <tr>
+                        <td>Peak-to-Peak</td>
+                        <td>\( V_{pp} \) or \( I_{pp} \)</td>
+                        <td>\( V_{pp} = 2V_m \)</td>
+                        <td>Difference between maximum and minimum</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="key-point">
+                <strong>Engineering Note:</strong> Unless specified otherwise, AC voltages and currents are typically
+                quoted as RMS values. For example, "230V AC" means 230V RMS, with a peak value of approximately 325V.
+            </div>
+
+            <div class="example-box">
+                <p>Example: Complete AC Waveform Analysis</p>
+                <p>An AC voltage is given by \( v(t) = 120\sin(100\pi t + \frac{\pi}{4}) \) volts. Determine all key
+                    parameters.</p>
+
+                <p><strong>Solution:</strong></p>
+                <p><strong>a) Peak Voltage:</strong> \( V_m = 120 \) V</p>
+                <p><strong>b) RMS Voltage:</strong> \( V_{rms} = \frac{120}{\sqrt{2}} \approx 84.85 \) V</p>
+                <p><strong>c) Angular Frequency:</strong> \( \omega = 100\pi \approx 314.16 \) rad/s</p>
+                <p><strong>d) Frequency:</strong> \( f = \frac{\omega}{2\pi} = \frac{100\pi}{2\pi} = 50 \) Hz</p>
+                <p><strong>e) Period:</strong> \( T = \frac{1}{f} = \frac{1}{50} = 0.02 \) s = 20 ms</p>
+                <p><strong>f) Phase Angle:</strong> \( \phi = \frac{\pi}{4} = 45^\circ \) (voltage leads reference)</p>
+                <p><strong>g) Instantaneous voltage at t=10ms:</strong>
+                    \( v(0.01) = 120\sin(100\pi \times 0.01 + \frac{\pi}{4}) = 120\sin(\pi + \frac{\pi}{4}) =
+                    120\sin(\frac{5\pi}{4}) \approx -84.85 \) V</p>
+            </div>
+
+            <h2 id="phasor-representation">2. Phasor Representation of AC Quantities</h2>
+
+            <div class="info-box">
+                <p>Phasor Domain Transformation</p>
+                Phasors convert time-domain sinusoidal functions into complex numbers in the frequency domain. This
+                transformation eliminates the time variable, simplifying analysis.
+            </div>
+
+            <h3>Phasor Conversion</h3>
+            <p>A sinusoidal function \( v(t) = V_m\cos(\omega t + \phi) \) is represented as a phasor \( \mathbf{V} =
+                V_{rms} \angle \phi \).</p>
+
+            <div class="math-block">$$ v(t) = V_m\cos(\omega t + \phi) \quad \Leftrightarrow \quad \mathbf{V} = V_{rms}
+                \angle \phi = V_{rms} e^{j\phi} $$</div>
+
+            <h4>Complex Number Forms</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Form</th>
+                        <th>Expression</th>
+                        <th>Conversion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Rectangular</td>
+                        <td>\( a + jb \)</td>
+                        <td>\( a = |Z|\cos\theta, \quad b = |Z|\sin\theta \)</td>
+                    </tr>
+                    <tr>
+                        <td>Polar</td>
+                        <td>\( |Z| \angle \theta \)</td>
+                        <td>\( |Z| = \sqrt{a^2 + b^2}, \quad \theta = \tan^{-1}(\frac{b}{a}) \)</td>
+                    </tr>
+                    <tr>
+                        <td>Exponential</td>
+                        <td>\( |Z| e^{j\theta} \)</td>
+                        <td>Euler's formula: \( e^{j\theta} = \cos\theta + j\sin\theta \)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p>Example: Phasor Operations</p>
+                <p>Convert the following time-domain functions to phasor form:</p>
+                <p>a) \( i_1(t) = 10\cos(377t + 30^\circ) \) A</p>
+                <p>b) \( v_2(t) = 5\sin(100\pi t - 45^\circ) \) V (convert to cosine first)</p>
+
+                <p><strong>Solution:</strong></p>
+                <p><strong>a)</strong> \( I_1 = \frac{10}{\sqrt{2}} \angle 30^\circ \approx 7.07 \angle 30^\circ \) A
+                </p>
+                <p><strong>b)</strong> First convert to cosine: \( \sin(\theta) = \cos(\theta - 90^\circ) \)</p>
+                <p>\( v_2(t) = 5\cos(100\pi t - 45^\circ - 90^\circ) = 5\cos(100\pi t - 135^\circ) \)</p>
+                <p>\( V_2 = \frac{5}{\sqrt{2}} \angle -135^\circ \approx 3.54 \angle -135^\circ \) V</p>
+            </div>
+
+            <h2 id="impedance-admittance">3. Impedance and Admittance</h2>
+
+            <div class="info-box">
+                <p>Generalized Resistance</p>
+                Impedance (Z) extends the concept of resistance to AC circuits, accounting for both magnitude and phase
+                relationships. Admittance (Y) is the reciprocal of impedance, particularly useful for parallel circuit
+                analysis.
+            </div>
+
+            <h3>Component Impedance Characteristics</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Impedance (Z)</th>
+                        <th>Magnitude</th>
+                        <th>Phase Angle</th>
+                        <th>Power Dissipation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Resistor (R)</td>
+                        <td>\( Z_R = R \)</td>
+                        <td>\( R \)</td>
+                        <td>\( 0^\circ \)</td>
+                        <td>Dissipates real power</td>
+                    </tr>
+                    <tr>
+                        <td>Inductor (L)</td>
+                        <td>\( Z_L = j\omega L \)</td>
+                        <td>\( \omega L \)</td>
+                        <td>\( +90^\circ \)</td>
+                        <td>Stores energy in magnetic field</td>
+                    </tr>
+                    <tr>
+                        <td>Capacitor (C)</td>
+                        <td>\( Z_C = \frac{1}{j\omega C} = -j\frac{1}{\omega C} \)</td>
+                        <td>\( \frac{1}{\omega C} \)</td>
+                        <td>\( -90^\circ \)</td>
+                        <td>Stores energy in electric field</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="key-point">
+                <strong>Memory Aid:</strong> "ELI the ICE man" - E (voltage) leads I (current) in L (inductor), I leads
+                E in C (capacitor).
+            </div>
+
+            <div class="example-box">
+                <p>Example: Series RLC Circuit Analysis</p>
+                <p>A series RLC circuit has R = 100Ω, L = 0.5H, C = 10μF, connected to a 50Hz, 230V RMS supply.
+                    Calculate the total impedance, current, and voltage across each component.</p>
+
+                <p><strong>Solution:</strong></p>
+                <p><strong>Step 1: Calculate angular frequency</strong><br>
+                    \( \omega = 2\pi f = 2\pi(50) = 100\pi \approx 314.16 \) rad/s</p>
+
+                <p><strong>Step 2: Calculate individual impedances</strong><br>
+                    \( Z_R = 100 \) Ω<br>
+                    \( Z_L = j\omega L = j(314.16)(0.5) = j157.08 \) Ω<br>
+                    \( Z_C = -j\frac{1}{\omega C} = -j\frac{1}{314.16 \times 10 \times 10^{-6}} = -j318.31 \) Ω</p>
+
+                <p><strong>Step 3: Total impedance</strong><br>
+                    \( Z_{total} = Z_R + Z_L + Z_C = 100 + j157.08 - j318.31 = 100 - j161.23 \) Ω</p>
+                <p>Magnitude: \( |Z| = \sqrt{100^2 + (-161.23)^2} \approx 189.47 \) Ω</p>
+                <p>Phase: \( \theta = \tan^{-1}(\frac{-161.23}{100}) \approx -58.17^\circ \)</p>
+
+                <p><strong>Step 4: Circuit current</strong><br>
+                    \( I = \frac{V}{Z} = \frac{230\angle 0^\circ}{189.47\angle -58.17^\circ} \approx 1.214\angle
+                    58.17^\circ \) A</p>
+
+                <p><strong>Step 5: Component voltages</strong><br>
+                    \( V_R = I \times R = 1.214\angle 58.17^\circ \times 100 \approx 121.4\angle 58.17^\circ \) V<br>
+                    \( V_L = I \times Z_L = 1.214\angle 58.17^\circ \times 157.08\angle 90^\circ \approx 190.7\angle
+                    148.17^\circ \) V<br>
+                    \( V_C = I \times Z_C = 1.214\angle 58.17^\circ \times 318.31\angle -90^\circ \approx 386.4\angle
+                    -31.83^\circ \) V</p>
+            </div>
+
+            <h2 id="circuit-analysis">4. AC Circuit Analysis Methods</h2>
+
+            <div class="info-box">
+                <p>Systematic Approaches</p>
+                Standard circuit analysis techniques (Ohm's Law, Kirchhoff's Laws, mesh and nodal analysis) apply to AC
+                circuits when using phasors and complex impedances.
+            </div>
+
+            <h3>Key Analysis Techniques</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Application</th>
+                        <th>Key Equations</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ohm's Law (AC)</td>
+                        <td>Basic circuit relationships</td>
+                        <td>\( \mathbf{V} = \mathbf{I} \cdot \mathbf{Z} \)</td>
+                    </tr>
+                    <tr>
+                        <td>Kirchhoff's Voltage Law</td>
+                        <td>Series circuits</td>
+                        <td>\( \sum \mathbf{V} = 0 \) around any closed loop</td>
+                    </tr>
+                    <tr>
+                        <td>Kirchhoff's Current Law</td>
+                        <td>Parallel circuits</td>
+                        <td>\( \sum \mathbf{I} = 0 \) at any node</td>
+                    </tr>
+                    <tr>
+                        <td>Mesh Analysis</td>
+                        <td>Multiple loop circuits</td>
+                        <td>Solve simultaneous equations for mesh currents</td>
+                    </tr>
+                    <tr>
+                        <td>Nodal Analysis</td>
+                        <td>Multiple node circuits</td>
+                        <td>Solve simultaneous equations for node voltages</td>
+                    </tr>
+                    <tr>
+                        <td>Superposition</td>
+                        <td>Multiple source circuits</td>
+                        <td>Analyze each source independently, sum results</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p>Example: Mesh Analysis of AC Circuit</p>
+                <p>Analyze the circuit with two voltage sources: \( V_1 = 100\angle 0^\circ \) V, \( V_2 = 50\angle
+                    90^\circ \) V, impedances: \( Z_1 = 4 + j3 \) Ω, \( Z_2 = 2 - j5 \) Ω, \( Z_3 = 3 + j4 \) Ω.</p>
+
+                <p><strong>Solution:</strong></p>
+                <p><strong>Step 1: Define mesh currents</strong><br>
+                    Let \( I_1 \) flow clockwise in left mesh, \( I_2 \) in right mesh.</p>
+
+                <p><strong>Step 2: Write mesh equations</strong><br>
+                    Mesh 1: \( (Z_1 + Z_3)I_1 - Z_3I_2 = V_1 \)<br>
+                    Mesh 2: \( -Z_3I_1 + (Z_2 + Z_3)I_2 = -V_2 \)</p>
+
+                <p><strong>Step 3: Substitute values</strong><br>
+                    \( (4+j3 + 3+j4)I_1 - (3+j4)I_2 = 100\angle 0^\circ \)<br>
+                    \( -(3+j4)I_1 + (2-j5 + 3+j4)I_2 = -50\angle 90^\circ \)</p>
+
+                <p>Simplify: \( (7+j7)I_1 - (3+j4)I_2 = 100 \)<br>
+                    \( -(3+j4)I_1 + (5-j1)I_2 = -j50 \)</p>
+
+                <p><strong>Step 4: Solve the system</strong><br>
+                    Using determinants or matrix methods:<br>
+                    \( I_1 \approx 12.56\angle -26.57^\circ \) A<br>
+                    \( I_2 \approx 8.94\angle 116.57^\circ \) A</p>
+            </div>
+
+            <h2 id="power-analysis">5. Power Analysis in AC Circuits</h2>
+
+            <div class="info-box">
+                <p>Complex Power Concepts</p>
+                AC power analysis involves real power (active), reactive power, and apparent power, with the power
+                factor indicating efficiency.
+            </div>
+
+            <h3>Power Relationships</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Power Type</th>
+                        <th>Symbol</th>
+                        <th>Formula</th>
+                        <th>Unit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Real Power (Active)</td>
+                        <td>P</td>
+                        <td>\( P = V_{rms}I_{rms}\cos\theta \)</td>
+                        <td>Watts (W)</td>
+                    </tr>
+                    <tr>
+                        <td>Reactive Power</td>
+                        <td>Q</td>
+                        <td>\( Q = V_{rms}I_{rms}\sin\theta \)</td>
+                        <td>Volt-Ampere Reactive (VAR)</td>
+                    </tr>
+                    <tr>
+                        <td>Apparent Power</td>
+                        <td>S</td>
+                        <td>\( S = V_{rms}I_{rms} \)</td>
+                        <td>Volt-Ampere (VA)</td>
+                    </tr>
+                    <tr>
+                        <td>Complex Power</td>
+                        <td>S</td>
+                        <td>\( \mathbf{S} = P + jQ \)</td>
+                        <td>VA</td>
+                    </tr>
+                    <tr>
+                        <td>Power Factor</td>
+                        <td>PF</td>
+                        <td>\( PF = \cos\theta = \frac{P}{S} \)</td>
+                        <td>Dimensionless</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p>Example: Power Calculation in RLC Circuit</p>
+                <p>For the series RLC circuit analyzed earlier (R=100Ω, L=0.5H, C=10μF, V=230V RMS, f=50Hz), calculate
+                    all power quantities.</p>
+
+                <p><strong>Solution:</strong></p>
+                <p>From previous analysis: \( I = 1.214\angle 58.17^\circ \) A, \( \theta = 58.17^\circ \)</p>
+
+                <p><strong>Step 1: Apparent Power</strong><br>
+                    \( S = V_{rms}I_{rms} = 230 \times 1.214 = 279.22 \) VA</p>
+
+                <p><strong>Step 2: Real Power</strong><br>
+                    \( P = VI\cos\theta = 230 \times 1.214 \times \cos(58.17^\circ) \approx 147.5 \) W</p>
+                <p>Alternative: \( P = I^2R = (1.214)^2 \times 100 \approx 147.4 \) W</p>
+
+                <p><strong>Step 3: Reactive Power</strong><br>
+                    \( Q = VI\sin\theta = 230 \times 1.214 \times \sin(58.17^\circ) \approx 237.8 \) VAR</p>
+
+                <p><strong>Step 4: Complex Power</strong><br>
+                    \( \mathbf{S} = P + jQ = 147.5 + j237.8 \) VA</p>
+                <p>Magnitude: \( |\mathbf{S}| = \sqrt{147.5^2 + 237.8^2} \approx 279.2 \) VA (matches apparent power)
+                </p>
+
+                <p><strong>Step 5: Power Factor</strong><br>
+                    \( PF = \cos\theta = \cos(58.17^\circ) \approx 0.528 \) (lagging, since current lags voltage)</p>
+            </div>
+
+            <h2 id="resonance">6. Resonance in AC Circuits</h2>
+
+            <div class="info-box">
+                <p>Frequency-Selective Behavior</p>
+                Resonance occurs when the inductive and capacitive reactances cancel each other, resulting in purely
+                resistive impedance at a specific frequency.
+            </div>
+
+            <h3>Series and Parallel Resonance</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Series Resonance</th>
+                        <th>Parallel Resonance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Resonant Frequency</td>
+                        <td>\( f_r = \frac{1}{2\pi\sqrt{LC}} \)</td>
+                        <td>\( f_r = \frac{1}{2\pi\sqrt{LC}} \)</td>
+                    </tr>
+                    <tr>
+                        <td>Impedance at Resonance</td>
+                        <td>Minimum (Z = R)</td>
+                        <td>Maximum (Z ≈ R)</td>
+                    </tr>
+                    <tr>
+                        <td>Current at Resonance</td>
+                        <td>Maximum</td>
+                        <td>Minimum</td>
+                    </tr>
+                    <tr>
+                        <td>Quality Factor (Q)</td>
+                        <td>\( Q = \frac{\omega_r L}{R} = \frac{1}{\omega_r CR} \)</td>
+                        <td>\( Q = \frac{R}{\omega_r L} = \omega_r CR \)</td>
+                    </tr>
+                    <tr>
+                        <td>Bandwidth</td>
+                        <td>\( BW = \frac{f_r}{Q} \)</td>
+                        <td>\( BW = \frac{f_r}{Q} \)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p>Example: Series Resonance Analysis</p>
+                <p>A series RLC circuit has R = 10Ω, L = 100mH, C = 10μF. Calculate the resonant frequency, quality
+                    factor, and bandwidth.</p>
+
+                <p><strong>Solution:</strong></p>
+                <p><strong>Step 1: Resonant Frequency</strong><br>
+                    \( f_r = \frac{1}{2\pi\sqrt{LC}} = \frac{1}{2\pi\sqrt{0.1 \times 10 \times 10^{-6}}} \approx 159.15
+                    \) Hz</p>
+
+                <p><strong>Step 2: Quality Factor</strong><br>
+                    \( \omega_r = 2\pi f_r = 2\pi \times 159.15 \approx 1000 \) rad/s<br>
+                    \( Q = \frac{\omega_r L}{R} = \frac{1000 \times 0.1}{10} = 10 \)</p>
+
+                <p><strong>Step 3: Bandwidth</strong><br>
+                    \( BW = \frac{f_r}{Q} = \frac{159.15}{10} = 15.915 \) Hz</p>
+
+                <p><strong>Step 4: Cutoff Frequencies</strong><br>
+                    Lower cutoff: \( f_1 = f_r - \frac{BW}{2} = 159.15 - 7.9575 = 151.19 \) Hz<br>
+                    Upper cutoff: \( f_2 = f_r + \frac{BW}{2} = 159.15 + 7.9575 = 167.11 \) Hz</p>
+            </div>
+
+            <h2 id="three-phase">7. Three-Phase AC Systems</h2>
+
+            <div class="info-box">
+                <p>Power Distribution Standard</p>
+                Three-phase systems are the standard for power generation, transmission, and distribution due to their
+                efficiency and power delivery characteristics.
+            </div>
+
+            <h3>Three-Phase Configurations</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Configuration</th>
+                        <th>Voltage Relationship</th>
+                        <th>Current Relationship</th>
+                        <th>Power Formula</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Wye (Y) Connection</td>
+                        <td>\( V_L = \sqrt{3}V_P \)</td>
+                        <td>\( I_L = I_P \)</td>
+                        <td>\( P = \sqrt{3}V_LI_L\cos\theta \)</td>
+                    </tr>
+                    <tr>
+                        <td>Delta (Δ) Connection</td>
+                        <td>\( V_L = V_P \)</td>
+                        <td>\( I_L = \sqrt{3}I_P \)</td>
+                        <td>\( P = \sqrt{3}V_LI_L\cos\theta \)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p>Example: Three-Phase Power Calculation</p>
+                <p>A balanced three-phase Y-connected load has per-phase impedance of \( 10 + j5 \) Ω and is connected
+                    to a 400V line-to-line supply. Calculate phase and line currents, and total power consumed.</p>
+
+                <p><strong>Solution:</strong></p>
+                <p><strong>Step 1: Phase Voltage</strong><br>
+                    For Y-connection: \( V_P = \frac{V_L}{\sqrt{3}} = \frac{400}{\sqrt{3}} \approx 230.94 \) V</p>
+
+                <p><strong>Step 2: Phase Impedance</strong><br>
+                    \( Z_P = 10 + j5 \) Ω<br>
+                    Magnitude: \( |Z_P| = \sqrt{10^2 + 5^2} \approx 11.18 \) Ω<br>
+                    Phase angle: \( \theta = \tan^{-1}(\frac{5}{10}) = 26.57^\circ \)</p>
+
+                <p><strong>Step 3: Phase Current</strong><br>
+                    \( I_P = \frac{V_P}{|Z_P|} = \frac{230.94}{11.18} \approx 20.66 \) A</p>
+
+                <p><strong>Step 4: Line Current</strong><br>
+                    For Y-connection: \( I_L = I_P = 20.66 \) A</p>
+
+                <p><strong>Step 5: Total Power</strong><br>
+                    \( P_{total} = 3 \times V_PI_P\cos\theta = 3 \times 230.94 \times 20.66 \times \cos(26.57^\circ)
+                    \approx 12,800 \) W<br>
+                    Alternative: \( P_{total} = \sqrt{3}V_LI_L\cos\theta = \sqrt{3} \times 400 \times 20.66 \times
+                    \cos(26.57^\circ) \approx 12,800 \) W</p>
+            </div>
+
+            <div class="key-point">
+                <strong>Engineering Analysis:</strong> AC circuit analysis using phasor methods is fundamental to
+                electrical engineering. The ability to convert between time and frequency domains, analyze impedance
+                characteristics, and calculate power relationships is essential for designing and troubleshooting
+                electrical systems.
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 HNC Engineering Mathematics. All rights reserved.</p>
+            <p>AC Circuit Analysis Reference for Engineering Applications</p>
+        </div>
+    </footer>
+
+    <script src="navigation.js"></script>
+</body>
+
+</html>

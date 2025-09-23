@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Calculus - HNC Engineering Mathematics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HNC Engineering Mathematics</h1>
+            <p>Advanced Calculus - Integration Techniques and Differential Equations</p>
+        </div>
+    </header>
+
+    <div class="container grid-layout">
+        <aside id="navigation-placeholder"></aside>
+
+        <main>
+            <h1>Advanced Calculus Techniques</h1>
+            
+            <div class="info-box">
+                <p>Engineering Applications of Advanced Calculus</p>
+                Advanced integration techniques and differential equations form the mathematical foundation for analyzing dynamic systems in engineering, including control systems, vibrations, heat transfer, and electrical circuits.
+            </div>
+
+            <h2 id="integration-techniques">1. Advanced Integration Methods</h2>
+            
+            <div class="info-box">
+                <p>When Standard Methods Fail</p>
+                Many integrals encountered in engineering cannot be solved using basic integration rules. Advanced techniques like integration by parts, substitution, and partial fractions provide systematic approaches to handle these challenging integrals.
+            </div>
+
+            <h3 id="integration-by-parts">Integration by Parts</h3>
+            
+            <div class="info-box">
+                <p>Reverse of the Product Rule</p>
+                Integration by parts is derived from the product rule for differentiation and is essential for integrating products of functions where one function is easily differentiable and the other is easily integrable.
+            </div>
+            
+            <div class="math-block">$$ \int u \, dv = uv - \int v \, du $$</div>
+            
+            <h4>LIPET Rule for Choosing u</h4>
+            <p>When deciding which part to designate as u, use the LIPET rule in order of preference:</p>
+            <ul>
+                <li><strong>L</strong> - Logarithmic functions (ln x, log x)</li>
+                <li><strong>I</strong> - Inverse trigonometric functions (arcsin x, arctan x)</li>
+                <li><strong>P</strong> - Polynomial functions (x², x³, etc.)</li>
+                <li><strong>E</strong> - Exponential functions (e^x, a^x)</li>
+                <li><strong>T</strong> - Trigonometric functions (sin x, cos x)</li>
+            </ul>
+            
+            <div class="example-box">
+                <p>Example: Basic Integration by Parts</p>
+                <p>Find $$ \int x e^{x} \, dx $$</p>
+                
+                <p><strong>Solution:</strong></p>
+                <p><strong>Step 1: Choose u and dv</strong><br>
+                Using LIPET: u = x (Polynomial), dv = e^x dx</p>
+                
+                <p><strong>Step 2: Differentiate and integrate</strong><br>
+                du = dx, v = ∫e^x dx = e^x</p>
+                
+                <p><strong>Step 3: Apply integration by parts formula</strong><br>
+                ∫x e^x dx = x e^x - ∫e^x dx = x e^x - e^x + C</p>
+                
+                <p><strong>Final Answer:</strong> e^x(x - 1) + C</p>
+            </div>
+            
+            <div class="example-box">
+                <p>Example: Repeated Integration by Parts</p>
+                <p>Find $$ \int x^2 \sin x \, dx $$</p>
+                
+                <p><strong>Solution:</strong></p>
+                <p><strong>Step 1: First application</strong><br>
+                u = x², dv = sin x dx → du = 2x dx, v = -cos x<br>
+                ∫x² sin x dx = -x² cos x + ∫2x cos x dx</p>
+                
+                <p><strong>Step 2: Second application</strong><br>
+                For ∫2x cos x dx: u = 2x, dv = cos x dx → du = 2 dx, v = sin x<br>
+                ∫2x cos x dx = 2x sin x - ∫2 sin x dx = 2x sin x + 2 cos x</p>
+                
+                <p><strong>Final Answer:</strong> -x² cos x + 2x sin x + 2 cos x + C</p>
+            </div>
+
+            <h3 id="substitution">Integration by Substitution</h3>
+            
+            <div class="info-box">
+                <p>Reverse of the Chain Rule</p>
+                Substitution is used when an integral contains a composite function. The goal is to simplify the integral by substituting a new variable for the inner function.
+            </div>
+            
+            <div class="math-block">$$ \int f(g(x))g'(x) \, dx = \int f(u) \, du \quad \text{where } u = g(x) $$</div>
+            
+            <h4>Common Substitution Patterns</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Integral Form</th>
+                        <th>Substitution</th>
+                        <th>Result</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>∫f(ax+b) dx</td>
+                        <td>u = ax+b</td>
+                        <td>(1/a)∫f(u) du</td>
+                    </tr>
+                    <tr>
+                        <td>∫f(g(x))g'(x) dx</td>
+                        <td>u = g(x)</td>
+                        <td>∫f(u) du</td>
+                    </tr>
+                    <tr>
+                        <td>∫√(a²-x²) dx</td>
+                        <td>x = a sin θ</td>
+                        <td>Trigonometric integral</td>
+                    </tr>
+                    <tr>
+                        <td>∫√(a²+x²) dx</td>
+                        <td>x = a tan θ</td>
+                        <td>Trigonometric integral</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="example-box">
+                <p>Example: Trigonometric Substitution</p>
+                <p>Find $$ \int 2x \sqrt{1+x^2} \, dx $$</p>
+                
+                <p><strong>Solution:</strong></p>
+                <p><strong>Step 1: Identify substitution</strong><br>
+                Let u = 1 + x² → du = 2x dx</p>
+                
+                <p><strong>Step 2: Substitute</strong><br>
+                ∫2x√(1+x²) dx = ∫√u du = ∫u^(1/2) du</p>
+                
+                <p><strong>Step 3: Integrate and back-substitute</strong><br>
+                = (2/3)u^(3/2) + C = (2/3)(1+x²)^(3/2) + C</p>
+            </div>
+
+            <h3>Partial Fractions</h3>
+            
+            <div class="info-box">
+                <p>Decomposition of Rational Functions</p>
+                Partial fractions is used to integrate rational functions by decomposing them into simpler fractions that can be integrated individually.
+            </div>
+            
+            <div class="example-box">
+                <p>Example: Partial Fraction Decomposition</p>
+                <p>Find $$ \int \frac{3x+5}{x^2+3x+2} \, dx $$</p>
+                
+                <p><strong>Solution:</strong></p>
+                <p><strong>Step 1: Factor denominator</strong><br>
+                x² + 3x + 2 = (x+1)(x+2)</p>
+                
+                <p><strong>Step 2: Set up partial fractions</strong><br>
+                (3x+5)/[(x+1)(x+2)] = A/(x+1) + B/(x+2)</p>
+                
+                <p><strong>Step 3: Solve for A and B</strong><br>
+                3x+5 = A(x+2) + B(x+1)<br>
+                Let x = -1: 3(-1)+5 = A(1) → 2 = A → A = 2<br>
+                Let x = -2: 3(-2)+5 = B(-1) → -1 = -B → B = 1</p>
+                
+                <p><strong>Step 4: Rewrite and integrate</strong><br>
+                ∫[2/(x+1) + 1/(x+2)] dx = 2ln|x+1| + ln|x+2| + C</p>
+            </div>
+
+            <h2 id="first-order-odes">2. First-Order Differential Equations</h2>
+            
+            <div class="info-box">
+                <p>Modeling Dynamic Systems</p>
+                First-order ODEs describe systems where the rate of change depends on the current state. These appear extensively in engineering applications like RC circuits, population growth, and cooling processes.
+            </div>
+
+            <h3>Separation of Variables</h3>
+            
+            <p>Used when the ODE can be written as dy/dx = f(x)g(y). The solution involves separating variables and integrating both sides.</p>
+            
+            <div class="math-block">$$ \frac{dy}{dx} = f(x)g(y) \Rightarrow \int \frac{1}{g(y)} \, dy = \int f(x) \, dx $$</div>
+            
+            <div class="example-box">
+                <p>Example: Newton's Law of Cooling</p>
+                <p>Solve $$ \frac{dT}{dt} = k(T - T_a) $$ where T is temperature, T_a is ambient temperature.</p>
+                
+                <p><strong>Solution:</strong></p>
+                <p><strong>Step 1: Separate variables</strong><br>
+                dT/(T - T_a) = k dt</p>
+                
+                <p><strong>Step 2: Integrate both sides</strong><br>
+                ∫dT/(T - T_a) = ∫k dt → ln|T - T_a| = kt + C</p>
+                
+                <p><strong>Step 3: Solve for T</strong><br>
+                T - T_a = Ae^(kt) where A = e^C<br>
+                T = T_a + Ae^(kt)</p>
+            </div>
+
+            <h3>Integrating Factor Method</h3>
+            
+            <p>Used for linear first-order ODEs of the form dy/dx + P(x)y = Q(x). The integrating factor is μ(x) = e^(∫P(x)dx).</p>
+            
+            <div class="math-block">$$ \frac{dy}{dx} + P(x)y = Q(x) \Rightarrow y = \frac{1}{\mu(x)} \int \mu(x) Q(x) \, dx $$</div>
+            
+            <div class="example-box">
+                <p>Example: RL Circuit Analysis</p>
+                <p>Solve $$ \frac{di}{dt} + \frac{R}{L}i = \frac{V}{L} $$ for current in an RL circuit.</p>
+                
+                <p><strong>Solution:</strong></p>
+                <p><strong>Step 1: Identify P(t) and find integrating factor</strong><br>
+                P(t) = R/L, μ(t) = e^(∫R/L dt) = e^(Rt/L)</p>
+                
+                <p><strong>Step 2: Multiply through by integrating factor</strong><br>
+                e^(Rt/L) di/dt + (R/L)e^(Rt/L)i = (V/L)e^(Rt/L)</p>
+                
+                <p><strong>Step 3: Recognize derivative and integrate</strong><br>
+                d/dt[i e^(Rt/L)] = (V/L)e^(Rt/L)<br>
+                i e^(Rt/L) = ∫(V/L)e^(Rt/L) dt = (V/R)e^(Rt/L) + C</p>
+                
+                <p><strong>Final Answer:</strong> i = V/R + Ce^(-Rt/L)</p>
+                
+                <p><strong>Engineering Interpretation:</strong> The solution shows exponential approach to steady-state current V/R with time constant L/R.</p>
+            </div>
+
+            <h2 id="second-order-odes">3. Second-Order Linear ODEs</h2>
+            
+            <div class="info-box">
+                <p>Vibrations and Oscillations</p>
+                Second-order ODEs with constant coefficients model mechanical vibrations, electrical oscillations, and many other physical phenomena involving acceleration.
+            </div>
+            
+            <p>The general form is: $$ a \frac{d^2y}{dx^2} + b \frac{dy}{dx} + cy = 0 $$</p>
+            
+            <h3>Solution Method</h3>
+            
+            <p>Assume a solution of the form y = e^(mx). Substituting gives the characteristic equation:</p>
+            <div class="math-block">$$ am^2 + bm + c = 0 $$</div>
+            
+            <p>The nature of the roots determines the solution:</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Root Type</th>
+                        <th>General Solution</th>
+                        <th>Physical Interpretation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Real, distinct (m₁, m₂)</td>
+                        <td>y = Ae^(m₁x) + Be^(m₂x)</td>
+                        <td>Overdamped system</td>
+                    </tr>
+                    <tr>
+                        <td>Real, repeated (m)</td>
+                        <td>y = (A + Bx)e^(mx)</td>
+                        <td>Critically damped system</td>
+                    </tr>
+                    <tr>
+                        <td>Complex (α ± iβ)</td>
+                        <td>y = e^(αx)(A cos βx + B sin βx)</td>
+                        <td>Underdamped oscillations</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="example-box">
+                <p>Example: Mass-Spring-Damper System</p>
+                <p>Solve m d²x/dt² + c dx/dt + kx = 0 for a mechanical vibration system with m=1kg, c=6N·s/m, k=8N/m.</p>
+                
+                <p><strong>Solution:</strong></p>
+                <p><strong>Step 1: Characteristic equation</strong><br>
+                r² + 6r + 8 = 0</p>
+                
+                <p><strong>Step 2: Solve for roots</strong><br>
+                (r+2)(r+4) = 0 → r = -2, -4</p>
+                
+                <p><strong>Step 3: General solution</strong><br>
+                Since roots are real and distinct:<br>
+                x(t) = Ae^(-2t) + Be^(-4t)</p>
+                
+                <p><strong>Step 4: Apply initial conditions</strong><br>
+                If x(0)=0.1m and dx/dt(0)=0:<br>
+                x(0) = A + B = 0.1<br>
+                dx/dt = -2Ae^(-2t) - 4Be^(-4t)<br>
+                dx/dt(0) = -2A - 4B = 0 → A = -2B<br>
+                Solving: -2B + B = 0.1 → -B = 0.1 → B = -0.1, A = 0.2</p>
+                
+                <p><strong>Final Solution:</strong> x(t) = 0.2e^(-2t) - 0.1e^(-4t)</p>
+                
+                <p><strong>Engineering Analysis:</strong> This represents an overdamped system that returns to equilibrium without oscillation.</p>
+            </div>
+
+            <h2 id="nonhomogeneous-odes">4. Nonhomogeneous ODEs</h2>
+            
+            <div class="info-box">
+                <p>Systems with External Forcing</p>
+                Nonhomogeneous ODEs include an external forcing function and are solved by finding the complementary solution (homogeneous part) and a particular solution.
+            </div>
+            
+            <h3>Method of Undetermined Coefficients</h3>
+            
+            <p>For equations of the form ay'' + by' + cy = f(x), where f(x) is a simple function (polynomial, exponential, sine, cosine).</p>
+            
+            <div class="example-box">
+                <p>Example: Forced Vibrations</p>
+                <p>Solve y'' + 3y' + 2y = 2cos(x)</p>
+                
+                <p><strong>Solution:</strong></p>
+                <p><strong>Step 1: Complementary solution</strong><br>
+                r² + 3r + 2 = 0 → (r+1)(r+2)=0 → r=-1,-2<br>
+                y_c = Ae^(-x) + Be^(-2x)</p>
+                
+                <p><strong>Step 2: Particular solution</strong><br>
+                Since f(x)=2cos(x), try y_p = Ccos(x) + Dsin(x)<br>
+                y_p' = -Csin(x) + Dcos(x)<br>
+                y_p'' = -Ccos(x) - Dsin(x)</p>
+                
+                <p><strong>Step 3: Substitute into ODE</strong><br>
+                (-Ccos(x)-Dsin(x)) + 3(-Csin(x)+Dcos(x)) + 2(Ccos(x)+Dsin(x)) = 2cos(x)<br>
+                Simplify: (C+3D)cos(x) + (D-3C)sin(x) = 2cos(x)</p>
+                
+                <p><strong>Step 4: Solve for coefficients</strong><br>
+                C+3D=2, D-3C=0 → D=3C → C+9C=2 → C=0.2, D=0.6<br>
+                y_p = 0.2cos(x) + 0.6sin(x)</p>
+                
+                <p><strong>General Solution:</strong> y = Ae^(-x) + Be^(-2x) + 0.2cos(x) + 0.6sin(x)</p>
+            </div>
+
+            <h2 id="laplace-transforms">5. Laplace Transforms</h2>
+            
+            <div class="info-box">
+                <p>Powerful Tool for Solving ODEs</p>
+                Laplace transforms convert differential equations into algebraic equations, making them easier to solve, especially for systems with discontinuous forcing functions.
+            </div>
+            
+            <h3>Key Laplace Transform Formulas</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Function</th>
+                        <th>Laplace Transform</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>f(t) = 1</td>
+                        <td>F(s) = 1/s</td>
+                    </tr>
+                    <tr>
+                        <td>f(t) = t^n</td>
+                        <td>F(s) = n!/s^(n+1)</td>
+                    </tr>
+                    <tr>
+                        <td>f(t) = e^(at)</td>
+                        <td>F(s) = 1/(s-a)</td>
+                    </tr>
+                    <tr>
+                        <td>f(t) = sin(ωt)</td>
+                        <td>F(s) = ω/(s²+ω²)</td>
+                    </tr>
+                    <tr>
+                        <td>f(t) = cos(ωt)</td>
+                        <td>F(s) = s/(s²+ω²)</td>
+                    </tr>
+                    <tr>
+                        <td>f'(t)</td>
+                        <td>sF(s) - f(0)</td>
+                    </tr>
+                    <tr>
+                        <td>f''(t)</td>
+                        <td>s²F(s) - sf(0) - f'(0)</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="example-box">
+                <p>Example: Solving ODE with Laplace Transform</p>
+                <p>Solve y'' + 4y' + 3y = 0, with y(0)=1, y'(0)=0</p>
+                
+                <p><strong>Solution:</strong></p>
+                <p><strong>Step 1: Take Laplace transform of both sides</strong><br>
+                L{y''} + 4L{y'} + 3L{y} = 0<br>
+                [s²Y(s) - sy(0) - y'(0)] + 4[sY(s) - y(0)] + 3Y(s) = 0</p>
+                
+                <p><strong>Step 2: Substitute initial conditions</strong><br>
+                s²Y(s) - s(1) - 0 + 4[sY(s) - 1] + 3Y(s) = 0<br>
+                (s² + 4s + 3)Y(s) - s - 4 = 0</p>
+                
+                <p><strong>Step 3: Solve for Y(s)</strong><br>
+                Y(s) = (s+4)/(s²+4s+3) = (s+4)/[(s+1)(s+3)]</p>
+                
+                <p><strong>Step 4: Partial fraction decomposition</strong><br>
+                (s+4)/[(s+1)(s+3)] = A/(s+1) + B/(s+3)<br>
+                s+4 = A(s+3) + B(s+1)<br>
+                Let s=-1: 3 = A(2) → A=1.5<br>
+                Let s=-3: 1 = B(-2) → B=-0.5<br>
+                Y(s) = 1.5/(s+1) - 0.5/(s+3)</p>
+                
+                <p><strong>Step 5: Inverse Laplace transform</strong><br>
+                y(t) = 1.5e^(-t) - 0.5e^(-3t)</p>
+            </div>
+
+            <h2 id="engineering-applications">6. Engineering Applications</h2>
+            
+            <div class="info-box">
+                <p>Real-World Problem Solving</p>
+                Advanced calculus techniques are not just mathematical exercises but essential tools for solving practical engineering problems across multiple disciplines.
+            </div>
+            
+            <h3>Electrical Engineering Applications</h3>
+            <ul>
+                <li><strong>RC/RL Circuits:</strong> First-order ODEs model charging/discharging</li>
+                <li><strong>RLC Circuits:</strong> Second-order ODEs describe resonant behavior</li>
+                <li><strong>Transient Analysis:</strong> Integration techniques solve for time-domain responses</li>
+                <li><strong>Filter Design:</strong> Laplace transforms analyze frequency response</li>
+            </ul>
+            
+            <h3>Mechanical Engineering Applications</h3>
+            <ul>
+                <li><strong>Vibrations:</strong> Second-order ODEs model spring-mass-damper systems</li>
+                <li><strong>Heat Transfer:</strong> Separation of variables solves heat conduction problems</li>
+                <li><strong>Fluid Dynamics:</strong> Integration calculates flow rates and pressures</li>
+                <li><strong>Control Systems:</strong> Laplace transforms design stable controllers</li>
+            </ul>
+            
+            <h3>Civil Engineering Applications</h3>
+            <ul>
+                <li><strong>Beam Deflection:</strong> Fourth-order ODEs model structural deformation</li>
+                <li><strong>Fluid Flow:</strong> Integration determines flow rates in pipes and channels</li>
+                <li><strong>Soil Mechanics:</strong> Differential equations model settlement and consolidation</li>
+            </ul>
+            
+            <div class="key-point">
+                <strong>Engineering Insight:</strong> The ability to recognize which mathematical technique applies to a given physical problem is as important as being able to execute the technique itself. Always connect the mathematical solution back to its physical interpretation to ensure engineering relevance.
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 HNC Engineering Mathematics. All rights reserved.</p>
+            <p>Advanced Calculus Reference for Engineering Applications</p>
+        </div>
+    </footer>
+
+    <script src="navigation.js"></script>
+</body>
+</html>

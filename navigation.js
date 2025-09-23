@@ -5,29 +5,29 @@ document.addEventListener('DOMContentLoaded', () => {
         { href: 'units.html', label: '📐 Units & Notation', category: 'general' },
 
         // Core Mathematics
-        { href: 'algebra.html', label: '➗ Core Algebra', category: 'core-math' },
-        { href: 'linear_methods.html', label: '📊 Linear Methods', category: 'core-math' },
-        { href: 'sine_wave_fundamentals.html', label: '🌊 Sine Wave Fundamentals', category: 'core-math' },
+        { href: 'core-algebra.html', label: '➗ Core Algebra', category: 'core-math' },
+        { href: 'linear-methods.html', label: '📊 Linear Methods', category: 'core-math' },
+        { href: 'sine-wave-fundamentals.html', label: '🌊 Sine Wave Fundamentals', category: 'core-math' },
         { href: 'trigonometry.html', label: '📐 Trigonometry', category: 'core-math' },
         { href: 'vectors.html', label: '➡️ Vectors', category: 'core-math' },
-        { href: 'sinecosine.html', label: '📈 Sine/Cosine Calculus', category: 'core-math' },
+        { href: 'sine-cosine-calculus.html', label: '📈 Sine/Cosine Calculus', category: 'core-math' },
 
         // Calculus
-        { href: 'calculus.html', label: '📚 Calculus Fundamentals', category: 'calculus' },
-        { href: 'advanced_calculus.html', label: '⚡ Advanced Calculus', category: 'calculus' },
-        { href: 'rate_of_change.html', label: '📈 Rate of Change', category: 'calculus' },
+        { href: 'calculus-fundamentals.html', label: '📚 Calculus Fundamentals', category: 'calculus' },
+        { href: 'advanced-calculus.html', label: '⚡ Advanced Calculus', category: 'calculus' },
+        { href: 'rate-of-change.html', label: '📈 Rate of Change', category: 'calculus' },
         { href: 'chainrule.html', label: '⛓️ Chain Rule', category: 'calculus' },
-        { href: 'inverse_trig_derivatives.html', label: '🔄 Inverse Trig Derivatives', category: 'calculus' },
-        { href: 'repeated_differentiation.html', label: '🔄 Higher-Order Differentiation', category: 'calculus' },
+        { href: 'inverse-trig-derivatives.html', label: '🔄 Inverse Trig Derivatives', category: 'calculus' },
+        { href: 'higher-order-differentiation.html', label: '🔄 Higher-Order Differentiation', category: 'calculus' },
         { href: 'turning_points.html', label: '📊 Max/Min Turning Points', category: 'calculus' },
-        { href: 'quotient_rule.html', label: '➗ Quotient Rule', category: 'calculus' },
-        { href: 'expocalc.html', label: '📈 Exponential Calculus', category: 'calculus' },
+        { href: 'quotient-rule.html', label: '➗ Quotient Rule', category: 'calculus' },
+        { href: 'exponential-calculus.html', label: '📈 Exponential Calculus', category: 'calculus' },
 
         // Applied & Specialized Topics
-        { href: 'ac_circuits.html', label: '⚡ AC Circuit Analysis', category: 'applied' },
-        { href: 'mechanics.html', label: '⚙️ Applied Mechanics', category: 'applied' },
+        { href: 'ac-circuits-analysis.html', label: '⚡ AC Circuit Analysis', category: 'applied' },
+        { href: 'applied-mechanics.html', label: '⚙️ Applied Mechanics', category: 'applied' },
         { href: 'economics.html', label: '💰 Financial Economics', category: 'applied' },
-        { href: 'numerical_methods.html', label: '🔢 Numerical Methods', category: 'applied' },
+        { href: 'numerical-methods.html', label: '🔢 Numerical Methods', category: 'applied' },
         { href: 'statistics.html', label: '📊 Statistics', category: 'applied' }
     ];
 
@@ -49,16 +49,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Create header
     const header = document.createElement('div');
     header.className = 'nav-header';
-    
+
     const h2 = document.createElement('h2');
     h2.textContent = '📚 HNC Mathematics';
     header.appendChild(h2);
-    
+
     const subtitle = document.createElement('p');
     subtitle.textContent = 'Complete Reference Guide';
     subtitle.className = 'nav-subtitle';
     header.appendChild(subtitle);
-    
+
     nav.appendChild(header);
 
     // Group items by category
@@ -104,16 +104,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add search functionality
     const searchContainer = document.createElement('div');
     searchContainer.className = 'nav-search';
-    
+
     const searchInput = document.createElement('input');
     searchInput.type = 'text';
     searchInput.placeholder = '🔍 Search topics...';
     searchInput.className = 'search-input';
-    
+
     searchInput.addEventListener('input', (e) => {
         const searchTerm = e.target.value.toLowerCase();
         const allLinks = nav.querySelectorAll('a');
-        
+
         allLinks.forEach(link => {
             const text = link.textContent.toLowerCase();
             if (text.includes(searchTerm)) {
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 link.parentElement.style.display = 'none';
             }
         });
-        
+
         // Hide empty sections
         document.querySelectorAll('.nav-section').forEach(section => {
             const visibleLinks = section.querySelectorAll('li[style=""]', 'li:not([style*="display: none"])');
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-    
+
     searchContainer.appendChild(searchInput);
     nav.insertBefore(searchContainer, nav.children[1]); // Insert after header
 
