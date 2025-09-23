@@ -184,7 +184,126 @@
                 
                 <p><strong>Mathematical Insight:</strong> This demonstrates how quotient rule can lead to simplified forms.</p>
             </div>
+<h2 id="quotient-derived">3a. Deriving Other Trig Derivatives</h2>
 
+<div class="info-box">
+    <p>Using the Quotient Rule to Derive Standard Formulas</p>
+    The quotient rule is not just for specific problems; it's the fundamental method used to derive the differentiation rules for other trigonometric functions like \( \tan(x) \), \( \cot(x) \), \( \sec(x) \), and \( \csc(x) \).
+</div>
+
+<div class="example-box">
+    <p><strong>Derivation Example: Finding the Derivative of tan(x)</strong></p>
+    <p>We can derive the rule for \( f(x) = \tan x \) by expressing it as \( \frac{\sin x}{\cos x} \) and applying the quotient rule.</p>
+    
+    <p><strong>Step 1: Identify u(x) and v(x)</strong><br>
+    Let \( u(x) = \sin x \), \( v(x) = \cos x \)</p>
+    
+    <p><strong>Step 2: Compute derivatives</strong><br>
+    \( u'(x) = \cos x \), \( v'(x) = -\sin x \)</p>
+    
+    <p><strong>Step 3: Apply quotient rule</strong><br>
+    \( f'(x) = \frac{v(x)u'(x) - u(x)v'(x)}{[v(x)]^2} = \frac{(\cos x)(\cos x) - (\sin x)(-\sin x)}{(\cos x)^2} \)</p>
+    
+    <p><strong>Step 4: Simplify numerator using identities</strong><br>
+    \( = \frac{\cos^2 x + \sin^2 x}{\cos^2 x} \)<br>
+    Since \( \cos^2 x + \sin^2 x = 1 \):<br>
+    \( = \frac{1}{\cos^2 x} \)</p>
+    
+    <p><strong>Step 5: Express in terms of sec(x)</strong><br>
+    Since \( \sec x = \frac{1}{\cos x} \):<br>
+    \( f'(x) = \sec^2 x \)</p>
+</div>
+
+<h2 id="derivative-summary">3b. Comprehensive Derivative Rules Summary</h2>
+<div class="info-box">
+    <p>A Quick Reference for All Essential Derivatives</p>
+    This table consolidates the key derivative rules covered across all calculus topics for easy reference.
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>Function Type</th>
+            <th>Function</th>
+            <th>Derivative</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="2"><strong>Basic Rules</strong></td>
+            <td>\( c \) (constant)</td>
+            <td>\( 0 \)</td>
+        </tr>
+        <tr>
+            <td>\( x^n \)</td>
+            <td>\( nx^{n-1} \)</td>
+        </tr>
+        <tr>
+            <td rowspan="3"><strong>Exponential & Logarithmic</strong></td>
+            <td>\( e^{ax} \)</td>
+            <td>\( ae^{ax} \)</td>
+        </tr>
+        <tr>
+            <td>\( a^x \)</td>
+            <td>\( a^x \ln(a) \)</td>
+        </tr>
+        <tr>
+            <td>\( \ln(x) \)</td>
+            <td>\( \frac{1}{x} \)</td>
+        </tr>
+        <tr>
+            <td rowspan="6"><strong>Trigonometric</strong></td>
+            <td>\( \sin(ax) \)</td>
+            <td>\( a\cos(ax) \)</td>
+        </tr>
+        <tr>
+            <td>\( \cos(ax) \)</td>
+            <td>\( -a\sin(ax) \)</td>
+        </tr>
+        <tr>
+            <td>\( \tan(ax) \)</td>
+            <td>\( a\sec^2(ax) \)</td>
+        </tr>
+        <tr>
+            <td>\( \cot(ax) \)</td>
+            <td>\( -a\csc^2(ax) \)</td>
+        </tr>
+        <tr>
+            <td>\( \sec(ax) \)</td>
+            <td>\( a\sec(ax)\tan(ax) \)</td>
+        </tr>
+        <tr>
+            <td>\( \csc(ax) \)</td>
+            <td>\( -a\csc(ax)\cot(ax) \)</td>
+        </tr>
+        <tr>
+            <td rowspan="3"><strong>Inverse Trigonometric</strong></td>
+            <td>\( \arcsin(x) \)</td>
+            <td>\( \frac{1}{\sqrt{1-x^2}} \)</td>
+        </tr>
+        <tr>
+            <td>\( \arccos(x) \)</td>
+            <td>\( -\frac{1}{\sqrt{1-x^2}} \)</td>
+        </tr>
+        <tr>
+            <td>\( \arctan(x) \)</td>
+            <td>\( \frac{1}{1+x^2} \)</td>
+        </tr>
+        <tr>
+            <td rowspan="3"><strong>Differentiation Rules</strong></td>
+            <td>Product Rule: \( uv \)</td>
+            <td>\( u'v + uv' \)</td>
+        </tr>
+        <tr>
+            <td>Quotient Rule: \( \frac{u}{v} \)</td>
+            <td>\( \frac{u'v - uv'}{v^2} \)</td>
+        </tr>
+        <tr>
+            <td>Chain Rule: \( f(g(x)) \)</td>
+            <td>\( f'(g(x)) \cdot g'(x) \)</td>
+        </tr>
+    </tbody>
+</table>
             <h2 id="quotient-vs-product">4. Quotient Rule vs Product Rule</h2>
 
             <div class="info-box">
