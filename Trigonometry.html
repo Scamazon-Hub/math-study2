@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trigonometry - HNC Engineering Mathematics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HNC Engineering Mathematics</h1>
+            <p>Trigonometry - Angular Relationships in Engineering Systems</p>
+        </div>
+    </header>
+
+    <div class="container grid-layout">
+        <aside id="navigation-placeholder"></aside>
+
+        <main>
+            <h1>Trigonometry for Engineering</h1>
+            
+            <div class="info-box">
+                <p>Modeling Periodic Phenomena and Angular Relationships</p>
+                Trigonometry provides the mathematical foundation for analyzing periodic behavior, rotational motion, wave phenomena, and spatial relationships essential in mechanical, electrical, and civil engineering applications.
+            </div>
+
+            <h2 id="trig-fundamentals">1. Right-Angled Triangle Fundamentals</h2>
+            
+            <div class="info-box">
+                <p>Basis for Spatial Analysis</p>
+                Right-angled triangle trigonometry forms the foundation for analyzing forces, distances, and angles in structural design, navigation, and mechanical systems.
+            </div>
+
+            <h3>Pythagorean Theorem</h3>
+            <p>Fundamental relationship between sides of a right triangle:</p>
+            <div class="math-block">$$ a^2 + b^2 = c^2 $$</div>
+            <p>Where \( c \) is the hypotenuse, and \( a \), \( b \) are the other two sides.</p>
+
+            <h3>Trigonometric Ratios</h3>
+            <div class="math-block">
+                <p><strong>SOH CAH TOA Mnemonic:</strong></p>
+                <p>$$ \sin\theta = \frac{\text{Opposite}}{\text{Hypotenuse}} $$</p>
+                <p>$$ \cos\theta = \frac{\text{Adjacent}}{\text{Hypotenuse}} $$</p>
+                <p>$$ \tan\theta = \frac{\text{Opposite}}{\text{Adjacent}} $$</p>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Function</th>
+                        <th>Engineering Application</th>
+                        <th>Typical Use Case</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Sine (sin)</td>
+                        <td>Vertical components of forces</td>
+                        <td>Structural load analysis</td>
+                    </tr>
+                    <tr>
+                        <td>Cosine (cos)</td>
+                        <td>Horizontal components of forces</td>
+                        <td>Mechanical equilibrium</td>
+                    </tr>
+                    <tr>
+                        <td>Tangent (tan)</td>
+                        <td>Slope calculations</td>
+                        <td>Inclined plane problems</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>Example: Force Resolution</strong></p>
+                <p>A force of 500 N is applied at 30° to the horizontal. Find the horizontal and vertical components.</p>
+                
+                <p><strong>Step 1: Horizontal Component (Adjacent)</strong><br>
+                \( F_x = F \cos\theta = 500 \times \cos30^\circ = 500 \times 0.866 = 433.0 \text{ N} \)</p>
+                
+                <p><strong>Step 2: Vertical Component (Opposite)</strong><br>
+                \( F_y = F \sin\theta = 500 \times \sin30^\circ = 500 \times 0.5 = 250.0 \text{ N} \)</p>
+                
+                <p><strong>Engineering Interpretation:</strong> The force has 433 N pushing horizontally and 250 N lifting vertically.</p>
+            </div>
+
+            <h2 id="trig-radians">2. Radians and Circular Motion</h2>
+
+            <div class="info-box">
+                <p>The Natural Angular Measure</p>
+                Radians provide the most natural unit for angular measurement in calculus and physics, simplifying derivatives and integrals of trigonometric functions.
+            </div>
+
+            <h3>Angle Conversion</h3>
+            <div class="math-block">
+                <p><strong>Degrees to Radians:</strong> \( \theta_{rad} = \theta_{deg} \times \frac{\pi}{180} \)</p>
+                <p><strong>Radians to Degrees:</strong> \( \theta_{deg} = \theta_{rad} \times \frac{180}{\pi} \)</p>
+            </div>
+
+            <h3>Circular Geometry</h3>
+            <div class="math-block">
+                <p><strong>Arc Length:</strong> \( s = r\theta \) (θ in radians)</p>
+                <p><strong>Sector Area:</strong> \( A = \frac{1}{2}r^2\theta \) (θ in radians)</p>
+            </div>
+
+            <h3>Rotational Kinematics</h3>
+            <div class="math-block">
+                <p><strong>Angular Velocity:</strong> \( \omega = \frac{d\theta}{dt} \)</p>
+                <p><strong>Linear Velocity:</strong> \( v = r\omega \)</p>
+                <p><strong>Centripetal Acceleration:</strong> \( a_c = \omega^2 r = \frac{v^2}{r} \)</p>
+                <p><strong>Centripetal Force:</strong> \( F_c = m\omega^2 r = \frac{mv^2}{r} \)</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Flywheel Design</strong></p>
+                <p>A flywheel rotates at 3000 RPM with diameter 0.5 m. Calculate angular velocity, linear speed at rim, and centripetal acceleration for a 1 kg mass at the rim.</p>
+                
+                <p><strong>Step 1: Convert RPM to rad/s</strong><br>
+                \( \omega = 3000 \times \frac{2\pi}{60} = 3000 \times 0.10472 = 314.16 \text{ rad/s} \)</p>
+                
+                <p><strong>Step 2: Calculate linear speed</strong><br>
+                \( v = r\omega = 0.25 \times 314.16 = 78.54 \text{ m/s} \)</p>
+                
+                <p><strong>Step 3: Calculate centripetal acceleration</strong><br>
+                \( a_c = \omega^2 r = (314.16)^2 \times 0.25 = 24674 \text{ m/s}^2 \)</p>
+                
+                <p><strong>Step 4: Calculate centripetal force</strong><br>
+                \( F_c = ma_c = 1 \times 24674 = 24674 \text{ N} \)</p>
+                
+                <p><strong>Engineering Interpretation:</strong> The flywheel rim experiences enormous forces equivalent to 2500g acceleration.</p>
+            </div>
+
+            <h2 id="trig-rules">3. Non-Right Triangle Analysis</h2>
+
+            <div class="info-box">
+                <p>Solving General Triangles</p>
+                The sine and cosine rules extend trigonometric analysis to any triangle, essential for triangulation, navigation, and structural analysis.
+            </div>
+
+            <h3>Sine Rule</h3>
+            <div class="math-block">$$ \frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C} $$</div>
+            <p><strong>Use when:</strong> You know two angles and one side, or two sides and a non-included angle.</p>
+
+            <h3>Cosine Rule</h3>
+            <div class="math-block">
+                <p><strong>For sides:</strong> \( a^2 = b^2 + c^2 - 2bc\cos A \)</p>
+                <p><strong>For angles:</strong> \( \cos A = \frac{b^2 + c^2 - a^2}{2bc} \)</p>
+            </div>
+            <p><strong>Use when:</strong> You know three sides, or two sides and the included angle.</p>
+
+            <div class="example-box">
+                <p><strong>Example: Triangulation Survey</strong></p>
+                <p>Two survey points are 100 m apart. From point A, a third point C is at 40°; from point B, point C is at 65°. Find distances AC and BC.</p>
+                
+                <p><strong>Step 1: Find angle at C</strong><br>
+                \( \angle C = 180^\circ - 40^\circ - 65^\circ = 75^\circ \)</p>
+                
+                <p><strong>Step 2: Apply sine rule</strong><br>
+                \( \frac{AC}{\sin 65^\circ} = \frac{BC}{\sin 40^\circ} = \frac{100}{\sin 75^\circ} \)</p>
+                
+                <p><strong>Step 3: Calculate AC</strong><br>
+                \( AC = \frac{100 \times \sin 65^\circ}{\sin 75^\circ} = \frac{100 \times 0.9063}{0.9659} = 93.8 \text{ m} \)</p>
+                
+                <p><strong>Step 4: Calculate BC</strong><br>
+                \( BC = \frac{100 \times \sin 40^\circ}{\sin 75^\circ} = \frac{100 \times 0.6428}{0.9659} = 66.5 \text{ m} \)</p>
+                
+                <p><strong>Engineering Interpretation:</strong> The third point is 93.8 m from A and 66.5 m from B.</p>
+            </div>
+
+            <h2 id="trig-identities">4. Trigonometric Identities</h2>
+
+            <div class="info-box">
+                <p>Algebraic Manipulation of Trigonometric Expressions</p>
+                Identities simplify complex trigonometric expressions and solve equations that appear in wave analysis, signal processing, and vibration analysis.
+            </div>
+
+            <h3>Fundamental Identities</h3>
+            <div class="math-block">
+                <p><strong>Pythagorean:</strong> \( \sin^2\theta + \cos^2\theta = 1 \)</p>
+                <p><strong>Reciprocal:</strong> \( \csc\theta = \frac{1}{\sin\theta}, \quad \sec\theta = \frac{1}{\cos\theta}, \quad \cot\theta = \frac{1}{\tan\theta} \)</p>
+                <p><strong>Quotient:</strong> \( \tan\theta = \frac{\sin\theta}{\cos\theta} \)</p>
+            </div>
+
+            <h3>Compound Angle Formulas</h3>
+            <div class="math-block">
+                <p><strong>Sum/Difference:</strong> \( \sin(A \pm B) = \sin A\cos B \pm \cos A\sin B \)</p>
+                <p><strong>Sum/Difference:</strong> \( \cos(A \pm B) = \cos A\cos B \mp \sin A\sin B \)</p>
+            </div>
+
+            <h3>Double Angle Formulas</h3>
+            <div class="math-block">
+                <p><strong>Sine:</strong> \( \sin 2A = 2\sin A\cos A \)</p>
+                <p><strong>Cosine:</strong> \( \cos 2A = \cos^2 A - \sin^2 A = 2\cos^2 A - 1 = 1 - 2\sin^2 A \)</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Signal Analysis</strong></p>
+                <p>Simplify the expression \( \sin(3x)\cos(2x) - \cos(3x)\sin(2x) \) using trigonometric identities.</p>
+                
+                <p><strong>Step 1: Recognize the pattern</strong><br>
+                This matches the form \( \sin A\cos B - \cos A\sin B \) where \( A = 3x \) and \( B = 2x \)</p>
+                
+                <p><strong>Step 2: Apply sine difference formula</strong><br>
+                \( \sin A\cos B - \cos A\sin B = \sin(A - B) \)</p>
+                
+                <p><strong>Step 3: Substitute values</strong><br>
+                \( \sin(3x)\cos(2x) - \cos(3x)\sin(2x) = \sin(3x - 2x) = \sin x \)</p>
+                
+                <p><strong>Engineering Interpretation:</strong> The complex expression simplifies to a basic sine wave, revealing the fundamental frequency component.</p>
+            </div>
+
+            <h2 id="trig-harmonic">5. Harmonic Form and Wave Combination</h2>
+
+            <div class="info-box">
+                <p>Analyzing Combined Oscillations</p>
+                The R-α method combines multiple sinusoidal waves of the same frequency, essential for analyzing interference patterns in AC circuits, mechanical vibrations, and wave phenomena.
+            </div>
+
+            <h3>R-α Method</h3>
+            <p>Express \( a\sin\theta + b\cos\theta \) as \( R\sin(\theta + \alpha) \) or \( R\cos(\theta - \alpha) \):</p>
+            <div class="math-block">
+                <p><strong>Amplitude:</strong> \( R = \sqrt{a^2 + b^2} \)</p>
+                <p><strong>Phase Angle:</strong> \( \tan\alpha = \frac{b}{a} \) (adjust quadrant based on signs of a and b)</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: AC Circuit Analysis</strong></p>
+                <p>Two voltage sources in a circuit: \( V_1 = 120\sin(\omega t) \) and \( V_2 = 90\cos(\omega t) \). Find the resultant voltage in harmonic form.</p>
+                
+                <p><strong>Step 1: Express in standard form</strong><br>
+                \( V_{total} = 120\sin(\omega t) + 90\cos(\omega t) \)<br>
+                Here, \( a = 120 \), \( b = 90 \)</p>
+                
+                <p><strong>Step 2: Calculate resultant amplitude</strong><br>
+                \( R = \sqrt{120^2 + 90^2} = \sqrt{14400 + 8100} = \sqrt{22500} = 150 \)</p>
+                
+                <p><strong>Step 3: Calculate phase angle</strong><br>
+                \( \tan\alpha = \frac{90}{120} = 0.75 \)<br>
+                \( \alpha = \tan^{-1}(0.75) \approx 0.6435 \text{ rad} \ (36.87^\circ) \)</p>
+                
+                <p><strong>Step 4: Write harmonic form</strong><br>
+                \( V_{total} = 150\sin(\omega t + 0.6435) \)</p>
+                
+                <p><strong>Engineering Interpretation:</strong> The combined voltage has amplitude 150 V and leads the original sine wave by 36.87°.</p>
+            </div>
+
+            <h2 id="trig-applications">6. Engineering Applications</h2>
+
+            <div class="info-box">
+                <p>Real-World Trigonometric Problem Solving</p>
+                Trigonometric principles find extensive application across all engineering disciplines for analysis, design, and problem-solving.
+            </div>
+
+            <h3>Mechanical Engineering Applications</h3>
+            <ul>
+                <li><strong>Force Analysis:</strong> Resolving forces into components</li>
+                <li><strong>Vibration Analysis:</strong> Modeling oscillatory motion</li>
+                <li><strong>Mechanism Design:</strong> Analyzing linkage movements</li>
+                <li><strong>Gear Systems:</strong> Calculating angular velocities</li>
+            </ul>
+
+            <h3>Electrical Engineering Applications</h3>
+            <ul>
+                <li><strong>AC Circuit Analysis:</strong> Phasor diagrams and impedance</li>
+                <li><strong>Signal Processing:</strong> Fourier analysis and filtering</li>
+                <li><strong>Power Systems:</strong> Three-phase power calculations</li>
+                <li><strong>Communications:</strong> Modulation and demodulation</li>
+            </ul>
+
+            <h3>Civil Engineering Applications</h3>
+            <ul>
+                <li><strong>Surveying:</strong> Triangulation and distance measurement</li>
+                <li><strong>Structural Analysis:</strong> Truss forces and beam deflection</li>
+                <li><strong>Construction:</strong> Slope stability and earthworks</li>
+                <li><strong>Hydraulics:</strong> Flow direction and velocity components</li>
+            </ul>
+
+            <div class="example-box">
+                <p><strong>Example: Roof Truss Analysis</strong></p>
+                <p>A symmetrical roof truss has a span of 10 m and height of 2.5 m. Calculate the length of the rafters and the angle at the peak.</p>
+                
+                <p><strong>Step 1: Analyze half the truss</strong><br>
+                This creates a right triangle with base = 5 m, height = 2.5 m</p>
+                
+                <p><strong>Step 2: Calculate rafter length (hypotenuse)</strong><br>
+                \( L = \sqrt{5^2 + 2.5^2} = \sqrt{25 + 6.25} = \sqrt{31.25} = 5.59 \text{ m} \)</p>
+                
+                <p><strong>Step 3: Calculate peak angle</strong><br>
+                \( \tan\theta = \frac{2.5}{5} = 0.5 \)<br>
+                \( \theta = \tan^{-1}(0.5) = 26.57^\circ \)<br>
+                Total peak angle = \( 2 \times 26.57^\circ = 53.14^\circ \)</p>
+                
+                <p><strong>Engineering Interpretation:</strong> Each rafter is 5.59 m long, and the roof has a 53.14° peak angle.</p>
+            </div>
+
+            <div class="key-point">
+                <strong>Engineering Practice:</strong> Trigonometric analysis is not just about mathematical manipulation but understanding the physical significance of angles, distances, and periodic behavior in engineering systems. Always interpret results in the context of the specific application.
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 HNC Engineering Mathematics. All rights reserved.</p>
+            <p>Trigonometry Reference for Engineering Applications</p>
+        </div>
+    </footer>
+
+    <script src="navigation.js"></script>
+</body>
+</html>
