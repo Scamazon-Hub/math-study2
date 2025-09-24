@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power Series - HNC Engineering Mathematics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HNC Engineering Mathematics</h1>
+            <p>Power Series and Maclaurin Series - Infinite Series Representations</p>
+        </div>
+    </header>
+
+    <div class="container grid-layout">
+        <aside id="navigation-placeholder"></aside>
+
+        <main>
+            <h1>Power Series and Maclaurin Series</h1>
+            
+            <div class="info-box">
+                <p>Infinite Series Representations of Functions</p>
+                Power series provide a powerful method for representing functions as infinite polynomials, allowing for approximation, analysis, and computation of functions that might otherwise be difficult to work with. This is essential in engineering for modeling complex systems, solving differential equations, and numerical analysis.
+            </div>
+
+            <h2 id="power-fundamentals">1. Power Series Fundamentals</h2>
+            
+            <div class="info-box">
+                <p>Mathematical Foundation</p>
+                A power series is an infinite series of terms involving powers of a variable, typically centered around a specific point (often zero for Maclaurin series).
+            </div>
+
+            <h3>Formal Definition</h3>
+            <div class="math-block">
+                <p>A power series centered at \( x = 0 \) has the form:</p>
+                <p>\[ a_0 + a_1x + a_2x^2 + a_3x^3 + \cdots + a_nx^n + \ldots \]</p>
+                <p>Where \( a_0, a_1, a_2, \ldots \) are constants called coefficients.</p>
+            </div>
+
+            <h4>Convergence and Divergence</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Term</th>
+                        <th>Definition</th>
+                        <th>Significance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Convergent Series</strong></td>
+                        <td>Partial sums approach a finite limit</td>
+                        <td>Series represents a valid function</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Divergent Series</strong></td>
+                        <td>Partial sums do not approach a finite limit</td>
+                        <td>Series does not represent a valid function</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Radius of Convergence</strong></td>
+                        <td>Range of x-values where series converges</td>
+                        <td>Determines validity of series representation</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>Example: Exponential Function Power Series</strong></p>
+                <p>The exponential function can be represented by the power series:</p>
+                <p>\[ e^x \equiv 1 + x + \frac{1}{2!}x^2 + \frac{1}{3!}x^3 + \cdots + \frac{1}{n!}x^n + \ldots \]</p>
+                
+                <p><strong>Note:</strong> The symbol \( \equiv \) indicates an identity - true for all values of \( x \), not just specific values as with equations.</p>
+                
+                <p><strong>Engineering Application:</strong> This series is fundamental in modeling exponential growth and decay in electrical circuits, population dynamics, and radioactive decay.</p>
+            </div>
+
+            <h2 id="maclaurin-series">2. Maclaurin Series</h2>
+
+            <div class="info-box">
+                <p>Power Series Centered at Zero</p>
+                Maclaurin series are a special type of power series centered at \( x = 0 \), providing a systematic method for representing functions as infinite polynomials.
+            </div>
+
+            <h3>Derivation of Maclaurin Series</h3>
+            <div class="math-block">
+                <p>Assume a function \( f(x) \) can be represented by a power series:</p>
+                <p>\[ f(x) \equiv a_0 + a_1x + a_2x^2 + a_3x^3 + \cdots + a_nx^n + \ldots \]</p>
+                
+                <p><strong>Step 1: Evaluate at \( x = 0 \):</strong></p>
+                <p>\[ f(0) = a_0 + a_1(0) + a_2(0)^2 + \cdots = a_0 \]</p>
+                <p>Thus, \( a_0 = f(0) \)</p>
+                
+                <p><strong>Step 2: Differentiate and evaluate at \( x = 0 \):</strong></p>
+                <p>\[ f'(x) = a_1 + 2a_2x + 3a_3x^2 + \cdots \]</p>
+                <p>\[ f'(0) = a_1 \Rightarrow a_1 = \frac{f'(0)}{1!} \]</p>
+                
+                <p><strong>Step 3: Continue the process:</strong></p>
+                <p>\[ f''(x) = 2a_2 + 6a_3x + \cdots \Rightarrow f''(0) = 2a_2 \Rightarrow a_2 = \frac{f''(0)}{2!} \]</p>
+                <p>\[ f'''(x) = 6a_3 + \cdots \Rightarrow f'''(0) = 6a_3 \Rightarrow a_3 = \frac{f'''(0)}{3!} \]</p>
+                
+                <p><strong>General Formula:</strong></p>
+                <p>\[ a_n = \frac{f^{(n)}(0)}{n!} \]</p>
+                
+                <p><strong>Maclaurin Series Formula:</strong></p>
+                <p>\[ f(x) = f(0) + \frac{f'(0)}{1!}x + \frac{f''(0)}{2!}x^2 + \frac{f'''(0)}{3!}x^3 + \cdots + \frac{f^{(n)}(0)}{n!}x^n + \ldots \]</p>
+            </div>
+
+            <h3>Conditions for Maclaurin Series</h3>
+            <div class="warning">
+                <p>A function \( f(x) \) can be represented by a Maclaurin series only if at \( x = 0 \):</p>
+                <p><strong>1. \( f(0) \neq \infty \):</strong> Function must be finite at zero</p>
+                <p><strong>2. All derivatives \( f'(0), f''(0), f'''(0), \ldots \neq \infty \):</strong> All derivatives must exist and be finite</p>
+                <p><strong>3. The resulting series must converge:</strong> Terms must get progressively smaller with the sum reaching a limiting value</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example 1: Maclaurin Series for \( \sin x \)</strong></p>
+                
+                <p><strong>Step 1: Check conditions:</strong></p>
+                <p>\( f(0) = \sin 0 = 0 \neq \infty \) ✓</p>
+                <p>\( f'(0) = \cos 0 = 1 \neq \infty \) ✓</p>
+                <p>\( f''(0) = -\sin 0 = 0 \neq \infty \) ✓</p>
+                <p>All conditions satisfied - Maclaurin series exists.</p>
+                
+                <p><strong>Step 2: Calculate derivatives at zero:</strong></p>
+                <p>\( f(0) = \sin 0 = 0 \)</p>
+                <p>\( f'(0) = \cos 0 = 1 \)</p>
+                <p>\( f''(0) = -\sin 0 = 0 \)</p>
+                <p>\( f'''(0) = -\cos 0 = -1 \)</p>
+                <p>\( f^{(4)}(0) = \sin 0 = 0 \)</p>
+                <p>\( f^{(5)}(0) = \cos 0 = 1 \)</p>
+                <p>Pattern repeats every 4 derivatives.</p>
+                
+                <p><strong>Step 3: Apply Maclaurin formula:</strong></p>
+                <p>\[ \sin x = 0 + \frac{1}{1!}x + \frac{0}{2!}x^2 + \frac{-1}{3!}x^3 + \frac{0}{4!}x^4 + \frac{1}{5!}x^5 + \cdots \]</p>
+                <p>\[ \sin x = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \cdots \]</p>
+                
+                <p><strong>Engineering Insight:</strong> This series is fundamental in signal processing, AC circuit analysis, and vibration analysis.</p>
+            </div>
+
+            <h2 id="common-series">3. Common Maclaurin Series</h2>
+
+            <div class="info-box">
+                <p>Standard Series for Engineering Applications</p>
+                Several functions have well-known Maclaurin series that are frequently used in engineering calculations.
+            </div>
+
+            <h3>Important Maclaurin Series</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Function</th>
+                        <th>Maclaurin Series</th>
+                        <th>Convergence</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>\( e^x \)</td>
+                        <td>\( 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots + \frac{x^n}{n!} + \cdots \)</td>
+                        <td>All real x</td>
+                    </tr>
+                    <tr>
+                        <td>\( \sin x \)</td>
+                        <td>\( x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \cdots \)</td>
+                        <td>All real x</td>
+                    </tr>
+                    <tr>
+                        <td>\( \cos x \)</td>
+                        <td>\( 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \cdots \)</td>
+                        <td>All real x</td>
+                    </tr>
+                    <tr>
+                        <td>\( \ln(1+x) \)</td>
+                        <td>\( x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \cdots \)</td>
+                        <td>\( -1 < x \leq 1 \)</td>
+                    </tr>
+                    <tr>
+                        <td>\( \frac{1}{1-x} \)</td>
+                        <td>\( 1 + x + x^2 + x^3 + \cdots \)</td>
+                        <td>\( -1 < x < 1 \)</td>
+                    </tr>
+                    <tr>
+                        <td>\( \arctan x \)</td>
+                        <td>\( x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} + \cdots \)</td>
+                        <td>\( -1 \leq x \leq 1 \)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>Example 2: Maclaurin Series for \( \cos x \)</strong></p>
+                
+                <p><strong>Step 1: Check conditions:</strong></p>
+                <p>\( f(0) = \cos 0 = 1 \neq \infty \) ✓</p>
+                <p>\( f'(0) = -\sin 0 = 0 \neq \infty \) ✓</p>
+                <p>\( f''(0) = -\cos 0 = -1 \neq \infty \) ✓</p>
+                <p>All conditions satisfied.</p>
+                
+                <p><strong>Step 2: Calculate derivatives at zero:</strong></p>
+                <p>\( f(0) = \cos 0 = 1 \)</p>
+                <p>\( f'(0) = -\sin 0 = 0 \)</p>
+                <p>\( f''(0) = -\cos 0 = -1 \)</p>
+                <p>\( f'''(0) = \sin 0 = 0 \)</p>
+                <p>\( f^{(4)}(0) = \cos 0 = 1 \)</p>
+                <p>Pattern repeats every 4 derivatives.</p>
+                
+                <p><strong>Step 3: Apply Maclaurin formula:</strong></p>
+                <p>\[ \cos x = 1 + \frac{0}{1!}x + \frac{-1}{2!}x^2 + \frac{0}{3!}x^3 + \frac{1}{4!}x^4 + \cdots \]</p>
+                <p>\[ \cos x = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \cdots \]</p>
+                
+                <p><strong>Mathematical Insight:</strong> Differentiating the series for \( \cos x \) gives the negative of the series for \( \sin x \), confirming the derivative relationship between these trigonometric functions.</p>
+            </div>
+
+            <h2 id="applications">4. Engineering Applications</h2>
+
+            <div class="info-box">
+                <p>Practical Uses of Power Series</p>
+                Power series have numerous applications in engineering, from approximations and numerical methods to solving differential equations.
+            </div>
+
+            <h3>Common Engineering Applications</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Application</th>
+                        <th>Function Form</th>
+                        <th>Engineering Significance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Small Angle Approximations</strong></td>
+                        <td>\( \sin \theta \approx \theta \), \( \cos \theta \approx 1 - \frac{\theta^2}{2} \)</td>
+                        <td>Vibration analysis, pendulum motion</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Exponential Growth/Decay</strong></td>
+                        <td>\( e^x \approx 1 + x + \frac{x^2}{2} \)</td>
+                        <td>Circuit analysis, population models</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Numerical Computation</strong></td>
+                        <td>Series approximations for complex functions</td>
+                        <td>Computer algorithms, scientific computing</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Differential Equations</strong></td>
+                        <td>Power series solutions</td>
+                        <td>Engineering systems modeling</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Error Analysis</strong></td>
+                        <td>Truncation error estimation</td>
+                        <td>Numerical method validation</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>Example 3: Calculating e Using Power Series</strong></p>
+                <p>Using the Maclaurin series for \( e^x \) with \( x = 1 \):</p>
+                
+                <p>\[ e = 1 + 1 + \frac{1}{2!} + \frac{1}{3!} + \frac{1}{4!} + \cdots \]</p>
+                
+                <p><strong>Step 1: Calculate terms:</strong></p>
+                <p>\( \frac{1}{2!} = 0.5 \)</p>
+                <p>\( \frac{1}{3!} = \frac{1}{6} \approx 0.166667 \)</p>
+                <p>\( \frac{1}{4!} = \frac{1}{24} \approx 0.041667 \)</p>
+                <p>\( \frac{1}{5!} = \frac{1}{120} \approx 0.008333 \)</p>
+                <p>\( \frac{1}{6!} = \frac{1}{720} \approx 0.001389 \)</p>
+                
+                <p><strong>Step 2: Sum the series:</strong></p>
+                <p>\( e \approx 1 + 1 + 0.5 + 0.166667 + 0.041667 + 0.008333 + 0.001389 \)</p>
+                <p>\( e \approx 2.718056 \) (after 7 terms)</p>
+                
+                <p><strong>Step 3: Compare with actual value:</strong></p>
+                <p>Actual \( e \approx 2.718281828 \)</p>
+                <p>Error ≈ 0.000225 (0.0083% error with just 7 terms)</p>
+                
+                <p><strong>Engineering Insight:</strong> This demonstrates how power series can provide highly accurate approximations with relatively few terms, which is valuable in computational applications.</p>
+            </div>
+
+            <h2 id="convergence">5. Convergence and Validity</h2>
+
+            <div class="info-box">
+                <p>Understanding When Series Representations Are Valid</p>
+                Not all functions can be represented by power series for all values of x. Understanding convergence is crucial for proper application.
+            </div>
+
+            <h3>Convergence Tests</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Test</th>
+                        <th>Application</th>
+                        <th>Result Interpretation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Ratio Test</strong></td>
+                        <td>General power series</td>
+                        <td>Determines radius of convergence</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Root Test</strong></td>
+                        <td>Alternative to ratio test</td>
+                        <td>Similar application to ratio test</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Alternating Series Test</strong></td>
+                        <td>Series with alternating signs</td>
+                        <td>Determines convergence of alternating series</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>Example 4: Convergence of \( \ln(1+x) \) Series</strong></p>
+                <p>The Maclaurin series for \( \ln(1+x) \) is:</p>
+                <p>\[ \ln(1+x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \cdots \]</p>
+                
+                <p><strong>Step 1: Apply ratio test:</strong></p>
+                <p>\( \lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right| = \lim_{n \to \infty} \left| \frac{\frac{x^{n+1}}{n+1}}{\frac{x^n}{n}} \right| = \lim_{n \to \infty} \left| \frac{n}{n+1} x \right| = |x| \)</p>
+                
+                <p><strong>Step 2: Determine convergence condition:</strong></p>
+                <p>Series converges when \( |x| < 1 \) (ratio < 1)</p>
+                <p>Need to check endpoints separately:</p>
+                <p>At \( x = 1 \): \( 1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \cdots \) (alternating harmonic series) - converges</p>
+                <p>At \( x = -1 \): \( -1 - \frac{1}{2} - \frac{1}{3} - \frac{1}{4} - \cdots \) (negative harmonic series) - diverges</p>
+                
+                <p><strong>Step 3: Final convergence interval:</strong></p>
+                <p>Series converges for \( -1 < x \leq 1 \)</p>
+                
+                <p><strong>Mathematical Insight:</strong> This explains why we cannot use the Maclaurin series for \( \ln x \) directly (since it would require evaluating at x=0, where ln0 is undefined), but we can use it for \( \ln(1+x) \) with appropriate restrictions on x.</p>
+            </div>
+
+            <h2 id="advanced-techniques">6. Advanced Techniques and Special Cases</h2>
+
+            <div class="info-box">
+                <p>Extending Power Series Methods</p>
+                Advanced applications of power series include combining series, deriving new series from known ones, and applying series to solve practical problems.
+            </div>
+
+            <h3>Hyperbolic Functions</h3>
+            <div class="example-box">
+                <p><strong>Example 5: Hyperbolic Sine and Cosine</strong></p>
+                <p>Hyperbolic functions can be defined using exponential functions:</p>
+                <p>\[ \sinh x = \frac{e^x - e^{-x}}{2} \]</p>
+                <p>\[ \cosh x = \frac{e^x + e^{-x}}{2} \]</p>
+                
+                <p><strong>Step 1: Use exponential series:</strong></p>
+                <p>\[ e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!} + \cdots \]</p>
+                <p>\[ e^{-x} = 1 - x + \frac{x^2}{2!} - \frac{x^3}{3!} + \frac{x^4}{4!} - \cdots \]</p>
+                
+                <p><strong>Step 2: Calculate sinh x:</strong></p>
+                <p>\[ \sinh x = \frac{1}{2}[(1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots) - (1 - x + \frac{x^2}{2!} - \frac{x^3}{3!} + \cdots)] \]</p>
+                <p>\[ \sinh x = \frac{1}{2}[2x + \frac{2}{3!}x^3 + \frac{2}{5!}x^5 + \cdots] = x + \frac{x^3}{3!} + \frac{x^5}{5!} + \cdots \]</p>
+                
+                <p><strong>Step 3: Calculate cosh x:</strong></p>
+                <p>\[ \cosh x = \frac{1}{2}[(1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots) + (1 - x + \frac{x^2}{2!} - \frac{x^3}{3!} + \cdots)] \]</p>
+                <p>\[ \cosh x = \frac{1}{2}[2 + \frac{2}{2!}x^2 + \frac{2}{4!}x^4 + \cdots] = 1 + \frac{x^2}{2!} + \frac{x^4}{4!} + \cdots \]</p>
+                
+                <p><strong>Engineering Application:</strong> Hyperbolic functions appear in cable suspension problems, transmission line theory, and special relativity.</p>
+            </div>
+
+            <h3>Series Manipulation Techniques</h3>
+            <div class="example-box">
+                <p><strong>Example 6: Improved Logarithm Series</strong></p>
+                <p>The standard series for \( \ln(1+x) \) converges slowly. A more efficient series can be derived:</p>
+                
+                <p><strong>Step 1: Consider the expression:</strong></p>
+                <p>\[ \ln\left(\frac{1+x}{1-x}\right) = \ln(1+x) - \ln(1-x) \]</p>
+                
+                <p><strong>Step 2: Use known series:</strong></p>
+                <p>\[ \ln(1+x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \cdots \]</p>
+                <p>\[ \ln(1-x) = -x - \frac{x^2}{2} - \frac{x^3}{3} - \frac{x^4}{4} - \cdots \]</p>
+                
+                <p><strong>Step 3: Subtract the series:</strong></p>
+                <p>\[ \ln\left(\frac{1+x}{1-x}\right) = \left(x - \frac{x^2}{2} + \frac{x^3}{3} - \cdots\right) - \left(-x - \frac{x^2}{2} - \frac{x^3}{3} - \cdots\right) \]</p>
+                <p>\[ = 2\left(x + \frac{x^3}{3} + \frac{x^5}{5} + \cdots\right) \]</p>
+                
+                <p><strong>Step 4: Solve for specific values:</strong></p>
+                <p>To find \( \ln 3 \), set \( \frac{1+x}{1-x} = 3 \Rightarrow x = \frac{1}{2} \)</p>
+                <p>\[ \ln 3 = 2\left(\frac{1}{2} + \frac{1}{3}\left(\frac{1}{2}\right)^3 + \frac{1}{5}\left(\frac{1}{2}\right)^5 + \cdots\right) \]</p>
+                <p>This series converges much faster than the standard logarithmic series.</p>
+                
+                <p><strong>Computational Insight:</strong> This technique demonstrates how mathematical manipulation can significantly improve the efficiency of numerical calculations.</p>
+            </div>
+
+            <div class="key-point">
+                <strong>Series Strategy:</strong> Power series provide powerful tools for function representation and approximation. Always check convergence conditions and consider whether manipulation of known series might provide more efficient computational methods. Understanding the relationship between different series can reveal deeper mathematical insights.
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 HNC Engineering Mathematics. All rights reserved.</p>
+            <p>Power Series Reference for Engineering Applications</p>
+        </div>
+    </footer>
+
+    <script src="navigation.js"></script>
+</body>
+</html>
