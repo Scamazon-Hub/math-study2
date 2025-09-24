@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integration I: Calculus - HNC Engineering Mathematics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HNC Engineering Mathematics</h1>
+            <p>Integration I: Calculus - Area Approximation and Fundamental Techniques</p>
+        </div>
+    </header>
+
+    <div class="container grid-layout">
+        <aside id="navigation-placeholder"></aside>
+
+        <main>
+            <h1>Integration I: Calculus</h1>
+            
+            <div class="info-box">
+                <p>The Reverse Process of Differentiation</p>
+                Integration is a fundamental concept in calculus that allows us to find areas, volumes, central points, and many other useful quantities. In engineering, integration is essential for solving problems related to accumulation, such as calculating total distance from velocity or total charge from current.
+            </div>
+
+            <h2 id="introduction">1. Introduction to Integration I</h2>
+            
+            <div class="info-box">
+                <p>From Differentiation to Integration</p>
+                While differentiation deals with rates of change, integration is concerned with accumulation. These two operations are inverse processes, connected by the Fundamental Theorem of Calculus.
+            </div>
+
+            <h3>Basic Concepts</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Concept</th>
+                        <th>Description</th>
+                        <th>Mathematical Representation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Differentiation</strong></td>
+                        <td>Finding the rate of change</td>
+                        <td>\( \frac{d}{dx} f(x) = f'(x) \)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Integration</strong></td>
+                        <td>Finding the accumulation</td>
+                        <td>\( \int f(x) dx = F(x) + C \)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fundamental Theorem</strong></td>
+                        <td>Connection between derivatives and integrals</td>
+                        <td>\( \int_a^b f'(x) dx = f(b) - f(a) \)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>Example: Velocity to Distance</strong></p>
+                <p>If we know the velocity of an object as a function of time, \( v(t) \), we can find the distance traveled by integrating:</p>
+                <p>\[ \text{Distance} = \int v(t) dt \]</p>
+                
+                <p><strong>Engineering Application:</strong> This principle is used in motion analysis, control systems, and kinematics.</p>
+            </div>
+
+            <h2 id="area-approximations">2. Area Approximations</h2>
+
+            <div class="info-box">
+                <p>Estimating Areas Under Curves</p>
+                Before developing formal integration techniques, we can approximate the area under a curve using simple geometric shapes.
+            </div>
+
+            <h3>Methods of Approximation</h3>
+            <div class="math-block">
+                <p><strong>Left Riemann Sum:</strong> Using left endpoints of subintervals</p>
+                <p>\[ A \approx \sum_{i=0}^{n-1} f(x_i) \Delta x \]</p>
+                
+                <p><strong>Right Riemann Sum:</strong> Using right endpoints of subintervals</p>
+                <p>\[ A \approx \sum_{i=1}^{n} f(x_i) \Delta x \]</p>
+                
+                <p><strong>Midpoint Rule:</strong> Using midpoints of subintervals</p>
+                <p>\[ A \approx \sum_{i=1}^{n} f\left(\frac{x_{i-1} + x_i}{2}\right) \Delta x \]</p>
+                
+                <p><strong>Trapezoidal Rule:</strong> Using trapezoids instead of rectangles</p>
+                <p>\[ A \approx \frac{\Delta x}{2} \left[f(x_0) + 2f(x_1) + 2f(x_2) + \cdots + 2f(x_{n-1}) + f(x_n)\right] \]</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Approximating Area Under \( y = x^2 \) from 0 to 2</strong></p>
+                
+                <p><strong>Step 1: Divide the interval</strong><br>
+                Let's use 4 subintervals: \( \Delta x = \frac{2-0}{4} = 0.5 \)</p>
+                
+                <p><strong>Step 2: Calculate using Left Riemann Sum</strong><br>
+                \( x_0 = 0, x_1 = 0.5, x_2 = 1.0, x_3 = 1.5 \)<br>
+                \( A \approx f(0) \cdot 0.5 + f(0.5) \cdot 0.5 + f(1.0) \cdot 0.5 + f(1.5) \cdot 0.5 \)<br>
+                \( A \approx (0 + 0.25 + 1.0 + 2.25) \cdot 0.5 = 3.5 \cdot 0.5 = 1.75 \)</p>
+                
+                <p><strong>Step 3: Calculate using Right Riemann Sum</strong><br>
+                \( x_1 = 0.5, x_2 = 1.0, x_3 = 1.5, x_4 = 2.0 \)<br>
+                \( A \approx f(0.5) \cdot 0.5 + f(1.0) \cdot 0.5 + f(1.5) \cdot 0.5 + f(2.0) \cdot 0.5 \)<br>
+                \( A \approx (0.25 + 1.0 + 2.25 + 4.0) \cdot 0.5 = 7.5 \cdot 0.5 = 3.75 \)</p>
+                
+                <p><strong>Step 4: Compare with exact value</strong><br>
+                Exact area: \( \int_0^2 x^2 dx = \left[\frac{x^3}{3}\right]_0^2 = \frac{8}{3} \approx 2.67 \)</p>
+                
+                <p><strong>Mathematical Insight:</strong> As we increase the number of subintervals, our approximations become more accurate.</p>
+            </div>
+
+            <h2 id="streamlining">3. Streamlining the Process</h2>
+
+            <div class="info-box">
+                <p>From Approximation to Exact Calculation</p>
+                While approximation methods are useful, we need exact methods for precise engineering calculations. This leads us to the concept of the definite integral.
+            </div>
+
+            <h3>The Definite Integral</h3>
+            <div class="math-block">
+                <p>The definite integral of a function \( f(x) \) from \( a \) to \( b \) is defined as:</p>
+                <p>\[ \int_a^b f(x) dx = \lim_{n \to \infty} \sum_{i=1}^n f(x_i^*) \Delta x \]</p>
+                <p>Where \( \Delta x = \frac{b-a}{n} \) and \( x_i^* \) is a sample point in the i-th subinterval.</p>
+            </div>
+
+            <h4>Properties of Definite Integrals</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>Mathematical Expression</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Linearity</strong></td>
+                        <td>\( \int_a^b [f(x) + g(x)] dx = \int_a^b f(x) dx + \int_a^b g(x) dx \)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Constant Multiple</strong></td>
+                        <td>\( \int_a^b c f(x) dx = c \int_a^b f(x) dx \)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Additivity</strong></td>
+                        <td>\( \int_a^b f(x) dx = \int_a^c f(x) dx + \int_c^b f(x) dx \)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Reversal of Limits</strong></td>
+                        <td>\( \int_a^b f(x) dx = - \int_b^a f(x) dx \)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>Example: Calculating a Definite Integral</strong></p>
+                <p>Calculate \( \int_1^3 (2x + 1) dx \)</p>
+                
+                <p><strong>Step 1: Interpret as area</strong><br>
+                This represents the area under the line \( y = 2x + 1 \) from x = 1 to x = 3.</p>
+                
+                <p><strong>Step 2: Use geometric interpretation</strong><br>
+                The area can be calculated as the area of a trapezoid:<br>
+                Height = 3 - 1 = 2<br>
+                Average width = \( \frac{f(1) + f(3)}{2} = \frac{3 + 7}{2} = 5 \)<br>
+                Area = 2 × 5 = 10</p>
+                
+                <p><strong>Step 3: Verify with integration</strong><br>
+                We'll verify this once we learn the integration rules.</p>
+                
+                <p><strong>Engineering Insight:</strong> Definite integrals give precise values for accumulated quantities, essential for engineering design and analysis.</p>
+            </div>
+
+            <h2 id="primitive">4. The Primitive (Antiderivative)</h2>
+
+            <div class="info-box">
+                <p>The Reverse of Differentiation</p>
+                The primitive or antiderivative of a function f(x) is a function F(x) whose derivative is f(x). This is the key to evaluating definite integrals exactly.
+            </div>
+
+            <h3>Definition and Notation</h3>
+            <div class="math-block">
+                <p>If \( F'(x) = f(x) \), then F(x) is called an antiderivative or primitive of f(x).</p>
+                <p>The indefinite integral is written as:</p>
+                <p>\[ \int f(x) dx = F(x) + C \]</p>
+                <p>Where C is the constant of integration.</p>
+            </div>
+
+            <h4>Basic Antiderivatives</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Function</th>
+                        <th>Antiderivative</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>\( x^n \) (n ≠ -1)</td>
+                        <td>\( \frac{x^{n+1}}{n+1} + C \)</td>
+                    </tr>
+                    <tr>
+                        <td>\( \frac{1}{x} \)</td>
+                        <td>\( \ln|x| + C \)</td>
+                    </tr>
+                    <tr>
+                        <td>\( e^x \)</td>
+                        <td>\( e^x + C \)</td>
+                    </tr>
+                    <tr>
+                        <td>\( \sin x \)</td>
+                        <td>\( -\cos x + C \)</td>
+                    </tr>
+                    <tr>
+                        <td>\( \cos x \)</td>
+                        <td>\( \sin x + C \)</td>
+                    </tr>
+                    <tr>
+                        <td>\( \sec^2 x \)</td>
+                        <td>\( \tan x + C \)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>Example: Finding Antiderivatives</strong></p>
+                
+                <p><strong>Case 1: Power Function</strong><br>
+                Find \( \int x^3 dx \)<br>
+                Solution: \( \int x^3 dx = \frac{x^{3+1}}{3+1} + C = \frac{x^4}{4} + C \)</p>
+                
+                <p><strong>Case 2: Trigonometric Function</strong><br>
+                Find \( \int \cos x dx \)<br>
+                Solution: \( \int \cos x dx = \sin x + C \)</p>
+                
+                <p><strong>Case 3: Exponential Function</strong><br>
+                Find \( \int e^x dx \)<br>
+                Solution: \( \int e^x dx = e^x + C \)</p>
+                
+                <p><strong>Verification:</strong> In each case, differentiating the result gives back the original function.</p>
+            </div>
+
+            <h2 id="integration">5. Integration Techniques</h2>
+
+            <div class="info-box">
+                <p>Fundamental Integration Methods</p>
+                Basic integration techniques allow us to find antiderivatives for a wide range of functions encountered in engineering applications.
+            </div>
+
+            <h3>Power Rule for Integration</h3>
+            <div class="math-block">
+                <p>For any real number n ≠ -1:</p>
+                <p>\[ \int x^n dx = \frac{x^{n+1}}{n+1} + C \]</p>
+            </div>
+
+            <h3>Constant Multiple Rule</h3>
+            <div class="math-block">
+                <p>\[ \int k f(x) dx = k \int f(x) dx \]</p>
+            </div>
+
+            <h3>Sum Rule</h3>
+            <div class="math-block">
+                <p>\[ \int [f(x) + g(x)] dx = \int f(x) dx + \int g(x) dx \]</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Applying Basic Integration Rules</strong></p>
+                <p>Find \( \int (3x^2 + 2x - 5) dx \)</p>
+                
+                <p><strong>Step 1: Apply the sum rule</strong><br>
+                \( \int (3x^2 + 2x - 5) dx = \int 3x^2 dx + \int 2x dx - \int 5 dx \)</p>
+                
+                <p><strong>Step 2: Apply the constant multiple rule</strong><br>
+                \( = 3 \int x^2 dx + 2 \int x dx - 5 \int 1 dx \)</p>
+                
+                <p><strong>Step 3: Apply the power rule</strong><br>
+                \( = 3 \cdot \frac{x^3}{3} + 2 \cdot \frac{x^2}{2} - 5x + C \)</p>
+                
+                <p><strong>Step 4: Simplify</strong><br>
+                \( = x^3 + x^2 - 5x + C \)</p>
+                
+                <p><strong>Verification:</strong> Differentiating the result gives \( 3x^2 + 2x - 5 \), which matches the original function.</p>
+            </div>
+
+            <h2 id="direct-rule">6. Direct Integration Rules</h2>
+
+            <div class="info-box">
+                <p>Standard Integration Formulas</p>
+                Certain functions have standard integration formulas that can be applied directly. These are essential for efficient problem-solving in engineering applications.
+            </div>
+
+            <h3>Common Direct Integration Formulas</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Function</th>
+                        <th>Integral</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>\( \int k dx \)</td>
+                        <td>\( kx + C \)</td>
+                    </tr>
+                    <tr>
+                        <td>\( \int x^n dx \) (n ≠ -1)</td>
+                        <td>\( \frac{x^{n+1}}{n+1} + C \)</td>
+                    </tr>
+                    <tr>
+                        <td>\( \int e^x dx \)</td>
+                        <td>\( e^x + C \)</td>
+                    </tr>
+                    <tr>
+                        <td>\( \int a^x dx \)</td>
+                        <td>\( \frac{a^x}{\ln a} + C \)</td>
+                    </tr>
+                    <tr>
+                        <td>\( \int \frac{1}{x} dx \)</td>
+                        <td>\( \ln|x| + C \)</td>
+                    </tr>
+                    <tr>
+                        <td>\( \int \sin x dx \)</td>
+                        <td>\( -\cos x + C \)</td>
+                    </tr>
+                    <tr>
+                        <td>\( \int \cos x dx \)</td>
+                        <td>\( \sin x + C \)</td>
+                    </tr>
+                    <tr>
+                        <td>\( \int \sec^2 x dx \)</td>
+                        <td>\( \tan x + C \)</td>
+                    </tr>
+                    <tr>
+                        <td>\( \int \csc^2 x dx \)</td>
+                        <td>\( -\cot x + C \)</td>
+                    </tr>
+                    <tr>
+                        <td>\( \int \sec x \tan x dx \)</td>
+                        <td>\( \sec x + C \)</td>
+                    </tr>
+                    <tr>
+                        <td>\( \int \csc x \cot x dx \)</td>
+                        <td>\( -\csc x + C \)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>Example: Definite Integral Calculation</strong></p>
+                <p>Calculate \( \int_1^3 (2x + 1) dx \) using the Fundamental Theorem of Calculus</p>
+                
+                <p><strong>Step 1: Find the antiderivative</strong><br>
+                \( \int (2x + 1) dx = x^2 + x + C \)</p>
+                
+                <p><strong>Step 2: Apply the Fundamental Theorem</strong><br>
+                \( \int_1^3 (2x + 1) dx = [x^2 + x]_1^3 \)</p>
+                
+                <p><strong>Step 3: Evaluate at the limits</strong><br>
+                At x = 3: \( 3^2 + 3 = 9 + 3 = 12 \)<br>
+                At x = 1: \( 1^2 + 1 = 1 + 1 = 2 \)</p>
+                
+                <p><strong>Step 4: Subtract</strong><br>
+                \( 12 - 2 = 10 \)</p>
+                
+                <p><strong>Verification:</strong> This matches our earlier geometric calculation.</p>
+            </div>
+
+            <h2 id="summary">7. Summary of Integration I</h2>
+
+            <div class="info-box">
+                <p>Key Concepts and Techniques</p>
+                Integration I covers the fundamental concepts and techniques needed to understand and apply integration in engineering contexts.
+            </div>
+
+            <h3>Key Points</h3>
+            <div class="key-point">
+                <p><strong>1. Area Approximation:</strong> Riemann sums and other methods provide ways to approximate areas under curves.</p>
+                <p><strong>2. Definite Integral:</strong> The limit of Riemann sums as the number of subintervals approaches infinity.</p>
+                <p><strong>3. Antiderivative:</strong> A function whose derivative is the given function.</p>
+                <p><strong>4. Fundamental Theorem of Calculus:</strong> Connects differentiation and integration: \( \int_a^b f'(x) dx = f(b) - f(a) \).</p>
+                <p><strong>5. Basic Integration Rules:</strong> Power rule, constant multiple rule, and sum rule form the foundation of integration techniques.</p>
+            </div>
+
+            <h3>Common Integration Formulas</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Function</th>
+                        <th>Integral</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>\( \int x^n dx \) (n ≠ -1)</td>
+                        <td>\( \frac{x^{n+1}}{n+1} + C \)</td>
+                    </tr>
+                    <tr>
+                        <td>\( \int k dx \)</td>
+                        <td>\( kx + C \)</td>
+                    </tr>
+                    <tr>
+                        <td>\( \int e^x dx \)</td>
+                        <td>\( e^x + C \)</td>
+                    </tr>
+                    <tr>
+                        <td>\( \int \frac{1}{x} dx \)</td>
+                        <td>\( \ln|x| + C \)</td>
+                    </tr>
+                    <tr>
+                        <td>\( \int \sin x dx \)</td>
+                        <td>\( -\cos x + C \)</td>
+                    </tr>
+                    <tr>
+                        <td>\( \int \cos x dx \)</td>
+                        <td>\( \sin x + C \)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>Final Example: Engineering Application</strong></p>
+                <p>The velocity of a vehicle is given by \( v(t) = 3t^2 + 2t \) m/s. Find the distance traveled between t = 1 and t = 3 seconds.</p>
+                
+                <p><strong>Step 1: Set up the integral</strong><br>
+                Distance = \( \int_1^3 v(t) dt = \int_1^3 (3t^2 + 2t) dt \)</p>
+                
+                <p><strong>Step 2: Find the antiderivative</strong><br>
+                \( \int (3t^2 + 2t) dt = t^3 + t^2 + C \)</p>
+                
+                <p><strong>Step 3: Apply the Fundamental Theorem</strong><br>
+                Distance = \( [t^3 + t^2]_1^3 = (27 + 9) - (1 + 1) = 36 - 2 = 34 \) meters</p>
+                
+                <p><strong>Engineering Insight:</strong> This demonstrates how integration converts rate information (velocity) into accumulated quantity (distance).</p>
+            </div>
+
+            <div class="key-point">
+                <strong>Integration Strategy:</strong> Integration is the reverse process of differentiation. Always remember to include the constant of integration for indefinite integrals. For definite integrals, apply the Fundamental Theorem of Calculus by evaluating the antiderivative at the upper and lower limits and subtracting.
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 HNC Engineering Mathematics. All rights reserved.</p>
+            <p>Integration I Reference for Engineering Applications</p>
+        </div>
+    </footer>
+
+    <script src="navigation.js"></script>
+</body>
+</html>
