@@ -24,8 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
         { href: 'quotient-rule.html', label: '➗ Quotient Rule', category: 'calculus' },
         { href: 'exponential-calculus.html', label: '📈 Exponential Calculus', category: 'calculus' },
         { href: 'max-min.html', label: '📈 Maximum and Minimum', category: 'calculus' },
-        { href: 'integration.html' '⛓️ Intergration Fundamentals', category: 'calculus' },
-        { href: 'indefinite-integration.html' '⛓️ Indefinite Intergration', category: 'calculus' },
+        { href: 'intergration.html', label: '⛓️ Integration Fundamentals', category: 'calculus' },
+        { href: 'indefinite-integration.html', label: '⛓️ Indefinite Integration', category: 'calculus' },
 
         // Applied & Specialized Topics
         { href: 'ac-circuits-analysis.html', label: '⚡ AC Circuit Analysis', category: 'applied' },
@@ -89,65 +89,4 @@ document.addEventListener('DOMContentLoaded', () => {
             const li = document.createElement('li');
             const a = document.createElement('a');
             a.href = href;
-            a.innerHTML = label;
-
-            const itemPath = normalizePath(new URL(href, location.href).pathname);
-            if (itemPath === currentPath) {
-                a.classList.add('active');
-                a.setAttribute('aria-current', 'page');
-            }
-
-            li.appendChild(a);
-            ul.appendChild(li);
-        });
-
-        section.appendChild(ul);
-        nav.appendChild(section);
-    });
-
-    // Add search functionality
-    const searchContainer = document.createElement('div');
-    searchContainer.className = 'nav-search';
-
-    const searchInput = document.createElement('input');
-    searchInput.type = 'text';
-    searchInput.placeholder = '🔍 Search topics...';
-    searchInput.className = 'search-input';
-
-    searchInput.addEventListener('input', (e) => {
-        const searchTerm = e.target.value.toLowerCase();
-        const allLinks = nav.querySelectorAll('a');
-
-        allLinks.forEach(link => {
-            const text = link.textContent.toLowerCase();
-            if (text.includes(searchTerm)) {
-                link.parentElement.style.display = 'block';
-                // Highlight matching section
-                link.closest('.nav-section').style.display = 'block';
-            } else {
-                link.parentElement.style.display = 'none';
-            }
-        });
-
-        // Hide empty sections
-        document.querySelectorAll('.nav-section').forEach(section => {
-            const visibleLinks = section.querySelectorAll('li[style=""]', 'li:not([style*="display: none"])');
-            if (visibleLinks.length === 0) {
-                section.style.display = 'none';
-            } else {
-                section.style.display = 'block';
-            }
-        });
-    });
-
-    searchContainer.appendChild(searchInput);
-    nav.insertBefore(searchContainer, nav.children[1]); // Insert after header
-
-    placeholder.replaceChildren(nav);
-
-    function normalizePath(pathname) {
-        let p = pathname.replace(/\/index\.html?$/i, '/');
-        if (p.length > 1 && p.endsWith('/')) p = p.slice(0, -1);
-        return p;
-    }
-});
+            a
