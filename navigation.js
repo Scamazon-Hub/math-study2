@@ -24,6 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
         { href: 'quotient-rule.html', label: '➗ Quotient Rule', category: 'calculus' },
         { href: 'exponential-calculus.html', label: '📈 Exponential Calculus', category: 'calculus' },
         { href: 'max-min.html', label: '📈 Maximum and Minimum', category: 'calculus' },
+        { href: 'integration.html' '⛓️ Intergration Fundamentals', category: 'calculus' },
+        { href: 'indefinite-integration.html' '⛓️ Indefinite Intergration', category: 'calculus' },
 
         // Applied & Specialized Topics
         { href: 'ac-circuits-analysis.html', label: '⚡ AC Circuit Analysis', category: 'applied' },
