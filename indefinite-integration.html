@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indefinite Integration - HNC Engineering Mathematics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HNC Engineering Mathematics</h1>
+            <p>Indefinite Integration - Reversing the Differentiation Process</p>
+        </div>
+    </header>
+
+    <div class="container grid-layout">
+        <aside id="navigation-placeholder"></aside>
+
+        <main>
+            <h1>Indefinite Integration</h1>
+            
+            <div class="info-box">
+                <p>Reversing the Differentiation Process</p>
+                Indefinite integration is the algebraic process of finding a function whose derivative is known. This fundamental concept extends beyond area evaluation to applications in physics, engineering, and differential equations.
+            </div>
+
+            <h2 id="integration-concepts">1. Fundamental Concepts</h2>
+            
+            <div class="info-box">
+                <p>From Definite to Indefinite Integration</p>
+                While definite integration evaluates areas under curves between specific boundaries, indefinite integration focuses on finding the general form of the original function before differentiation.
+            </div>
+
+            <h3>Definite Integration Recap</h3>
+            <div class="math-block">
+                <p>The definite integral calculates the area under a curve between limits \(x_1\) and \(x_2\):</p>
+                <p>\[ \text{Area} = \int_{x_1}^{x_2} y \, dx \]</p>
+                <p>where \(y = f(x)\) is the function and the key step is finding a primitive function.</p>
+            </div>
+
+            <h3>The Need for Indefinite Integration</h3>
+            <p>When we differentiate a function, constants "disappear" because the derivative of any constant is zero. This means multiple different functions can have the same derivative.</p>
+
+            <div class="example-box">
+                <p><strong>Example: Multiple Functions with Same Derivative</strong></p>
+                <p>Consider these three functions and their derivatives:</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Function</th>
+                            <th>Derivative</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>\( y = x^2 \)</td>
+                            <td>\( \frac{dy}{dx} = 2x \)</td>
+                        </tr>
+                        <tr>
+                            <td>\( y = x^2 + 1 \)</td>
+                            <td>\( \frac{dy}{dx} = 2x \)</td>
+                        </tr>
+                        <tr>
+                            <td>\( y = x^2 - 3 \)</td>
+                            <td>\( \frac{dy}{dx} = 2x \)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <p>All three have the same derivative because constants disappear during differentiation.</p>
+            </div>
+
+            <h2 id="constant-integration">2. The Constant of Integration</h2>
+
+            <div class="info-box">
+                <p>Accounting for Lost Information</p>
+                Since differentiation eliminates constants, the reverse process (integration) must account for all possible constants that could have been present in the original function.
+            </div>
+
+            <h3>General Form</h3>
+            <div class="math-block">
+                <p>The general form of functions that differentiate to \(2x\) is:</p>
+                <p>\[ y = x^2 + c \]</p>
+                <p>where \(c\) represents any constant value.</p>
+            </div>
+
+            <h3>Indefinite Integration Notation</h3>
+            <div class="math-block">
+                <p>Reversing the differentiation process gives us indefinite integration:</p>
+                <p>\[ \int 2x \, dx = x^2 + c \]</p>
+                <p>where \(c\) is called the <strong>constant of integration</strong>.</p>
+            </div>
+
+            <div class="key-point">
+                <strong>Important:</strong> When applying indefinite integration, we must always include a constant of integration, usually designated as \(c\). This accounts for the family of functions that all differentiate to the same result.
+            </div>
+
+            <h2 id="basic-rules">3. Basic Integration Rules</h2>
+
+            <div class="info-box">
+                <p>Fundamental Integration Techniques</p>
+                The power rule for integration provides the foundation for integrating polynomial functions and forms the basis for more complex integration techniques.
+            </div>
+
+            <h3>Power Rule for Integration</h3>
+            <div class="math-block">
+                <p>For a function of the form \(ax^n\):</p>
+                <p>\[ \int ax^n \, dx = a \cdot \frac{x^{n+1}}{n+1} + c \quad \text{(for } n \neq -1\text{)} \]</p>
+            </div>
+
+            <h3>Basic Examples</h3>
+            <div class="example-box">
+                <p><strong>Example 1: Simple Power Function</strong></p>
+                <p>Find \( \int 5x \, dx \).</p>
+                
+                <p><strong>Solution:</strong><br>
+                Using the power rule with \(a = 5\), \(n = 1\):<br>
+                \[ \int 5x \, dx = 5 \cdot \frac{x^{1+1}}{1+1} + c = 5 \cdot \frac{x^2}{2} + c = \frac{5x^2}{2} + c \]</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example 2: Quadratic Function</strong></p>
+                <p>Find \( \int 3x^2 \, dx \).</p>
+                
+                <p><strong>Solution:</strong><br>
+                Using the power rule with \(a = 3\), \(n = 2\):<br>
+                \[ \int 3x^2 \, dx = 3 \cdot \frac{x^{2+1}}{2+1} + c = 3 \cdot \frac{x^3}{3} + c = x^3 + c \]</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example 3: Cubic Function</strong></p>
+                <p>Find \( \int 2x^3 \, dx \).</p>
+                
+                <p><strong>Solution:</strong><br>
+                Using the power rule with \(a = 2\), \(n = 3\):<br>
+                \[ \int 2x^3 \, dx = 2 \cdot \frac{x^{3+1}}{3+1} + c = 2 \cdot \frac{x^4}{4} + c = \frac{x^4}{2} + c \]</p>
+            </div>
+
+            <h2 id="integration-properties">4. Properties of Indefinite Integrals</h2>
+
+            <div class="info-box">
+                <p>Algebraic Manipulation of Integrals</p>
+                Indefinite integrals follow specific algebraic rules that allow us to simplify complex integration problems by breaking them into manageable parts.
+            </div>
+
+            <h3>Linearity Property</h3>
+            <div class="math-block">
+                <p>The integral of a sum is the sum of the integrals:</p>
+                <p>\[ \int [f(x) + g(x)] \, dx = \int f(x) \, dx + \int g(x) \, dx \]</p>
+            </div>
+
+            <h3>Constant Multiple Rule</h3>
+            <div class="math-block">
+                <p>Constants can be factored out of integrals:</p>
+                <p>\[ \int k \cdot f(x) \, dx = k \cdot \int f(x) \, dx \]</p>
+                <p>where \(k\) is any constant.</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Applying Multiple Properties</strong></p>
+                <p>Find \( \int (4x^3 + 3x^2 - 2x + 5) \, dx \).</p>
+                
+                <p><strong>Solution:</strong><br>
+                Apply the linearity and constant multiple properties:<br>
+                \[ \int (4x^3 + 3x^2 - 2x + 5) \, dx = \int 4x^3 \, dx + \int 3x^2 \, dx - \int 2x \, dx + \int 5 \, dx \]<br>
+                \[ = 4 \cdot \frac{x^4}{4} + 3 \cdot \frac{x^3}{3} - 2 \cdot \frac{x^2}{2} + 5x + c \]<br>
+                \[ = x^4 + x^3 - x^2 + 5x + c \]</p>
+            </div>
+
+            <h2 id="special-cases">5. Special Cases and Exceptions</h2>
+
+            <div class="info-box">
+                <p>Handling Non-Standard Forms</p>
+                Some functions require special integration techniques or have exceptions to the standard power rule.
+            </div>
+
+            <h3>The Case of n = -1</h3>
+            <div class="math-block">
+                <p>The power rule doesn't apply when \(n = -1\):</p>
+                <p>\[ \int x^{-1} \, dx = \int \frac{1}{x} \, dx = \ln|x| + c \]</p>
+            </div>
+
+            <h3>Integral of a Constant</h3>
+            <div class="math-block">
+                <p>When integrating a constant function:</p>
+                <p>\[ \int k \, dx = kx + c \]</p>
+                <p>where \(k\) is any constant.</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example: Special Case Integration</strong></p>
+                <p>Find \( \int \left( 3x^2 + \frac{2}{x} + 4 \right) \, dx \).</p>
+                
+                <p><strong>Solution:</strong><br>
+                Break into separate integrals:<br>
+                \[ \int 3x^2 \, dx + \int \frac{2}{x} \, dx + \int 4 \, dx \]<br>
+                \[ = 3 \cdot \frac{x^3}{3} + 2 \ln|x| + 4x + c \]<br>
+                \[ = x^3 + 2 \ln|x| + 4x + c \]</p>
+            </div>
+
+            <h2 id="applications">6. Engineering Applications</h2>
+
+            <div class="info-box">
+                <p>Practical Uses of Indefinite Integration</p>
+                Indefinite integration has numerous applications in engineering, particularly in solving differential equations that model physical systems.
+            </div>
+
+            <h3>Common Engineering Applications</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Application</th>
+                        <th>Mathematical Form</th>
+                        <th>Engineering Significance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Velocity from Acceleration</strong></td>
+                        <td>\( v = \int a \, dt \)</td>
+                        <td>Finding velocity when acceleration is known</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Displacement from Velocity</strong></td>
+                        <td>\( s = \int v \, dt \)</td>
+                        <td>Finding position when velocity is known</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Current from Charge Rate</strong></td>
+                        <td>\( Q = \int I \, dt \)</td>
+                        <td>Finding charge when current is known</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Solving Differential Equations</strong></td>
+                        <td>\( \frac{dy}{dx} = f(x) \)</td>
+                        <td>Finding general solutions to rate equations</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>Example: Engineering Application</strong></p>
+                <p>An object's acceleration is given by \( a(t) = 3t^2 + 2t \). Find the velocity function if the initial velocity at \(t = 0\) is 5 m/s.</p>
+                
+                <p><strong>Solution:</strong><br>
+                Velocity is the integral of acceleration:<br>
+                \[ v(t) = \int (3t^2 + 2t) \, dt = t^3 + t^2 + c \]<br>
+                
+                Use the initial condition \(v(0) = 5\):<br>
+                \[ 5 = 0^3 + 0^2 + c \Rightarrow c = 5 \]<br>
+                
+                Therefore, the velocity function is:<br>
+                \[ v(t) = t^3 + t^2 + 5 \]</p>
+            </div>
+
+            <h2 id="integration-summary">7. Basic Integration Formulas</h2>
+
+            <div class="info-box">
+                <p>Quick Reference for Common Integrals</p>
+                This table summarizes the basic integration formulas that form the foundation for more advanced integration techniques.
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Function Type</th>
+                        <th>Function</th>
+                        <th>Integral</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="4"><strong>Power Functions</strong></td>
+                        <td>\( \int k \, dx \)</td>
+                        <td>\( kx + c \)</td>
+                    </tr>
+                    <tr>
+                        <td>\( \int x^n \, dx \) (\(n \neq -1\))</td>
+                        <td>\( \frac{x^{n+1}}{n+1} + c \)</td>
+                    </tr>
+                    <tr>
+                        <td>\( \int \frac{1}{x} \, dx \)</td>
+                        <td>\( \ln|x| + c \)</td>
+                    </tr>
+                    <tr>
+                        <td>\( \int e^x \, dx \)</td>
+                        <td>\( e^x + c \)</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="6"><strong>Trigonometric Functions</strong></td>
+                        <td>\( \int \sin x \, dx \)</td>
+                        <td>\( -\cos x + c \)</td>
+                    </tr>
+                    <tr>
+                        <td>\( \int \cos x \, dx \)</td>
+                        <td>\( \sin x + c \)</td>
+                    </tr>
+                    <tr>
+                        <td>\( \int \sec^2 x \, dx \)</td>
+                        <td>\( \tan x + c \)</td>
+                    </tr>
+                    <tr>
+                        <td>\( \int \csc^2 x \, dx \)</td>
+                        <td>\( -\cot x + c \)</td>
+                    </tr>
+                    <tr>
+                        <td>\( \int \sec x \tan x \, dx \)</td>
+                        <td>\( \sec x + c \)</td>
+                    </tr>
+                    <tr>
+                        <td>\( \int \csc x \cot x \, dx \)</td>
+                        <td>\( -\csc x + c \)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Properties</strong></td>
+                        <td>\( \int [f(x) + g(x)] \, dx \)</td>
+                        <td>\( \int f(x) \, dx + \int g(x) \, dx \)</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>\( \int k \cdot f(x) \, dx \)</td>
+                        <td>\( k \cdot \int f(x) \, dx \)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="key-point">
+                <strong>Integration Strategy:</strong> Always remember to include the constant of integration when performing indefinite integration. This constant becomes important when solving initial value problems in engineering applications.
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 HNC Engineering Mathematics. All rights reserved.</p>
+            <p>Indefinite Integration Reference for Engineering Applications</p>
+        </div>
+    </footer>
+
+    <script src="navigation.js"></script>
+</body>
+</html>
