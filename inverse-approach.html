@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Inverse Approach - HNC Engineering Mathematics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HNC Engineering Mathematics</h1>
+            <p>The Inverse Approach - Integration by Reversing Differentiation</p>
+        </div>
+    </header>
+
+    <div class="container grid-layout">
+        <aside id="navigation-placeholder"></aside>
+
+        <main>
+            <h1>The Inverse Approach to Integration</h1>
+            
+            <div class="info-box">
+                <p>Reversing the Differentiation Process</p>
+                The inverse approach treats integration as the reverse operation of differentiation. This powerful method allows us to derive integration formulas by asking: "What function, when differentiated, gives us this result?"
+            </div>
+
+            <h2 id="inverse-fundamentals">1. Fundamental Concept</h2>
+            
+            <div class="info-box">
+                <p>Integration as the Inverse of Differentiation</p>
+                Just as subtraction reverses addition and division reverses multiplication, integration reverses differentiation. This relationship forms the foundation for deriving integration rules.
+            </div>
+
+            <h3>The Basic Principle</h3>
+            <div class="math-block">
+                <p>If differentiation transforms function \(f(x)\) into \(f'(x)\), then integration transforms \(f'(x)\) back to \(f(x)\):</p>
+                <p>\[ \frac{d}{dx}[f(x)] = f'(x) \quad \Rightarrow \quad \int f'(x) \, dx = f(x) + c \]</p>
+                <p>where \(c\) is the constant of integration.</p>
+            </div>
+
+            <h3>Advantages of the Inverse Approach</h3>
+            <ul>
+                <li><strong>Simple to apply:</strong> No new concepts or complex proofs required</li>
+                <li><strong>Self-checking:</strong> Verify results by differentiating them</li>
+                <li><strong>Intuitive:</strong> Builds on existing knowledge of differentiation</li>
+            </ul>
+
+            <h2 id="special-case-1x">2. The Special Case of 1/x</h2>
+
+            <div class="info-box">
+                <p>Avoiding the Blind Alley</p>
+                The power rule for integration fails when \(n = -1\), requiring an alternative approach using logarithmic functions.
+            </div>
+
+            <h3>The Problem with the Power Rule</h3>
+            <div class="math-block">
+                <p>Attempting to apply the power rule to \(1/x\) leads to an undefined result:</p>
+                <p>\[ \int x^{-1} \, dx = \frac{x^0}{0} + c \quad \text{(undefined)} \]</p>
+            </div>
+
+            <div class="warning">
+                <p><strong>Important:</strong> The standard power rule \(\int ax^n \, dx = \frac{ax^{n+1}}{n+1} + c\) only applies when \(n \neq -1\).</p>
+            </div>
+
+            <h3>The Logarithmic Solution</h3>
+            <div class="example-box">
+                <p><strong>Finding the Correct Primitive</strong></p>
+                <p>We ask: "What function, when differentiated, gives \(\frac{1}{x}\)?"</p>
+                
+                <p><strong>Step 1: Recall derivative of ln(x)</strong><br>
+                \[ \frac{d}{dx}[\ln x] = \frac{1}{x} \]</p>
+                
+                <p><strong>Step 2: Apply the inverse principle</strong><br>
+                Since differentiation of \(\ln x\) gives \(\frac{1}{x}\), the inverse operation gives:<br>
+                \[ \int \frac{1}{x} \, dx = \ln x + c \]</p>
+                
+                <p><strong>Step 3: Verification by differentiation</strong><br>
+                \[ \frac{d}{dx}[\ln x + c] = \frac{1}{x} \quad \checkmark \]</p>
+            </div>
+
+            <h3>Extended Form: 1/(ax+b)</h3>
+            <div class="math-block">
+                <p>Using the chain rule, we can extend this to more general forms:</p>
+                <p>\[ \frac{d}{dx}[\ln(ax + b)] = \frac{1}{ax + b} \cdot a = \frac{a}{ax + b} \]</p>
+                <p>Reversing this gives the integration formula:</p>
+                <p>\[ \int \frac{1}{ax + b} \, dx = \frac{1}{a} \ln(ax + b) + c \]</p>
+            </div>
+
+            <h2 id="logarithmic-examples">3. Logarithmic Integration Examples</h2>
+
+            <div class="info-box">
+                <p>Practical Applications</p>
+                These integration techniques are essential for solving problems involving rates that follow inverse relationships, common in physics and engineering.
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example 1: Basic Logarithmic Integration</strong></p>
+                <p>Integrate \( f(x) = \frac{5}{x} \).</p>
+                
+                <p><strong>Step 1: Extract the constant</strong><br>
+                \[ I = \int \frac{5}{x} \, dx = 5 \int \frac{1}{x} \, dx \]</p>
+                
+                <p><strong>Step 2: Apply the integration rule</strong><br>
+                \[ I = 5 \ln x + c \]</p>
+                
+                <p><strong>Step 3: Verification</strong><br>
+                \[ \frac{d}{dx}[5 \ln x + c] = 5 \cdot \frac{1}{x} = \frac{5}{x} \quad \checkmark \]</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example 2: Definite Integral with Logarithm</strong></p>
+                <p>Evaluate \( \int_{1}^{2} \frac{1}{5t} \, dt \).</p>
+                
+                <p><strong>Step 1: Extract the constant</strong><br>
+                \[ I = \int_{1}^{2} \frac{1}{5t} \, dt = \frac{1}{5} \int_{1}^{2} \frac{1}{t} \, dt \]</p>
+                
+                <p><strong>Step 2: Apply the integration rule</strong><br>
+                \[ I = \frac{1}{5} [\ln t]_{1}^{2} \]</p>
+                
+                <p><strong>Step 3: Evaluate at limits</strong><br>
+                \[ I = \frac{1}{5} (\ln 2 - \ln 1) = \frac{1}{5} (\ln 2 - 0) = \frac{\ln 2}{5} \]</p>
+                
+                <p><strong>Step 4: Numerical approximation</strong><br>
+                \[ I \approx \frac{0.6931}{5} \approx 0.139 \quad \text{(to 3 significant figures)} \]</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example 3: Generalized Form</strong></p>
+                <p>Integrate \( f(x) = \frac{2}{3x-1} \).</p>
+                
+                <p><strong>Step 1: Identify a and b</strong><br>
+                Comparing with \( \frac{1}{ax+b} \), we have \( a = 3 \), \( b = -1 \)</p>
+                
+                <p><strong>Step 2: Extract the constant</strong><br>
+                \[ I = \int \frac{2}{3x-1} \, dx = 2 \int \frac{1}{3x-1} \, dx \]</p>
+                
+                <p><strong>Step 3: Apply the integration rule</strong><br>
+                \[ I = 2 \left[ \frac{1}{3} \ln(3x-1) \right] + c = \frac{2}{3} \ln(3x-1) + c \]</p>
+                
+                <p><strong>Step 4: Verification</strong><br>
+                \[ \frac{d}{dx} \left[ \frac{2}{3} \ln(3x-1) + c \right] = \frac{2}{3} \cdot \frac{3}{3x-1} = \frac{2}{3x-1} \quad \checkmark \]</p>
+            </div>
+
+            <h2 id="binomial-powers">4. Integration of Binomial Powers</h2>
+
+            <div class="info-box">
+                <p>Extending the Power Rule</p>
+                The inverse approach allows us to derive integration formulas for expressions of the form \((ax+b)^n\), which frequently appear in engineering applications.
+            </div>
+
+            <h3>Derivation of the Formula</h3>
+            <div class="math-block">
+                <p><strong>Step 1: Differentiate \((ax+b)^{n+1}\)</strong><br>
+                Using the chain rule:<br>
+                \[ \frac{d}{dx}[(ax+b)^{n+1}] = (n+1)(ax+b)^n \cdot a = a(n+1)(ax+b)^n \]</p>
+                
+                <p><strong>Step 2: Apply the inverse principle</strong><br>
+                \[ \int a(n+1)(ax+b)^n \, dx = (ax+b)^{n+1} + c \]</p>
+                
+                <p><strong>Step 3: Solve for the integral</strong><br>
+                \[ \int (ax+b)^n \, dx = \frac{(ax+b)^{n+1}}{a(n+1)} + c \]</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example 4: Integrating a Binomial Power</strong></p>
+                <p>Integrate \( 12(2x+1)^3 \).</p>
+                
+                <p><strong>Step 1: Identify parameters</strong><br>
+                \( a = 2 \), \( b = 1 \), \( n = 3 \)</p>
+                
+                <p><strong>Step 2: Extract the constant</strong><br>
+                \[ I = \int 12(2x+1)^3 \, dx = 12 \int (2x+1)^3 \, dx \]</p>
+                
+                <p><strong>Step 3: Apply the integration rule</strong><br>
+                \[ I = 12 \left[ \frac{(2x+1)^4}{2 \cdot 4} \right] + c = 12 \cdot \frac{(2x+1)^4}{8} + c \]</p>
+                
+                <p><strong>Step 4: Simplify</strong><br>
+                \[ I = 1.5(2x+1)^4 + c \]</p>
+                
+                <p><strong>Step 5: Verification</strong><br>
+                \[ \frac{d}{dx}[1.5(2x+1)^4 + c] = 1.5 \cdot 4(2x+1)^3 \cdot 2 = 12(2x+1)^3 \quad \checkmark \]</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example 5: Definite Integral with Fractional Power</strong></p>
+                <p>Evaluate \( \int_{0}^{2} \frac{2}{\sqrt{4y+1}} \, dy \).</p>
+                
+                <p><strong>Step 1: Rewrite in index form</strong><br>
+                \[ I = \int_{0}^{2} 2(4y+1)^{-1/2} \, dy \]</p>
+                
+                <p><strong>Step 2: Extract the constant</strong><br>
+                \[ I = 2 \int_{0}^{2} (4y+1)^{-1/2} \, dy \]</p>
+                
+                <p><strong>Step 3: Identify parameters</strong><br>
+                \( a = 4 \), \( b = 1 \), \( n = -1/2 \)</p>
+                
+                <p><strong>Step 4: Apply the integration rule</strong><br>
+                \[ I = 2 \left[ \frac{(4y+1)^{1/2}}{4 \cdot (1/2)} \right]_{0}^{2} = 2 \left[ \frac{(4y+1)^{1/2}}{2} \right]_{0}^{2} = \left[ (4y+1)^{1/2} \right]_{0}^{2} \]</p>
+                
+                <p><strong>Step 5: Evaluate at limits</strong><br>
+                \[ I = \sqrt{4(2)+1} - \sqrt{4(0)+1} = \sqrt{9} - \sqrt{1} = 3 - 1 = 2 \]</p>
+            </div>
+
+            <h2 id="exponential-integration">5. Integration of Exponential Functions</h2>
+
+            <div class="info-box">
+                <p>Exponential Growth and Decay</p>
+                Exponential functions model many natural phenomena, from radioactive decay to population growth, making their integration particularly important in engineering.
+            </div>
+
+            <h3>Derivation of the Formula</h3>
+            <div class="math-block">
+                <p><strong>Step 1: Differentiate \(e^{ax+b}\)</strong><br>
+                Using the chain rule:<br>
+                \[ \frac{d}{dx}[e^{ax+b}] = e^{ax+b} \cdot a = ae^{ax+b} \]</p>
+                
+                <p><strong>Step 2: Apply the inverse principle</strong><br>
+                \[ \int ae^{ax+b} \, dx = e^{ax+b} + c \]</p>
+                
+                <p><strong>Step 3: Solve for the integral</strong><br>
+                \[ \int e^{ax+b} \, dx = \frac{1}{a} e^{ax+b} + c \]</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example 6: Integrating an Exponential Function</strong></p>
+                <p>Integrate \( f(x) = 3e^{(x/2)+1} \).</p>
+                
+                <p><strong>Step 1: Rewrite the exponent</strong><br>
+                \[ e^{(x/2)+1} = e^{(1/2)x+1} \]</p>
+                
+                <p><strong>Step 2: Extract the constant</strong><br>
+                \[ I = \int 3e^{(1/2)x+1} \, dx = 3 \int e^{(1/2)x+1} \, dx \]</p>
+                
+                <p><strong>Step 3: Identify parameters</strong><br>
+                \( a = 1/2 \), \( b = 1 \)</p>
+                
+                <p><strong>Step 4: Apply the integration rule</strong><br>
+                \[ I = 3 \left[ \frac{1}{1/2} e^{(1/2)x+1} \right] + c = 3 \cdot 2e^{(1/2)x+1} + c = 6e^{(x/2)+1} + c \]</p>
+                
+                <p><strong>Step 5: Verification</strong><br>
+                \[ \frac{d}{dx}[6e^{(x/2)+1} + c] = 6 \cdot e^{(x/2)+1} \cdot \frac{1}{2} = 3e^{(x/2)+1} \quad \checkmark \]</p>
+            </div>
+
+            <h2 id="additional-examples">6. Additional Worked Examples</h2>
+
+            <div class="info-box">
+                <p>Consolidating the Concepts</p>
+                These examples demonstrate the application of the inverse approach to various function types, reinforcing the techniques learned.
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example 7: Complex Fraction</strong></p>
+                <p>Integrate \( f(x) = \frac{1}{2(3x-2)} \).</p>
+                
+                <p><strong>Step 1: Rewrite the function</strong><br>
+                \[ \frac{1}{2(3x-2)} = \frac{1}{2} \cdot \frac{1}{3x-2} \]</p>
+                
+                <p><strong>Step 2: Extract the constant</strong><br>
+                \[ I = \int \frac{1}{2(3x-2)} \, dx = \frac{1}{2} \int \frac{1}{3x-2} \, dx \]</p>
+                
+                <p><strong>Step 3: Apply the integration rule</strong><br>
+                \[ I = \frac{1}{2} \left[ \frac{1}{3} \ln(3x-2) \right] + c = \frac{1}{6} \ln(3x-2) + c \]</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example 8: Definite Exponential Integral</strong></p>
+                <p>Evaluate \( \int_{0}^{1} 4e^{2x} \, dx \).</p>
+                
+                <p><strong>Step 1: Extract the constant</strong><br>
+                \[ I = 4 \int_{0}^{1} e^{2x} \, dx \]</p>
+                
+                <p><strong>Step 2: Identify parameters</strong><br>
+                \( a = 2 \), \( b = 0 \)</p>
+                
+                <p><strong>Step 3: Apply the integration rule</strong><br>
+                \[ I = 4 \left[ \frac{1}{2} e^{2x} \right]_{0}^{1} = 2 [e^{2x}]_{0}^{1} \]</p>
+                
+                <p><strong>Step 4: Evaluate at limits</strong><br>
+                \[ I = 2(e^{2} - e^{0}) = 2(7.389 - 1) = 2(6.389) = 12.778 \approx 12.8 \]</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example 9: Variable Change</strong></p>
+                <p>Integrate \( f(v) = (3v + 2)^3 \) with respect to \(v\).</p>
+                
+                <p><strong>Step 1: Identify parameters</strong><br>
+                \( a = 3 \), \( b = 2 \), \( n = 3 \)</p>
+                
+                <p><strong>Step 2: Apply the integration rule</strong><br>
+                \[ I = \int (3v + 2)^3 \, dv = \frac{(3v + 2)^4}{3 \cdot 4} + c = \frac{(3v + 2)^4}{12} + c \]</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example 10: Negative Exponent</strong></p>
+                <p>Integrate \( f(t) = 3e^{(3-2t)} \).</p>
+                
+                <p><strong>Step 1: Rewrite the exponent</strong><br>
+                \[ e^{(3-2t)} = e^{-2t+3} \]</p>
+                
+                <p><strong>Step 2: Extract the constant</strong><br>
+                \[ I = \int 3e^{-2t+3} \, dt = 3 \int e^{-2t+3} \, dt \]</p>
+                
+                <p><strong>Step 3: Identify parameters</strong><br>
+                \( a = -2 \), \( b = 3 \)</p>
+                
+                <p><strong>Step 4: Apply the integration rule</strong><br>
+                \[ I = 3 \left[ \frac{1}{-2} e^{-2t+3} \right] + c = -1.5e^{(3-2t)} + c \]</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example 11: Definite Integral with Square Root</strong></p>
+                <p>Evaluate \( \int_{1}^{2} 2\sqrt{7-3x} \, dx \).</p>
+                
+                <p><strong>Step 1: Rewrite in index form</strong><br>
+                \[ I = \int_{1}^{2} 2(7-3x)^{1/2} \, dx \]</p>
+                
+                <p><strong>Step 2: Extract the constant</strong><br>
+                \[ I = 2 \int_{1}^{2} (7-3x)^{1/2} \, dx \]</p>
+                
+                <p><strong>Step 3: Identify parameters</strong><br>
+                \( a = -3 \), \( b = 7 \), \( n = 1/2 \)</p>
+                
+                <p><strong>Step 4: Apply the integration rule</strong><br>
+                \[ I = 2 \left[ \frac{(7-3x)^{3/2}}{(-3) \cdot (3/2)} \right]_{1}^{2} = 2 \left[ \frac{(7-3x)^{3/2}}{-9/2} \right]_{1}^{2} = -\frac{4}{9} \left[ (7-3x)^{3/2} \right]_{1}^{2} \]</p>
+                
+                <p><strong>Step 5: Evaluate at limits</strong><br>
+                \[ I = -\frac{4}{9} \left[ (7-3(2))^{3/2} - (7-3(1))^{3/2} \right] = -\frac{4}{9} \left[ (1)^{3/2} - (4)^{3/2} \right] \]<br>
+                \[ = -\frac{4}{9} (1 - 8) = -\frac{4}{9} (-7) = \frac{28}{9} \approx 3.11 \]</p>
+            </div>
+
+            <h2 id="integration-summary">7. Integration Formulas Summary</h2>
+
+            <div class="info-box">
+                <p>Quick Reference Guide</p>
+                This table summarizes the key integration formulas derived using the inverse approach, providing a handy reference for solving problems.
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Function Type</th>
+                        <th>Function</th>
+                        <th>Integral</th>
+                        <th>Restrictions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Power Rule</strong></td>
+                        <td>\( \int x^n \, dx \)</td>
+                        <td>\( \frac{x^{n+1}}{n+1} + c \)</td>
+                        <td>\( n \neq -1 \)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Logarithmic</strong></td>
+                        <td>\( \int \frac{1}{x} \, dx \)</td>
+                        <td>\( \ln|x| + c \)</td>
+                        <td>\( x \neq 0 \)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>General Logarithmic</strong></td>
+                        <td>\( \int \frac{1}{ax+b} \, dx \)</td>
+                        <td>\( \frac{1}{a} \ln|ax+b| + c \)</td>
+                        <td>\( ax+b \neq 0 \)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Binomial Power</strong></td>
+                        <td>\( \int (ax+b)^n \, dx \)</td>
+                        <td>\( \frac{(ax+b)^{n+1}}{a(n+1)} + c \)</td>
+                        <td>\( n \neq -1 \)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Exponential</strong></td>
+                        <td>\( \int e^{ax+b} \, dx \)</td>
+                        <td>\( \frac{1}{a} e^{ax+b} + c \)</td>
+                        <td>\( a \neq 0 \)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Constant Multiple</strong></td>
+                        <td>\( \int k \cdot f(x) \, dx \)</td>
+                        <td>\( k \cdot \int f(x) \, dx \)</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sum/Difference</strong></td>
+                        <td>\( \int [f(x) \pm g(x)] \, dx \)</td>
+                        <td>\( \int f(x) \, dx \pm \int g(x) \, dx \)</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="key-point">
+                <strong>Verification Strategy:</strong> Always verify your integration results by differentiating them. This self-checking property is one of the greatest strengths of the inverse approach to integration.
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 HNC Engineering Mathematics. All rights reserved.</p>
+            <p>The Inverse Approach - Integration by Reversing Differentiation</p>
+        </div>
+    </footer>
+
+    <script src="navigation.js"></script>
+</body>
+</html>
