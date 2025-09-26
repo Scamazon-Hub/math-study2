@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { href: 'max-min.html', label: '📈 Maximum and Minimum', category: 'calculus' },
         { href: 'intergration.html', label: '⛓️ Integration Fundamentals', category: 'calculus' },
         { href: 'indefinite-integration.html', label: '⛓️ Indefinite Integration', category: 'calculus' },
+        { href: 'inverse-approach.html', label: '⛓️ Inverse Integration', category: 'calculus' },
 
         // Applied & Specialized Topics
         { href: 'ac-circuits-analysis.html', label: '⚡ AC Circuit Analysis', category: 'applied' },
