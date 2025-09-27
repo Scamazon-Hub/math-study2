@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { href: 'max-min.html', label: '📈 Maximum and Minimum', category: 'calculus' },
         { href: 'intergration.html', label: '⛓️ Integration Fundamentals', category: 'calculus' },
         { href: 'indefinite-integration.html', label: '⛓️ Indefinite Integration', category: 'calculus' },
+        { href: 'trigfunctions.html', label: 'Trigonometric Functions Integration', category: 'calculus' }
         { href: 'inverse-approach.html', label: '⛓️ Inverse Integration', category: 'calculus' },
 
         // Applied & Specialized Topics
@@ -34,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { href: 'economics.html', label: '💰 Financial Economics', category: 'applied' },
         { href: 'numerical-methods.html', label: '🔢 Numerical Methods', category: 'applied' },
         { href: 'statistics.html', label: '📊 Statistics', category: 'applied' }
+        
     ];
 
     const CATEGORIES = {
