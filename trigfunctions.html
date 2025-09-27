@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trigonometric Functions Integration - HNC Engineering Mathematics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HNC Engineering Mathematics</h1>
+            <p>Trigonometric Functions Integration - Sine and Cosine</p>
+        </div>
+    </header>
+
+    <div class="container grid-layout">
+        <aside id="navigation-placeholder"></aside>
+
+        <main>
+            <h1>Integration of Trigonometric Functions</h1>
+            
+            <div class="info-box">
+                <p>Extending the Inverse Approach to Trigonometry</p>
+                The inverse differentiation method provides a powerful technique for deriving integration rules for trigonometric functions, particularly sine and cosine, which are fundamental in engineering applications involving periodic phenomena.
+            </div>
+
+            <h2 id="basic-trig-rules">1. Basic Trigonometric Integration Rules</h2>
+            
+            <div class="info-box">
+                <p>Reversing Trigonometric Differentiation</p>
+                By applying the inverse approach to the derivatives of sine and cosine functions, we can derive their corresponding integration formulas.
+            </div>
+
+            <h3>Derivation from First Principles</h3>
+            
+            <div class="example-box">
+                <p><strong>Sine Function Integration</strong></p>
+                <p><strong>Step 1: Recall the derivative</strong><br>
+                \[ \frac{d}{dx}[\sin x] = \cos x \]</p>
+                
+                <p><strong>Step 2: Apply the inverse principle</strong><br>
+                \[ \int \cos x \, dx = \sin x + c \]</p>
+                
+                <p><strong>Step 3: Verification</strong><br>
+                \[ \frac{d}{dx}[\sin x + c] = \cos x \quad \checkmark \]</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Cosine Function Integration</strong></p>
+                <p><strong>Step 1: Recall the derivative</strong><br>
+                \[ \frac{d}{dx}[\cos x] = -\sin x \]</p>
+                
+                <p><strong>Step 2: Apply the inverse principle</strong><br>
+                \[ \int (-\sin x) \, dx = \cos x + c \]</p>
+                
+                <p><strong>Step 3: Solve for ∫sin x dx</strong><br>
+                \[ -\int \sin x \, dx = \cos x + c \]<br>
+                \[ \int \sin x \, dx = -\cos x + c \]</p>
+                
+                <p><strong>Step 4: Verification</strong><br>
+                \[ \frac{d}{dx}[-\cos x + c] = -(-\sin x) = \sin x \quad \checkmark \]</p>
+            </div>
+
+            <h3>Summary of Basic Rules</h3>
+            <div class="math-block">
+                <p>\[ \int \sin x \, dx = -\cos x + c \]</p>
+                <p>\[ \int \cos x \, dx = \sin x + c \]</p>
+            </div>
+
+            <h2 id="generalized-trig-rules">2. Generalized Trigonometric Integration</h2>
+
+            <div class="info-box">
+                <p>Extending to Functions of Linear Forms</p>
+                Many engineering applications involve trigonometric functions with arguments of the form (ax + b), requiring generalized integration rules.
+            </div>
+
+            <h3>Derivation Using Chain Rule</h3>
+            
+            <div class="example-box">
+                <p><strong>Cosine Function with Linear Argument</strong></p>
+                <p><strong>Step 1: Differentiate sin(ax + b)</strong><br>
+                Using the chain rule:<br>
+                \[ \frac{d}{dx}[\sin(ax + b)] = \cos(ax + b) \cdot a = a\cos(ax + b) \]</p>
+                
+                <p><strong>Step 2: Apply the inverse principle</strong><br>
+                \[ \int a\cos(ax + b) \, dx = \sin(ax + b) + c \]</p>
+                
+                <p><strong>Step 3: Solve for ∫cos(ax + b) dx</strong><br>
+                \[ \int \cos(ax + b) \, dx = \frac{1}{a} \sin(ax + b) + c \]</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Sine Function with Linear Argument</strong></p>
+                <p><strong>Step 1: Differentiate cos(ax + b)</strong><br>
+                Using the chain rule:<br>
+                \[ \frac{d}{dx}[\cos(ax + b)] = -\sin(ax + b) \cdot a = -a\sin(ax + b) \]</p>
+                
+                <p><strong>Step 2: Apply the inverse principle</strong><br>
+                \[ \int (-a\sin(ax + b)) \, dx = \cos(ax + b) + c \]</p>
+                
+                <p><strong>Step 3: Solve for ∫sin(ax + b) dx</strong><br>
+                \[ -\int a\sin(ax + b) \, dx = \cos(ax + b) + c \]<br>
+                \[ \int \sin(ax + b) \, dx = -\frac{1}{a} \cos(ax + b) + c \]</p>
+            </div>
+
+            <h3>Complete Set of Generalized Rules</h3>
+            <div class="math-block">
+                <p>\[ \int \sin(ax + b) \, dx = -\frac{1}{a} \cos(ax + b) + c \]</p>
+                <p>\[ \int \cos(ax + b) \, dx = \frac{1}{a} \sin(ax + b) + c \]</p>
+            </div>
+
+            <h2 id="integration-examples">3. Worked Examples and Applications</h2>
+
+            <div class="info-box">
+                <p>Practical Implementation</p>
+                These examples demonstrate the application of trigonometric integration rules to various engineering scenarios, including those with numerical coefficients and definite integrals.
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example 1: Basic Trigonometric Integration with Coefficient</strong></p>
+                <p>Integrate \( f(x) = 3 \sin(0.2x + 0.5) \).</p>
+                
+                <p><strong>Step 1: Extract the constant</strong><br>
+                \[ I = \int 3 \sin(0.2x + 0.5) \, dx = 3 \int \sin(0.2x + 0.5) \, dx \]</p>
+                
+                <p><strong>Step 2: Identify parameters</strong><br>
+                \( a = 0.2 \), \( b = 0.5 \)</p>
+                
+                <p><strong>Step 3: Apply the integration rule</strong><br>
+                \[ I = 3 \left[ -\frac{1}{0.2} \cos(0.2x + 0.5) \right] + c = 3 \left[ -5 \cos(0.2x + 0.5) \right] + c \]</p>
+                
+                <p><strong>Step 4: Simplify</strong><br>
+                \[ I = -15 \cos(0.2x + 0.5) + c \]</p>
+                
+                <p><strong>Step 5: Verification</strong><br>
+                \[ \frac{d}{dx}[-15 \cos(0.2x + 0.5) + c] = -15 \cdot (-\sin(0.2x + 0.5) \cdot 0.2) = 3 \sin(0.2x + 0.5) \quad \checkmark \]</p>
+                
+                <p><strong>Engineering Context:</strong> This type of function models oscillatory systems with specific amplitude and phase characteristics.</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example 2: Definite Integral with Angle Parameter</strong></p>
+                <p>Evaluate \( \int_{1.2}^{1.5} 5 \cos(2\theta - 1) \, d\theta \).</p>
+                
+                <p><strong>Step 1: Extract the constant</strong><br>
+                \[ I = \int_{1.2}^{1.5} 5 \cos(2\theta - 1) \, d\theta = 5 \int_{1.2}^{1.5} \cos(2\theta - 1) \, d\theta \]</p>
+                
+                <p><strong>Step 2: Identify parameters</strong><br>
+                \( a = 2 \), \( b = -1 \)</p>
+                
+                <p><strong>Step 3: Apply the integration rule</strong><br>
+                \[ I = 5 \left[ \frac{1}{2} \sin(2\theta - 1) \right]_{1.2}^{1.5} = 2.5 \left[ \sin(2\theta - 1) \right]_{1.2}^{1.5} \]</p>
+                
+                <p><strong>Step 4: Evaluate at upper limit (θ = 1.5)</strong><br>
+                \[ \sin(2(1.5) - 1) = \sin(3 - 1) = \sin(2) \approx 0.9093 \]</p>
+                
+                <p><strong>Step 5: Evaluate at lower limit (θ = 1.2)</strong><br>
+                \[ \sin(2(1.2) - 1) = \sin(2.4 - 1) = \sin(1.4) \approx 0.9854 \]</p>
+                
+                <p><strong>Step 6: Compute the difference</strong><br>
+                \[ I = 2.5 (0.9093 - 0.9854) = 2.5 (-0.0761) = -0.19025 \]</p>
+                
+                <p><strong>Step 7: Final result</strong><br>
+                \[ I \approx -0.190 \quad \text{(to 3 significant figures)} \]</p>
+                
+                <p><strong>Engineering Interpretation:</strong> This definite integral represents the net area under a cosine wave between specific angular values, useful in signal processing and vibration analysis.</p>
+            </div>
+
+            <h2 id="additional-applications">4. Additional Examples and Engineering Applications</h2>
+
+            <div class="info-box">
+                <p>Expanding the Scope</p>
+                Trigonometric integration finds applications in various engineering fields, including electrical engineering, mechanical vibrations, and wave propagation.
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example 3: Electrical Engineering Application</strong></p>
+                <p>In an AC circuit, the current is given by \( i(t) = 10 \sin(100\pi t + \frac{\pi}{4}) \) amperes. Find the charge transferred between t = 0 and t = 0.01 seconds.</p>
+                
+                <p><strong>Step 1: Charge-current relationship</strong><br>
+                Charge \( Q = \int i \, dt \)</p>
+                
+                <p><strong>Step 2: Set up the integral</strong><br>
+                \[ Q = \int_{0}^{0.01} 10 \sin(100\pi t + \frac{\pi}{4}) \, dt \]</p>
+                
+                <p><strong>Step 3: Extract the constant</strong><br>
+                \[ Q = 10 \int_{0}^{0.01} \sin(100\pi t + \frac{\pi}{4}) \, dt \]</p>
+                
+                <p><strong>Step 4: Identify parameters</strong><br>
+                \( a = 100\pi \), \( b = \frac{\pi}{4} \)</p>
+                
+                <p><strong>Step 5: Apply the integration rule</strong><br>
+                \[ Q = 10 \left[ -\frac{1}{100\pi} \cos(100\pi t + \frac{\pi}{4}) \right]_{0}^{0.01} \]</p>
+                
+                <p><strong>Step 6: Simplify</strong><br>
+                \[ Q = -\frac{10}{100\pi} \left[ \cos(100\pi t + \frac{\pi}{4}) \right]_{0}^{0.01} = -\frac{1}{10\pi} \left[ \cos(100\pi t + \frac{\pi}{4}) \right]_{0}^{0.01} \]</p>
+                
+                <p><strong>Step 7: Evaluate at limits</strong><br>
+                At \( t = 0.01 \): \( \cos(100\pi(0.01) + \frac{\pi}{4}) = \cos(\pi + \frac{\pi}{4}) = \cos(\frac{5\pi}{4}) = -\frac{\sqrt{2}}{2} \)<br>
+                At \( t = 0 \): \( \cos(0 + \frac{\pi}{4}) = \cos(\frac{\pi}{4}) = \frac{\sqrt{2}}{2} \)</p>
+                
+                <p><strong>Step 8: Compute the difference</strong><br>
+                \[ Q = -\frac{1}{10\pi} \left( -\frac{\sqrt{2}}{2} - \frac{\sqrt{2}}{2} \right) = -\frac{1}{10\pi} (-\sqrt{2}) = \frac{\sqrt{2}}{10\pi} \]</p>
+                
+                <p><strong>Step 9: Numerical result</strong><br>
+                \[ Q \approx \frac{1.4142}{31.4159} \approx 0.0450 \, \text{coulombs} \]</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Example 4: Mechanical Vibration Analysis</strong></p>
+                <p>The velocity of a vibrating mass is given by \( v(t) = 0.5 \cos(8t - \frac{\pi}{3}) \) m/s. Find the displacement function if the initial displacement is 0.1 meters.</p>
+                
+                <p><strong>Step 1: Displacement-velocity relationship</strong><br>
+                Displacement \( s(t) = \int v(t) \, dt \)</p>
+                
+                <p><strong>Step 2: Set up the integral</strong><br>
+                \[ s(t) = \int 0.5 \cos(8t - \frac{\pi}{3}) \, dt \]</p>
+                
+                <p><strong>Step 3: Extract the constant</strong><br>
+                \[ s(t) = 0.5 \int \cos(8t - \frac{\pi}{3}) \, dt \]</p>
+                
+                <p><strong>Step 4: Identify parameters</strong><br>
+                \( a = 8 \), \( b = -\frac{\pi}{3} \)</p>
+                
+                <p><strong>Step 5: Apply the integration rule</strong><br>
+                \[ s(t) = 0.5 \left[ \frac{1}{8} \sin(8t - \frac{\pi}{3}) \right] + c = 0.0625 \sin(8t - \frac{\pi}{3}) + c \]</p>
+                
+                <p><strong>Step 6: Apply initial condition</strong><br>
+                \( s(0) = 0.1 \): \( 0.1 = 0.0625 \sin(-\frac{\pi}{3}) + c \)<br>
+                \( 0.1 = 0.0625 (-\frac{\sqrt{3}}{2}) + c \)<br>
+                \( 0.1 = -0.0541 + c \)<br>
+                \( c = 0.1541 \)</p>
+                
+                <p><strong>Step 7: Final displacement function</strong><br>
+                \[ s(t) = 0.0625 \sin(8t - \frac{\pi}{3}) + 0.1541 \]</p>
+            </div>
+
+            <h2 id="common-patterns">5. Common Integration Patterns</h2>
+
+            <div class="info-box">
+                <p>Recognizing Standard Forms</p>
+                Many trigonometric integration problems follow recognizable patterns. Identifying these patterns can significantly simplify the solution process.
+            </div>
+
+            <h3>Standard Trigonometric Integration Formulas</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Function</th>
+                        <th>Integral</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>\( \int \sin x \, dx \)</td>
+                        <td>\( -\cos x + c \)</td>
+                        <td>Basic sine integral</td>
+                    </tr>
+                    <tr>
+                        <td>\( \int \cos x \, dx \)</td>
+                        <td>\( \sin x + c \)</td>
+                        <td>Basic cosine integral</td>
+                    </tr>
+                    <tr>
+                        <td>\( \int \sin(ax + b) \, dx \)</td>
+                        <td>\( -\frac{1}{a} \cos(ax + b) + c \)</td>
+                        <td>Generalized sine integral</td>
+                    </tr>
+                    <tr>
+                        <td>\( \int \cos(ax + b) \, dx \)</td>
+                        <td>\( \frac{1}{a} \sin(ax + b) + c \)</td>
+                        <td>Generalized cosine integral</td>
+                    </tr>
+                    <tr>
+                        <td>\( \int k \cdot \sin(ax + b) \, dx \)</td>
+                        <td>\( -\frac{k}{a} \cos(ax + b) + c \)</td>
+                        <td>With constant coefficient</td>
+                    </tr>
+                    <tr>
+                        <td>\( \int k \cdot \cos(ax + b) \, dx \)</td>
+                        <td>\( \frac{k}{a} \sin(ax + b) + c \)</td>
+                        <td>With constant coefficient</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 id="integration-techniques">6. Advanced Techniques and Tips</h2>
+
+            <div class="info-box">
+                <p>Enhancing Problem-Solving Skills</p>
+                Beyond the basic rules, several techniques can help solve more complex trigonometric integration problems efficiently.
+            </div>
+
+            <h3>Strategy for Trigonometric Integration</h3>
+            <ol>
+                <li><strong>Identify the form:</strong> Determine if the integrand matches a standard trigonometric pattern</li>
+                <li><strong>Extract constants:</strong> Factor out numerical coefficients before integrating</li>
+                <li><strong>Parameter identification:</strong> Clearly identify a and b in expressions of the form (ax + b)</li>
+                <li><strong>Verification:</strong> Always differentiate your result to verify correctness</li>
+                <li><strong>Unit consistency:</strong> Ensure mathematical operations maintain dimensional consistency in engineering applications</li>
+            </ol>
+
+            <div class="warning">
+                <p><strong>Common Pitfalls to Avoid:</strong></p>
+                <ul>
+                    <li>Forgetting to divide by the coefficient 'a' in generalized forms</li>
+                    <li>Mishandling negative signs, especially with sine integrals</li>
+                    <li>Using degrees instead of radians in calculus operations</li>
+                    <li>Omitting the constant of integration in indefinite integrals</li>
+                    <li>Incorrectly applying limits in definite integrals</li>
+                </ul>
+            </div>
+
+            <div class="key-point">
+                <strong>Engineering Application Insight:</strong> Trigonometric integration is fundamental in analyzing periodic systems. The ability to integrate sine and cosine functions efficiently is crucial for solving differential equations that model oscillatory behavior in electrical circuits, mechanical vibrations, and wave phenomena.
+            </div>
+
+            <h2 id="comprehensive-summary">7. Comprehensive Trigonometric Integration Summary</h2>
+
+            <div class="info-box">
+                <p>Quick Reference Guide</p>
+                This table summarizes all essential trigonometric integration formulas for easy reference during problem-solving.
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Function Type</th>
+                        <th>Function</th>
+                        <th>Integral</th>
+                        <th>Restrictions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="2"><strong>Basic Trigonometric</strong></td>
+                        <td>\( \int \sin x \, dx \)</td>
+                        <td>\( -\cos x + c \)</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>\( \int \cos x \, dx \)</td>
+                        <td>\( \sin x + c \)</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2"><strong>Generalized Trigonometric</strong></td>
+                        <td>\( \int \sin(ax + b) \, dx \)</td>
+                        <td>\( -\frac{1}{a} \cos(ax + b) + c \)</td>
+                        <td>\( a \neq 0 \)</td>
+                    </tr>
+                    <tr>
+                        <td>\( \int \cos(ax + b) \, dx \)</td>
+                        <td>\( \frac{1}{a} \sin(ax + b) + c \)</td>
+                        <td>\( a \neq 0 \)</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2"><strong>With Constant Coefficient</strong></td>
+                        <td>\( \int k \cdot \sin(ax + b) \, dx \)</td>
+                        <td>\( -\frac{k}{a} \cos(ax + b) + c \)</td>
+                        <td>\( a \neq 0 \)</td>
+                    </tr>
+                    <tr>
+                        <td>\( \int k \cdot \cos(ax + b) \, dx \)</td>
+                        <td>\( \frac{k}{a} \sin(ax + b) + c \)</td>
+                        <td>\( a \neq 0 \)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Definite Integral</strong></td>
+                        <td>\( \int_{\alpha}^{\beta} \sin(ax + b) \, dx \)</td>
+                        <td>\( \left[ -\frac{1}{a} \cos(ax + b) \right]_{\alpha}^{\beta} \)</td>
+                        <td>\( a \neq 0 \)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Definite Integral</strong></td>
+                        <td>\( \int_{\alpha}^{\beta} \cos(ax + b) \, dx \)</td>
+                        <td>\( \left[ \frac{1}{a} \sin(ax + b) \right]_{\alpha}^{\beta} \)</td>
+                        <td>\( a \neq 0 \)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 HNC Engineering Mathematics. All rights reserved.</p>
+            <p>Trigonometric Functions Integration - Sine and Cosine Applications</p>
+        </div>
+    </footer>
+
+    <script src="navigation.js"></script>
+</body>
+</html>
