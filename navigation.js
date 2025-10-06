@@ -24,18 +24,20 @@ document.addEventListener('DOMContentLoaded', () => {
         { href: 'quotient-rule.html', label: '➗ Quotient Rule', category: 'calculus' },
         { href: 'exponential-calculus.html', label: '📈 Exponential Calculus', category: 'calculus' },
         { href: 'max-min.html', label: '📈 Maximum and Minimum', category: 'calculus' },
-        { href: 'intergration.html', label: '⛓️ Integration Fundamentals', category: 'calculus' },
-        { href: 'indefinite-integration.html', label: '⛓️ Indefinite Integration', category: 'calculus' },
-        { href: 'trigfunctions.html', label: 'Trigonometric Functions Integration', category: 'calculus' },
-        { href: 'inverse-approach.html', label: '⛓️ Inverse Integration', category: 'calculus' },
 
         // Applied & Specialized Topics
         { href: 'ac-circuits-analysis.html', label: '⚡ AC Circuit Analysis', category: 'applied' },
         { href: 'applied-mechanics.html', label: '⚙️ Applied Mechanics', category: 'applied' },
         { href: 'economics.html', label: '💰 Financial Economics', category: 'applied' },
         { href: 'numerical-methods.html', label: '🔢 Numerical Methods', category: 'applied' },
-        { href: 'statistics.html', label: '📊 Statistics', category: 'applied' }
-        
+        { href: 'statistics.html', label: '📊 Statistics', category: 'applied' },
+
+        // Statistics
+        { href: 'statistical-methods-1.html', label: 'Stats1', category: 'applied' },
+        { href: 'statistical-methods-2.html', label: 'Stats2', category: 'applied' },
+        { href: 'statistical-methods-3.html', label: 'Stats3', category: 'applied' },
+        { href: 'statistical-methods-4.html', label: 'Stats4', category: 'applied' },
+        { href: 'statistical-methods-5.html', label: 'Stats5', category: 'applied' }
     ];
 
     const CATEGORIES = {

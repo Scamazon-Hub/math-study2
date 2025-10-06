@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistical Methods 1 - HNC Engineering Mathematics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HNC Engineering Mathematics</h1>
+            <p>Statistics - Lesson 1: Statistical Methods 1</p>
+        </div>
+    </header>
+
+    <div class="container grid-layout">
+        <aside id="navigation-placeholder"></aside>
+
+        <main>
+            <h1>Statistical Methods 1</h1>
+            
+            <div class="info-box">
+                <p>Foundations of Engineering Data Analysis</p>
+                Statistical methods provide engineers with powerful tools for analyzing data, making informed decisions, and understanding variability in engineering processes and systems.
+            </div>
+
+            <h2 id="introduction">Introduction to Statistical Methods</h2>
+            
+            <div class="info-box">
+                <p>The Role of Statistics in Engineering</p>
+                Statistics enables engineers to transform raw data into meaningful information, supporting quality control, reliability analysis, process optimization, and evidence-based decision making.
+            </div>
+
+            <h3>Why Statistics Matters in Engineering</h3>
+            <p>Engineering decisions are increasingly data-driven. Statistical methods help engineers:</p>
+            <ul>
+                <li>Analyze experimental results and determine significance</li>
+                <li>Monitor and control manufacturing processes</li>
+                <li>Predict system reliability and failure rates</li>
+                <li>Optimize designs based on performance data</li>
+                <li>Understand and account for natural variability</li>
+            </ul>
+
+            <h3>Key Statistical Concepts</h3>
+            <div class="math-block">
+                <p><strong>Population:</strong> The complete set of items or individuals of interest</p>
+                <p><strong>Sample:</strong> A subset of the population selected for analysis</p>
+                <p><strong>Parameter:</strong> A numerical characteristic of a population</p>
+                <p><strong>Statistic:</strong> A numerical characteristic of a sample</p>
+                <p><strong>Variable:</strong> A characteristic that can take different values</p>
+            </div>
+
+            <h2 id="definitions">Statistical Methods and Definitions</h2>
+
+            <div class="info-box">
+                <p>Fundamental Statistical Terminology</p>
+                Understanding basic statistical concepts is essential for proper data analysis and interpretation in engineering contexts.
+            </div>
+
+            <h3>Types of Data</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data Type</th>
+                        <th>Description</th>
+                        <th>Engineering Examples</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Qualitative</strong></td>
+                        <td>Non-numerical data representing categories</td>
+                        <td>Material type, failure mode, supplier</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Quantitative Discrete</strong></td>
+                        <td>Numerical data with countable values</td>
+                        <td>Number of defects, cycles to failure</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Quantitative Continuous</strong></td>
+                        <td>Numerical data with measurable values</td>
+                        <td>Temperature, pressure, dimensions</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Data Measurement Scales</h3>
+            <div class="example-box">
+                <p><strong>Understanding Measurement Levels</strong></p>
+                
+                <p><strong>Nominal Scale:</strong> Categories without order (e.g., material types: steel, aluminum, titanium)</p>
+                
+                <p><strong>Ordinal Scale:</strong> Categories with order but unknown intervals (e.g., quality ratings: poor, fair, good, excellent)</p>
+                
+                <p><strong>Interval Scale:</strong> Numerical values with equal intervals but no true zero (e.g., temperature in °C)</p>
+                
+                <p><strong>Ratio Scale:</strong> Numerical values with equal intervals and true zero (e.g., length, weight, time)</p>
+            </div>
+
+            <h2 id="central-tendency">Central Tendencies and Measures of Dispersion</h2>
+
+            <div class="info-box">
+                <p>Describing Data Distributions</p>
+                Central tendency measures identify typical values, while dispersion measures quantify variability - both essential for understanding engineering data patterns.
+            </div>
+
+            <h3>Measures of Central Tendency</h3>
+            
+            <div class="example-box">
+                <p><strong>Mean (Arithmetic Average)</strong></p>
+                <p>The sum of all values divided by the number of values:</p>
+                <p>\[ \bar{x} = \frac{\sum_{i=1}^{n} x_i}{n} \]</p>
+                <p><strong>Engineering Example:</strong> Average tensile strength of 10 steel samples: 450, 455, 448, 462, 457, 451, 459, 453, 446, 460 MPa</p>
+                <p>\[ \bar{x} = \frac{450 + 455 + 448 + 462 + 457 + 451 + 459 + 453 + 446 + 460}{10} = \frac{4541}{10} = 454.1 \text{ MPa} \]</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Median</strong></p>
+                <p>The middle value when data is arranged in order:</p>
+                <p><strong>Engineering Example:</strong> Same tensile strength data sorted: 446, 448, 450, 451, 453, 455, 457, 459, 460, 462</p>
+                <p>Median = average of 5th and 6th values = \( \frac{453 + 455}{2} = 454 \) MPa</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Mode</strong></p>
+                <p>The most frequently occurring value:</p>
+                <p><strong>Engineering Example:</strong> Defect types in manufacturing: 12 dimensional errors, 8 surface flaws, 15 dimensional errors, 7 material faults, 9 dimensional errors</p>
+                <p>Mode = "dimensional errors" (most frequent defect type)</p>
+            </div>
+
+            <h3>Measures of Dispersion</h3>
+
+            <div class="example-box">
+                <p><strong>Range</strong></p>
+                <p>The difference between maximum and minimum values:</p>
+                <p>\[ \text{Range} = x_{\text{max}} - x_{\text{min}} \]</p>
+                <p><strong>Engineering Example:</strong> Using tensile strength data: 446, 448, 450, 451, 453, 455, 457, 459, 460, 462 MPa</p>
+                <p>Range = 462 - 446 = 16 MPa</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Variance</strong></p>
+                <p>The average of squared deviations from the mean:</p>
+                <p>\[ s^2 = \frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n-1} \]</p>
+                <p><strong>Engineering Example:</strong> Sample variance calculation for first 3 tensile strengths: 450, 455, 448 MPa (mean = 451)</p>
+                <p>\[ s^2 = \frac{(450-451)^2 + (455-451)^2 + (448-451)^2}{3-1} = \frac{1 + 16 + 9}{2} = \frac{26}{2} = 13 \text{ MPa}^2 \]</p>
+            </div>
+
+            <h2 id="interpretation">Interpretation of Statistical Basics</h2>
+
+            <div class="info-box">
+                <p>Making Sense of Statistical Measures</p>
+                Proper interpretation of central tendency and dispersion measures is crucial for drawing meaningful engineering conclusions from data.
+            </div>
+
+            <h3>When to Use Each Measure</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Measure</th>
+                        <th>Best Used When</th>
+                        <th>Limitations</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Mean</strong></td>
+                        <td>Data is symmetrical without outliers</td>
+                        <td>Sensitive to extreme values</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Median</strong></td>
+                        <td>Data is skewed or has outliers</td>
+                        <td>Doesn't use all data points</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mode</strong></td>
+                        <td>Identifying most common category</td>
+                        <td>May not be unique or exist</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Range</strong></td>
+                        <td>Quick assessment of spread</td>
+                        <td>Highly sensitive to outliers</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Variance</strong></td>
+                        <td>Complete picture of variability</td>
+                        <td>Units are squared</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Shape of Distributions</h3>
+            <div class="math-block">
+                <p><strong>Symmetrical Distribution:</strong> Mean ≈ Median ≈ Mode</p>
+                <p><strong>Right-Skewed Distribution:</strong> Mean > Median > Mode</p>
+                <p><strong>Left-Skewed Distribution:</strong> Mean < Median < Mode</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Engineering Interpretation Example</strong></p>
+                <p>A manufacturing process produces components with the following diameter measurements (mm):</p>
+                <p>Mean = 25.02, Median = 25.01, Standard Deviation = 0.15</p>
+                
+                <p><strong>Interpretation:</strong></p>
+                <ul>
+                    <li>The process is centered slightly above the target of 25.00 mm</li>
+                    <li>The small difference between mean and median suggests near-symmetrical distribution</li>
+                    <li>The standard deviation indicates typical variation of ±0.15 mm around the mean</li>
+                    <li>99.7% of components should fall between 24.57 mm and 25.47 mm (mean ± 3σ)</li>
+                </ul>
+            </div>
+
+            <h2 id="standard-deviation">Calculating Standard Deviations</h2>
+
+            <div class="info-box">
+                <p>The Most Important Measure of Variability</p>
+                Standard deviation quantifies the average distance of data points from the mean, providing a standardized measure of variability with the same units as the original data.
+            </div>
+
+            <h3>Standard Deviation Formula</h3>
+            <div class="math-block">
+                <p>Sample Standard Deviation:</p>
+                <p>\[ s = \sqrt{\frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n-1}} \]</p>
+                <p>Population Standard Deviation:</p>
+                <p>\[ \sigma = \sqrt{\frac{\sum_{i=1}^{N} (x_i - \mu)^2}{N}} \]</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Step-by-Step Standard Deviation Calculation</strong></p>
+                <p>Calculate the standard deviation for engine efficiency measurements: 84%, 87%, 85%, 89%, 86%</p>
+                
+                <p><strong>Step 1: Calculate the mean</strong><br>
+                \[ \bar{x} = \frac{84 + 87 + 85 + 89 + 86}{5} = \frac{431}{5} = 86.2\% \]</p>
+                
+                <p><strong>Step 2: Calculate deviations from mean</strong><br>
+                84 - 86.2 = -2.2<br>
+                87 - 86.2 = 0.8<br>
+                85 - 86.2 = -1.2<br>
+                89 - 86.2 = 2.8<br>
+                86 - 86.2 = -0.2</p>
+                
+                <p><strong>Step 3: Square the deviations</strong><br>
+                (-2.2)² = 4.84<br>
+                (0.8)² = 0.64<br>
+                (-1.2)² = 1.44<br>
+                (2.8)² = 7.84<br>
+                (-0.2)² = 0.04</p>
+                
+                <p><strong>Step 4: Sum squared deviations</strong><br>
+                4.84 + 0.64 + 1.44 + 7.84 + 0.04 = 14.8</p>
+                
+                <p><strong>Step 5: Divide by (n-1) for sample variance</strong><br>
+                \[ s^2 = \frac{14.8}{5-1} = \frac{14.8}{4} = 3.7 \]</p>
+                
+                <p><strong>Step 6: Take square root for standard deviation</strong><br>
+                \[ s = \sqrt{3.7} \approx 1.92\% \]</p>
+                
+                <p><strong>Engineering Interpretation:</strong> The typical variation in engine efficiency is about ±1.92% around the mean value of 86.2%.</p>
+            </div>
+
+            <h3>Standard Deviation in Quality Control</h3>
+            <div class="math-block">
+                <p><strong>Empirical Rule (68-95-99.7 Rule):</strong></p>
+                <p>For normally distributed data:</p>
+                <p>• Approximately 68% of values fall within ±1σ of the mean</p>
+                <p>• Approximately 95% of values fall within ±2σ of the mean</p>
+                <p>• Approximately 99.7% of values fall within ±3σ of the mean</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Engineering Application: Process Capability</strong></p>
+                <p>A machining process produces shafts with diameter mean = 50.2 mm and standard deviation = 0.15 mm. Specifications require 50.0 ± 0.5 mm.</p>
+                
+                <p><strong>Analysis:</strong></p>
+                <p>Upper Specification Limit (USL) = 50.5 mm</p>
+                <p>Lower Specification Limit (LSL) = 49.5 mm</p>
+                <p>Process spread = 6σ = 6 × 0.15 = 0.90 mm</p>
+                <p>Specification range = 50.5 - 49.5 = 1.0 mm</p>
+                
+                <p><strong>Conclusion:</strong> The process is capable since process spread (0.90 mm) is less than specification range (1.0 mm).</p>
+            </div>
+
+            <h2 id="summary">Summary of Statistical Methods 1</h2>
+
+            <div class="info-box">
+                <p>Key Takeaways</p>
+                This lesson established the foundational concepts of statistical analysis for engineering applications, focusing on data description and variability measurement.
+            </div>
+
+            <h3>Essential Concepts Covered</h3>
+            <div class="key-point">
+                <ul>
+                    <li><strong>Statistical Terminology:</strong> Population, sample, parameter, statistic, variable</li>
+                    <li><strong>Data Types:</strong> Qualitative vs. quantitative, discrete vs. continuous</li>
+                    <li><strong>Central Tendency:</strong> Mean, median, mode - when and why to use each</li>
+                    <li><strong>Dispersion Measures:</strong> Range, variance, standard deviation</li>
+                    <li><strong>Interpretation:</strong> Understanding what statistical measures reveal about engineering processes</li>
+                    <li><strong>Standard Deviation:</strong> Calculation and application in quality control</li>
+                </ul>
+            </div>
+
+            <h3>Engineering Applications</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Statistical Concept</th>
+                        <th>Engineering Application</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Mean and Standard Deviation</strong></td>
+                        <td>Process capability analysis, quality control</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Median</strong></td>
+                        <td>Robust estimation in presence of outliers</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Range and Variance</strong></td>
+                        <td>Process variability assessment</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Data Types</strong></td>
+                        <td>Selecting appropriate analysis methods</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Distribution Shape</strong></td>
+                        <td>Understanding process behavior</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="note">
+                <p><strong>Next Steps:</strong> In Lesson 2, we will explore frequency distributions, probability density, and more advanced statistical visualization techniques that build upon these foundational concepts.</p>
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 HNC Engineering Mathematics. All rights reserved.</p>
+            <p>Statistics - Lesson 1: Statistical Methods 1</p>
+        </div>
+    </footer>
+
+    <script src="navigation.js"></script>
+</body>
+</html>

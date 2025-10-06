@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linear Correlation and Regression - HNC Engineering Mathematics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HNC Engineering Mathematics</h1>
+            <p>Statistics - Lesson 4: Linear Correlation and Regression</p>
+        </div>
+    </header>
+
+    <div class="container grid-layout">
+        <aside id="navigation-placeholder"></aside>
+
+        <main>
+            <h1>Linear Correlation and Regression</h1>
+            
+            <div class="info-box">
+                <p>Analyzing Relationships and Building Predictive Models</p>
+                Correlation and regression analysis provide powerful tools for understanding relationships between variables and developing predictive models essential for engineering design, optimization, and control.
+            </div>
+
+            <h2 id="introduction">Introduction to Linear Correlation and Regression</h2>
+            
+            <div class="info-box">
+                <p>From Description to Prediction</p>
+                While descriptive statistics help us understand individual variables, correlation and regression analysis reveal how variables relate to each other, enabling prediction and optimization in engineering systems.
+            </div>
+
+            <h3>Engineering Applications</h3>
+            <p>Correlation and regression are fundamental to:</p>
+            <ul>
+                <li><strong>Process Optimization:</strong> Relating process parameters to product quality</li>
+                <li><strong>Design Engineering:</strong> Predicting performance from design variables</li>
+                <li><strong>Quality Control:</strong> Identifying relationships between process variables</li>
+                <li><strong>Reliability Engineering:</strong> Modeling failure mechanisms</li>
+                <li><strong>Experimental Design:</strong> Analyzing factor effects and interactions</li>
+            </ul>
+
+            <h2 id="linear-correlation">Linear Correlation</h2>
+
+            <div class="info-box">
+                <p>Measuring Relationship Strength</p>
+                Correlation analysis quantifies the strength and direction of linear relationships between variables, providing the foundation for understanding causal relationships in engineering systems.
+            </div>
+
+            <h3>Scatter Diagrams and Visual Analysis</h3>
+            
+            <div class="example-box">
+                <p><strong>Engineering Example: Temperature vs. Efficiency</strong></p>
+                <p>A heat exchanger's efficiency is measured at different operating temperatures:</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Temperature (°C)</th>
+                            <th>Efficiency (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>80</td>
+                            <td>72</td>
+                        </tr>
+                        <tr>
+                            <td>85</td>
+                            <td>75</td>
+                        </tr>
+                        <tr>
+                            <td>90</td>
+                            <td>78</td>
+                        </tr>
+                        <tr>
+                            <td>95</td>
+                            <td>82</td>
+                        </tr>
+                        <tr>
+                            <td>100</td>
+                            <td>85</td>
+                        </tr>
+                        <tr>
+                            <td>105</td>
+                            <td>87</td>
+                        </tr>
+                        <tr>
+                            <td>110</td>
+                            <td>90</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <p><strong>Visual Analysis:</strong> The scatter diagram shows a strong positive linear relationship - as temperature increases, efficiency increases proportionally.</p>
+            </div>
+
+            <h3>Pearson Correlation Coefficient</h3>
+            
+            <div class="math-block">
+                <p>Pearson's r Formula:</p>
+                <p>\[ r = \frac{\sum{(x_i - \bar{x})(y_i - \bar{y})}}{\sqrt{\sum{(x_i - \bar{x})^2}\sum{(y_i - \bar{y})^2}}} \]</p>
+                <p>Simplified Computational Formula:</p>
+                <p>\[ r = \frac{n\sum{xy} - \sum{x}\sum{y}}{\sqrt{[n\sum{x^2} - (\sum{x})^2][n\sum{y^2} - (\sum{y})^2]}} \]</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Correlation Calculation Example</strong></p>
+                <p>Calculate the correlation between engine speed (RPM) and fuel consumption (L/h):</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Speed (x)</th>
+                            <th>Fuel (y)</th>
+                            <th>x²</th>
+                            <th>y²</th>
+                            <th>xy</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1500</td>
+                            <td>8.2</td>
+                            <td>2,250,000</td>
+                            <td>67.24</td>
+                            <td>12,300</td>
+                        </tr>
+                        <tr>
+                            <td>2000</td>
+                            <td>10.5</td>
+                            <td>4,000,000</td>
+                            <td>110.25</td>
+                            <td>21,000</td>
+                        </tr>
+                        <tr>
+                            <td>2500</td>
+                            <td>13.1</td>
+                            <td>6,250,000</td>
+                            <td>171.61</td>
+                            <td>32,750</td>
+                        </tr>
+                        <tr>
+                            <td>3000</td>
+                            <td>16.3</td>
+                            <td>9,000,000</td>
+                            <td>265.69</td>
+                            <td>48,900</td>
+                        </tr>
+                        <tr>
+                            <td>3500</td>
+                            <td>20.1</td>
+                            <td>12,250,000</td>
+                            <td>404.01</td>
+                            <td>70,350</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Σ</strong></td>
+                            <td><strong>12500</strong></td>
+                            <td><strong>68.2</strong></td>
+                            <td><strong>33,750,000</strong></td>
+                            <td><strong>1,018.8</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <p><strong>Calculation:</strong></p>
+                <p>n = 5, Σx = 12500, Σy = 68.2, Σx² = 33,750,000, Σy² = 1018.8, Σxy = 185,300</p>
+                <p>\[ r = \frac{5(185300) - (12500)(68.2)}{\sqrt{[5(33750000) - (12500)^2][5(1018.8) - (68.2)^2]}} \]</p>
+                <p>\[ r = \frac{926500 - 852500}{\sqrt{[168750000 - 156250000][5094 - 4651.24]}} \]</p>
+                <p>\[ r = \frac{74000}{\sqrt{[12500000][442.76]}} = \frac{74000}{\sqrt{5534500000}} = \frac{74000}{74393} = 0.994 \]</p>
+                
+                <p><strong>Interpretation:</strong> r = 0.994 indicates a very strong positive linear relationship between engine speed and fuel consumption.</p>
+            </div>
+
+            <h3>Interpreting Correlation Coefficients</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>r Value</th>
+                        <th>Strength</th>
+                        <th>Direction</th>
+                        <th>Engineering Implication</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>0.9 to 1.0</td>
+                        <td>Very strong</td>
+                        <td>Positive</td>
+                        <td>Strong predictive relationship</td>
+                    </tr>
+                    <tr>
+                        <td>0.7 to 0.9</td>
+                        <td>Strong</td>
+                        <td>Positive</td>
+                        <td>Good for prediction</td>
+                    </tr>
+                    <tr>
+                        <td>0.5 to 0.7</td>
+                        <td>Moderate</td>
+                        <td>Positive</td>
+                        <td>Useful relationship</td>
+                    </tr>
+                    <tr>
+                        <td>0.3 to 0.5</td>
+                        <td>Weak</td>
+                        <td>Positive</td>
+                        <td>Limited predictive value</td>
+                    </tr>
+                    <tr>
+                        <td>0.0 to 0.3</td>
+                        <td>Very weak</td>
+                        <td>None</td>
+                        <td>No practical relationship</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="warning">
+                <p><strong>Correlation vs. Causation:</strong> High correlation does not imply causation. Always consider engineering principles and potential confounding variables when interpreting correlation results.</p>
+            </div>
+
+            <h2 id="regression">Regression</h2>
+
+            <div class="info-box">
+                <p>Building Predictive Models</p>
+                Regression analysis develops mathematical models that predict one variable from another, enabling engineers to optimize processes, predict performance, and understand system behavior.
+            </div>
+
+            <h3>Simple Linear Regression Model</h3>
+            
+            <div class="math-block">
+                <p>Regression Equation:</p>
+                <p>\[ y = a + bx \]</p>
+                <p>where:</p>
+                <p>• y = dependent variable (response)</p>
+                <p>• x = independent variable (predictor)</p>
+                <p>• a = y-intercept (constant term)</p>
+                <p>• b = slope (regression coefficient)</p>
+            </div>
+
+            <h3>Least Squares Estimation</h3>
+            
+            <div class="math-block">
+                <p>Slope Formula:</p>
+                <p>\[ b = \frac{n\sum{xy} - \sum{x}\sum{y}}{n\sum{x^2} - (\sum{x})^2} \]</p>
+                <p>Intercept Formula:</p>
+                <p>\[ a = \bar{y} - b\bar{x} \]</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Regression Model Development</strong></p>
+                <p>Using the engine speed vs. fuel consumption data from the correlation example:</p>
+                
+                <p><strong>Step 1: Calculate slope (b)</strong></p>
+                <p>\[ b = \frac{5(185300) - (12500)(68.2)}{5(33750000) - (12500)^2} = \frac{926500 - 852500}{168750000 - 156250000} = \frac{74000}{12500000} = 0.00592 \]</p>
+                
+                <p><strong>Step 2: Calculate means</strong></p>
+                <p>\[ \bar{x} = \frac{12500}{5} = 2500, \quad \bar{y} = \frac{68.2}{5} = 13.64 \]</p>
+                
+                <p><strong>Step 3: Calculate intercept (a)</strong></p>
+                <p>\[ a = 13.64 - 0.00592(2500) = 13.64 - 14.8 = -1.16 \]</p>
+                
+                <p><strong>Step 4: Regression equation</strong></p>
+                <p>\[ \hat{y} = -1.16 + 0.00592x \]</p>
+                
+                <p><strong>Interpretation:</strong> For every 1 RPM increase in engine speed, fuel consumption increases by 0.00592 L/h.</p>
+            </div>
+
+            <h3>Regression Diagnostics and Validation</h3>
+
+            <div class="example-box">
+                <p><strong>Model Assessment and Prediction</strong></p>
+                <p>Using the regression equation: \( \hat{y} = -1.16 + 0.00592x \)</p>
+                
+                <p><strong>Prediction at x = 2750 RPM:</strong></p>
+                <p>\[ \hat{y} = -1.16 + 0.00592(2750) = -1.16 + 16.28 = 15.12 \text{ L/h} \]</p>
+                
+                <p><strong>Goodness of Fit - Coefficient of Determination (R²):</strong></p>
+                <p>\[ R^2 = r^2 = (0.994)^2 = 0.988 \]</p>
+                <p>98.8% of the variation in fuel consumption is explained by engine speed.</p>
+                
+                <p><strong>Residual Analysis:</strong></p>
+                <p>Residual = Observed - Predicted</p>
+                <p>Small, randomly distributed residuals indicate a good model fit.</p>
+            </div>
+
+            <h3>Multiple Linear Regression</h3>
+            
+            <div class="math-block">
+                <p>Multiple Regression Model:</p>
+                <p>\[ y = a + b_1x_1 + b_2x_2 + \cdots + b_kx_k \]</p>
+                <p>where multiple predictor variables are used to improve prediction accuracy.</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Engineering Optimization Example</strong></p>
+                <p>A chemical process has yield (y) dependent on temperature (x₁) and pressure (x₂):</p>
+                <p>\[ \hat{y} = 25.3 + 0.85x_1 + 1.2x_2 \]</p>
+                
+                <p><strong>Interpretation:</strong></p>
+                <p>• Holding pressure constant, each 1°C temperature increase improves yield by 0.85%</p>
+                <p>• Holding temperature constant, each 1 bar pressure increase improves yield by 1.2%</p>
+                <p>• The model can be used to optimize process conditions for maximum yield</p>
+            </div>
+
+            <h3>Regression Assumptions and Limitations</h3>
+            <div class="warning">
+                <p><strong>Key Assumptions for Valid Regression:</strong></p>
+                <ul>
+                    <li><strong>Linearity:</strong> Relationship between variables is linear</li>
+                    <li><strong>Independence:</strong> Observations are independent</li>
+                    <li><strong>Homoscedasticity:</strong> Constant variance of errors</li>
+                    <li><strong>Normality:</strong> Errors are normally distributed</li>
+                    <li><strong>No Multicollinearity:</strong> Predictor variables aren't highly correlated</li>
+                </ul>
+            </div>
+
+            <h2 id="summary">Summary of Linear Correlation and Regression</h2>
+
+            <div class="info-box">
+                <p>Powerful Tools for Engineering Analysis</p>
+                Correlation and regression provide the mathematical foundation for understanding relationships, developing predictive models, and optimizing engineering systems.
+            </div>
+
+            <h3>Key Concepts and Formulas</h3>
+            <div class="key-point">
+                <ul>
+                    <li><strong>Correlation Coefficient (r):</strong> Measures strength and direction of linear relationships (-1 to +1)</li>
+                    <li><strong>Regression Equation:</strong> y = a + bx predicts dependent variable from independent variable</li>
+                    <li><strong>Least Squares Method:</strong> Minimizes sum of squared residuals to find best-fit line</li>
+                    <li><strong>Coefficient of Determination (R²):</strong> Proportion of variance explained by the model (0 to 1)</li>
+                    <li><strong>Residual Analysis:</strong> Validates model assumptions and identifies problems</li>
+                </ul>
+            </div>
+
+            <h3>Engineering Applications Summary</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Application Area</th>
+                        <th>Correlation Use</th>
+                        <th>Regression Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Process Engineering</strong></td>
+                        <td>Identify key process variables</td>
+                        <td>Optimize process parameters</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Quality Control</strong></td>
+                        <td>Detect relationships between quality metrics</td>
+                        <td>Predict quality from process variables</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Design Engineering</strong></td>
+                        <td>Understand factor relationships</td>
+                        <td>Predict performance from design parameters</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Reliability Engineering</strong></td>
+                        <td>Identify failure correlations</td>
+                        <td>Predict failure times from operating conditions</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Experimental Design</strong></td>
+                        <td>Screen important factors</td>
+                        <td>Develop response surface models</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Practical Implementation Guidelines</h3>
+            <div class="math-block">
+                <p><strong>Step 1: Visual Analysis</strong> - Create scatter diagrams to assess linearity</p>
+                <p><strong>Step 2: Correlation Analysis</strong> - Calculate r to quantify relationship strength</p>
+                <p><strong>Step 3: Regression Modeling</strong> - Develop prediction equation using least squares</p>
+                <p><strong>Step 4: Model Validation</strong> - Check assumptions using residual analysis</p>
+                <p><strong>Step 5: Prediction and Optimization</strong> - Use model for engineering decisions</p>
+            </div>
+
+            <div class="note">
+                <p><strong>Advanced Topics:</strong> Future statistical studies may explore nonlinear regression, multiple regression with interaction terms, time series analysis, and design of experiments - all building on the correlation and regression foundations established in this lesson.</p>
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 HNC Engineering Mathematics. All rights reserved.</p>
+            <p>Statistics - Lesson 4: Linear Correlation and Regression</p>
+        </div>
+    </footer>
+
+    <script src="navigation.js"></script>
+</body>
+</html>

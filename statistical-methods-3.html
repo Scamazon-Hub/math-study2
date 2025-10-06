@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Normal Distribution - HNC Engineering Mathematics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HNC Engineering Mathematics</h1>
+            <p>Statistics - Lesson 3: The Normal Distribution</p>
+        </div>
+    </header>
+
+    <div class="container grid-layout">
+        <aside id="navigation-placeholder"></aside>
+
+        <main>
+            <h1>The Normal Distribution</h1>
+            
+            <div class="info-box">
+                <p>The Foundation of Statistical Quality Control</p>
+                The normal distribution is the most important probability distribution in engineering statistics, modeling countless natural phenomena and forming the basis for statistical process control and reliability analysis.
+            </div>
+
+            <h2 id="introduction">Introduction to The Normal Distribution</h2>
+            
+            <div class="info-box">
+                <p>Why Normal Distribution Matters in Engineering</p>
+                From manufacturing tolerances to measurement errors, the normal distribution provides the mathematical foundation for understanding and controlling variability in engineering processes.
+            </div>
+
+            <h3>Historical Context and Engineering Significance</h3>
+            <p>The normal distribution appears throughout engineering:</p>
+            <ul>
+                <li><strong>Manufacturing:</strong> Component dimensions and tolerances</li>
+                <li><strong>Materials Science:</strong> Strength and property variations</li>
+                <li><strong>Quality Control:</strong> Process capability analysis</li>
+                <li><strong>Reliability Engineering:</strong> Failure time distributions</li>
+                <li><strong>Measurement Systems:</strong> Instrument error analysis</li>
+            </ul>
+
+            <h2 id="histograms-curves">Histograms and Curves</h2>
+
+            <div class="info-box">
+                <p>From Discrete Data to Continuous Distributions</p>
+                Histograms of engineering data often approximate the smooth bell-shaped curve of the normal distribution as sample sizes increase.
+            </div>
+
+            <h3>The Central Limit Theorem in Practice</h3>
+            
+            <div class="math-block">
+                <p><strong>Central Limit Theorem:</strong></p>
+                <p>For large sample sizes (n ≥ 30), the sampling distribution of the mean approaches a normal distribution regardless of the shape of the population distribution.</p>
+                <p>\[ \bar{X} \sim N\left(\mu, \frac{\sigma^2}{n}\right) \]</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Engineering Application: Process Monitoring</strong></p>
+                <p>A manufacturing process produces shafts with diameter measurements. Even if individual measurements show some skewness, the average of samples of 5 shafts will be approximately normally distributed.</p>
+                
+                <p><strong>Individual measurements:</strong> Slightly right-skewed</p>
+                <p><strong>Sample means (n=5):</strong> Approximately normal</p>
+                <p><strong>Sample means (n=30):</strong> Very close to normal</p>
+                
+                <p>This property enables reliable statistical process control using control charts based on sample means.</p>
+            </div>
+
+            <h2 id="normal-distribution">The Normal Distribution Curve</h2>
+
+            <div class="info-box">
+                <p>Mathematical Foundation</p>
+                The normal distribution is completely characterized by two parameters: the mean (μ) which determines location, and the standard deviation (σ) which determines spread.
+            </div>
+
+            <h3>Probability Density Function</h3>
+            
+            <div class="math-block">
+                <p>Normal Distribution PDF:</p>
+                <p>\[ f(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2} \]</p>
+                <p>where:</p>
+                <p>• μ = population mean</p>
+                <p>• σ = population standard deviation</p>
+                <p>• π ≈ 3.14159, e ≈ 2.71828</p>
+            </div>
+
+            <h3>Key Properties of the Normal Distribution</h3>
+            <div class="math-block">
+                <p><strong>Symmetry:</strong> Mean = Median = Mode</p>
+                <p><strong>Asymptotic:</strong> Approaches but never touches x-axis</p>
+                <p><strong>Area Properties:</strong></p>
+                <p>• P(μ - σ ≤ X ≤ μ + σ) ≈ 0.6827</p>
+                <p>• P(μ - 2σ ≤ X ≤ μ + 2σ) ≈ 0.9545</p>
+                <p>• P(μ - 3σ ≤ X ≤ μ + 3σ) ≈ 0.9973</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Engineering Tolerance Example</strong></p>
+                <p>A machining process produces components with diameter normally distributed with μ = 50.0 mm and σ = 0.1 mm.</p>
+                
+                <p><strong>Tolerance Analysis:</strong></p>
+                <p>• Within 50.0 ± 0.1 mm: Approximately 68.27% of components</p>
+                <p>• Within 50.0 ± 0.2 mm: Approximately 95.45% of components</p>
+                <p>• Within 50.0 ± 0.3 mm: Approximately 99.73% of components</p>
+                
+                <p><strong>Quality Implications:</strong> If specifications require 50.0 ± 0.25 mm, about 98.76% of components will meet specifications.</p>
+            </div>
+
+            <h2 id="standard-normal">The Standard Normal Distribution</h2>
+
+            <div class="info-box">
+                <p>Universal Reference Distribution</p>
+                The standard normal distribution (μ=0, σ=1) provides a common basis for probability calculations across all normal distributions through standardization.
+            </div>
+
+            <h3>Z-Score Transformation</h3>
+            
+            <div class="math-block">
+                <p>Standardization Formula:</p>
+                <p>\[ Z = \frac{X - \mu}{\sigma} \]</p>
+                <p>This transforms any normal distribution N(μ, σ²) to the standard normal distribution N(0, 1).</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Component Strength Analysis</strong></p>
+                <p>Steel beams have breaking strength normally distributed with μ = 500 MPa and σ = 25 MPa.</p>
+                
+                <p><strong>Question:</strong> What percentage of beams have strength less than 450 MPa?</p>
+                
+                <p><strong>Solution:</strong></p>
+                <p>\[ Z = \frac{450 - 500}{25} = \frac{-50}{25} = -2.0 \]</p>
+                <p>P(X < 450) = P(Z < -2.0) = 0.0228</p>
+                
+                <p>Approximately 2.28% of beams have strength below 450 MPa.</p>
+            </div>
+
+            <h2 id="curve-evaluations">Standard Normal Distribution Curve Evaluations</h2>
+
+            <div class="info-box">
+                <p>Practical Probability Calculations</p>
+                Using standard normal tables or computational tools, engineers can determine probabilities for any normally distributed variable.
+            </div>
+
+            <h3>Common Engineering Probability Calculations</h3>
+            
+            <div class="example-box">
+                <p><strong>Bearing Lifetime Analysis</strong></p>
+                <p>Bearings have lifetimes normally distributed with μ = 10,000 hours and σ = 800 hours.</p>
+                
+                <p><strong>Question 1:</strong> Probability a bearing lasts more than 12,000 hours?</p>
+                <p>\[ Z = \frac{12000 - 10000}{800} = 2.5 \]</p>
+                <p>P(X > 12000) = P(Z > 2.5) = 1 - 0.9938 = 0.0062</p>
+                
+                <p><strong>Question 2:</strong> Probability a bearing lasts between 9,000 and 11,000 hours?</p>
+                <p>\[ Z_1 = \frac{9000 - 10000}{800} = -1.25 \]</p>
+                <p>\[ Z_2 = \frac{11000 - 10000}{800} = 1.25 \]</p>
+                <p>P(9000 < X < 11000) = P(-1.25 < Z < 1.25) = 0.8944 - 0.1056 = 0.7888</p>
+                
+                <p><strong>Question 3:</strong> Find the lifetime that 95% of bearings exceed.</p>
+                <p>Z-value for 5% tail: Z = -1.645</p>
+                <p>\[ X = \mu + Z\sigma = 10000 + (-1.645)(800) = 8684 \text{ hours} \]</p>
+            </div>
+
+            <h2 id="probabilities-normal">Probabilities and the Normal Distribution Curve</h2>
+
+            <div class="info-box">
+                <p>Advanced Applications</p>
+                Beyond basic probability calculations, the normal distribution supports sophisticated engineering analyses including process capability and reliability modeling.
+            </div>
+
+            <h3>Process Capability Indices</h3>
+            
+            <div class="math-block">
+                <p><strong>Cp (Potential Capability):</strong></p>
+                <p>\[ C_p = \frac{USL - LSL}{6\sigma} \]</p>
+                
+                <p><strong>Cpk (Actual Capability):</strong></p>
+                <p>\[ C_{pk} = \min\left(\frac{USL - \mu}{3\sigma}, \frac{\mu - LSL}{3\sigma}\right) \]</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Manufacturing Process Capability</strong></p>
+                <p>A machining process produces components with diameter N(50.2 mm, 0.15²). Specifications: 50.0 ± 0.5 mm.</p>
+                
+                <p><strong>Capability Analysis:</strong></p>
+                <p>\[ C_p = \frac{50.5 - 49.5}{6 \times 0.15} = \frac{1.0}{0.9} = 1.11 \]</p>
+                <p>\[ C_{pu} = \frac{50.5 - 50.2}{3 \times 0.15} = \frac{0.3}{0.45} = 0.67 \]</p>
+                <p>\[ C_{pl} = \frac{50.2 - 49.5}{3 \times 0.15} = \frac{0.7}{0.45} = 1.56 \]</p>
+                <p>\[ C_{pk} = \min(0.67, 1.56) = 0.67 \]</p>
+                
+                <p><strong>Interpretation:</strong> The process is not centered (Cpk < Cp), indicating need for adjustment to reduce the number of oversized components.</p>
+            </div>
+
+            <h2 id="practical-analysis">Practical Normal Distribution Analysis</h2>
+
+            <div class="info-box">
+                <p>Real-World Implementation</p>
+                Engineers use various tools and techniques to apply normal distribution theory to practical problems, from statistical software to control charts.
+            </div>
+
+            <h3>Normal Probability Plots</h3>
+            
+            <div class="example-box">
+                <p><strong>Assessing Normality Assumption</strong></p>
+                <p>Normal probability plots help verify if data follows a normal distribution:</p>
+                
+                <p><strong>Construction:</strong></p>
+                <ol>
+                    <li>Sort data in ascending order</li>
+                    <li>Calculate empirical cumulative probabilities</li>
+                    <li>Plot ordered data against theoretical normal quantiles</li>
+                    <li>Assess linearity of the resulting plot</li>
+                </ol>
+                
+                <p><strong>Interpretation:</strong></p>
+                <ul>
+                    <li><strong>Straight line:</strong> Data is normally distributed</li>
+                    <li><strong>Curved pattern:</strong> Departure from normality</li>
+                    <li><strong>S-shaped curve:</strong> Heavy-tailed distribution</li>
+                </ul>
+            </div>
+
+            <h2 id="binomial-distribution">The Binomial Distribution</h2>
+
+            <div class="info-box">
+                <p>Discrete Events and Counting Processes</p>
+                The binomial distribution models the number of successes in fixed independent trials, with important connections to the normal distribution through approximation theory.
+            </div>
+
+            <h3>Binomial Distribution Fundamentals</h3>
+            
+            <div class="math-block">
+                <p>Binomial Probability Formula:</p>
+                <p>\[ P(X = k) = \binom{n}{k} p^k (1-p)^{n-k} \]</p>
+                <p>where:</p>
+                <p>• n = number of trials</p>
+                <p>• k = number of successes</p>
+                <p>• p = probability of success</p>
+                <p>• \( \binom{n}{k} = \frac{n!}{k!(n-k)!} \)</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Quality Control Sampling</strong></p>
+                <p>A production batch has 5% defective rate. If we sample 20 items, what's the probability of finding exactly 2 defectives?</p>
+                
+                <p><strong>Solution:</strong></p>
+                <p>\[ P(X = 2) = \binom{20}{2} (0.05)^2 (0.95)^{18} \]</p>
+                <p>\[ = 190 \times 0.0025 \times 0.3972 = 0.1887 \]</p>
+                
+                <p>There's an 18.87% chance of finding exactly 2 defective items in the sample.</p>
+            </div>
+
+            <h3>Normal Approximation to Binomial</h3>
+            <div class="math-block">
+                <p>When np ≥ 5 and n(1-p) ≥ 5, the binomial distribution can be approximated by:</p>
+                <p>\[ X \sim N(np, np(1-p)) \]</p>
+                <p>With continuity correction: \( P(X = k) \approx P(k - 0.5 < Y < k + 0.5) \)</p>
+            </div>
+
+            <h2 id="poisson-distribution">The Poisson Distribution</h2>
+
+            <div class="info-box">
+                <p>Modeling Rare Events</p>
+                The Poisson distribution counts the number of events occurring in fixed intervals of time or space, particularly useful for reliability engineering and failure analysis.
+            </div>
+
+            <h3>Poisson Distribution Properties</h3>
+            
+            <div class="math-block">
+                <p>Poisson Probability Formula:</p>
+                <p>\[ P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!} \]</p>
+                <p>where:</p>
+                <p>• λ = average rate of events</p>
+                <p>• k = number of events</p>
+                <p>• e ≈ 2.71828</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Equipment Failure Analysis</strong></p>
+                <p>A critical pump fails on average 0.8 times per year. What's the probability of exactly 2 failures in a year?</p>
+                
+                <p><strong>Solution:</strong></p>
+                <p>\[ P(X = 2) = \frac{0.8^2 e^{-0.8}}{2!} = \frac{0.64 \times 0.4493}{2} = 0.1438 \]</p>
+                
+                <p>There's a 14.38% chance of exactly 2 failures in a year.</p>
+                
+                <p><strong>Probability of more than 1 failure:</strong></p>
+                <p>\[ P(X > 1) = 1 - P(X \leq 1) = 1 - [P(X=0) + P(X=1)] \]</p>
+                <p>\[ = 1 - \left[\frac{0.8^0 e^{-0.8}}{0!} + \frac{0.8^1 e^{-0.8}}{1!}\right] \]</p>
+                <p>\[ = 1 - [0.4493 + 0.3595] = 1 - 0.8088 = 0.1912 \]</p>
+            </div>
+
+            <h3>Connections Between Distributions</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Distribution</th>
+                        <th>Parameters</th>
+                        <th>Engineering Application</th>
+                        <th>Normal Approximation Condition</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Binomial</strong></td>
+                        <td>n, p</td>
+                        <td>Defect counts, pass/fail testing</td>
+                        <td>np ≥ 5 and n(1-p) ≥ 5</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Poisson</strong></td>
+                        <td>λ</td>
+                        <td>Rare events, failure rates</td>
+                        <td>λ ≥ 10</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 id="summary">Summary of Normal Distribution</h2>
+
+            <div class="info-box">
+                <p>The Cornerstone of Engineering Statistics</p>
+                The normal distribution and its related distributions provide the mathematical foundation for statistical quality control, reliability engineering, and decision-making under uncertainty.
+            </div>
+
+            <h3>Key Distribution Relationships</h3>
+            <div class="key-point">
+                <ul>
+                    <li><strong>Normal Distribution:</strong> Continuous measurements, process variation</li>
+                    <li><strong>Binomial Distribution:</strong> Discrete counts, defect analysis</li>
+                    <li><strong>Poisson Distribution:</strong> Rare events, failure modeling</li>
+                    <li><strong>Central Limit Theorem:</strong> Foundation for statistical inference</li>
+                    <li><strong>Distribution Approximations:</strong> Practical calculation methods</li>
+                </ul>
+            </div>
+
+            <h3>Engineering Applications Summary</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Application Area</th>
+                        <th>Key Tools</th>
+                        <th>Distribution Used</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Quality Control</strong></td>
+                        <td>Control charts, capability analysis</td>
+                        <td>Normal, Binomial</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Reliability Engineering</strong></td>
+                        <td>Failure prediction, maintenance planning</td>
+                        <td>Normal, Poisson, Exponential</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Process Improvement</strong></td>
+                        <td>Statistical process control, Six Sigma</td>
+                        <td>Normal, Binomial</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Risk Assessment</strong></td>
+                        <td>Probability calculations, safety factors</td>
+                        <td>All distributions</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="note">
+                <p><strong>Next Application:</strong> Lesson 4 will explore Linear Correlation and Regression, building on distribution theory to analyze relationships between variables and develop predictive models for engineering applications.</p>
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 HNC Engineering Mathematics. All rights reserved.</p>
+            <p>Statistics - Lesson 3: The Normal Distribution</p>
+        </div>
+    </footer>
+
+    <script src="navigation.js"></script>
+</body>
+</html>

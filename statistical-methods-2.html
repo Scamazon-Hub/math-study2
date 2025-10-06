@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistical Methods 2 - HNC Engineering Mathematics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HNC Engineering Mathematics</h1>
+            <p>Statistics - Lesson 2: Statistical Methods 2</p>
+        </div>
+    </header>
+
+    <div class="container grid-layout">
+        <aside id="navigation-placeholder"></aside>
+
+        <main>
+            <h1>Statistical Methods 2</h1>
+            
+            <div class="info-box">
+                <p>Advanced Data Visualization and Probability Foundations</p>
+                Building on basic statistical measures, this lesson explores frequency distributions, probability density, and the fundamental concepts that underpin statistical inference in engineering.
+            </div>
+
+            <h2 id="introduction">Introduction to Statistical Methods 2</h2>
+            
+            <div class="info-box">
+                <p>From Description to Inference</p>
+                Statistical Methods 2 bridges descriptive statistics and inferential statistics, introducing the visualization techniques and probability concepts needed for engineering decision-making under uncertainty.
+            </div>
+
+            <h3>Connecting to Engineering Practice</h3>
+            <p>This lesson addresses critical engineering needs:</p>
+            <ul>
+                <li>Visualizing complex data distributions</li>
+                <li>Understanding probability as a measure of uncertainty</li>
+                <li>Applying probability concepts to risk assessment</li>
+                <li>Preparing for statistical inference and hypothesis testing</li>
+            </ul>
+
+            <h2 id="frequency-density">Frequency Density Diagrams</h2>
+
+            <div class="info-box">
+                <p>Visualizing Data Distributions</p>
+                Frequency density diagrams provide powerful visual representations of data distributions, enabling engineers to quickly identify patterns, outliers, and distribution characteristics.
+            </div>
+
+            <h3>Histograms vs Frequency Polygons</h3>
+            
+            <div class="example-box">
+                <p><strong>Histograms: The Foundation</strong></p>
+                <p>Histograms display the distribution of continuous data using adjacent rectangles:</p>
+                
+                <p><strong>Construction Steps:</strong></p>
+                <ol>
+                    <li>Divide data range into equal intervals (bins)</li>
+                    <li>Count observations in each bin</li>
+                    <li>Draw rectangles with areas proportional to frequencies</li>
+                </ol>
+                
+                <p><strong>Engineering Example:</strong> Material strength testing</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Strength Range (MPa)</th>
+                            <th>Frequency</th>
+                            <th>Class Width</th>
+                            <th>Frequency Density</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>400-420</td>
+                            <td>5</td>
+                            <td>20</td>
+                            <td>0.25</td>
+                        </tr>
+                        <tr>
+                            <td>420-440</td>
+                            <td>12</td>
+                            <td>20</td>
+                            <td>0.60</td>
+                        </tr>
+                        <tr>
+                            <td>440-460</td>
+                            <td>28</td>
+                            <td>20</td>
+                            <td>1.40</td>
+                        </tr>
+                        <tr>
+                            <td>460-480</td>
+                            <td>15</td>
+                            <td>20</td>
+                            <td>0.75</td>
+                        </tr>
+                        <tr>
+                            <td>480-500</td>
+                            <td>8</td>
+                            <td>20</td>
+                            <td>0.40</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Frequency Density Calculation</h3>
+            <div class="math-block">
+                <p>Frequency Density Formula:</p>
+                <p>\[ \text{Frequency Density} = \frac{\text{Frequency}}{\text{Class Width}} \]</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Unequal Class Widths Example</strong></p>
+                <p>Engine lifetime data with varying intervals:</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Lifetime (hours)</th>
+                            <th>Frequency</th>
+                            <th>Class Width</th>
+                            <th>Frequency Density</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0-1000</td>
+                            <td>15</td>
+                            <td>1000</td>
+                            <td>0.015</td>
+                        </tr>
+                        <tr>
+                            <td>1000-2000</td>
+                            <td>42</td>
+                            <td>1000</td>
+                            <td>0.042</td>
+                        </tr>
+                        <tr>
+                            <td>2000-3000</td>
+                            <td>38</td>
+                            <td>1000</td>
+                            <td>0.038</td>
+                        </tr>
+                        <tr>
+                            <td>3000-5000</td>
+                            <td>25</td>
+                            <td>2000</td>
+                            <td>0.0125</td>
+                        </tr>
+                        <tr>
+                            <td>5000-8000</td>
+                            <td>12</td>
+                            <td>3000</td>
+                            <td>0.004</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <p><strong>Key Insight:</strong> With unequal class widths, frequency density ensures accurate visual representation in histograms.</p>
+            </div>
+
+            <h3>Cumulative Frequency Diagrams</h3>
+            
+            <div class="example-box">
+                <p><strong>Ogive Construction and Interpretation</strong></p>
+                <p>Cumulative frequency curves (ogives) show the running total of frequencies:</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Upper Class Boundary</th>
+                            <th>Cumulative Frequency</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>420</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>440</td>
+                            <td>17</td>
+                        </tr>
+                        <tr>
+                            <td>460</td>
+                            <td>45</td>
+                        </tr>
+                        <tr>
+                            <td>480</td>
+                            <td>60</td>
+                        </tr>
+                        <tr>
+                            <td>500</td>
+                            <td>68</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <p><strong>Engineering Application:</strong> Determining what percentage of components meet minimum specifications.</p>
+            </div>
+
+            <h2 id="probability-density">Probability Density</h2>
+
+            <div class="info-box">
+                <p>From Frequency to Probability</p>
+                Probability density functions extend the concept of frequency distributions to continuous random variables, forming the mathematical foundation for statistical inference.
+            </div>
+
+            <h3>Probability Density Functions (PDFs)</h3>
+            
+            <div class="math-block">
+                <p>For a continuous random variable X with PDF f(x):</p>
+                <p>\[ P(a \leq X \leq b) = \int_a^b f(x) \, dx \]</p>
+                <p>Properties:</p>
+                <p>1. \( f(x) \geq 0 \) for all x</p>
+                <p>2. \( \int_{-\infty}^{\infty} f(x) \, dx = 1 \)</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Uniform Distribution Example</strong></p>
+                <p>A manufacturing process produces components with diameters uniformly distributed between 49.5 mm and 50.5 mm.</p>
+                
+                <p><strong>PDF:</strong> \( f(x) = \begin{cases} 
+                1 & \text{for } 49.5 \leq x \leq 50.5 \\
+                0 & \text{otherwise}
+                \end{cases} \)</p>
+                
+                <p><strong>Probability Calculation:</strong> What's the probability a component has diameter between 49.8 mm and 50.2 mm?</p>
+                <p>\[ P(49.8 \leq X \leq 50.2) = \int_{49.8}^{50.2} 1 \, dx = 50.2 - 49.8 = 0.4 \]</p>
+                
+                <p>40% of components fall within this tolerance range.</p>
+            </div>
+
+            <h3>Relationship Between PDF and CDF</h3>
+            <div class="math-block">
+                <p>Cumulative Distribution Function (CDF):</p>
+                <p>\[ F(x) = P(X \leq x) = \int_{-\infty}^x f(t) \, dt \]</p>
+                <p>Relationship:</p>
+                <p>\[ f(x) = \frac{d}{dx} F(x) \]</p>
+            </div>
+
+            <h2 id="probabilities">Probabilities</h2>
+
+            <div class="info-box">
+                <p>Quantifying Uncertainty</p>
+                Probability theory provides the mathematical framework for dealing with uncertainty in engineering systems, from reliability analysis to risk assessment.
+            </div>
+
+            <h3>Basic Probability Concepts</h3>
+            
+            <div class="math-block">
+                <p><strong>Sample Space (S):</strong> The set of all possible outcomes</p>
+                <p><strong>Event (E):</strong> A subset of the sample space</p>
+                <p><strong>Probability Axioms:</strong></p>
+                <p>1. \( 0 \leq P(E) \leq 1 \)</p>
+                <p>2. \( P(S) = 1 \)</p>
+                <p>3. For mutually exclusive events: \( P(E_1 \cup E_2) = P(E_1) + P(E_2) \)</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Engineering Reliability Example</strong></p>
+                <p>A system has three critical components with individual reliabilities:</p>
+                <p>Component A: 0.95, Component B: 0.98, Component C: 0.92</p>
+                
+                <p><strong>Scenario 1: Series System</strong> (all must work)</p>
+                <p>\[ P(\text{system works}) = 0.95 \times 0.98 \times 0.92 = 0.856 \]</p>
+                
+                <p><strong>Scenario 2: Parallel System</strong> (at least one must work)</p>
+                <p>\[ P(\text{system fails}) = (1-0.95) \times (1-0.98) \times (1-0.92) = 0.05 \times 0.02 \times 0.08 = 0.00008 \]</p>
+                <p>\[ P(\text{system works}) = 1 - 0.00008 = 0.99992 \]</p>
+            </div>
+
+            <h3>Conditional Probability in Engineering</h3>
+            
+            <div class="math-block">
+                <p>Conditional Probability Formula:</p>
+                <p>\[ P(A|B) = \frac{P(A \cap B)}{P(B)} \]</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Quality Control Application</strong></p>
+                <p>A manufacturing process has:</p>
+                <p>• Probability of defect: P(D) = 0.03</p>
+                <p>• Probability inspection detects defect: P(I|D) = 0.98</p>
+                <p>• Probability false alarm: P(I|not D) = 0.05</p>
+                
+                <p><strong>Question:</strong> What's the probability a component is actually defective given it failed inspection?</p>
+                
+                <p><strong>Solution using Bayes' Theorem:</strong></p>
+                <p>\[ P(D|I) = \frac{P(I|D)P(D)}{P(I|D)P(D) + P(I|\text{not }D)P(\text{not }D)} \]</p>
+                <p>\[ P(D|I) = \frac{0.98 \times 0.03}{0.98 \times 0.03 + 0.05 \times 0.97} = \frac{0.0294}{0.0294 + 0.0485} = \frac{0.0294}{0.0779} \approx 0.377 \]</p>
+                
+                <p>Only 37.7% of components that fail inspection are actually defective.</p>
+            </div>
+
+            <h3>Probability Distributions for Engineering</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Distribution</th>
+                        <th>Engineering Application</th>
+                        <th>Key Characteristics</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Binomial</strong></td>
+                        <td>Pass/fail testing, defect counts</td>
+                        <td>Discrete, fixed trials, constant probability</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Poisson</strong></td>
+                        <td>Rare events, failure rates</td>
+                        <td>Discrete, events in continuous interval</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Normal</strong></td>
+                        <td>Measurement errors, process variation</td>
+                        <td>Continuous, symmetrical, bell-shaped</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Exponential</strong></td>
+                        <td>Time between failures, reliability</td>
+                        <td>Continuous, memoryless property</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 id="summary">Summary of Statistical Methods 2</h2>
+
+            <div class="info-box">
+                <p>Building the Foundation for Statistical Inference</p>
+                This lesson established the visual and probabilistic tools needed for advanced statistical analysis in engineering contexts.
+            </div>
+
+            <h3>Key Concepts Mastered</h3>
+            <div class="key-point">
+                <ul>
+                    <li><strong>Frequency Density Diagrams:</strong> Histograms, frequency polygons, ogives</li>
+                    <li><strong>Probability Density Functions:</strong> Mathematical representation of continuous distributions</li>
+                    <li><strong>Basic Probability:</strong> Sample spaces, events, axioms</li>
+                    <li><strong>Conditional Probability:</strong> Updating beliefs with new evidence</li>
+                    <li><strong>Engineering Applications:</strong> Reliability analysis, quality control, risk assessment</li>
+                </ul>
+            </div>
+
+            <h3>Visualization Techniques Comparison</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Diagram Type</th>
+                        <th>Purpose</th>
+                        <th>Best For</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Histogram</strong></td>
+                        <td>Show distribution shape</td>
+                        <td>Continuous data, identifying patterns</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Frequency Polygon</strong></td>
+                        <td>Compare multiple distributions</td>
+                        <td>Trend analysis, multiple datasets</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ogive</strong></td>
+                        <td>Cumulative distribution</td>
+                        <td>Percentiles, specification limits</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 id="appendix">Appendix 1: Statistical Formulas Reference</h2>
+
+            <div class="info-box">
+                <p>Quick Reference Guide</p>
+                Essential formulas and relationships for statistical analysis in engineering applications.
+            </div>
+
+            <h3>Probability Formulas</h3>
+            <div class="math-block">
+                <p><strong>Complement Rule:</strong> \( P(A') = 1 - P(A) \)</p>
+                <p><strong>Addition Rule:</strong> \( P(A \cup B) = P(A) + P(B) - P(A \cap B) \)</p>
+                <p><strong>Multiplication Rule:</strong> \( P(A \cap B) = P(A|B)P(B) = P(B|A)P(A) \)</p>
+                <p><strong>Bayes' Theorem:</strong> \( P(A|B) = \frac{P(B|A)P(A)}{P(B)} \)</p>
+                <p><strong>Total Probability:</strong> \( P(B) = \sum P(B|A_i)P(A_i) \)</p>
+            </div>
+
+            <h3>Distribution Relationships</h3>
+            <div class="math-block">
+                <p><strong>PDF to CDF:</strong> \( F(x) = \int_{-\infty}^x f(t) \, dt \)</p>
+                <p><strong>CDF to PDF:</strong> \( f(x) = \frac{d}{dx} F(x) \)</p>
+                <p><strong>Expected Value:</strong> \( E[X] = \int_{-\infty}^{\infty} x f(x) \, dx \)</p>
+                <p><strong>Variance:</strong> \( Var(X) = E[X^2] - (E[X])^2 \)</p>
+            </div>
+
+            <div class="note">
+                <p><strong>Looking Ahead:</strong> Lesson 3 will explore the Normal Distribution in depth, building on the probability concepts introduced here and applying them to the most important distribution in statistical quality control and reliability engineering.</p>
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 HNC Engineering Mathematics. All rights reserved.</p>
+            <p>Statistics - Lesson 2: Statistical Methods 2</p>
+        </div>
+    </footer>
+
+    <script src="navigation.js"></script>
+</body>
+</html>
