@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infographic: Understanding Linear Correlation & Regression</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .flow-box {
+            border: 2px solid #A1D6FF;
+            background-color: #ffffff;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        .flow-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #0079FF;
+            margin: 0.5rem 0;
+        }
+        .kpi-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1;
+            color: #004AAD;
+        }
+        .kpi-label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #4A5568;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body class="text-gray-700">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-7xl">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-[#004AAD] mb-2">Understanding Linear Correlation & Regression</h1>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">An infographic guide to measuring the strength of relationships in data and predicting future outcomes.</p>
+        </header>
+
+        <main>
+            <section id="correlation-coefficient" class="bg-white rounded-lg shadow-md p-6 mb-12">
+                <h2 class="text-2xl md:text-3xl font-bold text-[#004AAD] mb-4 text-center">The Correlation Coefficient (r)</h2>
+                <p class="text-center max-w-2xl mx-auto mb-6">The first step in analyzing a linear relationship is to measure its strength and direction. The Product Moment Linear Correlation Coefficient, or 'r', is a single value that tells us exactly this. It always falls between -1 and +1.</p>
+                <div class="w-full max-w-3xl mx-auto">
+                    <div class="relative w-full h-4 bg-gradient-to-r from-[#004AAD] via-gray-200 to-[#004AAD] rounded-full">
+                        <div class="absolute top-1/2 left-0 w-5 h-5 bg-[#004AAD] rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+                        <div class="absolute top-1/2 left-1/2 w-5 h-5 bg-gray-500 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+                        <div class="absolute top-1/2 left-full w-5 h-5 bg-[#004AAD] rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+                    </div>
+                    <div class="relative flex justify-between w-full max-w-3xl mx-auto mt-2 text-sm font-semibold">
+                        <div class="text-center">
+                            <p class="text-[#004AAD]">-1.0</p>
+                            <p class="text-gray-600">Perfect Negative</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-gray-600">0.0</p>
+                            <p class="text-gray-600">No Correlation</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-[#004AAD]">+1.0</p>
+                            <p class="text-gray-600">Perfect Positive</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="scatter-plots" class="mb-12">
+                <h2 class="text-2xl md:text-3xl font-bold text-[#004AAD] mb-4 text-center">Visualizing Correlation with Scatter Plots</h2>
+                <p class="text-center max-w-3xl mx-auto mb-8">The best way to understand correlation is to see it. A scatter plot graphs pairs of data points to reveal the underlying relationship between two variables. The pattern of the dots tells the story of their connection.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="font-bold text-lg text-center mb-2 text-[#0079FF]">Strong Positive Correlation (r ≈ 0.9)</h3>
+                        <p class="text-sm text-center text-gray-600 mb-4">As one variable increases, the other variable also tends to increase. The points cluster tightly around an upward-sloping line.</p>
+                        <div class="chart-container">
+                            <canvas id="positiveCorrelationChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="font-bold text-lg text-center mb-2 text-gray-600">No Correlation (r ≈ 0.0)</h3>
+                        <p class="text-sm text-center text-gray-600 mb-4">There is no discernible relationship between the variables. The points are scattered randomly with no clear pattern.</p>
+                        <div class="chart-container">
+                            <canvas id="noCorrelationChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="font-bold text-lg text-center mb-2 text-[#0079FF]">Strong Negative Correlation (r ≈ -0.9)</h3>
+                        <p class="text-sm text-center text-gray-600 mb-4">As one variable increases, the other variable tends to decrease. The points form a tight cluster around a downward-sloping line.</p>
+                        <div class="chart-container">
+                            <canvas id="negativeCorrelationChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="regression-line" class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12 items-center bg-white rounded-lg shadow-md p-6">
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-[#004AAD] mb-4">The Line of Best Fit: Regression</h2>
+                    <p class="text-gray-600 mb-4">When a linear correlation exists, we can draw a single straight line through the data that best represents the trend. This is called the **Least Squares Regression Line**. It's calculated to minimize the total distance from the line to all the data points, making it a powerful tool for prediction.</p>
+                    <p class="text-gray-600">The most common regression line predicts the value of a dependent variable (Y) based on an independent variable (X), following the familiar equation $Y = aX + b$.</p>
+                </div>
+                <div>
+                     <div class="chart-container h-80 md:h-96">
+                        <canvas id="regressionLineChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <section id="normal-equations" class="mb-12">
+                <h2 class="text-2xl md:text-3xl font-bold text-[#004AAD] mb-4 text-center">How to Calculate the Line</h2>
+                <p class="text-center max-w-3xl mx-auto mb-8">The regression line isn't just an estimate; it's determined precisely by solving a pair of "normal equations." These equations use sums of your data to find the exact values for the slope ($a$) and intercept ($b$) of the line. The choice of equations depends on which variable you are trying to predict.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="flow-box">
+                        <h3 class="font-bold text-xl text-[#0079FF]">Predicting Y from X</h3>
+                        <p class="text-gray-600 text-sm mb-4">Use this when Y is your dependent variable.</p>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-box bg-blue-50">
+                            <p class="font-mono font-semibold">ΣY = aΣX + nb</p>
+                            <p class="font-mono font-semibold">ΣXY = aΣX² + bΣX</p>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-box bg-[#A1D6FF]">
+                            <p class="font-bold text-lg text-black">Y = aX + b</p>
+                        </div>
+                    </div>
+                    <div class="flow-box">
+                        <h3 class="font-bold text-xl text-[#0079FF]">Predicting X from Y</h3>
+                        <p class="text-gray-600 text-sm mb-4">Use this when X is your dependent variable.</p>
+                        <div class="flow-arrow">↓</div>
+                         <div class="flow-box bg-blue-50">
+                            <p class="font-mono font-semibold">ΣX = aΣY + nb</p>
+                            <p class="font-mono font-semibold">ΣXY = aΣY² + bΣY</p>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-box bg-[#A1D6FF]">
+                           <p class="font-bold text-lg text-black">X = aY + b</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tools" class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl md:text-3xl font-bold text-[#004AAD] mb-6 text-center">Practical Tools for Analysis</h2>
+                 <p class="text-center max-w-3xl mx-auto mb-8">While manual calculations are possible, modern tools make correlation and regression analysis fast and accessible. You are strongly encouraged to become familiar with these facilities for efficient and accurate results.</p>
+                <div class="flex flex-col md:flex-row justify-center items-center gap-8">
+                    <div class="text-center p-6 border-2 border-[#52AFFF] rounded-lg bg-blue-50 w-full md:w-1/3">
+                        <div class="text-5xl mb-3">📟</div>
+                        <h3 class="text-xl font-bold text-[#004AAD] mb-2">Scientific Calculators</h3>
+                        <p class="text-gray-600">Most models include built-in statistical modes for straightforward data entry and calculation of both 'r' and the regression coefficients 'a' and 'b'.</p>
+                    </div>
+                    <div class="text-center p-6 border-2 border-[#52AFFF] rounded-lg bg-blue-50 w-full md:w-1/3">
+                        <div class="text-5xl mb-3">📊</div>
+                        <h3 class="text-xl font-bold text-[#004AAD] mb-2">Spreadsheet Software</h3>
+                        <p class="text-gray-600">Applications like Excel offer powerful functions:</p>
+                        <ul class="mt-2 text-left list-disc list-inside">
+                            <li><code class="bg-gray-200 p-1 rounded font-mono">CORREL()</code> for the correlation coefficient.</li>
+                            <li><code class="bg-gray-200 p-1 rounded font-mono">LINEST()</code> for regression line statistics.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="text-center mt-12 pt-6 border-t border-gray-300">
+            <p class="text-sm text-gray-500">&copy; 2025 Data Visualization SPA. All concepts derived from provided statistical notes.</p>
+        </footer>
+    </div>
+    
+    <script>
+        const chartTooltipCallback = {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            const item = tooltipItems[0];
+                            let label = item.chart.data.labels[item.dataIndex];
+                            if (Array.isArray(label)) {
+                                return label.join(' ');
+                            } else {
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        const generateScatterData = (numPoints, r, startX, startY, rangeX, rangeY) => {
+            const data = [];
+            for (let i = 0; i < numPoints; i++) {
+                const x = startX + Math.random() * rangeX;
+                const noise = (Math.random() - 0.5) * rangeY * (1 - Math.abs(r));
+                const y = startY + (rangeY / rangeX) * r * (x - startX) + noise;
+                data.push({ x, y });
+            }
+            return data;
+        };
+
+        const positiveData = generateScatterData(50, 0.9, 0, 0, 100, 100);
+        const noData = generateScatterData(50, 0.05, 0, 0, 100, 100);
+        const negativeData = generateScatterData(50, -0.9, 0, 100, 100, -100);
+        const regressionData = generateScatterData(40, 0.8, 10, 20, 80, 60);
+
+        new Chart(document.getElementById('positiveCorrelationChart'), {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: 'Positive Correlation Data',
+                    data: positiveData,
+                    backgroundColor: '#0079FF',
+                    pointRadius: 5,
+                    pointHoverRadius: 7,
+                }]
+            },
+            options: { ...chartTooltipCallback, responsive: true, maintainAspectRatio: false, scales: { x: { title: { display: true, text: 'Variable 1' } }, y: { title: { display: true, text: 'Variable 2' } } } }
+        });
+        
+        new Chart(document.getElementById('noCorrelationChart'), {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: 'No Correlation Data',
+                    data: noData,
+                    backgroundColor: '#52AFFF',
+                    pointRadius: 5,
+                    pointHoverRadius: 7,
+                }]
+            },
+            options: { ...chartTooltipCallback, responsive: true, maintainAspectRatio: false, scales: { x: { title: { display: true, text: 'Variable 1' } }, y: { title: { display: true, text: 'Variable 2' } } } }
+        });
+
+        new Chart(document.getElementById('negativeCorrelationChart'), {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: 'Negative Correlation Data',
+                    data: negativeData,
+                    backgroundColor: '#0079FF',
+                    pointRadius: 5,
+                    pointHoverRadius: 7,
+                }]
+            },
+            options: { ...chartTooltipCallback, responsive: true, maintainAspectRatio: false, scales: { x: { title: { display: true, text: 'Variable 1' } }, y: { title: { display: true, text: 'Variable 2' } } } }
+        });
+        
+        const regressionLineData = [{x: 10, y: 25}, {x: 90, y: 75}];
+
+        new Chart(document.getElementById('regressionLineChart'), {
+            data: {
+                datasets: [{
+                    type: 'scatter',
+                    label: 'Data Points',
+                    data: regressionData,
+                    backgroundColor: '#52AFFF',
+                    pointRadius: 6,
+                    pointHoverRadius: 8
+                }, {
+                    type: 'line',
+                    label: 'Line of Best Fit',
+                    data: regressionLineData,
+                    borderColor: '#004AAD',
+                    borderWidth: 3,
+                    fill: false,
+                    tension: 0,
+                    pointRadius: 0
+                }]
+            },
+            options: { ...chartTooltipCallback, responsive: true, maintainAspectRatio: false, scales: { x: { title: { display: true, text: 'Hours Studied' }, min: 0, max: 100 }, y: { title: { display: true, text: 'Exam Score' }, min: 0, max: 100 } } }
+        });
+    </script>
+</body>
+</html>
